@@ -1,0 +1,57 @@
+{
+ "t": "2026-10-30 19:01:30",
+ "fonte_mascaras": "heal_annotations_test.parquet",
+ "fonte_mascaras_sha256": "f893df9b9a25e0d606b047806511772ab47c1fbc9efd2b6c07720b33a11332cb",
+ "inventario": "inventory_heal_test.json",
+ "inventario_sha256": "8affb4cc927e1c6ad7a552e0450da84b3333f1faf9b2371059f40831251ebf5d",
+ "contagens": {
+  "unidades": 1360,
+  "perguntas": 1446,
+  "unidades_2+": 530,
+  "perguntas_2+": 579,
+  "unidades_qualquer_sobreposicao": 328,
+  "perguntas_qualquer_sobreposicao": 361,
+  "unidades_sobreposicao_maior_50pct_da_outra": 175,
+  "perguntas_sobreposicao_maior_50pct_da_outra": 196
+ },
+ "por_metodo": {
+  "anatomy": {
+   "unidades_2+": 153,
+   "qualquer_sobreposicao": 153,
+   "sobreposicao_maior_50pct_da_outra": 153
+  },
+  "hflip": {
+   "unidades_2+": 166,
+   "qualquer_sobreposicao": 51,
+   "sobreposicao_maior_50pct_da_outra": 2
+  },
+  "translate": {
+   "unidades_2+": 198,
+   "qualquer_sobreposicao": 114,
+   "sobreposicao_maior_50pct_da_outra": 18
+  },
+  "rot180": {
+   "unidades_2+": 7,
+   "qualquer_sobreposicao": 4,
+   "sobreposicao_maior_50pct_da_outra": 1
+  },
+  "vflip": {
+   "unidades_2+": 6,
+   "qualquer_sobreposicao": 6,
+   "sobreposicao_maior_50pct_da_outra": 1
+  }
+ },
+ "estrato_contagem": {
+  "a_uma_anatomia": 830,
+  "c_multi_com_sobreposicao": 328,
+  "b_multi_sem_sobreposicao": 202
+ },
+ "fracoes": {
+  "unidades_qualquer_sobre_2+": 0.6188679245283019,
+  "unidades_maior50_sobre_2+": 0.330188679245283,
+  "perguntas_qualquer_sobre_total": 0.24965421853388658,
+  "perguntas_maior50_sobre_total": 0.1355463347164592
+ },
+ "nota_407": "o handoff cita 407/1 446 perguntas em imagens com >= 2 anatomias; contagem aqui: perguntas_2+ (anatomias anotadas no parquet de teste do HEAL, todas as perguntas da imagem)",
+ "nota_publicacao": "per-unit list removed from the public release (credentialed benchmark); counts kept"
+}

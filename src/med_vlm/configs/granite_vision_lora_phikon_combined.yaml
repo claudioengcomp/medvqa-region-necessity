@@ -1,0 +1,46 @@
+run_name: granite_vision_lora_phikon_combined
+model: GRANITE_VISION
+dataset: COMBINED
+peft: LORA
+clip_encoder:
+  id: "owkin/phikon-v2"
+  # Phikon-v2 is ViT-L/16; last_hidden_state hidden_size = 1024
+  out_dim: 1024
+  encoder_type: clip
+peft_config:
+  r: 16
+  lora_alpha: 32
+  target_modules: [q_proj, k_proj, v_proj, o_proj, embed_tokens, lm_head]
+  task_type: CAUSAL_LM
+train:
+  lr: 2e-4
+  warmup_ratio: 0.05
+  epochs: 3
+  batch_size: 1
+  grad_accum_steps: 16
+  max_length: 512
+  gradient_checkpointing: true
+  compile: false
+  eval_every: 5000
+  checkpoint_every: 5000
+eval:
+  batch_size: 2
+  split: test
+  max_new_tokens: 64
+logging:
+  wandb_project: "med-vlm"
+  wandb_run_name: "granite_vision_lora_phikon_combined"
+outputs_dir: "./outputs"
+
+preprocessing:
+  denoise: true
+  denoise_method: "gaussian"
+  clahe: true
+  clahe_clip_limit: 2.0
+  clahe_tile_grid_size: [8, 8]
+
+augmentation:
+  enabled: true
+  rotation_degrees: 5
+  brightness_range: [0.85, 1.15]
+  contrast_range: [0.85, 1.15]

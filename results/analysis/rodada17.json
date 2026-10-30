@@ -1,0 +1,2449 @@
+{
+ "script": "src/analysis/r17_analise.py",
+ "script_sha256": "e54ade3bec6c17314dc92dfbd9670d3b398e4e9e3365da3afb7e7a902efaeb98",
+ "regra": "G_DoRA = Acc(intacta) - Acc(baseline sem imagem DoRA da mesma familia e semente); criterio (iv) = Delta preto e Delta blur 10 % e ganho (IC > 0); (v) = (iv) e queda bruta sob preto e sob blur 10 % (IC > 0)",
+ "por_linha": {
+  "KVASIR|QWEN2VL_DORA_KVASIR_seed0": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "congelado",
+   "semente": 0,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/QWEN2VL_DORA_TXT_KVASIR_seed0_TXT.json",
+   "txt_dora_sha256": "38133264a809539e6d867c080a1a905264a629efff2d1a61d1922d5138b5f09e",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.28844114528101805,
+     "acc_txt_dora": 0.28844114528101805,
+     "G": 0.30328738069989397,
+     "G_ci": [
+      0.2782491392722109,
+      0.3263168905527417
+     ],
+     "G_dora": 0.30328738069989397,
+     "G_dora_ci": [
+      0.2782491392722109,
+      0.3263168905527417
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7292993630573248,
+     "G_ci": [
+      0.6851207391592431,
+      0.7770877565463552
+     ],
+     "G_dora": 0.7292993630573248,
+     "G_dora_ci": [
+      0.6851207391592431,
+      0.7770877565463552
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.1813186813186813,
+     "G_ci": [
+      0.15469170304270088,
+      0.20647165056174868
+     ],
+     "G_dora": 0.1813186813186813,
+     "G_dora_ci": [
+      0.15469170304270088,
+      0.20647165056174868
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|SMOLVLM_DORA_KVASIR_seed0": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "afinado",
+   "semente": 0,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/SMOLVLM_DORA_TXT_KVASIR_seed0_TXT.json",
+   "txt_dora_sha256": "eaa50237689158e0766a1b1abd1415dabce42d946094c4d25021b4b2b72ebc8b",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.2757158006362672,
+     "acc_txt_dora": 0.2757158006362672,
+     "G": 0.3425238600212089,
+     "G_ci": [
+      0.31389439026842264,
+      0.36870968413851773
+     ],
+     "G_dora": 0.3425238600212089,
+     "G_dora_ci": [
+      0.31389439026842264,
+      0.36870968413851773
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7515923566878981,
+     "G_ci": [
+      0.7058823529411765,
+      0.797752808988764
+     ],
+     "G_dora": 0.7515923566878981,
+     "G_dora_ci": [
+      0.7058823529411765,
+      0.797752808988764
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.18681318681318682,
+     "G_ci": [
+      0.15898481592255545,
+      0.21174657519784462
+     ],
+     "G_dora": 0.18681318681318682,
+     "G_dora_ci": [
+      0.15898481592255545,
+      0.21174657519784462
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|QWEN2VL_DORA_VT_KVASIR_seed0": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "afinado",
+   "semente": 0,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/QWEN2VL_DORA_TXT_KVASIR_seed0_TXT.json",
+   "txt_dora_sha256": "38133264a809539e6d867c080a1a905264a629efff2d1a61d1922d5138b5f09e",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.28844114528101805,
+     "acc_txt_dora": 0.28844114528101805,
+     "G": 0.35418875927889715,
+     "G_ci": [
+      0.3276200987208009,
+      0.38
+     ],
+     "G_dora": 0.35418875927889715,
+     "G_dora_ci": [
+      0.3276200987208009,
+      0.38
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7388535031847133,
+     "G_ci": [
+      0.6936392877121014,
+      0.7848852838209551
+     ],
+     "G_dora": 0.7388535031847133,
+     "G_dora_ci": [
+      0.6936392877121014,
+      0.7848852838209551
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.18269230769230768,
+     "G_ci": [
+      0.15603438046545703,
+      0.207093731172908
+     ],
+     "G_dora": 0.18269230769230768,
+     "G_dora_ci": [
+      0.15603438046545703,
+      0.207093731172908
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|SMOLVLM_DORA_FT_KVASIR_seed0": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "congelado",
+   "semente": 0,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/SMOLVLM_DORA_TXT_KVASIR_seed0_TXT.json",
+   "txt_dora_sha256": "eaa50237689158e0766a1b1abd1415dabce42d946094c4d25021b4b2b72ebc8b",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.2757158006362672,
+     "acc_txt_dora": 0.2757158006362672,
+     "G": 0.31283138918345704,
+     "G_ci": [
+      0.2855619316588551,
+      0.3386786289341689
+     ],
+     "G_dora": 0.31283138918345704,
+     "G_dora_ci": [
+      0.2855619316588551,
+      0.3386786289341689
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.6815286624203821,
+     "G_ci": [
+      0.6328103693181818,
+      0.7299710682492582
+     ],
+     "G_dora": 0.6815286624203821,
+     "G_dora_ci": [
+      0.6328103693181818,
+      0.7299710682492582
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.1813186813186813,
+     "G_ci": [
+      0.15436631963858385,
+      0.20608755908835893
+     ],
+     "G_dora": 0.1813186813186813,
+     "G_dora_ci": [
+      0.15436631963858385,
+      0.20608755908835893
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|QWEN2VL_DORA_KVASIR_seed1": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "congelado",
+   "semente": 1,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/QWEN2VL_DORA_TXT_KVASIR_seed1_TXT.json",
+   "txt_dora_sha256": "033b1f20683525b9777a95cc08c1613ee8599d73c2e7c68e77fac01bd9473082",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.28844114528101805,
+     "acc_txt_dora": 0.28844114528101805,
+     "G": 0.2926829268292683,
+     "G_ci": [
+      0.2654074368952164,
+      0.3186341940967005
+     ],
+     "G_dora": 0.2926829268292683,
+     "G_dora_ci": [
+      0.2654074368952164,
+      0.3186341940967005
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7261146496815286,
+     "G_ci": [
+      0.6802930684153409,
+      0.7735236923142494
+     ],
+     "G_dora": 0.7261146496815286,
+     "G_dora_ci": [
+      0.6802930684153409,
+      0.7735236923142494
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.18269230769230768,
+     "G_ci": [
+      0.156,
+      0.2080419057867049
+     ],
+     "G_dora": 0.18269230769230768,
+     "G_dora_ci": [
+      0.156,
+      0.2080419057867049
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|SMOLVLM_DORA_KVASIR_seed1": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "afinado",
+   "semente": 1,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/SMOLVLM_DORA_TXT_KVASIR_seed1_TXT.json",
+   "txt_dora_sha256": "841899836ce36031a3bcfbc364ce29ceec2e7c91d8eec923d6a6cb2248d7dd52",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.2757158006362672,
+     "acc_txt_dora": 0.2757158006362672,
+     "G": 0.3404029692470838,
+     "G_ci": [
+      0.31491503643286817,
+      0.36559499078900953
+     ],
+     "G_dora": 0.3404029692470838,
+     "G_dora_ci": [
+      0.31491503643286817,
+      0.36559499078900953
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7420382165605095,
+     "G_ci": [
+      0.7,
+      0.7852984429065744
+     ],
+     "G_dora": 0.7420382165605095,
+     "G_dora_ci": [
+      0.7,
+      0.7852984429065744
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.18269230769230768,
+     "G_ci": [
+      0.1550495109552637,
+      0.20717221205269015
+     ],
+     "G_dora": 0.18269230769230768,
+     "G_dora_ci": [
+      0.1550495109552637,
+      0.20717221205269015
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|QWEN2VL_DORA_VT_KVASIR_seed1": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "afinado",
+   "semente": 1,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/QWEN2VL_DORA_TXT_KVASIR_seed1_TXT.json",
+   "txt_dora_sha256": "033b1f20683525b9777a95cc08c1613ee8599d73c2e7c68e77fac01bd9473082",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.28844114528101805,
+     "acc_txt_dora": 0.28844114528101805,
+     "G": 0.3531283138918346,
+     "G_ci": [
+      0.3249662540044524,
+      0.38121561971564927
+     ],
+     "G_dora": 0.3531283138918346,
+     "G_dora_ci": [
+      0.3249662540044524,
+      0.38121561971564927
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7452229299363057,
+     "G_ci": [
+      0.6956449755254823,
+      0.7943092162302757
+     ],
+     "G_dora": 0.7452229299363057,
+     "G_dora_ci": [
+      0.6956449755254823,
+      0.7943092162302757
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.18406593406593408,
+     "G_ci": [
+      0.15718105660144052,
+      0.2084519200194527
+     ],
+     "G_dora": 0.18406593406593408,
+     "G_dora_ci": [
+      0.15718105660144052,
+      0.2084519200194527
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|SMOLVLM_DORA_FT_KVASIR_seed1": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "congelado",
+   "semente": 1,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/SMOLVLM_DORA_TXT_KVASIR_seed1_TXT.json",
+   "txt_dora_sha256": "841899836ce36031a3bcfbc364ce29ceec2e7c91d8eec923d6a6cb2248d7dd52",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.2757158006362672,
+     "acc_txt_dora": 0.2757158006362672,
+     "G": 0.30434782608695654,
+     "G_ci": [
+      0.27586122874235397,
+      0.33082021041812737
+     ],
+     "G_dora": 0.30434782608695654,
+     "G_dora_ci": [
+      0.27586122874235397,
+      0.33082021041812737
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.697452229299363,
+     "G_ci": [
+      0.6501647610581491,
+      0.7476362267841562
+     ],
+     "G_dora": 0.697452229299363,
+     "G_dora_ci": [
+      0.6501647610581491,
+      0.7476362267841562
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.17582417582417584,
+     "G_ci": [
+      0.1484552482410287,
+      0.20145130878438333
+     ],
+     "G_dora": 0.17582417582417584,
+     "G_dora_ci": [
+      0.1484552482410287,
+      0.20145130878438333
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|QWEN2VL_DORA_KVASIR_seed2": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "congelado",
+   "semente": 2,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/QWEN2VL_DORA_TXT_KVASIR_seed2_TXT.json",
+   "txt_dora_sha256": "43765e27fb00d7f9c2d0e20aff9b8570477bab2c8d09369c95e5861bd56a4b80",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.28844114528101805,
+     "acc_txt_dora": 0.28844114528101805,
+     "G": 0.3022269353128314,
+     "G_ci": [
+      0.27582918919520283,
+      0.32634268365688873
+     ],
+     "G_dora": 0.3022269353128314,
+     "G_dora_ci": [
+      0.27582918919520283,
+      0.32634268365688873
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7261146496815286,
+     "G_ci": [
+      0.6792959774029772,
+      0.7745468975468975
+     ],
+     "G_dora": 0.7261146496815286,
+     "G_dora_ci": [
+      0.6792959774029772,
+      0.7745468975468975
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.1813186813186813,
+     "G_ci": [
+      0.15469170304270088,
+      0.20647165056174868
+     ],
+     "G_dora": 0.1813186813186813,
+     "G_dora_ci": [
+      0.15469170304270088,
+      0.20647165056174868
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|SMOLVLM_DORA_KVASIR_seed2": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "afinado",
+   "semente": 2,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/SMOLVLM_DORA_TXT_KVASIR_seed2_TXT.json",
+   "txt_dora_sha256": "478881b36271f9de1bac72ba9418b774cc7c3a054c2920ac00414e8c661e7cca",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.2757158006362672,
+     "acc_txt_dora": 0.2757158006362672,
+     "G": 0.3361611876988335,
+     "G_ci": [
+      0.30940216482021665,
+      0.3614690469941219
+     ],
+     "G_dora": 0.3361611876988335,
+     "G_dora_ci": [
+      0.30940216482021665,
+      0.3614690469941219
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7420382165605095,
+     "G_ci": [
+      0.7033306451612904,
+      0.7816117383785983
+     ],
+     "G_dora": 0.7420382165605095,
+     "G_dora_ci": [
+      0.7033306451612904,
+      0.7816117383785983
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.18543956043956045,
+     "G_ci": [
+      0.15766727796152447,
+      0.2106704107041301
+     ],
+     "G_dora": 0.18543956043956045,
+     "G_dora_ci": [
+      0.15766727796152447,
+      0.2106704107041301
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|QWEN2VL_DORA_VT_KVASIR_seed2": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "afinado",
+   "semente": 2,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/QWEN2VL_DORA_TXT_KVASIR_seed2_TXT.json",
+   "txt_dora_sha256": "43765e27fb00d7f9c2d0e20aff9b8570477bab2c8d09369c95e5861bd56a4b80",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.28844114528101805,
+     "acc_txt_dora": 0.28844114528101805,
+     "G": 0.344644750795334,
+     "G_ci": [
+      0.31599528580039127,
+      0.37265775674294777
+     ],
+     "G_dora": 0.344644750795334,
+     "G_dora_ci": [
+      0.31599528580039127,
+      0.37265775674294777
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7707006369426752,
+     "G_ci": [
+      0.7269731009705114,
+      0.8139059050772626
+     ],
+     "G_dora": 0.7707006369426752,
+     "G_dora_ci": [
+      0.7269731009705114,
+      0.8139059050772626
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.18269230769230768,
+     "G_ci": [
+      0.1550495109552637,
+      0.20740894421392345
+     ],
+     "G_dora": 0.18269230769230768,
+     "G_dora_ci": [
+      0.1550495109552637,
+      0.20740894421392345
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "KVASIR|SMOLVLM_DORA_FT_KVASIR_seed2": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "congelado",
+   "semente": 2,
+   "txt_dora": "results/predictions/kvasir/no_image_dora/SMOLVLM_DORA_TXT_KVASIR_seed2_TXT.json",
+   "txt_dora_sha256": "478881b36271f9de1bac72ba9418b774cc7c3a054c2920ac00414e8c661e7cca",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "acc_txt_lora": 0.2757158006362672,
+     "acc_txt_dora": 0.2757158006362672,
+     "G": 0.3064687168610817,
+     "G_ci": [
+      0.278518876309704,
+      0.3326774627378809
+     ],
+     "G_dora": 0.3064687168610817,
+     "G_dora_ci": [
+      0.278518876309704,
+      0.3326774627378809
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "acc_txt_lora": 0.0,
+     "acc_txt_dora": 0.0,
+     "G": 0.7070063694267515,
+     "G_ci": [
+      0.6610093825665859,
+      0.7515559214640043
+     ],
+     "G_dora": 0.7070063694267515,
+     "G_dora_ci": [
+      0.6610093825665859,
+      0.7515559214640043
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "negative_control": {
+     "n": 728,
+     "acc_txt_lora": 0.7994505494505495,
+     "acc_txt_dora": 0.7994505494505495,
+     "G": 0.1813186813186813,
+     "G_ci": [
+      0.15373097245965467,
+      0.206634434500057
+     ],
+     "G_dora": 0.1813186813186813,
+     "G_dora_ci": [
+      0.15373097245965467,
+      0.206634434500057
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|QWEN2VL_DORA_HEAL_seed0": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "congelado",
+   "semente": 0,
+   "txt_dora": "QWEN2VL_DORA_TXT_HEAL_seed0_TXT.json",
+   "txt_dora_sha256": "26881e5df886d41f19ff821cf6169efead4d4763c629e87324aa93659d94f6c8",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.9282700421940928,
+     "acc_txt_dora": 0.9240506329113924,
+     "G": 0.02250351617440225,
+     "G_ci": [
+      0.008732360543228913,
+      0.036933131546618383
+     ],
+     "G_dora": 0.026722925457102673,
+     "G_dora_ci": [
+      0.013097179979496939,
+      0.04090267983074753
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.7836734693877551,
+     "acc_txt_dora": 0.7836734693877551,
+     "G": 0.02312925170068027,
+     "G_ci": [
+      0.0027172071992459055,
+      0.044241934987556755
+     ],
+     "G_dora": 0.02312925170068027,
+     "G_dora_ci": [
+      0.0027172071992459055,
+      0.044241934987556755
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|SMOLVLM_DORA_HEAL_seed0": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "afinado",
+   "semente": 0,
+   "txt_dora": "SMOLVLM_DORA_TXT_HEAL_seed0_TXT.json",
+   "txt_dora_sha256": "f2aa8112902e8c0a780b1f63f8a0ed5761acca1c15d26a52a7bb2b4371850aa2",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.9071729957805907,
+     "acc_txt_dora": 0.9057665260196905,
+     "G": 0.0028129395218002813,
+     "G_ci": [
+      -0.017932274526637097,
+      0.024566473988439308
+     ],
+     "G_dora": 0.004219409282700422,
+     "G_dora_ci": [
+      -0.016591408347571394,
+      0.025646258503401333
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.7972789115646258,
+     "acc_txt_dora": 0.8027210884353742,
+     "G": 0.10612244897959183,
+     "G_ci": [
+      0.07764105040398123,
+      0.1334319719390942
+     ],
+     "G_dora": 0.10068027210884353,
+     "G_dora_ci": [
+      0.07265390600966323,
+      0.12769023110569036
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|QWEN2VL_DORA_VT_HEAL_seed0": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "afinado",
+   "semente": 0,
+   "txt_dora": "QWEN2VL_DORA_TXT_HEAL_seed0_TXT.json",
+   "txt_dora_sha256": "26881e5df886d41f19ff821cf6169efead4d4763c629e87324aa93659d94f6c8",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.9282700421940928,
+     "acc_txt_dora": 0.9240506329113924,
+     "G": 0.029535864978902954,
+     "G_ci": [
+      0.01598759896091044,
+      0.04376859483977953
+     ],
+     "G_dora": 0.03375527426160337,
+     "G_dora_ci": [
+      0.01945229700969538,
+      0.048846882865340197
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.7836734693877551,
+     "acc_txt_dora": 0.7836734693877551,
+     "G": 0.0707482993197279,
+     "G_ci": [
+      0.04426903487569061,
+      0.09642539153463309
+     ],
+     "G_dora": 0.0707482993197279,
+     "G_dora_ci": [
+      0.04426903487569061,
+      0.09642539153463309
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|SMOLVLM_DORA_FT_HEAL_seed0": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "congelado",
+   "semente": 0,
+   "txt_dora": "SMOLVLM_DORA_TXT_HEAL_seed0_TXT.json",
+   "txt_dora_sha256": "f2aa8112902e8c0a780b1f63f8a0ed5761acca1c15d26a52a7bb2b4371850aa2",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.9071729957805907,
+     "acc_txt_dora": 0.9057665260196905,
+     "G": 0.029535864978902954,
+     "G_ci": [
+      0.010129880043164384,
+      0.04918032786885246
+     ],
+     "G_dora": 0.030942334739803096,
+     "G_dora_ci": [
+      0.010896244776250945,
+      0.05113636363636364
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.7972789115646258,
+     "acc_txt_dora": 0.8027210884353742,
+     "G": 0.04217687074829932,
+     "G_ci": [
+      0.018019533837944968,
+      0.06694237109625423
+     ],
+     "G_dora": 0.036734693877551024,
+     "G_dora_ci": [
+      0.01278363757253385,
+      0.060322589245983146
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|QWEN2VL_DORA_HEAL_seed1": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "congelado",
+   "semente": 1,
+   "txt_dora": "QWEN2VL_DORA_TXT_HEAL_seed1_TXT.json",
+   "txt_dora_sha256": "e3de36b4ada1d798b85e227256c1d4dec1dd6fd913827c316ab6ca925427c044",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.9170182841068917,
+     "acc_txt_dora": 0.9127988748241913,
+     "G": 0.016877637130801686,
+     "G_ci": [
+      0.0028243635153445694,
+      0.030986747664717994
+     ],
+     "G_dora": 0.02109704641350211,
+     "G_dora_ci": [
+      0.006992762823768411,
+      0.03619663398590933
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.7972789115646258,
+     "acc_txt_dora": 0.7904761904761904,
+     "G": 0.0380952380952381,
+     "G_ci": [
+      0.018156296845489035,
+      0.060643695275733496
+     ],
+     "G_dora": 0.044897959183673466,
+     "G_dora_ci": [
+      0.02451473659781852,
+      0.06798895184135978
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|SMOLVLM_DORA_HEAL_seed1": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "afinado",
+   "semente": 1,
+   "txt_dora": "SMOLVLM_DORA_TXT_HEAL_seed1_TXT.json",
+   "txt_dora_sha256": "1ae49221af86a5cd1197ac37732f5a38d9952c7b973f9d3f3ef7036e33e870e4",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.8973277074542897,
+     "acc_txt_dora": 0.8945147679324894,
+     "G": 0.03375527426160337,
+     "G_ci": [
+      0.01353378371503861,
+      0.055235010042996566
+     ],
+     "G_dora": 0.03656821378340366,
+     "G_dora_ci": [
+      0.016224188790560472,
+      0.0578081693388166
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.8081632653061225,
+     "acc_txt_dora": 0.8122448979591836,
+     "G": 0.053061224489795916,
+     "G_ci": [
+      0.025718316487055137,
+      0.08000394218134033
+     ],
+     "G_dora": 0.04897959183673469,
+     "G_dora_ci": [
+      0.022470059658628295,
+      0.07671481040301766
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|QWEN2VL_DORA_VT_HEAL_seed1": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "afinado",
+   "semente": 1,
+   "txt_dora": "QWEN2VL_DORA_TXT_HEAL_seed1_TXT.json",
+   "txt_dora_sha256": "e3de36b4ada1d798b85e227256c1d4dec1dd6fd913827c316ab6ca925427c044",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.9170182841068917,
+     "acc_txt_dora": 0.9127988748241913,
+     "G": 0.03375527426160337,
+     "G_ci": [
+      0.014792204439855445,
+      0.05333384146341463
+     ],
+     "G_dora": 0.0379746835443038,
+     "G_dora_ci": [
+      0.018463300911658962,
+      0.057804079669321766
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.7972789115646258,
+     "acc_txt_dora": 0.7904761904761904,
+     "G": 0.061224489795918366,
+     "G_ci": [
+      0.03268882910434319,
+      0.08836342281127799
+     ],
+     "G_dora": 0.06802721088435375,
+     "G_dora_ci": [
+      0.04026576103069998,
+      0.09449929478138223
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|SMOLVLM_DORA_FT_HEAL_seed1": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "congelado",
+   "semente": 1,
+   "txt_dora": "SMOLVLM_DORA_TXT_HEAL_seed1_TXT.json",
+   "txt_dora_sha256": "1ae49221af86a5cd1197ac37732f5a38d9952c7b973f9d3f3ef7036e33e870e4",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.8973277074542897,
+     "acc_txt_dora": 0.8945147679324894,
+     "G": 0.030942334739803096,
+     "G_ci": [
+      0.011729157938835359,
+      0.051822040055215166
+     ],
+     "G_dora": 0.03375527426160337,
+     "G_dora_ci": [
+      0.013470073748527798,
+      0.05640680520578188
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.8081632653061225,
+     "acc_txt_dora": 0.8122448979591836,
+     "G": 0.03537414965986395,
+     "G_ci": [
+      0.011347263911336874,
+      0.06061234754180809
+     ],
+     "G_dora": 0.031292517006802724,
+     "G_dora_ci": [
+      0.00797740591360072,
+      0.05670889614784732
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|QWEN2VL_DORA_HEAL_seed2": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "congelado",
+   "semente": 2,
+   "txt_dora": "QWEN2VL_DORA_TXT_HEAL_seed2_TXT.json",
+   "txt_dora_sha256": "0c227829b20399a75db5ef83aa928f33830cedc3ab3d009fab43062a1b4d76c2",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.9057665260196905,
+     "acc_txt_dora": 0.9085794655414908,
+     "G": 0.04219409282700422,
+     "G_ci": [
+      0.023775393600812593,
+      0.06110729423095282
+     ],
+     "G_dora": 0.03938115330520394,
+     "G_dora_ci": [
+      0.021302104919709703,
+      0.058158093568665366
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.8068027210884354,
+     "acc_txt_dora": 0.8054421768707483,
+     "G": 0.009523809523809525,
+     "G_ci": [
+      -0.013274924684616832,
+      0.032013200047308295
+     ],
+     "G_dora": 0.010884353741496598,
+     "G_dora_ci": [
+      -0.012363062487718608,
+      0.03333436341161928
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|SMOLVLM_DORA_HEAL_seed2": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "afinado",
+   "semente": 2,
+   "txt_dora": "SMOLVLM_DORA_TXT_HEAL_seed2_TXT.json",
+   "txt_dora_sha256": "1b2573f45abcce831f90537c0364f4b1462cebdd42362c26f1c103e7ca8316fb",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.890295358649789,
+     "acc_txt_dora": 0.8888888888888888,
+     "G": 0.03656821378340366,
+     "G_ci": [
+      0.015109216763628528,
+      0.058659429437010836
+     ],
+     "G_dora": 0.0379746835443038,
+     "G_dora_ci": [
+      0.016125806451612903,
+      0.05985834636181673
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.8149659863945579,
+     "acc_txt_dora": 0.817687074829932,
+     "G": 0.06666666666666667,
+     "G_ci": [
+      0.03926360118370134,
+      0.09345794392523364
+     ],
+     "G_dora": 0.06394557823129252,
+     "G_dora_ci": [
+      0.036227612615328954,
+      0.09115290620269556
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|QWEN2VL_DORA_VT_HEAL_seed2": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "afinado",
+   "semente": 2,
+   "txt_dora": "QWEN2VL_DORA_TXT_HEAL_seed2_TXT.json",
+   "txt_dora_sha256": "0c227829b20399a75db5ef83aa928f33830cedc3ab3d009fab43062a1b4d76c2",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.9057665260196905,
+     "acc_txt_dora": 0.9085794655414908,
+     "G": 0.05063291139240506,
+     "G_ci": [
+      0.03079122490412813,
+      0.07190508578490071
+     ],
+     "G_dora": 0.04781997187060478,
+     "G_dora_ci": [
+      0.02834008097165992,
+      0.068496508192318
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.8068027210884354,
+     "acc_txt_dora": 0.8054421768707483,
+     "G": 0.04625850340136054,
+     "G_ci": [
+      0.017729907091146274,
+      0.07497078477845807
+     ],
+     "G_dora": 0.047619047619047616,
+     "G_dora_ci": [
+      0.018892750744786496,
+      0.07650056204393466
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "HEAL|SMOLVLM_DORA_FT_HEAL_seed2": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "congelado",
+   "semente": 2,
+   "txt_dora": "SMOLVLM_DORA_TXT_HEAL_seed2_TXT.json",
+   "txt_dora_sha256": "1b2573f45abcce831f90537c0364f4b1462cebdd42362c26f1c103e7ca8316fb",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "acc_txt_lora": 0.890295358649789,
+     "acc_txt_dora": 0.8888888888888888,
+     "G": 0.0379746835443038,
+     "G_ci": [
+      0.017390433621640448,
+      0.05908780635684085
+     ],
+     "G_dora": 0.03938115330520394,
+     "G_dora_ci": [
+      0.018968269642210593,
+      0.061079545454545456
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 735,
+     "acc_txt_lora": 0.8149659863945579,
+     "acc_txt_dora": 0.817687074829932,
+     "G": 0.021768707482993196,
+     "G_ci": [
+      -0.001342508615998549,
+      0.045213988534111765
+     ],
+     "G_dora": 0.01904761904761905,
+     "G_dora_ci": [
+      -0.003942571397862138,
+      0.04274790312884664
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|QWEN2VL_DORA_MIMIC_seed0": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "congelado",
+   "semente": 0,
+   "txt_dora": "QWEN2VL_DORA_TXT_MIMIC_seed0_TXT.json",
+   "txt_dora_sha256": "d6322277b35935188c717c9969fb0164899a6fc9c541bc0e0937751d3ce3d1f2",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6930022573363431,
+     "acc_txt_dora": 0.6952595936794582,
+     "G": 0.060948081264108354,
+     "G_ci": [
+      0.02412017352332797,
+      0.09778014184397163
+     ],
+     "G_dora": 0.05869074492099323,
+     "G_dora_ci": [
+      0.023255813953488372,
+      0.09633233224996914
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.8208955223880597,
+     "acc_txt_dora": 0.835820895522388,
+     "G": -0.05970149253731343,
+     "G_ci": [
+      -0.12,
+      -0.0136986301369863
+     ],
+     "G_dora": -0.07462686567164178,
+     "G_dora_ci": [
+      -0.14285714285714285,
+      -0.01586681547619051
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|SMOLVLM_DORA_MIMIC_seed0": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "afinado",
+   "semente": 0,
+   "txt_dora": "SMOLVLM_DORA_TXT_MIMIC_seed0_TXT.json",
+   "txt_dora_sha256": "a983ae5f96c7c4ec8103a1593daea0c4c4f66928c02ca44d3ee7313497d0b5e1",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6252821670428894,
+     "acc_txt_dora": 0.6297968397291196,
+     "G": 0.18058690744920994,
+     "G_ci": [
+      0.14162894154075295,
+      0.22100825994176898
+     ],
+     "G_dora": 0.17607223476297967,
+     "G_dora_ci": [
+      0.1371022951142632,
+      0.21628125042621962
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.8059701492537313,
+     "acc_txt_dora": 0.835820895522388,
+     "G": 0.029850746268656716,
+     "G_ci": [
+      0.0,
+      0.07407407407407407
+     ],
+     "G_dora": 0.0,
+     "G_dora_ci": [
+      0.0,
+      0.0
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|QWEN2VL_DORA_VT_MIMIC_seed0": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "afinado",
+   "semente": 0,
+   "txt_dora": "QWEN2VL_DORA_TXT_MIMIC_seed0_TXT.json",
+   "txt_dora_sha256": "d6322277b35935188c717c9969fb0164899a6fc9c541bc0e0937751d3ce3d1f2",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6930022573363431,
+     "acc_txt_dora": 0.6952595936794582,
+     "G": 0.060948081264108354,
+     "G_ci": [
+      0.024750255294587756,
+      0.09641603525591462
+     ],
+     "G_dora": 0.05869074492099323,
+     "G_dora_ci": [
+      0.022623157615190546,
+      0.09670506912442396
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.8208955223880597,
+     "acc_txt_dora": 0.835820895522388,
+     "G": -0.05970149253731343,
+     "G_ci": [
+      -0.11864406779661017,
+      -0.0136986301369863
+     ],
+     "G_dora": -0.07462686567164178,
+     "G_dora_ci": [
+      -0.1408953722334004,
+      -0.015384615384615385
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|SMOLVLM_DORA_FT_MIMIC_seed0": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "congelado",
+   "semente": 0,
+   "txt_dora": "SMOLVLM_DORA_TXT_MIMIC_seed0_TXT.json",
+   "txt_dora_sha256": "a983ae5f96c7c4ec8103a1593daea0c4c4f66928c02ca44d3ee7313497d0b5e1",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6252821670428894,
+     "acc_txt_dora": 0.6297968397291196,
+     "G": 0.10609480812641084,
+     "G_ci": [
+      0.0737453866003228,
+      0.13769952345121644
+     ],
+     "G_dora": 0.10158013544018059,
+     "G_dora_ci": [
+      0.06804088645767585,
+      0.13364383741612093
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.8059701492537313,
+     "acc_txt_dora": 0.835820895522388,
+     "G": 0.0,
+     "G_ci": [
+      -0.0535834942084942,
+      0.057992327365728784
+     ],
+     "G_dora": -0.029850746268656716,
+     "G_dora_ci": [
+      -0.07462686567164178,
+      0.0
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|QWEN2VL_DORA_MIMIC_seed1": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "congelado",
+   "semente": 1,
+   "txt_dora": "QWEN2VL_DORA_TXT_MIMIC_seed1_TXT.json",
+   "txt_dora_sha256": "f553937dcfee3d0ff7c064b10fdf0deda25fe1a440e4b10220173d47d24c6a21",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6930022573363431,
+     "acc_txt_dora": 0.6952595936794582,
+     "G": 0.07900677200902935,
+     "G_ci": [
+      0.042304376997698276,
+      0.11700077561004711
+     ],
+     "G_dora": 0.07674943566591422,
+     "G_dora_ci": [
+      0.041189931350114416,
+      0.11384565256471713
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.7910447761194029,
+     "acc_txt_dora": 0.8059701492537313,
+     "G": 0.029850746268656716,
+     "G_ci": [
+      -0.028985507246376812,
+      0.08974358974358974
+     ],
+     "G_dora": 0.014925373134328358,
+     "G_dora_ci": [
+      -0.03391291642314436,
+      0.06756756756756757
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|SMOLVLM_DORA_MIMIC_seed1": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "afinado",
+   "semente": 1,
+   "txt_dora": "SMOLVLM_DORA_TXT_MIMIC_seed1_TXT.json",
+   "txt_dora_sha256": "a40aa91528a3d54f0067ac497c8ae77b94e499d3da841476b77855330f397a30",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6320541760722348,
+     "acc_txt_dora": 0.6230248306997742,
+     "G": 0.15124153498871332,
+     "G_ci": [
+      0.1123728908705973,
+      0.1885623201151263
+     ],
+     "G_dora": 0.16027088036117382,
+     "G_dora_ci": [
+      0.12389380530973451,
+      0.19693818263603521
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.8059701492537313,
+     "acc_txt_dora": 0.8208955223880597,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "G_dora": -0.014925373134328358,
+     "G_dora_ci": [
+      -0.050869374634716545,
+      0.0
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|QWEN2VL_DORA_VT_MIMIC_seed1": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "afinado",
+   "semente": 1,
+   "txt_dora": "QWEN2VL_DORA_TXT_MIMIC_seed1_TXT.json",
+   "txt_dora_sha256": "f553937dcfee3d0ff7c064b10fdf0deda25fe1a440e4b10220173d47d24c6a21",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6930022573363431,
+     "acc_txt_dora": 0.6952595936794582,
+     "G": 0.11286681715575621,
+     "G_ci": [
+      0.07603167929761723,
+      0.15116475930495038
+     ],
+     "G_dora": 0.11060948081264109,
+     "G_dora_ci": [
+      0.07505901937046006,
+      0.1477336424785976
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.7910447761194029,
+     "acc_txt_dora": 0.8059701492537313,
+     "G": -0.08955223880597014,
+     "G_ci": [
+      -0.1694915254237288,
+      -0.013328947368421077
+     ],
+     "G_dora": -0.1044776119402985,
+     "G_dora_ci": [
+      -0.19047619047619047,
+      -0.017857142857142856
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|SMOLVLM_DORA_FT_MIMIC_seed1": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "congelado",
+   "semente": 1,
+   "txt_dora": "SMOLVLM_DORA_TXT_MIMIC_seed1_TXT.json",
+   "txt_dora_sha256": "a40aa91528a3d54f0067ac497c8ae77b94e499d3da841476b77855330f397a30",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6320541760722348,
+     "acc_txt_dora": 0.6230248306997742,
+     "G": 0.13544018058690746,
+     "G_ci": [
+      0.09825230037429819,
+      0.1734565871316406
+     ],
+     "G_dora": 0.14446952595936793,
+     "G_dora_ci": [
+      0.1081662788616431,
+      0.18080729166666665
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.8059701492537313,
+     "acc_txt_dora": 0.8208955223880597,
+     "G": 0.0,
+     "G_ci": [
+      -0.06060606060606061,
+      0.058845478489903305
+     ],
+     "G_dora": -0.014925373134328358,
+     "G_dora_ci": [
+      -0.06666666666666667,
+      0.03278688524590164
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|QWEN2VL_DORA_MIMIC_seed2": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "congelado",
+   "semente": 2,
+   "txt_dora": "QWEN2VL_DORA_TXT_MIMIC_seed2_TXT.json",
+   "txt_dora_sha256": "e6a0bf775f54c39b206109756ddf047bfaf372686177ddebad6bcc97b2d58ed5",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.654627539503386,
+     "acc_txt_dora": 0.6501128668171557,
+     "G": 0.1038374717832957,
+     "G_ci": [
+      0.07066322068910098,
+      0.13832638689278526
+     ],
+     "G_dora": 0.10835214446952596,
+     "G_dora_ci": [
+      0.07443457774555998,
+      0.14349775784753363
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.8059701492537313,
+     "acc_txt_dora": 0.7761194029850746,
+     "G": -0.05970149253731343,
+     "G_ci": [
+      -0.12281376518218623,
+      -0.013157894736842105
+     ],
+     "G_dora": -0.029850746268656716,
+     "G_dora_ci": [
+      -0.09090909090909091,
+      0.02740677321156768
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|SMOLVLM_DORA_MIMIC_seed2": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "afinado",
+   "semente": 2,
+   "txt_dora": "SMOLVLM_DORA_TXT_MIMIC_seed2_TXT.json",
+   "txt_dora_sha256": "fe851f06c5759ce9f9c4f3e1b9cd9b4bdb7a3ff92a39ced3344ca66047fd86ef",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6862302483069977,
+     "acc_txt_dora": 0.6297968397291196,
+     "G": 0.14672686230248308,
+     "G_ci": [
+      0.10829343995662781,
+      0.18694018787840957
+     ],
+     "G_dora": 0.20316027088036118,
+     "G_dora_ci": [
+      0.1631645698051948,
+      0.2431818181818182
+     ],
+     "iv": true,
+     "iv_dora": true,
+     "v": true,
+     "v_dora": true
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.7910447761194029,
+     "acc_txt_dora": 0.8208955223880597,
+     "G": 0.014925373134328358,
+     "G_ci": [
+      -0.047619047619047616,
+      0.08001612903225798
+     ],
+     "G_dora": -0.014925373134328358,
+     "G_dora_ci": [
+      -0.0684931506849315,
+      0.03278688524590164
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|QWEN2VL_DORA_VT_MIMIC_seed2": {
+   "familia": "Qwen2-VL-2B",
+   "encoder": "afinado",
+   "semente": 2,
+   "txt_dora": "QWEN2VL_DORA_TXT_MIMIC_seed2_TXT.json",
+   "txt_dora_sha256": "e6a0bf775f54c39b206109756ddf047bfaf372686177ddebad6bcc97b2d58ed5",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.654627539503386,
+     "acc_txt_dora": 0.6501128668171557,
+     "G": 0.11963882618510158,
+     "G_ci": [
+      0.08704642953982027,
+      0.15367413549752995
+     ],
+     "G_dora": 0.12415349887133183,
+     "G_dora_ci": [
+      0.09156469013308134,
+      0.15835190074694985
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.8059701492537313,
+     "acc_txt_dora": 0.7761194029850746,
+     "G": -0.04477611940298507,
+     "G_ci": [
+      -0.10938035102739727,
+      0.016135642517186636
+     ],
+     "G_dora": -0.014925373134328358,
+     "G_dora_ci": [
+      -0.09090909090909091,
+      0.06666666666666667
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  },
+  "MIMIC|SMOLVLM_DORA_FT_MIMIC_seed2": {
+   "familia": "SmolVLM2-2.2B",
+   "encoder": "congelado",
+   "semente": 2,
+   "txt_dora": "SMOLVLM_DORA_TXT_MIMIC_seed2_TXT.json",
+   "txt_dora_sha256": "fe851f06c5759ce9f9c4f3e1b9cd9b4bdb7a3ff92a39ced3344ca66047fd86ef",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "acc_txt_lora": 0.6862302483069977,
+     "acc_txt_dora": 0.6297968397291196,
+     "G": 0.08126410835214447,
+     "G_ci": [
+      0.04878048780487805,
+      0.11502599116141543
+     ],
+     "G_dora": 0.13769751693002258,
+     "G_dora_ci": [
+      0.1025599128540305,
+      0.1736111111111111
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    },
+    "closed_no": {
+     "n": 67,
+     "acc_txt_lora": 0.7910447761194029,
+     "acc_txt_dora": 0.8208955223880597,
+     "G": 0.014925373134328358,
+     "G_ci": [
+      -0.047619047619047616,
+      0.07936507936507936
+     ],
+     "G_dora": -0.014925373134328358,
+     "G_dora_ci": [
+      -0.06944444444444445,
+      0.03225806451612903
+     ],
+     "iv": false,
+     "iv_dora": false,
+     "v": false,
+     "v_dora": false
+    }
+   }
+  }
+ },
+ "txt": {
+  "KVASIR|dependent_polyp|QWEN2VL|0": {
+   "lora": 0.28844114528101805,
+   "dora": 0.28844114528101805
+  },
+  "KVASIR|dependent_instrument|QWEN2VL|0": {
+   "lora": 0.0,
+   "dora": 0.0
+  },
+  "KVASIR|negative_control|QWEN2VL|0": {
+   "lora": 0.7994505494505495,
+   "dora": 0.7994505494505495
+  },
+  "KVASIR|dependent_polyp|SMOLVLM|0": {
+   "lora": 0.2757158006362672,
+   "dora": 0.2757158006362672
+  },
+  "KVASIR|dependent_instrument|SMOLVLM|0": {
+   "lora": 0.0,
+   "dora": 0.0
+  },
+  "KVASIR|negative_control|SMOLVLM|0": {
+   "lora": 0.7994505494505495,
+   "dora": 0.7994505494505495
+  },
+  "KVASIR|dependent_polyp|QWEN2VL|1": {
+   "lora": 0.28844114528101805,
+   "dora": 0.28844114528101805
+  },
+  "KVASIR|dependent_instrument|QWEN2VL|1": {
+   "lora": 0.0,
+   "dora": 0.0
+  },
+  "KVASIR|negative_control|QWEN2VL|1": {
+   "lora": 0.7994505494505495,
+   "dora": 0.7994505494505495
+  },
+  "KVASIR|dependent_polyp|SMOLVLM|1": {
+   "lora": 0.2757158006362672,
+   "dora": 0.2757158006362672
+  },
+  "KVASIR|dependent_instrument|SMOLVLM|1": {
+   "lora": 0.0,
+   "dora": 0.0
+  },
+  "KVASIR|negative_control|SMOLVLM|1": {
+   "lora": 0.7994505494505495,
+   "dora": 0.7994505494505495
+  },
+  "KVASIR|dependent_polyp|QWEN2VL|2": {
+   "lora": 0.28844114528101805,
+   "dora": 0.28844114528101805
+  },
+  "KVASIR|dependent_instrument|QWEN2VL|2": {
+   "lora": 0.0,
+   "dora": 0.0
+  },
+  "KVASIR|negative_control|QWEN2VL|2": {
+   "lora": 0.7994505494505495,
+   "dora": 0.7994505494505495
+  },
+  "KVASIR|dependent_polyp|SMOLVLM|2": {
+   "lora": 0.2757158006362672,
+   "dora": 0.2757158006362672
+  },
+  "KVASIR|dependent_instrument|SMOLVLM|2": {
+   "lora": 0.0,
+   "dora": 0.0
+  },
+  "KVASIR|negative_control|SMOLVLM|2": {
+   "lora": 0.7994505494505495,
+   "dora": 0.7994505494505495
+  },
+  "HEAL|closed_yes|QWEN2VL|0": {
+   "lora": 0.9282700421940928,
+   "dora": 0.9240506329113924
+  },
+  "HEAL|closed_no|QWEN2VL|0": {
+   "lora": 0.7836734693877551,
+   "dora": 0.7836734693877551
+  },
+  "HEAL|closed_yes|SMOLVLM|0": {
+   "lora": 0.9071729957805907,
+   "dora": 0.9057665260196905
+  },
+  "HEAL|closed_no|SMOLVLM|0": {
+   "lora": 0.7972789115646258,
+   "dora": 0.8027210884353742
+  },
+  "HEAL|closed_yes|QWEN2VL|1": {
+   "lora": 0.9170182841068917,
+   "dora": 0.9127988748241913
+  },
+  "HEAL|closed_no|QWEN2VL|1": {
+   "lora": 0.7972789115646258,
+   "dora": 0.7904761904761904
+  },
+  "HEAL|closed_yes|SMOLVLM|1": {
+   "lora": 0.8973277074542897,
+   "dora": 0.8945147679324894
+  },
+  "HEAL|closed_no|SMOLVLM|1": {
+   "lora": 0.8081632653061225,
+   "dora": 0.8122448979591836
+  },
+  "HEAL|closed_yes|QWEN2VL|2": {
+   "lora": 0.9057665260196905,
+   "dora": 0.9085794655414908
+  },
+  "HEAL|closed_no|QWEN2VL|2": {
+   "lora": 0.8068027210884354,
+   "dora": 0.8054421768707483
+  },
+  "HEAL|closed_yes|SMOLVLM|2": {
+   "lora": 0.890295358649789,
+   "dora": 0.8888888888888888
+  },
+  "HEAL|closed_no|SMOLVLM|2": {
+   "lora": 0.8149659863945579,
+   "dora": 0.817687074829932
+  },
+  "MIMIC|closed_yes|QWEN2VL|0": {
+   "lora": 0.6930022573363431,
+   "dora": 0.6952595936794582
+  },
+  "MIMIC|closed_no|QWEN2VL|0": {
+   "lora": 0.8208955223880597,
+   "dora": 0.835820895522388
+  },
+  "MIMIC|closed_yes|SMOLVLM|0": {
+   "lora": 0.6252821670428894,
+   "dora": 0.6297968397291196
+  },
+  "MIMIC|closed_no|SMOLVLM|0": {
+   "lora": 0.8059701492537313,
+   "dora": 0.835820895522388
+  },
+  "MIMIC|closed_yes|QWEN2VL|1": {
+   "lora": 0.6930022573363431,
+   "dora": 0.6952595936794582
+  },
+  "MIMIC|closed_no|QWEN2VL|1": {
+   "lora": 0.7910447761194029,
+   "dora": 0.8059701492537313
+  },
+  "MIMIC|closed_yes|SMOLVLM|1": {
+   "lora": 0.6320541760722348,
+   "dora": 0.6230248306997742
+  },
+  "MIMIC|closed_no|SMOLVLM|1": {
+   "lora": 0.8059701492537313,
+   "dora": 0.8208955223880597
+  },
+  "MIMIC|closed_yes|QWEN2VL|2": {
+   "lora": 0.654627539503386,
+   "dora": 0.6501128668171557
+  },
+  "MIMIC|closed_no|QWEN2VL|2": {
+   "lora": 0.8059701492537313,
+   "dora": 0.7761194029850746
+  },
+  "MIMIC|closed_yes|SMOLVLM|2": {
+   "lora": 0.6862302483069977,
+   "dora": 0.6297968397291196
+  },
+  "MIMIC|closed_no|SMOLVLM|2": {
+   "lora": 0.7910447761194029,
+   "dora": 0.8208955223880597
+  }
+ },
+ "comparacao_G": {
+  "KVASIR|dependent_polyp": {
+   "runs_dora": 12,
+   "G_menos_G_dora": {
+    "media": 0.0,
+    "min": -0.0,
+    "max": -0.0
+   },
+   "G_dora_menos_G": {
+    "media": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 12
+   }
+  },
+  "KVASIR|dependent_instrument": {
+   "runs_dora": 12,
+   "G_menos_G_dora": {
+    "media": 0.0,
+    "min": -0.0,
+    "max": -0.0
+   },
+   "G_dora_menos_G": {
+    "media": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 12
+   }
+  },
+  "KVASIR|negative_control": {
+   "runs_dora": 12,
+   "G_menos_G_dora": {
+    "media": 0.0,
+    "min": -0.0,
+    "max": -0.0
+   },
+   "G_dora_menos_G": {
+    "media": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 12
+   }
+  },
+  "HEAL|closed_yes": {
+   "runs_dora": 12,
+   "G_menos_G_dora": {
+    "media": -0.0018752930145335214,
+    "min": -0.004219409282700426,
+    "max": 0.002812939521800284
+   },
+   "G_dora_menos_G": {
+    "media": 0.0018752930145335214,
+    "min": -0.002812939521800284,
+    "max": 0.004219409282700426,
+    "n": 12
+   }
+  },
+  "HEAL|closed_no": {
+   "runs_dora": 12,
+   "G_menos_G_dora": {
+    "media": 0.0006802721088435367,
+    "min": -0.006802721088435382,
+    "max": 0.0054421768707483
+   },
+   "G_dora_menos_G": {
+    "media": -0.0006802721088435367,
+    "min": -0.0054421768707483,
+    "max": 0.006802721088435382,
+    "n": 12
+   }
+  },
+  "MIMIC|closed_yes": {
+   "runs_dora": 12,
+   "G_menos_G_dora": {
+    "media": -0.010158013544018055,
+    "min": -0.05643340857787811,
+    "max": 0.004514672686230264
+   },
+   "G_dora_menos_G": {
+    "media": 0.010158013544018055,
+    "min": -0.004514672686230264,
+    "max": 0.05643340857787811,
+    "n": 12
+   }
+  },
+  "MIMIC|closed_no": {
+   "runs_dora": 12,
+   "G_menos_G_dora": {
+    "media": 0.01243781094527363,
+    "min": -0.029850746268656716,
+    "max": 0.029850746268656716
+   },
+   "G_dora_menos_G": {
+    "media": -0.01243781094527363,
+    "min": -0.029850746268656716,
+    "max": 0.029850746268656716,
+    "n": 12
+   }
+  }
+ },
+ "acc_txt_por_familia": {
+  "KVASIR|dependent_polyp|QWEN2VL": {
+   "lora": {
+    "media": 0.28844114528101805,
+    "min": 0.28844114528101805,
+    "max": 0.28844114528101805,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.28844114528101805,
+    "min": 0.28844114528101805,
+    "max": 0.28844114528101805,
+    "n": 3
+   }
+  },
+  "KVASIR|dependent_polyp|SMOLVLM": {
+   "lora": {
+    "media": 0.2757158006362672,
+    "min": 0.2757158006362672,
+    "max": 0.2757158006362672,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.2757158006362672,
+    "min": 0.2757158006362672,
+    "max": 0.2757158006362672,
+    "n": 3
+   }
+  },
+  "KVASIR|dependent_instrument|QWEN2VL": {
+   "lora": {
+    "media": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   }
+  },
+  "KVASIR|dependent_instrument|SMOLVLM": {
+   "lora": {
+    "media": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "n": 3
+   }
+  },
+  "KVASIR|negative_control|QWEN2VL": {
+   "lora": {
+    "media": 0.7994505494505495,
+    "min": 0.7994505494505495,
+    "max": 0.7994505494505495,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.7994505494505495,
+    "min": 0.7994505494505495,
+    "max": 0.7994505494505495,
+    "n": 3
+   }
+  },
+  "KVASIR|negative_control|SMOLVLM": {
+   "lora": {
+    "media": 0.7994505494505495,
+    "min": 0.7994505494505495,
+    "max": 0.7994505494505495,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.7994505494505495,
+    "min": 0.7994505494505495,
+    "max": 0.7994505494505495,
+    "n": 3
+   }
+  },
+  "HEAL|closed_yes|QWEN2VL": {
+   "lora": {
+    "media": 0.9170182841068917,
+    "min": 0.9057665260196905,
+    "max": 0.9282700421940928,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.9151429910923582,
+    "min": 0.9085794655414908,
+    "max": 0.9240506329113924,
+    "n": 3
+   }
+  },
+  "HEAL|closed_yes|SMOLVLM": {
+   "lora": {
+    "media": 0.8982653539615565,
+    "min": 0.890295358649789,
+    "max": 0.9071729957805907,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.8963900609470229,
+    "min": 0.8888888888888888,
+    "max": 0.9057665260196905,
+    "n": 3
+   }
+  },
+  "HEAL|closed_no|QWEN2VL": {
+   "lora": {
+    "media": 0.7959183673469388,
+    "min": 0.7836734693877551,
+    "max": 0.8068027210884354,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.7931972789115646,
+    "min": 0.7836734693877551,
+    "max": 0.8054421768707483,
+    "n": 3
+   }
+  },
+  "HEAL|closed_no|SMOLVLM": {
+   "lora": {
+    "media": 0.8068027210884354,
+    "min": 0.7972789115646258,
+    "max": 0.8149659863945579,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.8108843537414966,
+    "min": 0.8027210884353742,
+    "max": 0.817687074829932,
+    "n": 3
+   }
+  },
+  "MIMIC|closed_yes|QWEN2VL": {
+   "lora": {
+    "media": 0.6802106847253574,
+    "min": 0.654627539503386,
+    "max": 0.6930022573363431,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.6802106847253574,
+    "min": 0.6501128668171557,
+    "max": 0.6952595936794582,
+    "n": 3
+   }
+  },
+  "MIMIC|closed_yes|SMOLVLM": {
+   "lora": {
+    "media": 0.6478555304740407,
+    "min": 0.6252821670428894,
+    "max": 0.6862302483069977,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.6275395033860045,
+    "min": 0.6230248306997742,
+    "max": 0.6297968397291196,
+    "n": 3
+   }
+  },
+  "MIMIC|closed_no|QWEN2VL": {
+   "lora": {
+    "media": 0.8059701492537313,
+    "min": 0.7910447761194029,
+    "max": 0.8208955223880597,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.8059701492537313,
+    "min": 0.7761194029850746,
+    "max": 0.835820895522388,
+    "n": 3
+   }
+  },
+  "MIMIC|closed_no|SMOLVLM": {
+   "lora": {
+    "media": 0.8009950248756219,
+    "min": 0.7910447761194029,
+    "max": 0.8059701492537313,
+    "n": 3
+   },
+   "dora": {
+    "media": 0.8258706467661692,
+    "min": 0.8208955223880597,
+    "max": 0.835820895522388,
+    "n": 3
+   }
+  }
+ },
+ "contagens": {
+  "KVASIR|dependent_polyp": {
+   "iv_atual": 25,
+   "iv_com_G_dora": 25,
+   "v_atual": 24,
+   "v_com_G_dora": 24,
+   "linhas": 27
+  },
+  "KVASIR|dependent_instrument": {
+   "iv_atual": 25,
+   "iv_com_G_dora": 25,
+   "v_atual": 25,
+   "v_com_G_dora": 25,
+   "linhas": 27
+  },
+  "KVASIR|negative_control": {
+   "iv_atual": 0,
+   "iv_com_G_dora": 0,
+   "v_atual": 0,
+   "v_com_G_dora": 0,
+   "linhas": 27
+  },
+  "HEAL|closed_yes": {
+   "iv_atual": 0,
+   "iv_com_G_dora": 0,
+   "v_atual": 0,
+   "v_com_G_dora": 0,
+   "linhas": 27
+  },
+  "HEAL|closed_no": {
+   "iv_atual": 0,
+   "iv_com_G_dora": 0,
+   "v_atual": 0,
+   "v_com_G_dora": 0,
+   "linhas": 27
+  },
+  "MIMIC|closed_yes": {
+   "iv_atual": 12,
+   "iv_com_G_dora": 12,
+   "v_atual": 8,
+   "v_com_G_dora": 8,
+   "linhas": 27
+  },
+  "MIMIC|closed_no": {
+   "iv_atual": 0,
+   "iv_com_G_dora": 0,
+   "v_atual": 0,
+   "v_com_G_dora": 0,
+   "linhas": 27
+  }
+ },
+ "runs_que_mudam": [],
+ "t": "2026-10-30 19:10:12",
+ "segundos": 29
+}

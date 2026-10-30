@@ -1,0 +1,36 @@
+"""v7_mimic/scripts/05b_validate_arrows.py -- validates the arrows with the med_vlm loader on CPU (CUDA_VISIBLE_DEVICES="").
+Uses harness.circle_data_bridge.load_condition_dataset (the same one the HEAL branch of med_vlm/data/loader.py calls) and
+builds a batch with the med_vlm collator/normalizer when importable; records to logs/validate_arrows_medvlm.json."""
+# released package: occurrences of the original absolute data root were replaced by the LAB_ROOT environment variable
+import json, os, sys, time, socket, hashlib
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+sys.path.insert(0, os.environ.get("LAB_ROOT", "LAB_ROOT") + "/doutorado/med-vqa-icdip-placebo")
+from pathlib import Path
+from harness.circle_data_bridge import load_condition_dataset
+from harness.interventions.arrow_io import read_arrow, count_questions
+V7 = Path(os.environ.get("LAB_ROOT", "LAB_ROOT") + "/v7_mimic"); out = {"host": socket.gethostname(), "date": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "splits": {}}
+splits = sys.argv[1:] or ["test", "val"]
+import torch
+out["torch_cuda_available"] = bool(torch.cuda.is_available())
+vocab = json.load(open(V7 / "data/answer_vocab.json"))
+for s in splits:
+    p = V7 / f"data/vqa_mimic_{s}.arrow"; man = json.load(open(V7 / f"data/manifest_mimic_{s}.json"))
+    sha = hashlib.sha256(p.read_bytes()).hexdigest()
+    df = read_arrow(str(p)); ds = load_condition_dataset(str(p))
+    ex = ds[0]; img = ex["image"]
+    labels_ok = all(vocab[a] == l for ans, lab in zip(df.answers, df.answer_labels) for a, l in zip([x[0] for x in ans], [x[0] for x in lab]))
+    batch = [ds[i] for i in range(min(8, len(ds)))]
+    r = {"arrow": str(p), "sha256_matches_manifest": sha == man["file"]["sha256"], "rows_images": len(df), "n_questions": count_questions(df),
+         "ds_len_equals_questions": len(ds) == count_questions(df), "features": str(ds.features), "example": {"id": ex["id"], "question": ex["question"], "answers": ex["answers"], "image_mode": img.mode, "image_size": img.size},
+         "batch8_ids": [b["id"] for b in batch], "batch8_image_sizes": sorted({b["image"].size for b in batch}), "answer_labels_match_vocab": labels_ok,
+         "answer_type_values": sorted({int(t) for ts in df.answer_type for t in ts}), "image_id_prefix_ok": all(i.startswith("mimic/") for i in df.image_id), "split_values": sorted(set(df.split))}
+    # try the med_vlm normalizer/collator (no model)
+    try:
+        from med_vlm.data.normalizer import build_normalizer
+        norm = build_normalizer(image_key="image", question_key="question", answers_key="answers", id_key="id", preprocessor=None)
+        n = norm(ds[0]); r["med_vlm_normalizer_keys"] = sorted(n.keys())
+    except Exception as e:  # noqa: BLE001
+        r["med_vlm_normalizer_error"] = f"{type(e).__name__}: {str(e)[:200]}"
+    out["splits"][s] = r
+    print(json.dumps({k: v for k, v in r.items() if k != "features"}, ensure_ascii=False))
+(V7 / "logs/validate_arrows_medvlm.json").write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")

@@ -1,0 +1,230 @@
+{
+ "t": "2026-10-30 19:02:47",
+ "fatos": [
+  {
+   "rotulo": "Kvasir: ordem do posicionamento da mascara deslocada",
+   "valor": "hflip, vflip, rot180, ate 50 translacoes aleatorias (semente 20260913); margem (dilatacao do alvo) 5 px; >= 80 % no campo de visao; area maxima 40 % do campo de visao",
+   "fonte": "src/harness/isbi_placebo/masks.py",
+   "sha256": "cf79e153bf53cc7e890cf1ed80d73908f5f7a30e5c7c44c0b9e396e804abdb52",
+   "nota": "place_placebo(margin_px=5, min_fov_frac=0.8); place_placebos_by_factor(max_area_frac=0.4)"
+  },
+  {
+   "rotulo": "Kvasir: metodo por unidade (imagem x alvo)",
+   "valor": {
+    "translate": 60,
+    "hflip": 112,
+    "rot180": 31,
+    "vflip": 40
+   },
+   "fonte": "data/kvasir/inventory_kvasir_test_clean.json",
+   "sha256": "e4596ca85eb694d0bb947d06ad2f2691c38f30e7f8a12a732de641756573b21b"
+  },
+  {
+   "rotulo": "Kvasir: mascaras casadas (Kvasir-SEG polipos / Kvasir-Instrument instrumentos)",
+   "valor": "1000 / 590 (instrumentos sem par: 410)",
+   "fonte": "data/kvasir/kvasir_vqa_to_seg_instrument_map.json",
+   "sha256": "1545657fdab8a1a2ae50f4a4f556b3da20e6b3045e9a8f79c89bd3563b42c555"
+  },
+  {
+   "rotulo": "Kvasir: imagens de teste com mascara / total; unidades; excluidas (sem posicao / area > max)",
+   "valor": "303/1291; 243; 44 / 16",
+   "fonte": "data/kvasir/inventory_kvasir_test_clean.json",
+   "sha256": "e4596ca85eb694d0bb947d06ad2f2691c38f30e7f8a12a732de641756573b21b"
+  },
+  {
+   "rotulo": "HEAL: regra da mascara deslocada",
+   "valor": "outra anatomia da mesma imagem com razao de area 0,7-1,4 e sobreposicao <= 5 % do alvo; senao espelho horizontal; senao posicionador do Kvasir com >= 80 % dentro do atlas toracico (pixels anotados em >= 2 % das mascaras)",
+   "fonte": "src/harness/isbi_placebo/heal/inventory_heal.py",
+   "sha256": "1b809146fbbc3bcfd540d39d40a9c5b14515aa5c78a3829fb1e91f4262ccce0c",
+   "nota": "AREA_RATIO = (0.7, 1.4); MAX_OVERLAP = 0.05; thorax_atlas MIN_FREQ = 0.02"
+  },
+  {
+   "rotulo": "HEAL: metodo por unidade (1 360)",
+   "valor": {
+    "hflip": 653,
+    "anatomy": 153,
+    "translate": 520,
+    "rot180": 20,
+    "vflip": 14
+   },
+   "fonte": "manifest_heal.json",
+   "sha256": "fff8c7371afee731560704f9861903e9251b813fff2990b5b883d0003dd7de08"
+  },
+  {
+   "rotulo": "HEAL: fechadas sem posicao valida",
+   "valor": 69,
+   "fonte": "inventory_heal_test.json",
+   "sha256": "8affb4cc927e1c6ad7a552e0450da84b3333f1faf9b2371059f40831251ebf5d"
+  },
+  {
+   "rotulo": "MIMIC: regra da regiao-alvo",
+   "valor": "uniao das caixas do Chest ImaGenome das regioes-folha (mais finas) com o atributo mapeado; regiao-mae descartada quando uma descendente tem o atributo",
+   "fonte": "16_inventory_mimic.py",
+   "sha256": "f0f3bdfa0eba02a6a5c4a58e9278687d92c87a0a2f410104ffc0ff2b0e637906"
+  },
+  {
+   "rotulo": "MIMIC: regra da mascara deslocada (v2, alvos com > 1 caixa)",
+   "valor": "por caixa: anatomia homologa sem o atributo (razao 0,8-1,25) -> translacao vertical com area exata (pares bilaterais juntos) -> espelho horizontal -> anatomia ampliada (razao 0,5-2,0); >= 80 % no atlas, inteira no filme, sem tocar o alvo dilatado em 5 px, caixas sem sobreposicao entre si; alvos de 1 caixa: regra do HEAL",
+   "fonte": "16_inventory_mimic.py",
+   "sha256": "f0f3bdfa0eba02a6a5c4a58e9278687d92c87a0a2f410104ffc0ff2b0e637906"
+  },
+  {
+   "rotulo": "MIMIC: metodos por caixa (avaliaveis)",
+   "valor": {
+    "anatomy": 1043,
+    "vtrans": 534,
+    "hflip": 155,
+    "vtrans_pair": 1674,
+    "translate": 125,
+    "vflip": 67,
+    "anatomy_wide": 2
+   },
+   "fonte": "inventory_mimic_test.json",
+   "sha256": "38b5098d463f8fe316dab27969e4dd7e9860279ceddcace7c272d4a3f6af1b6b"
+  },
+  {
+   "rotulo": "MIMIC: metodos por unidade (avaliaveis)",
+   "valor": {
+    "multi:anatomy": 173,
+    "multi:hflip+vtrans": 32,
+    "multi:anatomy+vtrans": 179,
+    "hflip": 105,
+    "multi:vtrans_pair": 656,
+    "anatomy": 448,
+    "multi:vtrans": 101,
+    "multi:vtrans+vtrans_pair": 40,
+    "translate": 125,
+    "multi:anatomy+vtrans+vtrans_pair": 20,
+    "vflip": 67,
+    "multi:anatomy+vtrans_pair": 25,
+    "multi:hflip+vtrans_pair": 5,
+    "multi:hflip": 2,
+    "multi:anatomy+hflip+vtrans": 3,
+    "multi:hflip+vtrans+vtrans_pair": 2,
+    "multi:anatomy+anatomy_wide": 1,
+    "multi:anatomy_wide+hflip": 1
+   },
+   "fonte": "inventory_mimic_test.json",
+   "sha256": "38b5098d463f8fe316dab27969e4dd7e9860279ceddcace7c272d4a3f6af1b6b"
+  },
+  {
+   "rotulo": "MIMIC: avaliaveis / total (inventario v2)",
+   "valor": "1985/3000",
+   "fonte": "inventory_mimic_test.json",
+   "sha256": "38b5098d463f8fe316dab27969e4dd7e9860279ceddcace7c272d4a3f6af1b6b",
+   "nota": "o prompt cita 2 152/3 000, que e o inventario v1 (11/10); as predicoes existentes usam o v2"
+  },
+  {
+   "rotulo": "MIMIC: teto de area do alvo",
+   "valor": "40 % do quadro inteiro",
+   "fonte": "inventory_mimic_test.json",
+   "sha256": "38b5098d463f8fe316dab27969e4dd7e9860279ceddcace7c272d4a3f6af1b6b"
+  },
+  {
+   "rotulo": "blur 10 %",
+   "valor": "filtro gaussiano com sigma = 10 % da largura da imagem, aplicado so na regiao",
+   "fonte": "src/harness/isbi_placebo/conditions.py",
+   "sha256": "755c616ce07a8995f8c2f2885ce85704a2ec255cccb7500c1cc74638b58426f3",
+   "nota": "fill_region: sigma = float(fill[4:]) / 100.0 * img.shape[1]"
+  },
+  {
+   "rotulo": "cor media da regiao",
+   "valor": "media RGB dos pixels da propria regiao (remove a forma, mantem a cor local)",
+   "fonte": "src/harness/isbi_placebo/conditions.py",
+   "sha256": "755c616ce07a8995f8c2f2885ce85704a2ec255cccb7500c1cc74638b58426f3",
+   "nota": "fill_region('regmean')"
+  },
+  {
+   "rotulo": "codificacao das condicoes",
+   "valor": "C0 = bytes originais do arrow (HEAL/MIMIC: PNG lado maior 1024); demais = PNG sem perda a partir dos pixels decodificados",
+   "fonte": "src/harness/isbi_placebo/conditions.py",
+   "sha256": "755c616ce07a8995f8c2f2885ce85704a2ec255cccb7500c1cc74638b58426f3",
+   "nota": "encode_png"
+  },
+  {
+   "rotulo": "reencode JPEG (piloto Qwen2-VL LoRA s0, Kvasir): predicoes da intacta que mudam",
+   "valor": "50 de 2121 = 2.36 %",
+   "fonte": "necessity_QWEN2VL_LORA_KVASIR_seed0_jpeg_pilot.json",
+   "sha256": "0241e8b7ef5bf9dcc8871255c35ff0e8dccd2fe61c98659aa67bd6689293759e"
+  },
+  {
+   "rotulo": "reencode JPEG: delta de acuracia da intacta",
+   "valor": "+0.19 pp",
+   "fonte": "necessity_QWEN2VL_LORA_KVASIR_seed0_jpeg_pilot.json",
+   "sha256": "0241e8b7ef5bf9dcc8871255c35ff0e8dccd2fe61c98659aa67bd6689293759e"
+  },
+  {
+   "rotulo": "composicao de lote (0,6-0,7 %)",
+   "valor": "sem fonte localizada na gpu1",
+   "fonte": "preregistration_v2.md",
+   "sha256": "b8e2b8f47bcb8367306412a68a86caf813aaf088ce84791c1b8caa9aff2af267",
+   "nota": "o pre-registro (E1) registra 0 predicoes diferentes na intacta reproduzida em bytes originais ('a inferencia independe da composicao dos lotes')"
+  },
+  {
+   "rotulo": "receita: Qwen2-VL LoRA, encoder congelado (Kvasir semente 0)",
+   "valor": "lr 0.0002; epocas 3; grad_accum 4; parametros treinaveis 4358144 de 2213343744 (0.001969031702289439)",
+   "fonte": "qwen2vl_lora_kvasir_seed0.json",
+   "sha256": "cdc328a0d0416363aeec28be5eec4578b8f68bf693376de1276c71e72487b860"
+  },
+  {
+   "rotulo": "receita: Qwen2-VL DoRA, encoder congelado (Kvasir semente 0)",
+   "valor": "lr 0.0002; epocas 3; grad_accum 4; parametros treinaveis 4458496 de 2213444096 (0.002014279921529132)",
+   "fonte": "qwen2vl_dora_kvasir_seed0.json",
+   "sha256": "ff35f06625cd71abc5de2b040ad6bc36ae5ec9ce78e9f7981ff1fec2a85f2e4a"
+  },
+  {
+   "rotulo": "receita: SmolVLM2 LoRA, encoder afinado (Kvasir semente 0)",
+   "valor": "lr 0.0002; epocas 3; grad_accum 4; parametros treinaveis 9277440 de 2256062320 (0.004112226828911357)",
+   "fonte": "smolvlm2_lora_kvasir_seed0.json",
+   "sha256": "f41982b73ecedcb7a0be10cc9118edef03315baa9fde93bc9d9b0270587382d5"
+  },
+  {
+   "rotulo": "receita: SmolVLM2 DoRA, encoder afinado (Kvasir semente 0)",
+   "valor": "lr 0.0002; epocas 3; grad_accum 4; parametros treinaveis 9567360 de 2256352240 (0.004240189022969215)",
+   "fonte": "smolvlm2_dora_kvasir_seed0.json",
+   "sha256": "dbfbc83e98d5d1fc5145cc684e5ec484f59fe3d7f828ee489b7a494689a6088f"
+  },
+  {
+   "rotulo": "receita: Qwen2-VL LoRA, encoder afinado (Kvasir semente 0)",
+   "valor": "lr 0.0002; epocas 3; grad_accum 4; parametros treinaveis 8290304 de 2217275904 (0.0037389591367696564)",
+   "fonte": "qwen2vl_lora_vt_kvasir_seed0.json",
+   "sha256": "caab5503cc30fa8a8c45589583055364c50a81091b2e225f31c4feca1c21de2b"
+  },
+  {
+   "rotulo": "receita: Qwen2-VL DoRA, encoder afinado (Kvasir semente 0)",
+   "valor": "lr 0.0002; epocas 3; grad_accum 4; parametros treinaveis 8554496 de 2217540096 (0.0038576511042260767)",
+   "fonte": "qwen2vl_dora_vt_kvasir_seed0.json",
+   "sha256": "c61bb4feedbba94e5edc99db9faf91eb4ffa2061522bbad5ff5cb7482ab350b7"
+  },
+  {
+   "rotulo": "receita: SmolVLM2 LoRA, encoder congelado (Kvasir semente 0)",
+   "valor": "lr 0.0002; epocas 3; grad_accum 4; parametros treinaveis 6291456 de 2253076336 (0.0027923847494530697)",
+   "fonte": "smolvlm2_lora_ft_kvasir_seed0.json",
+   "sha256": "700e9de5df42795d66d66f796053fba63573f5ca209008462b73bd4815bcdafd"
+  },
+  {
+   "rotulo": "receita: SmolVLM2 DoRA, encoder congelado (Kvasir semente 0)",
+   "valor": "lr 0.0002; epocas 3; grad_accum 4; parametros treinaveis 6488064 de 2253272944 (0.002879395510994961)",
+   "fonte": "smolvlm2_dora_ft_kvasir_seed0.json",
+   "sha256": "3538ece5c5780dd4e39c66e41b7f25b954c6d286c904f3ac553d7f80a5386680"
+  },
+  {
+   "rotulo": "receita LoRA/DoRA (YAML do HEAL)",
+   "valor": "r 16; lora_alpha 32; target_modules [q_proj, k_proj, v_proj, o_proj]; lr 2e-4; epocas 3; batch 4 x grad_accum 4",
+   "fonte": "configs/training/heal/qwen2vl_lora_heal.yaml",
+   "sha256": "f399b9a544e57cda224ccb6150f5d5dafd91093e0fc6e5f63e43c0e42c87fc15"
+  },
+  {
+   "rotulo": "text-decoder-only",
+   "valor": "mesma receita de ajuste, sem imagem; LoRA so no modelo de linguagem (Qwen2-VL e SmolVLM2: LoRA em todas as celulas, inclusive para as linhas DoRA); M3AE: treinado com imagem cinza constante (384x384, RGB 128) no treino, validacao e teste",
+   "fonte": "README.md",
+   "sha256": "1db7a0c4ab54f589d391a4a1d8bbbd0b1106ebf629793ecaadc0c0724c03c7c3"
+  },
+  {
+   "rotulo": "classificador so-pergunta (TF-IDF)",
+   "valor": "TF-IDF de palavras 1-2-gramas + regressao logistica (C = 1), sem imagem; Kvasir por item publicado; HEAL alinhado aos 1 446 qids; MIMIC M0 subset nas fechadas",
+   "fonte": "src/harness/isbi_placebo/heal/m0_heal.py",
+   "sha256": "b010fbe514e5b8d22aea018253a78f71578fc386bf9f3ed9e3e3d73db5fee4e8"
+  }
+ ]
+}

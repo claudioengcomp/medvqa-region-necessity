@@ -1,0 +1,59 @@
+run_name: qwen2vl_dora_heal
+model: QWEN2VL
+dataset: HEAL
+peft: DORA
+# Variant of qwen2vl_dora_heal.yaml to RESUME the seed 2 training on gpu-server-b from
+# checkpoints/qwen2vl_dora_heal_seed2/step_5000 (16/09/2026): the process crashed in the evaluation of
+# step 5000 due to an environment error on gpu-server-b (system libstdc++ without CXXABI_1.3.15, required by
+# conda's libicu when importing sqlite3 via nltk/rouge); fixed with the env's LD_LIBRARY_PATH.
+# Same pattern as smolvlm2_dora_kvasir_resume_seed{1,2}.yaml: run_name equal to the original (with
+# --seed 2 the tag becomes qwen2vl_dora_heal_seed2, same directories); max_steps = ceil(14740/4)*3 =
+# 11055, the total the original training would compute (confirmed by the last step 11050 logged on gpu-server-a);
+# scheduler_total_steps = 2766 keeps the cosine schedule of the original training (1st resume attempt, 09:12-11:20
+# UTC on 16/09/2026, aborted: without this field the lr went back to 0.0002 at step 5010).
+peft_config:
+  r: 16
+  lora_alpha: 32
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+  task_type: CAUSAL_LM
+train:
+  lr: 2e-4
+  warmup_ratio: 0.05
+  epochs: 3
+  batch_size: 4
+  grad_accum_steps: 4
+  max_length: 8192
+  gradient_checkpointing: true
+  compile: true
+  eval_every: 5000
+  checkpoint_every: 5000
+  start_step: 5000
+  max_steps: 11055
+  resume_from_checkpoint: checkpoints/qwen2vl_dora_heal_seed2/step_5000
+  # total OPTIMIZER steps of the original training: ceil(3685 micro-batches / 4) * 3 epochs.
+  # Without this the scheduler would be recreated over max_steps (11055) and the lr would return to its peak.
+  scheduler_total_steps: 2766
+eval:
+  batch_size: 2
+  max_new_tokens: 64
+logging:
+  wandb_project: "med-vlm"
+  wandb_run_name: "qwen2vl_dora_heal"
+outputs_dir: "./outputs"
+
+# Image preprocessing applied once at dataset load (cached).
+# All options default to false — enable to experiment.
+preprocessing:
+  denoise: true
+  denoise_method: "gaussian" # "gaussian" (mild) or "bilateral" (edge-preserving)
+  clahe: true
+  clahe_clip_limit: 2.0
+  clahe_tile_grid_size: [8, 8]
+
+# Online training-time augmentation (applied per batch, training only).
+# No flips — intentionally omitted to preserve laterality answers.
+augmentation:
+  enabled: true
+  rotation_degrees: 5
+  brightness_range: [0.85, 1.15]
+  contrast_range: [0.85, 1.15]

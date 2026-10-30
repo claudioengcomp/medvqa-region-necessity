@@ -1,0 +1,42 @@
+run_name: granite_vision_lora_med_vqa
+model: GRANITE_VISION
+dataset: VQA_MED
+peft: LORA
+peft_config:
+  r: 16
+  lora_alpha: 32
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+  task_type: CAUSAL_LM
+train:
+  lr: 2e-4
+  warmup_ratio: 0.05
+  epochs: 3
+  batch_size: 2
+  grad_accum_steps: 16
+  max_length: 8192
+  gradient_checkpointing: true
+  compile: false
+  eval_every: 5000
+  checkpoint_every: 5000
+  split: test
+eval:
+  batch_size: 2
+  split: test
+  max_new_tokens: 64
+logging:
+  wandb_project: "med-vlm"
+  wandb_run_name: "granite_vision_lora_med_vqa"
+outputs_dir: "./outputs"
+
+preprocessing:
+  denoise: true
+  denoise_method: "gaussian" # "gaussian" (mild) or "bilateral" (edge-preserving)
+  clahe: true
+  clahe_clip_limit: 2.0
+  clahe_tile_grid_size: [8, 8]
+
+augmentation:
+  enabled: true
+  rotation_degrees: 5
+  brightness_range: [0.85, 1.15]
+  contrast_range: [0.85, 1.15]

@@ -1,0 +1,46 @@
+run_name: qwen2vl_dora_heal_seed2_retrain20261003
+model: QWEN2VL
+dataset: HEAL
+peft: DORA
+peft_config:
+  r: 16
+  lora_alpha: 32
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+  task_type: CAUSAL_LM
+train:
+  lr: 2e-4
+  warmup_ratio: 0.05
+  epochs: 3
+  batch_size: 4
+  grad_accum_steps: 4
+  max_length: 8192
+  gradient_checkpointing: true
+  compile: true
+  eval_every: 5000
+  checkpoint_every: 15000
+  checkpoint_dir: ${OUTPUT_ROOT}/heal/checkpoints
+  seed: 2
+eval:
+  batch_size: 2
+  max_new_tokens: 64
+logging:
+  wandb_project: "med-vlm"
+  wandb_run_name: "qwen2vl_dora_heal"
+outputs_dir: ${OUTPUT_ROOT}/heal
+
+# Image preprocessing applied once at dataset load (cached).
+# All options default to false — enable to experiment.
+preprocessing:
+  denoise: true
+  denoise_method: "gaussian" # "gaussian" (mild) or "bilateral" (edge-preserving)
+  clahe: true
+  clahe_clip_limit: 2.0
+  clahe_tile_grid_size: [8, 8]
+
+# Online training-time augmentation (applied per batch, training only).
+# No flips — intentionally omitted to preserve laterality answers.
+augmentation:
+  enabled: true
+  rotation_degrees: 5
+  brightness_range: [0.85, 1.15]
+  contrast_range: [0.85, 1.15]

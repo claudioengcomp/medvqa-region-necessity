@@ -1,0 +1,672 @@
+{
+ "t": "2026-10-30 19:02:47",
+ "treino": {
+  "KVASIR": {
+   "arquivo": "vqa_kvasir_train_clean.arrow",
+   "sha256": "3f75d18fa1129a65623d45e9f9a08b6748e660d4fc8dcdb969692e8d870fa502"
+  },
+  "HEAL": {
+   "arquivo": "vqa_heal_train.arrow",
+   "sha256": "47fd265f5dd5658a3569bf15248be072975876f809b4d246b509933c93b31db9"
+  },
+  "MIMIC": {
+   "arquivo": "items_train.parquet",
+   "sha256": "e63d07e2a38f353b56d91c0fcfdbd33564a7c4ad70805357cb307cde4520f0fb"
+  }
+ },
+ "bases": {
+  "KVASIR": {
+   "arquivos": {
+    "QWEN2VL_s0": "results/predictions/kvasir/no_image/QWEN2VL_LORA_TXT_KVASIR_seed0_TXT.json",
+    "QWEN2VL_s1": "results/predictions/kvasir/no_image/QWEN2VL_LORA_TXT_KVASIR_seed1_TXT.json",
+    "QWEN2VL_s2": "results/predictions/kvasir/no_image/QWEN2VL_LORA_TXT_KVASIR_seed2_TXT.json",
+    "SMOLVLM_s0": "results/predictions/kvasir/no_image/SMOLVLM_LORA_TXT_KVASIR_seed0_TXT.json",
+    "SMOLVLM_s1": "results/predictions/kvasir/no_image/SMOLVLM_LORA_TXT_KVASIR_seed1_TXT.json",
+    "SMOLVLM_s2": "results/predictions/kvasir/no_image/SMOLVLM_LORA_TXT_KVASIR_seed2_TXT.json",
+    "M3AE_s0": "results/predictions/kvasir/no_image/M3AE_TXT_KVASIR_seed0_TXT.json",
+    "M3AE_s1": "results/predictions/kvasir/no_image/M3AE_TXT_KVASIR_seed1_TXT.json",
+    "M3AE_s2": "results/predictions/kvasir/no_image/M3AE_TXT_KVASIR_seed2_TXT.json"
+   },
+   "pares_sementes": {
+    "QWEN2VL s0-s1": {
+     "n": 10779,
+     "discordantes": 0
+    },
+    "QWEN2VL s0-s2": {
+     "n": 10779,
+     "discordantes": 0
+    },
+    "QWEN2VL s1-s2": {
+     "n": 10779,
+     "discordantes": 0
+    },
+    "SMOLVLM s0-s1": {
+     "n": 10779,
+     "discordantes": 0
+    },
+    "SMOLVLM s0-s2": {
+     "n": 10779,
+     "discordantes": 0
+    },
+    "SMOLVLM s1-s2": {
+     "n": 10779,
+     "discordantes": 0
+    },
+    "M3AE s0-s1": {
+     "n": 10779,
+     "discordantes": 0
+    },
+    "M3AE s0-s2": {
+     "n": 10779,
+     "discordantes": 12
+    },
+    "M3AE s1-s2": {
+     "n": 10779,
+     "discordantes": 12
+    }
+   },
+   "pares_familias": {
+    "s0 QWEN2VL-SMOLVLM": {
+     "n": 10779,
+     "discordantes": 623
+    },
+    "s0 QWEN2VL-M3AE": {
+     "n": 10779,
+     "discordantes": 623
+    },
+    "s0 SMOLVLM-M3AE": {
+     "n": 10779,
+     "discordantes": 0
+    },
+    "s1 QWEN2VL-SMOLVLM": {
+     "n": 10779,
+     "discordantes": 623
+    },
+    "s1 QWEN2VL-M3AE": {
+     "n": 10779,
+     "discordantes": 623
+    },
+    "s1 SMOLVLM-M3AE": {
+     "n": 10779,
+     "discordantes": 0
+    },
+    "s2 QWEN2VL-SMOLVLM": {
+     "n": 10779,
+     "discordantes": 623
+    },
+    "s2 QWEN2VL-M3AE": {
+     "n": 10779,
+     "discordantes": 635
+    },
+    "s2 SMOLVLM-M3AE": {
+     "n": 10779,
+     "discordantes": 12
+    }
+   },
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "n_template_no_treino": 943,
+     "QWEN2VL_s0_frac_majoritaria_template": 0.855779427359491,
+     "QWEN2VL_s0_respostas_distintas": 6,
+     "QWEN2VL_s1_frac_majoritaria_template": 0.855779427359491,
+     "QWEN2VL_s1_respostas_distintas": 6,
+     "QWEN2VL_s2_frac_majoritaria_template": 0.855779427359491,
+     "QWEN2VL_s2_respostas_distintas": 6,
+     "SMOLVLM_s0_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s0_respostas_distintas": 6,
+     "SMOLVLM_s1_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s1_respostas_distintas": 6,
+     "SMOLVLM_s2_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s2_respostas_distintas": 6,
+     "M3AE_s0_frac_majoritaria_template": 1.0,
+     "M3AE_s0_respostas_distintas": 6,
+     "M3AE_s1_frac_majoritaria_template": 1.0,
+     "M3AE_s1_respostas_distintas": 6,
+     "M3AE_s2_frac_majoritaria_template": 1.0,
+     "M3AE_s2_respostas_distintas": 6
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "n_template_no_treino": 314,
+     "QWEN2VL_s0_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s0_respostas_distintas": 2,
+     "QWEN2VL_s1_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s1_respostas_distintas": 2,
+     "QWEN2VL_s2_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s2_respostas_distintas": 2,
+     "M3AE_s0_frac_majoritaria_template": 1.0,
+     "M3AE_s0_respostas_distintas": 2,
+     "M3AE_s1_frac_majoritaria_template": 1.0,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 1.0,
+     "M3AE_s2_respostas_distintas": 2
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "n_template_no_treino": 136,
+     "QWEN2VL_s0_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s0_respostas_distintas": 1,
+     "QWEN2VL_s1_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s1_respostas_distintas": 1,
+     "QWEN2VL_s2_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s2_respostas_distintas": 1,
+     "SMOLVLM_s0_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s0_respostas_distintas": 1,
+     "SMOLVLM_s1_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s1_respostas_distintas": 1,
+     "SMOLVLM_s2_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s2_respostas_distintas": 1,
+     "M3AE_s0_frac_majoritaria_template": 1.0,
+     "M3AE_s0_respostas_distintas": 1,
+     "M3AE_s1_frac_majoritaria_template": 1.0,
+     "M3AE_s1_respostas_distintas": 1,
+     "M3AE_s2_frac_majoritaria_template": 1.0,
+     "M3AE_s2_respostas_distintas": 1
+    },
+    "controle_texto": {
+     "n": 243,
+     "n_template_no_treino": 243,
+     "QWEN2VL_s0_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s0_respostas_distintas": 1,
+     "QWEN2VL_s1_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s1_respostas_distintas": 1,
+     "QWEN2VL_s2_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s2_respostas_distintas": 1,
+     "SMOLVLM_s0_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s0_respostas_distintas": 1,
+     "SMOLVLM_s1_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s1_respostas_distintas": 1,
+     "SMOLVLM_s2_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s2_respostas_distintas": 1,
+     "M3AE_s0_frac_majoritaria_template": 1.0,
+     "M3AE_s0_respostas_distintas": 1,
+     "M3AE_s1_frac_majoritaria_template": 1.0,
+     "M3AE_s1_respostas_distintas": 1,
+     "M3AE_s2_frac_majoritaria_template": 1.0,
+     "M3AE_s2_respostas_distintas": 1
+    }
+   }
+  },
+  "HEAL": {
+   "arquivos": {
+    "QWEN2VL_s0": "QWEN2VL_LORA_TXT_HEAL_seed0_TXT.json",
+    "QWEN2VL_s1": "QWEN2VL_LORA_TXT_HEAL_seed1_TXT.json",
+    "QWEN2VL_s2": "QWEN2VL_LORA_TXT_HEAL_seed2_TXT.json",
+    "SMOLVLM_s0": "SMOLVLM_LORA_TXT_HEAL_seed0_TXT.json",
+    "SMOLVLM_s1": "SMOLVLM_LORA_TXT_HEAL_seed1_TXT.json",
+    "SMOLVLM_s2": "SMOLVLM_LORA_TXT_HEAL_seed2_TXT.json",
+    "M3AE_s0": "M3AE_TXT_HEAL_seed0_TXT.json",
+    "M3AE_s1": "M3AE_TXT_HEAL_seed1_TXT.json",
+    "M3AE_s2": "M3AE_TXT_HEAL_seed2_TXT.json"
+   },
+   "pares_sementes": {
+    "QWEN2VL s0-s1": {
+     "n": 1446,
+     "discordantes": 26
+    },
+    "QWEN2VL s0-s2": {
+     "n": 1446,
+     "discordantes": 33
+    },
+    "QWEN2VL s1-s2": {
+     "n": 1446,
+     "discordantes": 17
+    },
+    "SMOLVLM s0-s1": {
+     "n": 1446,
+     "discordantes": 27
+    },
+    "SMOLVLM s0-s2": {
+     "n": 1446,
+     "discordantes": 37
+    },
+    "SMOLVLM s1-s2": {
+     "n": 1446,
+     "discordantes": 22
+    },
+    "M3AE s0-s1": {
+     "n": 1446,
+     "discordantes": 12
+    },
+    "M3AE s0-s2": {
+     "n": 1446,
+     "discordantes": 55
+    },
+    "M3AE s1-s2": {
+     "n": 1446,
+     "discordantes": 55
+    }
+   },
+   "pares_familias": {
+    "s0 QWEN2VL-SMOLVLM": {
+     "n": 1446,
+     "discordantes": 43
+    },
+    "s0 QWEN2VL-M3AE": {
+     "n": 1446,
+     "discordantes": 29
+    },
+    "s0 SMOLVLM-M3AE": {
+     "n": 1446,
+     "discordantes": 36
+    },
+    "s1 QWEN2VL-SMOLVLM": {
+     "n": 1446,
+     "discordantes": 24
+    },
+    "s1 QWEN2VL-M3AE": {
+     "n": 1446,
+     "discordantes": 33
+    },
+    "s1 SMOLVLM-M3AE": {
+     "n": 1446,
+     "discordantes": 45
+    },
+    "s2 QWEN2VL-SMOLVLM": {
+     "n": 1446,
+     "discordantes": 23
+    },
+    "s2 QWEN2VL-M3AE": {
+     "n": 1446,
+     "discordantes": 25
+    },
+    "s2 SMOLVLM-M3AE": {
+     "n": 1446,
+     "discordantes": 34
+    }
+   },
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "n_template_no_treino": 711,
+     "QWEN2VL_s0_frac_majoritaria_template": 0.9521800281293952,
+     "QWEN2VL_s0_respostas_distintas": 2,
+     "QWEN2VL_s1_frac_majoritaria_template": 0.9437412095639943,
+     "QWEN2VL_s1_respostas_distintas": 2,
+     "QWEN2VL_s2_frac_majoritaria_template": 0.9465541490857946,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 0.9367088607594937,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 0.9437412095639943,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 0.9451476793248945,
+     "SMOLVLM_s2_respostas_distintas": 2,
+     "M3AE_s0_frac_majoritaria_template": 0.9409282700421941,
+     "M3AE_s0_respostas_distintas": 2,
+     "M3AE_s1_frac_majoritaria_template": 0.9423347398030942,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 0.9367088607594937,
+     "M3AE_s2_respostas_distintas": 2
+    },
+    "closed_no": {
+     "n": 735,
+     "n_template_no_treino": 735,
+     "QWEN2VL_s0_frac_majoritaria_template": 0.9469387755102041,
+     "QWEN2VL_s0_respostas_distintas": 2,
+     "QWEN2VL_s1_frac_majoritaria_template": 0.9523809523809523,
+     "QWEN2VL_s1_respostas_distintas": 2,
+     "QWEN2VL_s2_frac_majoritaria_template": 0.9564625850340136,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 0.9414965986394558,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 0.9551020408163265,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 0.9564625850340136,
+     "SMOLVLM_s2_respostas_distintas": 2,
+     "M3AE_s0_frac_majoritaria_template": 0.9428571428571428,
+     "M3AE_s0_respostas_distintas": 2,
+     "M3AE_s1_frac_majoritaria_template": 0.9469387755102041,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 0.9537414965986395,
+     "M3AE_s2_respostas_distintas": 2
+    }
+   }
+  },
+  "MIMIC": {
+   "arquivos": {
+    "QWEN2VL_s0": "QWEN2VL_LORA_TXT_MIMIC_seed0_TXT.json",
+    "QWEN2VL_s1": "QWEN2VL_LORA_TXT_MIMIC_seed1_TXT.json",
+    "QWEN2VL_s2": "QWEN2VL_LORA_TXT_MIMIC_seed2_TXT.json",
+    "SMOLVLM_s0": "SMOLVLM_LORA_TXT_MIMIC_seed0_TXT.json",
+    "SMOLVLM_s1": "SMOLVLM_LORA_TXT_MIMIC_seed1_TXT.json",
+    "SMOLVLM_s2": "SMOLVLM_LORA_TXT_MIMIC_seed2_TXT.json",
+    "M3AE_s0": "M3AE_TXT_MIMIC_seed0_TXT.json",
+    "M3AE_s1": "M3AE_TXT_MIMIC_seed1_TXT.json",
+    "M3AE_s2": "M3AE_TXT_MIMIC_seed2_TXT.json"
+   },
+   "pares_sementes": {
+    "QWEN2VL s0-s1": {
+     "n": 3000,
+     "discordantes": 63
+    },
+    "QWEN2VL s0-s2": {
+     "n": 3000,
+     "discordantes": 183
+    },
+    "QWEN2VL s1-s2": {
+     "n": 3000,
+     "discordantes": 207
+    },
+    "SMOLVLM s0-s1": {
+     "n": 3000,
+     "discordantes": 241
+    },
+    "SMOLVLM s0-s2": {
+     "n": 3000,
+     "discordantes": 439
+    },
+    "SMOLVLM s1-s2": {
+     "n": 3000,
+     "discordantes": 211
+    },
+    "M3AE s0-s1": {
+     "n": 3000,
+     "discordantes": 261
+    },
+    "M3AE s0-s2": {
+     "n": 3000,
+     "discordantes": 378
+    },
+    "M3AE s1-s2": {
+     "n": 3000,
+     "discordantes": 229
+    }
+   },
+   "pares_familias": {
+    "s0 QWEN2VL-SMOLVLM": {
+     "n": 3000,
+     "discordantes": 210
+    },
+    "s0 QWEN2VL-M3AE": {
+     "n": 3000,
+     "discordantes": 543
+    },
+    "s0 SMOLVLM-M3AE": {
+     "n": 3000,
+     "discordantes": 484
+    },
+    "s1 QWEN2VL-SMOLVLM": {
+     "n": 3000,
+     "discordantes": 410
+    },
+    "s1 QWEN2VL-M3AE": {
+     "n": 3000,
+     "discordantes": 586
+    },
+    "s1 SMOLVLM-M3AE": {
+     "n": 3000,
+     "discordantes": 446
+    },
+    "s2 QWEN2VL-SMOLVLM": {
+     "n": 3000,
+     "discordantes": 441
+    },
+    "s2 QWEN2VL-M3AE": {
+     "n": 3000,
+     "discordantes": 319
+    },
+    "s2 SMOLVLM-M3AE": {
+     "n": 3000,
+     "discordantes": 416
+    }
+   },
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "n_template_no_treino": 420,
+     "QWEN2VL_s0_frac_majoritaria_template": 0.9285714285714286,
+     "QWEN2VL_s0_frac_majoritaria_template_id": 0.48306997742663654,
+     "QWEN2VL_s0_respostas_distintas": 2,
+     "QWEN2VL_s1_frac_majoritaria_template": 0.9380952380952381,
+     "QWEN2VL_s1_frac_majoritaria_template_id": 0.48758465011286684,
+     "QWEN2VL_s1_respostas_distintas": 2,
+     "QWEN2VL_s2_frac_majoritaria_template": 0.9904761904761905,
+     "QWEN2VL_s2_frac_majoritaria_template_id": 0.5304740406320542,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 0.969047619047619,
+     "SMOLVLM_s0_frac_majoritaria_template_id": 0.5507900677200903,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 0.9833333333333333,
+     "SMOLVLM_s1_frac_majoritaria_template_id": 0.5349887133182845,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 0.9285714285714286,
+     "SMOLVLM_s2_frac_majoritaria_template_id": 0.4762979683972912,
+     "SMOLVLM_s2_respostas_distintas": 2,
+     "M3AE_s0_frac_majoritaria_template": 0.9714285714285714,
+     "M3AE_s0_frac_majoritaria_template_id": 0.5440180586907449,
+     "M3AE_s0_respostas_distintas": 2,
+     "M3AE_s1_frac_majoritaria_template": 0.9119047619047619,
+     "M3AE_s1_frac_majoritaria_template_id": 0.5778781038374717,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 0.9761904761904762,
+     "M3AE_s2_frac_majoritaria_template_id": 0.5259593679458239,
+     "M3AE_s2_respostas_distintas": 2
+    },
+    "closed_no": {
+     "n": 67,
+     "n_template_no_treino": 56,
+     "QWEN2VL_s0_frac_majoritaria_template": 0.9107142857142857,
+     "QWEN2VL_s0_frac_majoritaria_template_id": 0.47761194029850745,
+     "QWEN2VL_s0_respostas_distintas": 2,
+     "QWEN2VL_s1_frac_majoritaria_template": 0.9464285714285714,
+     "QWEN2VL_s1_frac_majoritaria_template_id": 0.47761194029850745,
+     "QWEN2VL_s1_respostas_distintas": 2,
+     "QWEN2VL_s2_frac_majoritaria_template": 0.9285714285714286,
+     "QWEN2VL_s2_frac_majoritaria_template_id": 0.4626865671641791,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 0.9107142857142857,
+     "SMOLVLM_s0_frac_majoritaria_template_id": 0.4925373134328358,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 0.9464285714285714,
+     "SMOLVLM_s1_frac_majoritaria_template_id": 0.43283582089552236,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 0.9285714285714286,
+     "SMOLVLM_s2_frac_majoritaria_template_id": 0.44776119402985076,
+     "SMOLVLM_s2_respostas_distintas": 2,
+     "M3AE_s0_frac_majoritaria_template": 0.9107142857142857,
+     "M3AE_s0_frac_majoritaria_template_id": 0.5373134328358209,
+     "M3AE_s0_respostas_distintas": 2,
+     "M3AE_s1_frac_majoritaria_template": 0.9285714285714286,
+     "M3AE_s1_frac_majoritaria_template_id": 0.373134328358209,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 0.9285714285714286,
+     "M3AE_s2_frac_majoritaria_template_id": 0.44776119402985076,
+     "M3AE_s2_respostas_distintas": 2
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "n_template_no_treino": 93,
+     "QWEN2VL_s0_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s0_frac_majoritaria_template_id": 0.9791666666666666,
+     "QWEN2VL_s0_respostas_distintas": 2,
+     "QWEN2VL_s1_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s1_frac_majoritaria_template_id": 0.9791666666666666,
+     "QWEN2VL_s1_respostas_distintas": 2,
+     "QWEN2VL_s2_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s2_frac_majoritaria_template_id": 0.9791666666666666,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s0_frac_majoritaria_template_id": 0.9791666666666666,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s1_frac_majoritaria_template_id": 0.9791666666666666,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s2_frac_majoritaria_template_id": 0.9791666666666666,
+     "SMOLVLM_s2_respostas_distintas": 2,
+     "M3AE_s0_frac_majoritaria_template": 1.0,
+     "M3AE_s0_frac_majoritaria_template_id": 0.9791666666666666,
+     "M3AE_s0_respostas_distintas": 2,
+     "M3AE_s1_frac_majoritaria_template": 1.0,
+     "M3AE_s1_frac_majoritaria_template_id": 0.9791666666666666,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 1.0,
+     "M3AE_s2_frac_majoritaria_template_id": 0.9791666666666666,
+     "M3AE_s2_respostas_distintas": 2
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "n_template_no_treino": 85,
+     "QWEN2VL_s0_frac_majoritaria_template": 0.9764705882352941,
+     "QWEN2VL_s0_frac_majoritaria_template_id": 0.22988505747126436,
+     "QWEN2VL_s0_respostas_distintas": 2,
+     "QWEN2VL_s1_frac_majoritaria_template": 0.9647058823529412,
+     "QWEN2VL_s1_frac_majoritaria_template_id": 0.21839080459770116,
+     "QWEN2VL_s1_respostas_distintas": 2,
+     "QWEN2VL_s2_frac_majoritaria_template": 0.9882352941176471,
+     "QWEN2VL_s2_frac_majoritaria_template_id": 0.2413793103448276,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 0.9764705882352941,
+     "SMOLVLM_s0_frac_majoritaria_template_id": 0.25287356321839083,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s1_frac_majoritaria_template_id": 0.22988505747126436,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 0.9764705882352941,
+     "SMOLVLM_s2_frac_majoritaria_template_id": 0.20689655172413793,
+     "SMOLVLM_s2_respostas_distintas": 2,
+     "M3AE_s0_frac_majoritaria_template": 0.9764705882352941,
+     "M3AE_s0_frac_majoritaria_template_id": 0.22988505747126436,
+     "M3AE_s0_respostas_distintas": 1,
+     "M3AE_s1_frac_majoritaria_template": 0.9647058823529412,
+     "M3AE_s1_frac_majoritaria_template_id": 0.21839080459770116,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 0.9647058823529412,
+     "M3AE_s2_frac_majoritaria_template_id": 0.19540229885057472,
+     "M3AE_s2_respostas_distintas": 2
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "n_template_no_treino": 63,
+     "QWEN2VL_s0_frac_majoritaria_template": 0.9523809523809523,
+     "QWEN2VL_s0_frac_majoritaria_template_id": 0.2878787878787879,
+     "QWEN2VL_s0_respostas_distintas": 2,
+     "QWEN2VL_s1_frac_majoritaria_template": 0.9682539682539683,
+     "QWEN2VL_s1_frac_majoritaria_template_id": 0.2727272727272727,
+     "QWEN2VL_s1_respostas_distintas": 2,
+     "QWEN2VL_s2_frac_majoritaria_template": 0.9523809523809523,
+     "QWEN2VL_s2_frac_majoritaria_template_id": 0.21212121212121213,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 0.9682539682539683,
+     "SMOLVLM_s0_frac_majoritaria_template_id": 0.25757575757575757,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 0.9682539682539683,
+     "SMOLVLM_s1_frac_majoritaria_template_id": 0.24242424242424243,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 0.9682539682539683,
+     "SMOLVLM_s2_frac_majoritaria_template_id": 0.24242424242424243,
+     "SMOLVLM_s2_respostas_distintas": 2,
+     "M3AE_s0_frac_majoritaria_template": 0.9365079365079365,
+     "M3AE_s0_frac_majoritaria_template_id": 0.24242424242424243,
+     "M3AE_s0_respostas_distintas": 2,
+     "M3AE_s1_frac_majoritaria_template": 0.9206349206349206,
+     "M3AE_s1_frac_majoritaria_template_id": 0.21212121212121213,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 0.9523809523809523,
+     "M3AE_s2_frac_majoritaria_template_id": 0.21212121212121213,
+     "M3AE_s2_respostas_distintas": 2
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "n_template_no_treino": 56,
+     "QWEN2VL_s0_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s0_frac_majoritaria_template_id": 0.08620689655172414,
+     "QWEN2VL_s0_respostas_distintas": 1,
+     "QWEN2VL_s1_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s1_frac_majoritaria_template_id": 0.08620689655172414,
+     "QWEN2VL_s1_respostas_distintas": 1,
+     "QWEN2VL_s2_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s2_frac_majoritaria_template_id": 0.08620689655172414,
+     "QWEN2VL_s2_respostas_distintas": 1,
+     "SMOLVLM_s0_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s0_frac_majoritaria_template_id": 0.08620689655172414,
+     "SMOLVLM_s0_respostas_distintas": 1,
+     "SMOLVLM_s1_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s1_frac_majoritaria_template_id": 0.08620689655172414,
+     "SMOLVLM_s1_respostas_distintas": 1,
+     "SMOLVLM_s2_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s2_frac_majoritaria_template_id": 0.08620689655172414,
+     "SMOLVLM_s2_respostas_distintas": 1,
+     "M3AE_s0_frac_majoritaria_template": 1.0,
+     "M3AE_s0_frac_majoritaria_template_id": 0.08620689655172414,
+     "M3AE_s0_respostas_distintas": 1,
+     "M3AE_s1_frac_majoritaria_template": 1.0,
+     "M3AE_s1_frac_majoritaria_template_id": 0.08620689655172414,
+     "M3AE_s1_respostas_distintas": 1,
+     "M3AE_s2_frac_majoritaria_template": 1.0,
+     "M3AE_s2_frac_majoritaria_template_id": 0.08620689655172414,
+     "M3AE_s2_respostas_distintas": 1
+    },
+    "entidade=edema": {
+     "n": 45,
+     "n_template_no_treino": 42,
+     "QWEN2VL_s0_frac_majoritaria_template": 0.5238095238095238,
+     "QWEN2VL_s0_frac_majoritaria_template_id": 0.13333333333333333,
+     "QWEN2VL_s0_respostas_distintas": 1,
+     "QWEN2VL_s1_frac_majoritaria_template": 0.5238095238095238,
+     "QWEN2VL_s1_frac_majoritaria_template_id": 0.13333333333333333,
+     "QWEN2VL_s1_respostas_distintas": 1,
+     "QWEN2VL_s2_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s2_frac_majoritaria_template_id": 0.5777777777777777,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s0_frac_majoritaria_template_id": 0.5777777777777777,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s1_frac_majoritaria_template_id": 0.5777777777777777,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 0.5238095238095238,
+     "SMOLVLM_s2_frac_majoritaria_template_id": 0.13333333333333333,
+     "SMOLVLM_s2_respostas_distintas": 1,
+     "M3AE_s0_frac_majoritaria_template": 1.0,
+     "M3AE_s0_frac_majoritaria_template_id": 0.5777777777777777,
+     "M3AE_s0_respostas_distintas": 2,
+     "M3AE_s1_frac_majoritaria_template": 0.5476190476190477,
+     "M3AE_s1_frac_majoritaria_template_id": 1.0,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 1.0,
+     "M3AE_s2_frac_majoritaria_template_id": 0.5777777777777777,
+     "M3AE_s2_respostas_distintas": 2
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "n_template_no_treino": 21,
+     "QWEN2VL_s0_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s0_frac_majoritaria_template_id": 0.9565217391304348,
+     "QWEN2VL_s0_respostas_distintas": 2,
+     "QWEN2VL_s1_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s1_frac_majoritaria_template_id": 0.9565217391304348,
+     "QWEN2VL_s1_respostas_distintas": 2,
+     "QWEN2VL_s2_frac_majoritaria_template": 1.0,
+     "QWEN2VL_s2_frac_majoritaria_template_id": 0.9565217391304348,
+     "QWEN2VL_s2_respostas_distintas": 2,
+     "SMOLVLM_s0_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s0_frac_majoritaria_template_id": 0.9565217391304348,
+     "SMOLVLM_s0_respostas_distintas": 2,
+     "SMOLVLM_s1_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s1_frac_majoritaria_template_id": 0.9565217391304348,
+     "SMOLVLM_s1_respostas_distintas": 2,
+     "SMOLVLM_s2_frac_majoritaria_template": 1.0,
+     "SMOLVLM_s2_frac_majoritaria_template_id": 0.9565217391304348,
+     "SMOLVLM_s2_respostas_distintas": 2,
+     "M3AE_s0_frac_majoritaria_template": 1.0,
+     "M3AE_s0_frac_majoritaria_template_id": 0.9565217391304348,
+     "M3AE_s0_respostas_distintas": 2,
+     "M3AE_s1_frac_majoritaria_template": 1.0,
+     "M3AE_s1_frac_majoritaria_template_id": 0.9565217391304348,
+     "M3AE_s1_respostas_distintas": 2,
+     "M3AE_s2_frac_majoritaria_template": 1.0,
+     "M3AE_s2_frac_majoritaria_template_id": 0.9565217391304348,
+     "M3AE_s2_respostas_distintas": 2
+    }
+   }
+  }
+ }
+}

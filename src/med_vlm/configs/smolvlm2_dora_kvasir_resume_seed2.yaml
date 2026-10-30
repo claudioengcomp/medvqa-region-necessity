@@ -1,0 +1,63 @@
+# Variant of smolvlm2_dora_kvasir.yaml to RESUME the seed2 training
+# from checkpoint step_15000 (checkpoints/smolvlm2_dora_kvasir_seed2/),
+# moving from an overloaded GPU0 (contention with another user) to
+# GPU3, which is free -- without losing the ~15k steps already done (04/09/2026).
+#
+# Why a separate file instead of editing the original: the original is
+# shared by the 3 seeds (0/1/2, via --seed on the CLI); hardcoding here a
+# resume_from_checkpoint that only makes sense for seed2 would break a future
+# resume of seed1 (which has its OWN checkpoint in
+# checkpoints/smolvlm2_dora_kvasir_seed1/). run_name/wandb_run_name
+# remain THE SAME as the original -- with --seed 2 on the CLI, the _seed2 suffix
+# becomes the usual tag_for_save (smolvlm2_dora_kvasir_seed2),
+# so checkpoint/output dirs stay the same, without duplicating anything.
+#
+# max_steps=28659 is MANDATORY here (same total that the original training
+# would compute by itself via ceil(38211/4)*3): without it, the training loop
+# (med_vlm/training/trainer.py) has no way of knowing when to stop and
+# would go through all 3 epochs again starting from global_step=15000
+# (reaching 43659), overshooting the LR scheduler total and training
+# ~13.6k steps more than needed with LR~0.
+run_name: smolvlm2_dora_kvasir
+model: SMOLVLM
+dataset: KVASIR_VQA
+peft: DORA
+peft_config:
+  r: 16
+  lora_alpha: 32
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+  task_type: CAUSAL_LM
+train:
+  lr: 2e-4
+  warmup_ratio: 0.05
+  epochs: 3
+  batch_size: 4
+  grad_accum_steps: 4
+  max_length: 8192
+  gradient_checkpointing: true
+  compile: false
+  eval_every: 5000
+  checkpoint_every: 5000
+  start_step: 15000
+  max_steps: 28659
+  resume_from_checkpoint: checkpoints/smolvlm2_dora_kvasir_seed2/step_15000
+eval:
+  batch_size: 2
+  max_new_tokens: 64
+logging:
+  wandb_project: "med-vlm"
+  wandb_run_name: "smolvlm2_dora_kvasir"
+outputs_dir: "./outputs"
+
+preprocessing:
+  denoise: true
+  denoise_method: "gaussian"
+  clahe: true
+  clahe_clip_limit: 2.0
+  clahe_tile_grid_size: [8, 8]
+
+augmentation:
+  enabled: true
+  rotation_degrees: 5
+  brightness_range: [0.85, 1.15]
+  contrast_range: [0.85, 1.15]

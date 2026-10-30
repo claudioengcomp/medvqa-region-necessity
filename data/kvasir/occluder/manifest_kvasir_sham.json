@@ -1,0 +1,148 @@
+{
+ "t": "2026-10-09 19:52:14",
+ "source_arrow": "vqa_kvasir_test_clean.arrow",
+ "source_sha256": "ff5c25692c1b46326c221cd197622037e5afa6099b799a85bd7db26e83715891",
+ "inventory_placebo": "inventory_kvasir_test_clean.json",
+ "seed": 20260913,
+ "counts": {
+  "by_set_question": {
+   "ART|Is there a green/black box artefact?": 532,
+   "INS|Are there any instruments in the image? Check all that are present.": 416,
+   "INS|How many instrumnets are in the image?": 497,
+   "POL|How many polyps are in the image?": 402,
+   "POL|What type of polyp is present?": 395
+  },
+  "images_by_set": {
+   "ART": 532,
+   "POL": 402,
+   "INS": 497
+  },
+  "images_in_two_or_more_sets": 445,
+  "n_rows_arrow": 1291,
+  "n_questions_arrow": 10779,
+  "native_questions_by_set": {
+   "ART": 532,
+   "POL": 797,
+   "INS": 914
+  },
+  "cross_questions_by_set": {
+   "POL": {
+    "n_images": 402,
+    "n_native_present": 402
+   },
+   "INS": {
+    "n_images": 497,
+    "n_native_present": 497
+   }
+  }
+ },
+ "sizes": {
+  "polyp_area_frac_fov_inventory": {
+   "n": 175,
+   "q1": 0.06882532021797266,
+   "median": 0.11773504039085328,
+   "q3": 0.21212629495124258,
+   "note": "sem mascara de artefato no mask_sources do inventario: ART usa retangulos 4:3 com area Q1/Q3 do FOV, alternados por imagem"
+  },
+  "kvasir_seg_masks": {
+   "n": 1000,
+   "p25": 0.059352105258683924,
+   "p50": 0.11400724156702018,
+   "p75": 0.20976061538648866,
+   "pool_Q1": 250,
+   "pool_Q3": 250
+  },
+  "kvasir_instrument_masks": {
+   "n": 590,
+   "p40": 0.06619542439778646,
+   "p50": 0.083160400390625,
+   "p60": 0.09806450737847221,
+   "pool_median": 118
+  }
+ },
+ "placement_failures": {
+  "SHAM_POL_Q1_black": 1,
+  "SHAM_POL_Q1_blur10": 1
+ },
+ "fov": "masks.fov_mask(opening=0), >= 80 % da regiao dentro do FOV, inteira no quadro, translacao aleatoria (ate 50)",
+ "encoding": {
+  "C0_cross": "source bytes",
+  "shams": "PNG lossless from decoded pixels"
+ },
+ "cross_qid_start": 9000000,
+ "n_cross_new_qids": 0,
+ "conditions": {
+  "SHAM_ART_black": {
+   "file": "vqa_kvasir_sham_SHAM_ART_black.arrow",
+   "sha256": "2c001875e051c06699943a28deeb0e7bd779433b65d092a17ba5bb150b8ed031",
+   "bytes": 351599154,
+   "n_rows": 532,
+   "n_questions": 532,
+   "n_cross_questions": 0
+  },
+  "SHAM_ART_blur10": {
+   "file": "vqa_kvasir_sham_SHAM_ART_blur10.arrow",
+   "sha256": "e063fab4ec84e91963d66a6c237c336d22b928d45d55dcecf4592fe0d35a1528",
+   "bytes": 364226186,
+   "n_rows": 532,
+   "n_questions": 532,
+   "n_cross_questions": 0
+  },
+  "SHAM_POL_Q1_black": {
+   "file": "vqa_kvasir_sham_SHAM_POL_Q1_black.arrow",
+   "sha256": "74764a50042a6e872c8ed93aecc7950a755a79fcdc4c53de9ae42c6f3f06d33c",
+   "bytes": 317531962,
+   "n_rows": 401,
+   "n_questions": 1196,
+   "n_cross_questions": 0
+  },
+  "SHAM_POL_Q1_blur10": {
+   "file": "vqa_kvasir_sham_SHAM_POL_Q1_blur10.arrow",
+   "sha256": "a14d9d105fc3b8381450b6eedff03f6aeab0ee85d26bb31fd2191ad4b72a918c",
+   "bytes": 320794818,
+   "n_rows": 401,
+   "n_questions": 1196,
+   "n_cross_questions": 0
+  },
+  "SHAM_POL_Q3_black": {
+   "file": "vqa_kvasir_sham_SHAM_POL_Q3_black.arrow",
+   "sha256": "5f097796cd97cf6c7d8345081c2bdbb47cefaeeaa9c426121f92640b9afaec3b",
+   "bytes": 212581394,
+   "n_rows": 402,
+   "n_questions": 1199,
+   "n_cross_questions": 0
+  },
+  "SHAM_POL_Q3_blur10": {
+   "file": "vqa_kvasir_sham_SHAM_POL_Q3_blur10.arrow",
+   "sha256": "ba23173c7a6a5a38ef31706d7154624b3f4d2a5fff432088823b3a267d9bc63a",
+   "bytes": 239568066,
+   "n_rows": 402,
+   "n_questions": 1199,
+   "n_cross_questions": 0
+  },
+  "SHAM_INS_black": {
+   "file": "vqa_kvasir_sham_SHAM_INS_black.arrow",
+   "sha256": "50a60014ef8f4c45a7a300592385ae897a174abfb2aa1c4a5939666c671ff313",
+   "bytes": 330850066,
+   "n_rows": 497,
+   "n_questions": 1411,
+   "n_cross_questions": 0
+  },
+  "SHAM_INS_blur10": {
+   "file": "vqa_kvasir_sham_SHAM_INS_blur10.arrow",
+   "sha256": "cd261a5f73b07f730d97208a79f71ebebe2132d960e89b20a8e760299273c749",
+   "bytes": 339089738,
+   "n_rows": 497,
+   "n_questions": 1411,
+   "n_cross_questions": 0
+  },
+  "C0_cross": {
+   "file": "vqa_kvasir_sham_C0_cross.arrow",
+   "sha256": "3e52c28b9dc9cdbaecc4aee51ad902caae01c9af75ad14d87e52094ab6134d93",
+   "bytes": 37409554,
+   "n_rows": 507,
+   "n_questions": 899,
+   "n_cross_questions": 0
+  }
+ }
+}

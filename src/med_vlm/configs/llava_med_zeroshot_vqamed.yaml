@@ -1,0 +1,26 @@
+# LLaVA-Med — zero-shot evaluation only.
+# No fine-tuning is performed; the model is evaluated directly on the test split.
+run_name: llava_med_zeroshot_vqamed
+model: LLAVA_MED
+dataset: VQA_MED
+peft: NONE
+zero_shot: true
+train:
+  split: test
+eval:
+  batch_size: 1
+  split: test
+  max_new_tokens: 64
+logging:
+  wandb_project: "med-vlm"
+  wandb_run_name: "llava_med_zeroshot_vqamed"
+outputs_dir: "./outputs"
+
+# Image preprocessing applied once at dataset load (cached).
+# All options default to false — enable to experiment.
+preprocessing:
+  denoise: true
+  denoise_method: "gaussian" # "gaussian" (mild) or "bilateral" (edge-preserving)
+  clahe: true
+  clahe_clip_limit: 2.0
+  clahe_tile_grid_size: [8, 8]

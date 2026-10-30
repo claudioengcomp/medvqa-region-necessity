@@ -1,0 +1,25 @@
+# MedVLM-R1 — zero-shot oracle baseline only.
+# This model is likely trained on SLAKE/VQA-RAD, so it is NOT fine-tuned here.
+# The zero_shot flag skips the training loop entirely.
+run_name: medvlm_zeroshot_combined
+model: MEDVLM
+dataset: COMBINED
+peft: NONE
+zero_shot: true
+eval:
+  batch_size: 1
+  split: test
+  max_new_tokens: 64
+logging:
+  wandb_project: "med-vlm"
+  wandb_run_name: "medvlm_zeroshot_combined"
+outputs_dir: "./outputs"
+
+# Image preprocessing applied once at dataset load (cached).
+# All options default to false — enable to experiment.
+preprocessing:
+  denoise: true
+  denoise_method: "gaussian" # "gaussian" (mild) or "bilateral" (edge-preserving)
+  clahe: true
+  clahe_clip_limit: 2.0
+  clahe_tile_grid_size: [8, 8]

@@ -1,0 +1,9342 @@
+{
+ "t": "2026-10-30 19:05:08",
+ "script": "src/analysis/r9_holm.py",
+ "script_sha256": "eb5eb98b176c4906c9d6857b6cd6f7946852e0354d7ee0884f216525f9fb84eb",
+ "regra": "p unilateral bootstrap = fracao das 2 000 replicas por imagem <= 0; Holm por linha e criterio sobre a familia; passa se p ajustado < 0,025",
+ "familias": {
+  "rodada8": {
+   "KVASIR": {
+    "dependent_polyp": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "controle_texto"
+    ],
+    "dependent_instrument": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "controle_texto"
+    ],
+    "negative_control": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "HEAL": {
+    "closed_yes": [
+     "closed_yes",
+     "closed_no"
+    ],
+    "closed_no": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "MIMIC": {
+    "closed_yes": [
+     "closed_yes",
+     "closed_no",
+     "entidade=pleural effusion",
+     "entidade=atelectasis",
+     "entidade=lung opacity",
+     "entidade=cardiomegaly",
+     "entidade=edema",
+     "entidade=vascular congestion"
+    ],
+    "closed_no": [
+     "closed_yes",
+     "closed_no",
+     "entidade=pleural effusion",
+     "entidade=atelectasis",
+     "entidade=lung opacity",
+     "entidade=cardiomegaly",
+     "entidade=edema",
+     "entidade=vascular congestion"
+    ]
+   }
+  },
+  "tabela1": {
+   "KVASIR": {
+    "dependent_polyp": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ],
+    "dependent_instrument": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ],
+    "negative_control": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "HEAL": {
+    "closed_yes": [
+     "closed_yes",
+     "closed_no"
+    ],
+    "closed_no": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "MIMIC": {
+    "closed_yes": [
+     "closed_yes",
+     "closed_no"
+    ],
+    "closed_no": [
+     "closed_yes",
+     "closed_no"
+    ]
+   }
+  }
+ },
+ "contagens": {
+  "rodada8": {
+   "KVASIR|dependent_polyp|afinados": {
+    "linhas": 27,
+    "L0": 27,
+    "L1": 27,
+    "L2": 25,
+    "L3": 25,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "controle_texto"
+    ]
+   },
+   "KVASIR|dependent_polyp|zero_shot": {
+    "linhas": 4,
+    "L0": 2,
+    "L1": 2,
+    "L2": 2,
+    "L3": 2,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "controle_texto"
+    ]
+   },
+   "KVASIR|dependent_instrument|afinados": {
+    "linhas": 27,
+    "L0": 27,
+    "L1": 26,
+    "L2": 25,
+    "L3": 25,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "controle_texto"
+    ]
+   },
+   "KVASIR|dependent_instrument|zero_shot": {
+    "linhas": 4,
+    "L0": 2,
+    "L1": 2,
+    "L2": 2,
+    "L3": 2,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "controle_texto"
+    ]
+   },
+   "KVASIR|negative_control|afinados": {
+    "linhas": 27,
+    "L0": 25,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "KVASIR|negative_control|zero_shot": {
+    "linhas": 4,
+    "L0": 2,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "HEAL|closed_yes|afinados": {
+    "linhas": 27,
+    "L0": 0,
+    "L1": 1,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "HEAL|closed_yes|zero_shot": {
+    "linhas": 4,
+    "L0": 0,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "HEAL|closed_no|afinados": {
+    "linhas": 27,
+    "L0": 27,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "HEAL|closed_no|zero_shot": {
+    "linhas": 4,
+    "L0": 3,
+    "L1": 1,
+    "L2": 1,
+    "L3": 1,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "MIMIC|closed_yes|afinados": {
+    "linhas": 27,
+    "L0": 13,
+    "L1": 8,
+    "L2": 2,
+    "L3": 2,
+    "familia": [
+     "closed_yes",
+     "closed_no",
+     "entidade=pleural effusion",
+     "entidade=atelectasis",
+     "entidade=lung opacity",
+     "entidade=cardiomegaly",
+     "entidade=edema",
+     "entidade=vascular congestion"
+    ]
+   },
+   "MIMIC|closed_yes|zero_shot": {
+    "linhas": 4,
+    "L0": 4,
+    "L1": 3,
+    "L2": 3,
+    "L3": 2,
+    "familia": [
+     "closed_yes",
+     "closed_no",
+     "entidade=pleural effusion",
+     "entidade=atelectasis",
+     "entidade=lung opacity",
+     "entidade=cardiomegaly",
+     "entidade=edema",
+     "entidade=vascular congestion"
+    ]
+   },
+   "MIMIC|closed_no|afinados": {
+    "linhas": 27,
+    "L0": 0,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "closed_yes",
+     "closed_no",
+     "entidade=pleural effusion",
+     "entidade=atelectasis",
+     "entidade=lung opacity",
+     "entidade=cardiomegaly",
+     "entidade=edema",
+     "entidade=vascular congestion"
+    ]
+   },
+   "MIMIC|closed_no|zero_shot": {
+    "linhas": 4,
+    "L0": 0,
+    "L1": 1,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "closed_yes",
+     "closed_no",
+     "entidade=pleural effusion",
+     "entidade=atelectasis",
+     "entidade=lung opacity",
+     "entidade=cardiomegaly",
+     "entidade=edema",
+     "entidade=vascular congestion"
+    ]
+   }
+  },
+  "tabela1": {
+   "KVASIR|dependent_polyp|afinados": {
+    "linhas": 27,
+    "L0": 27,
+    "L1": 27,
+    "L2": 25,
+    "L3": 25,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "KVASIR|dependent_polyp|zero_shot": {
+    "linhas": 4,
+    "L0": 2,
+    "L1": 2,
+    "L2": 2,
+    "L3": 2,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "KVASIR|dependent_instrument|afinados": {
+    "linhas": 27,
+    "L0": 27,
+    "L1": 26,
+    "L2": 25,
+    "L3": 25,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "KVASIR|dependent_instrument|zero_shot": {
+    "linhas": 4,
+    "L0": 2,
+    "L1": 2,
+    "L2": 2,
+    "L3": 2,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "KVASIR|negative_control|afinados": {
+    "linhas": 27,
+    "L0": 25,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "KVASIR|negative_control|zero_shot": {
+    "linhas": 4,
+    "L0": 2,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "dependent_polyp",
+     "dependent_instrument",
+     "negative_control"
+    ]
+   },
+   "HEAL|closed_yes|afinados": {
+    "linhas": 27,
+    "L0": 0,
+    "L1": 1,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "HEAL|closed_yes|zero_shot": {
+    "linhas": 4,
+    "L0": 0,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "HEAL|closed_no|afinados": {
+    "linhas": 27,
+    "L0": 27,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "HEAL|closed_no|zero_shot": {
+    "linhas": 4,
+    "L0": 3,
+    "L1": 1,
+    "L2": 1,
+    "L3": 1,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "MIMIC|closed_yes|afinados": {
+    "linhas": 27,
+    "L0": 17,
+    "L1": 14,
+    "L2": 8,
+    "L3": 8,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "MIMIC|closed_yes|zero_shot": {
+    "linhas": 4,
+    "L0": 4,
+    "L1": 4,
+    "L2": 4,
+    "L3": 2,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "MIMIC|closed_no|afinados": {
+    "linhas": 27,
+    "L0": 0,
+    "L1": 0,
+    "L2": 0,
+    "L3": 0,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   },
+   "MIMIC|closed_no|zero_shot": {
+    "linhas": 4,
+    "L0": 0,
+    "L1": 2,
+    "L2": 1,
+    "L3": 1,
+    "familia": [
+     "closed_yes",
+     "closed_no"
+    ]
+   }
+  }
+ },
+ "sem_holm": {
+  "KVASIR|dependent_instrument|afinados": {
+   "L0": 27,
+   "L1": 26,
+   "L2": 25,
+   "L3": 25,
+   "linhas": 27
+  },
+  "KVASIR|dependent_polyp|afinados": {
+   "L0": 27,
+   "L1": 27,
+   "L2": 25,
+   "L3": 25,
+   "linhas": 27
+  },
+  "KVASIR|negative_control|afinados": {
+   "L0": 25,
+   "L1": 0,
+   "L2": 0,
+   "L3": 0,
+   "linhas": 27
+  },
+  "KVASIR|dependent_instrument|zero_shot": {
+   "L0": 2,
+   "L1": 2,
+   "L2": 2,
+   "L3": 2,
+   "linhas": 4
+  },
+  "KVASIR|dependent_polyp|zero_shot": {
+   "L0": 2,
+   "L1": 2,
+   "L2": 2,
+   "L3": 2,
+   "linhas": 4
+  },
+  "KVASIR|negative_control|zero_shot": {
+   "L0": 2,
+   "L1": 0,
+   "L2": 0,
+   "L3": 0,
+   "linhas": 4
+  },
+  "HEAL|closed_no|afinados": {
+   "L0": 27,
+   "L1": 0,
+   "L2": 0,
+   "L3": 0,
+   "linhas": 27
+  },
+  "HEAL|closed_yes|afinados": {
+   "L0": 0,
+   "L1": 1,
+   "L2": 0,
+   "L3": 0,
+   "linhas": 27
+  },
+  "HEAL|closed_no|zero_shot": {
+   "L0": 3,
+   "L1": 2,
+   "L2": 1,
+   "L3": 1,
+   "linhas": 4
+  },
+  "HEAL|closed_yes|zero_shot": {
+   "L0": 0,
+   "L1": 0,
+   "L2": 0,
+   "L3": 0,
+   "linhas": 4
+  },
+  "MIMIC|closed_no|afinados": {
+   "L0": 0,
+   "L1": 0,
+   "L2": 0,
+   "L3": 0,
+   "linhas": 27
+  },
+  "MIMIC|closed_yes|afinados": {
+   "L0": 18,
+   "L1": 18,
+   "L2": 11,
+   "L3": 11,
+   "linhas": 27
+  },
+  "MIMIC|closed_no|zero_shot": {
+   "L0": 0,
+   "L1": 2,
+   "L2": 1,
+   "L3": 1,
+   "linhas": 4
+  },
+  "MIMIC|closed_yes|zero_shot": {
+   "L0": 4,
+   "L1": 4,
+   "L2": 4,
+   "L3": 2,
+   "linhas": 4
+  }
+ },
+ "discordancias_p_vs_IC": {
+  "KVASIR|dependent_instrument|afinados": {
+   "testes": 108,
+   "discordam": 0,
+   "casos": []
+  },
+  "KVASIR|dependent_polyp|afinados": {
+   "testes": 108,
+   "discordam": 0,
+   "casos": []
+  },
+  "KVASIR|negative_control|afinados": {
+   "testes": 108,
+   "discordam": 0,
+   "casos": []
+  },
+  "KVASIR|dependent_instrument|zero_shot": {
+   "testes": 16,
+   "discordam": 0,
+   "casos": []
+  },
+  "KVASIR|dependent_polyp|zero_shot": {
+   "testes": 16,
+   "discordam": 0,
+   "casos": []
+  },
+  "KVASIR|negative_control|zero_shot": {
+   "testes": 16,
+   "discordam": 0,
+   "casos": []
+  },
+  "HEAL|closed_no|afinados": {
+   "testes": 108,
+   "discordam": 0,
+   "casos": []
+  },
+  "HEAL|closed_yes|afinados": {
+   "testes": 108,
+   "discordam": 0,
+   "casos": []
+  },
+  "HEAL|closed_no|zero_shot": {
+   "testes": 16,
+   "discordam": 0,
+   "casos": []
+  },
+  "HEAL|closed_yes|zero_shot": {
+   "testes": 16,
+   "discordam": 0,
+   "casos": []
+  },
+  "MIMIC|closed_no|afinados": {
+   "testes": 108,
+   "discordam": 0,
+   "casos": []
+  },
+  "MIMIC|closed_yes|afinados": {
+   "testes": 108,
+   "discordam": 1,
+   "casos": [
+    {
+     "linha": "SMOLVLM_DORA_MIMIC_seed2",
+     "criterio": "L2",
+     "p": 0.025,
+     "ic_inf_maior_0": true
+    }
+   ]
+  },
+  "MIMIC|closed_no|zero_shot": {
+   "testes": 16,
+   "discordam": 0,
+   "casos": []
+  },
+  "MIMIC|closed_yes|zero_shot": {
+   "testes": 16,
+   "discordam": 0,
+   "casos": []
+  }
+ },
+ "por_linha": {
+  "rodada8": {
+   "KVASIR|dependent_polyp": {
+    "LLAVA_MED_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "M3AE_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.1035,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.207,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0045,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.013499999999999998,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN25VL_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.744,
+      "L1": 0.82,
+      "L2": 0.8745,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.9,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.001,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0015,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.003,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.4505,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.901,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.002,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    }
+   },
+   "KVASIR|dependent_instrument": {
+    "LLAVA_MED_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "M3AE_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.049,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.14700000000000002,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.013499999999999998,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0675,
+      "L1": 0.2165,
+      "L2": 0.4215,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 0.0675,
+      "L1": 0.433,
+      "L2": 0.843,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN25VL_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0815,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.163,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.001,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.002,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0005,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.001,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    }
+   },
+   "KVASIR|negative_control": {
+    "LLAVA_MED_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.2535,
+      "L1": 0.4545,
+      "L2": 0.1,
+      "L3": 0.962
+     },
+     "p_holm": {
+      "L0": 0.7605,
+      "L1": 1.0,
+      "L2": 0.30000000000000004,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.367,
+      "L2": 0.1945,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.367,
+      "L2": 0.1945,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.7455,
+      "L2": 0.176,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.7455,
+      "L2": 0.207,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.999,
+      "L2": 0.8355,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.999,
+      "L2": 0.8355,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.895,
+      "L2": 0.908,
+      "L3": 0.8085
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.895,
+      "L2": 0.908,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.998,
+      "L1": 0.998,
+      "L2": 0.978,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.998,
+      "L1": 0.998,
+      "L2": 0.978,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN25VL_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0035,
+      "L1": 0.9945,
+      "L2": 0.8545,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.007,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.001,
+      "L1": 0.9285,
+      "L2": 0.5315,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.001,
+      "L1": 0.9285,
+      "L2": 0.5315,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.913,
+      "L2": 0.4715,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.913,
+      "L2": 0.4715,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.997,
+      "L2": 0.996,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.997,
+      "L2": 0.996,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0015,
+      "L1": 0.7055,
+      "L2": 0.0445,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0015,
+      "L1": 0.7055,
+      "L2": 0.0445,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.98,
+      "L2": 0.853,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.98,
+      "L2": 0.853,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0065,
+      "L1": 0.898,
+      "L2": 0.4585,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0065,
+      "L1": 0.898,
+      "L2": 0.4585,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.7875,
+      "L2": 0.5135,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.7875,
+      "L2": 0.5135,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.839,
+      "L2": 0.6355,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.839,
+      "L2": 0.6355,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.8675,
+      "L2": 0.4685,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.8675,
+      "L2": 0.4685,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.032,
+      "L1": 0.9655,
+      "L2": 0.2945,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.032,
+      "L1": 0.9655,
+      "L2": 0.2945,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.9985,
+      "L2": 0.9995,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0005,
+      "L1": 0.9985,
+      "L2": 0.9995,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.984,
+      "L2": 0.371,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.984,
+      "L2": 0.371,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.7875,
+      "L2": 0.5475,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.7875,
+      "L2": 0.5475,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.691,
+      "L2": 0.37,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.691,
+      "L2": 0.37,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.933,
+      "L2": 0.3085,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.933,
+      "L2": 0.3085,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.995,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.995,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0045,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0045,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9955,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.9955,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.035,
+      "L1": 0.9655,
+      "L2": 0.3675,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.035,
+      "L1": 0.9655,
+      "L2": 0.3675,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.878,
+      "L2": 0.257,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.878,
+      "L2": 0.257,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.6575,
+      "L2": 0.1155,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.6575,
+      "L2": 0.1155,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9555,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.9555,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.9885,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.9885,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   },
+   "HEAL|closed_yes": {
+    "LLAVA_MED_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.24,
+      "L2": 0.6735,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.48,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed0": {
+     "p": {
+      "L0": 0.79,
+      "L1": 0.0495,
+      "L2": 0.1675,
+      "L3": 0.9655
+     },
+     "p_holm": {
+      "L0": 0.79,
+      "L1": 0.099,
+      "L2": 0.335,
+      "L3": 0.9655
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed1": {
+     "p": {
+      "L0": 0.9985,
+      "L1": 0.2345,
+      "L2": 0.1145,
+      "L3": 0.2185
+     },
+     "p_holm": {
+      "L0": 0.9985,
+      "L1": 0.469,
+      "L2": 0.229,
+      "L3": 0.2185
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed2": {
+     "p": {
+      "L0": 0.242,
+      "L1": 0.0005,
+      "L2": 0.1,
+      "L3": 0.9835
+     },
+     "p_holm": {
+      "L0": 0.242,
+      "L1": 0.001,
+      "L2": 0.2,
+      "L3": 0.9835
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.359,
+      "L2": 1.0,
+      "L3": 0.9995
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.359,
+      "L2": 1.0,
+      "L3": 0.9995
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.903,
+      "L3": 0.9925
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.9925
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN25VL_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.99,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.971,
+      "L3": 0.0025
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.005
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.957,
+      "L2": 0.823,
+      "L3": 0.0125
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0125
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.9975,
+      "L1": 0.752,
+      "L2": 0.9755,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.9975,
+      "L1": 0.752,
+      "L2": 0.9755,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.6695,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.622,
+      "L2": 0.585,
+      "L3": 0.001
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.001
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed2": {
+     "p": {
+      "L0": 0.987,
+      "L1": 0.5955,
+      "L2": 0.3885,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.987,
+      "L1": 1.0,
+      "L2": 0.777,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.999,
+      "L1": 1.0,
+      "L2": 0.407,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.999,
+      "L1": 1.0,
+      "L2": 0.814,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.9435,
+      "L2": 0.997,
+      "L3": 0.0685
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0685
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.993,
+      "L2": 0.9995,
+      "L3": 0.003
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.993,
+      "L2": 1.0,
+      "L3": 0.006
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed0": {
+     "p": {
+      "L0": 0.9985,
+      "L1": 0.707,
+      "L2": 0.4195,
+      "L3": 0.0025
+     },
+     "p_holm": {
+      "L0": 0.9985,
+      "L1": 1.0,
+      "L2": 0.613,
+      "L3": 0.0025
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed1": {
+     "p": {
+      "L0": 0.9515,
+      "L1": 1.0,
+      "L2": 0.6575,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.9515,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed2": {
+     "p": {
+      "L0": 0.9385,
+      "L1": 0.16,
+      "L2": 0.0055,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.9385,
+      "L1": 0.32,
+      "L2": 0.011,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed0": {
+     "p": {
+      "L0": 0.914,
+      "L1": 0.9855,
+      "L2": 0.9985,
+      "L3": 0.0015
+     },
+     "p_holm": {
+      "L0": 0.914,
+      "L1": 1.0,
+      "L2": 0.9985,
+      "L3": 0.002
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed1": {
+     "p": {
+      "L0": 0.1975,
+      "L1": 0.9635,
+      "L2": 0.9965,
+      "L3": 0.0015
+     },
+     "p_holm": {
+      "L0": 0.1975,
+      "L1": 0.9635,
+      "L2": 0.9965,
+      "L3": 0.003
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed2": {
+     "p": {
+      "L0": 0.6815,
+      "L1": 0.546,
+      "L2": 0.9965,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.6815,
+      "L1": 0.925,
+      "L2": 0.9965,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.8575,
+      "L2": 0.523,
+      "L3": 0.4285
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.8575,
+      "L2": 1.0,
+      "L3": 0.4285
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.9995,
+      "L1": 0.085,
+      "L2": 0.6555,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.9995,
+      "L1": 0.17,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.994,
+      "L1": 0.446,
+      "L2": 0.6365,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.994,
+      "L1": 0.892,
+      "L2": 0.6365,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed0": {
+     "p": {
+      "L0": 0.762,
+      "L1": 0.9125,
+      "L2": 0.99,
+      "L3": 0.0025
+     },
+     "p_holm": {
+      "L0": 0.762,
+      "L1": 0.918,
+      "L2": 0.99,
+      "L3": 0.0025
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed1": {
+     "p": {
+      "L0": 0.821,
+      "L1": 0.953,
+      "L2": 0.999,
+      "L3": 0.0035
+     },
+     "p_holm": {
+      "L0": 0.821,
+      "L1": 0.953,
+      "L2": 0.999,
+      "L3": 0.007
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed2": {
+     "p": {
+      "L0": 0.2945,
+      "L1": 0.6295,
+      "L2": 0.991,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.2945,
+      "L1": 0.741,
+      "L2": 0.991,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.9805,
+      "L2": 0.785,
+      "L3": 0.081
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.081
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.984,
+      "L1": 0.555,
+      "L2": 0.549,
+      "L3": 0.0015
+     },
+     "p_holm": {
+      "L0": 0.984,
+      "L1": 0.788,
+      "L2": 1.0,
+      "L3": 0.0015
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.807,
+      "L2": 0.155,
+      "L3": 0.0035
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.31,
+      "L3": 0.0035
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   },
+   "HEAL|closed_no": {
+    "LLAVA_MED_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 0.1895,
+      "L1": 0.968,
+      "L2": 0.7755,
+      "L3": 0.005
+     },
+     "p_holm": {
+      "L0": 0.379,
+      "L1": 0.968,
+      "L2": 1.0,
+      "L3": 0.01
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.317,
+      "L2": 0.4795,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.317,
+      "L2": 0.4795,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed1": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.9875,
+      "L2": 0.831,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.001,
+      "L1": 0.9875,
+      "L2": 0.831,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.151,
+      "L2": 0.222,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.151,
+      "L2": 0.222,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.022,
+      "L2": 0.521,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.044,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN25VL_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.1445,
+      "L2": 0.6575,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.289,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.2645,
+      "L2": 0.8675,
+      "L3": 0.0145
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.529,
+      "L2": 1.0,
+      "L3": 0.0145
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.849,
+      "L2": 0.822,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.228,
+      "L2": 0.4575,
+      "L3": 0.2135
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.456,
+      "L2": 0.915,
+      "L3": 0.2135
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9905,
+      "L2": 0.725,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9895,
+      "L2": 0.6245,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed2": {
+     "p": {
+      "L0": 0.001,
+      "L1": 0.978,
+      "L2": 0.988,
+      "L3": 0.003
+     },
+     "p_holm": {
+      "L0": 0.002,
+      "L1": 1.0,
+      "L2": 0.988,
+      "L3": 0.003
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.7745,
+      "L2": 0.944,
+      "L3": 0.886
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.944,
+      "L3": 0.886
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.793,
+      "L2": 0.8375,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.3045,
+      "L2": 0.76,
+      "L3": 0.0375
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.609,
+      "L2": 1.0,
+      "L3": 0.0375
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.861,
+      "L2": 0.3065,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.613,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.86,
+      "L2": 0.528,
+      "L3": 0.4405
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.4405
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.336,
+      "L2": 0.802,
+      "L3": 0.002
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.336,
+      "L2": 0.802,
+      "L3": 0.002
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.686,
+      "L2": 0.164,
+      "L3": 0.001
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.328,
+      "L3": 0.002
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.3855,
+      "L2": 0.0315,
+      "L3": 0.0025
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.771,
+      "L2": 0.063,
+      "L3": 0.003
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.4625,
+      "L2": 0.3665,
+      "L3": 0.0355
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.925,
+      "L2": 0.733,
+      "L3": 0.0355
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.255,
+      "L2": 0.87,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.51,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.915,
+      "L2": 0.9655,
+      "L3": 0.0005
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.915,
+      "L2": 1.0,
+      "L3": 0.0005
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.943,
+      "L2": 0.195,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.943,
+      "L2": 0.39,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.459,
+      "L2": 0.1305,
+      "L3": 0.001
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.918,
+      "L2": 0.261,
+      "L3": 0.002
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.4625,
+      "L2": 0.3905,
+      "L3": 0.008
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.925,
+      "L2": 0.781,
+      "L3": 0.008
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.3705,
+      "L2": 0.46,
+      "L3": 0.0615
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.741,
+      "L2": 0.92,
+      "L3": 0.0615
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.992,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.394,
+      "L2": 0.9395,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.788,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9055,
+      "L2": 0.8955,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.8955,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   },
+   "MIMIC|closed_yes": {
+    "LLAVA_MED_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0075,
+      "L2": 0.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.06,
+      "L2": 0.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.001,
+      "L2": 0.3195,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.008,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0405,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.162,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0005,
+      "L2": 0.006,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.004,
+      "L2": 0.048,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0035,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN25VL_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.002,
+      "L3": 0.9895
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.016,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.002,
+      "L1": 0.0035,
+      "L2": 0.0225,
+      "L3": 0.001
+     },
+     "p_holm": {
+      "L0": 0.014,
+      "L1": 0.028,
+      "L2": 0.18,
+      "L3": 0.006
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0145,
+      "L2": 0.014,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.1015,
+      "L2": 0.112,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.0135,
+      "L2": 0.1845,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0035,
+      "L1": 0.108,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.1335,
+      "L1": 0.01,
+      "L2": 0.0105,
+      "L3": 0.0005
+     },
+     "p_holm": {
+      "L0": 0.9345000000000001,
+      "L1": 0.07,
+      "L2": 0.07350000000000001,
+      "L3": 0.0035
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.001,
+      "L1": 0.003,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.008,
+      "L1": 0.024,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0625,
+      "L1": 0.6,
+      "L2": 0.944,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.4375,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.373,
+      "L2": 0.0585,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.004,
+      "L1": 1.0,
+      "L2": 0.40950000000000003,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.045,
+      "L2": 0.216,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.36,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0055,
+      "L2": 0.009,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.044,
+      "L2": 0.072,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.001,
+      "L1": 0.0555,
+      "L2": 0.0035,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.008,
+      "L1": 0.416,
+      "L2": 0.028,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.078,
+      "L1": 0.032,
+      "L2": 0.015,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.624,
+      "L1": 0.232,
+      "L2": 0.12,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0945,
+      "L1": 0.08,
+      "L2": 0.0555,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.567,
+      "L1": 0.56,
+      "L2": 0.3885,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.197,
+      "L1": 0.029,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.232,
+      "L2": 0.004,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.106,
+      "L1": 0.0675,
+      "L2": 0.007,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.665,
+      "L1": 0.47250000000000003,
+      "L2": 0.049,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.006,
+      "L1": 0.0,
+      "L2": 0.0565,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.048,
+      "L1": 0.0,
+      "L2": 0.3955,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed1": {
+     "p": {
+      "L0": 0.006,
+      "L1": 0.0125,
+      "L2": 0.139,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.048,
+      "L1": 0.1,
+      "L2": 0.903,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.025,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.17500000000000002,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0405,
+      "L1": 0.006,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.324,
+      "L1": 0.048,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0065,
+      "L1": 0.011,
+      "L2": 0.0015,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0455,
+      "L1": 0.077,
+      "L2": 0.012,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.031,
+      "L1": 0.0195,
+      "L2": 0.0035,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.217,
+      "L1": 0.1365,
+      "L2": 0.028,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0125,
+      "L1": 0.0025,
+      "L2": 0.396,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.08750000000000001,
+      "L1": 0.0175,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed1": {
+     "p": {
+      "L0": 0.005,
+      "L1": 0.009,
+      "L2": 0.0075,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.04,
+      "L1": 0.063,
+      "L2": 0.06,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed2": {
+     "p": {
+      "L0": 0.1005,
+      "L1": 0.395,
+      "L2": 0.3785,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.7035,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   },
+   "MIMIC|closed_no": {
+    "LLAVA_MED_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed0": {
+     "p": {
+      "L0": 0.6105,
+      "L1": 0.1265,
+      "L2": 0.0035,
+      "L3": 0.9195
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.506,
+      "L2": 0.028,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed1": {
+     "p": {
+      "L0": 0.397,
+      "L1": 0.403,
+      "L2": 0.0,
+      "L3": 0.9915
+     },
+     "p_holm": {
+      "L0": 0.397,
+      "L1": 0.806,
+      "L2": 0.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed2": {
+     "p": {
+      "L0": 0.406,
+      "L1": 0.6195,
+      "L2": 0.4,
+      "L3": 0.7135
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.315,
+      "L1": 0.846,
+      "L2": 0.9445,
+      "L3": 0.358
+     },
+     "p_holm": {
+      "L0": 0.3675,
+      "L1": 0.846,
+      "L2": 0.9445,
+      "L3": 0.358
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.9075,
+      "L1": 0.0185,
+      "L2": 0.095,
+      "L3": 0.15
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.064,
+      "L2": 0.302,
+      "L3": 0.44999999999999996
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN25VL_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.245,
+      "L1": 0.0,
+      "L2": 0.0155,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.98,
+      "L1": 0.0,
+      "L2": 0.093,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.372,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed1": {
+     "p": {
+      "L0": 0.369,
+      "L1": 0.369,
+      "L2": 0.6485,
+      "L3": 0.233
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.1295,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.369,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.374,
+      "L1": 0.1305,
+      "L2": 1.0,
+      "L3": 0.9935
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.6525000000000001,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.649,
+      "L1": 0.652,
+      "L2": 0.044,
+      "L3": 0.9465
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.352,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed0": {
+     "p": {
+      "L0": 0.664,
+      "L1": 0.664,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.398
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed2": {
+     "p": {
+      "L0": 0.6025,
+      "L1": 0.0495,
+      "L2": 0.3715,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.29700000000000004,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.369,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.3985,
+      "L1": 0.4025,
+      "L2": 0.02,
+      "L3": 0.949
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.1,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.235,
+      "L3": 0.999
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.622
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.3725,
+      "L2": 1.0,
+      "L3": 0.5965
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.4185
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.3655,
+      "L1": 0.137,
+      "L2": 0.3525,
+      "L3": 0.1325
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.645,
+      "L2": 1.0,
+      "L3": 0.53
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.6495,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.659,
+      "L2": 0.3655,
+      "L3": 0.404
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.389
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.378,
+      "L2": 0.677,
+      "L3": 0.419
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.824,
+      "L3": 0.5855
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.906,
+      "L1": 0.613,
+      "L2": 0.129,
+      "L3": 0.1325
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.53
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.8085
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.8015,
+      "L2": 1.0,
+      "L3": 0.852
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   }
+  },
+  "tabela1": {
+   "KVASIR|dependent_polyp": {
+    "LLAVA_MED_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "M3AE_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.1035,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.207,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0045,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.013499999999999998,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN25VL_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.744,
+      "L1": 0.82,
+      "L2": 0.8745,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.744,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0005,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0015,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.003,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.4505,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.901,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.002,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    }
+   },
+   "KVASIR|dependent_instrument": {
+    "LLAVA_MED_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "M3AE_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.049,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.14700000000000002,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.013499999999999998,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0675,
+      "L1": 0.2165,
+      "L2": 0.4215,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 0.0675,
+      "L1": 0.433,
+      "L2": 0.843,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN25VL_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0815,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.163,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.001,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.002,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0005,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.001,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    }
+   },
+   "KVASIR|negative_control": {
+    "LLAVA_MED_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.2535,
+      "L1": 0.4545,
+      "L2": 0.1,
+      "L3": 0.962
+     },
+     "p_holm": {
+      "L0": 0.7605,
+      "L1": 1.0,
+      "L2": 0.30000000000000004,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.367,
+      "L2": 0.1945,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.367,
+      "L2": 0.1945,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.7455,
+      "L2": 0.176,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.7455,
+      "L2": 0.207,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.999,
+      "L2": 0.8355,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.999,
+      "L2": 0.8355,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.895,
+      "L2": 0.908,
+      "L3": 0.8085
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.895,
+      "L2": 0.908,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.998,
+      "L1": 0.998,
+      "L2": 0.978,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.998,
+      "L1": 0.998,
+      "L2": 0.978,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN25VL_ZEROSHOT_KVASIR": {
+     "p": {
+      "L0": 0.0035,
+      "L1": 0.9945,
+      "L2": 0.8545,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.007,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.001,
+      "L1": 0.9285,
+      "L2": 0.5315,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.001,
+      "L1": 0.9285,
+      "L2": 0.5315,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.913,
+      "L2": 0.4715,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.913,
+      "L2": 0.4715,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.997,
+      "L2": 0.996,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.997,
+      "L2": 0.996,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0015,
+      "L1": 0.7055,
+      "L2": 0.0445,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0015,
+      "L1": 0.7055,
+      "L2": 0.0445,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.98,
+      "L2": 0.853,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.98,
+      "L2": 0.853,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0065,
+      "L1": 0.898,
+      "L2": 0.4585,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0065,
+      "L1": 0.898,
+      "L2": 0.4585,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.7875,
+      "L2": 0.5135,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.7875,
+      "L2": 0.5135,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.839,
+      "L2": 0.6355,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.839,
+      "L2": 0.6355,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.8675,
+      "L2": 0.4685,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.8675,
+      "L2": 0.4685,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.032,
+      "L1": 0.9655,
+      "L2": 0.2945,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.032,
+      "L1": 0.9655,
+      "L2": 0.2945,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.9985,
+      "L2": 0.9995,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0005,
+      "L1": 0.9985,
+      "L2": 0.9995,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.984,
+      "L2": 0.371,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.984,
+      "L2": 0.371,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.7875,
+      "L2": 0.5475,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.7875,
+      "L2": 0.5475,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.691,
+      "L2": 0.37,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.691,
+      "L2": 0.37,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.933,
+      "L2": 0.3085,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.933,
+      "L2": 0.3085,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.995,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.995,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0045,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0045,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9955,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.9955,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed0": {
+     "p": {
+      "L0": 0.035,
+      "L1": 0.9655,
+      "L2": 0.3675,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.035,
+      "L1": 0.9655,
+      "L2": 0.3675,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.878,
+      "L2": 0.257,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.878,
+      "L2": 0.257,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.6575,
+      "L2": 0.1155,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.6575,
+      "L2": 0.1155,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9555,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.9555,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.9885,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.9885,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_KVASIR_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   },
+   "HEAL|closed_yes": {
+    "LLAVA_MED_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.24,
+      "L2": 0.6735,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.48,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed0": {
+     "p": {
+      "L0": 0.79,
+      "L1": 0.0495,
+      "L2": 0.1675,
+      "L3": 0.9655
+     },
+     "p_holm": {
+      "L0": 0.79,
+      "L1": 0.099,
+      "L2": 0.335,
+      "L3": 0.9655
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed1": {
+     "p": {
+      "L0": 0.9985,
+      "L1": 0.2345,
+      "L2": 0.1145,
+      "L3": 0.2185
+     },
+     "p_holm": {
+      "L0": 0.9985,
+      "L1": 0.469,
+      "L2": 0.229,
+      "L3": 0.2185
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed2": {
+     "p": {
+      "L0": 0.242,
+      "L1": 0.0005,
+      "L2": 0.1,
+      "L3": 0.9835
+     },
+     "p_holm": {
+      "L0": 0.242,
+      "L1": 0.001,
+      "L2": 0.2,
+      "L3": 0.9835
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.359,
+      "L2": 1.0,
+      "L3": 0.9995
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.359,
+      "L2": 1.0,
+      "L3": 0.9995
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.903,
+      "L3": 0.9925
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.9925
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN25VL_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.99,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.971,
+      "L3": 0.0025
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.005
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.957,
+      "L2": 0.823,
+      "L3": 0.0125
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0125
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.9975,
+      "L1": 0.752,
+      "L2": 0.9755,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.9975,
+      "L1": 0.752,
+      "L2": 0.9755,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.6695,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.622,
+      "L2": 0.585,
+      "L3": 0.001
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.001
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed2": {
+     "p": {
+      "L0": 0.987,
+      "L1": 0.5955,
+      "L2": 0.3885,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.987,
+      "L1": 1.0,
+      "L2": 0.777,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.999,
+      "L1": 1.0,
+      "L2": 0.407,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.999,
+      "L1": 1.0,
+      "L2": 0.814,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.9435,
+      "L2": 0.997,
+      "L3": 0.0685
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0685
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.993,
+      "L2": 0.9995,
+      "L3": 0.003
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.993,
+      "L2": 1.0,
+      "L3": 0.006
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed0": {
+     "p": {
+      "L0": 0.9985,
+      "L1": 0.707,
+      "L2": 0.4195,
+      "L3": 0.0025
+     },
+     "p_holm": {
+      "L0": 0.9985,
+      "L1": 1.0,
+      "L2": 0.613,
+      "L3": 0.0025
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed1": {
+     "p": {
+      "L0": 0.9515,
+      "L1": 1.0,
+      "L2": 0.6575,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.9515,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed2": {
+     "p": {
+      "L0": 0.9385,
+      "L1": 0.16,
+      "L2": 0.0055,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.9385,
+      "L1": 0.32,
+      "L2": 0.011,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed0": {
+     "p": {
+      "L0": 0.914,
+      "L1": 0.9855,
+      "L2": 0.9985,
+      "L3": 0.0015
+     },
+     "p_holm": {
+      "L0": 0.914,
+      "L1": 1.0,
+      "L2": 0.9985,
+      "L3": 0.002
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed1": {
+     "p": {
+      "L0": 0.1975,
+      "L1": 0.9635,
+      "L2": 0.9965,
+      "L3": 0.0015
+     },
+     "p_holm": {
+      "L0": 0.1975,
+      "L1": 0.9635,
+      "L2": 0.9965,
+      "L3": 0.003
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed2": {
+     "p": {
+      "L0": 0.6815,
+      "L1": 0.546,
+      "L2": 0.9965,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.6815,
+      "L1": 0.925,
+      "L2": 0.9965,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.8575,
+      "L2": 0.523,
+      "L3": 0.4285
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.8575,
+      "L2": 1.0,
+      "L3": 0.4285
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.9995,
+      "L1": 0.085,
+      "L2": 0.6555,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.9995,
+      "L1": 0.17,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.994,
+      "L1": 0.446,
+      "L2": 0.6365,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.994,
+      "L1": 0.892,
+      "L2": 0.6365,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed0": {
+     "p": {
+      "L0": 0.762,
+      "L1": 0.9125,
+      "L2": 0.99,
+      "L3": 0.0025
+     },
+     "p_holm": {
+      "L0": 0.762,
+      "L1": 0.918,
+      "L2": 0.99,
+      "L3": 0.0025
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed1": {
+     "p": {
+      "L0": 0.821,
+      "L1": 0.953,
+      "L2": 0.999,
+      "L3": 0.0035
+     },
+     "p_holm": {
+      "L0": 0.821,
+      "L1": 0.953,
+      "L2": 0.999,
+      "L3": 0.007
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed2": {
+     "p": {
+      "L0": 0.2945,
+      "L1": 0.6295,
+      "L2": 0.991,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.2945,
+      "L1": 0.741,
+      "L2": 0.991,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.9805,
+      "L2": 0.785,
+      "L3": 0.081
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.081
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.984,
+      "L1": 0.555,
+      "L2": 0.549,
+      "L3": 0.0015
+     },
+     "p_holm": {
+      "L0": 0.984,
+      "L1": 0.788,
+      "L2": 1.0,
+      "L3": 0.0015
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.807,
+      "L2": 0.155,
+      "L3": 0.0035
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.31,
+      "L3": 0.0035
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   },
+   "HEAL|closed_no": {
+    "LLAVA_MED_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 0.1895,
+      "L1": 0.968,
+      "L2": 0.7755,
+      "L3": 0.005
+     },
+     "p_holm": {
+      "L0": 0.379,
+      "L1": 0.968,
+      "L2": 1.0,
+      "L3": 0.01
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.317,
+      "L2": 0.4795,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.317,
+      "L2": 0.4795,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed1": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.9875,
+      "L2": 0.831,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.001,
+      "L1": 0.9875,
+      "L2": 0.831,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.151,
+      "L2": 0.222,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.151,
+      "L2": 0.222,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.022,
+      "L2": 0.521,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.044,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN25VL_ZEROSHOT_HEAL": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.1445,
+      "L2": 0.6575,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.289,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.2645,
+      "L2": 0.8675,
+      "L3": 0.0145
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.529,
+      "L2": 1.0,
+      "L3": 0.0145
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.849,
+      "L2": 0.822,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.228,
+      "L2": 0.4575,
+      "L3": 0.2135
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.456,
+      "L2": 0.915,
+      "L3": 0.2135
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9905,
+      "L2": 0.725,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9895,
+      "L2": 0.6245,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_HEAL_seed2": {
+     "p": {
+      "L0": 0.001,
+      "L1": 0.978,
+      "L2": 0.988,
+      "L3": 0.003
+     },
+     "p_holm": {
+      "L0": 0.002,
+      "L1": 1.0,
+      "L2": 0.988,
+      "L3": 0.003
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.7745,
+      "L2": 0.944,
+      "L3": 0.886
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.944,
+      "L3": 0.886
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.793,
+      "L2": 0.8375,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.3045,
+      "L2": 0.76,
+      "L3": 0.0375
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.609,
+      "L2": 1.0,
+      "L3": 0.0375
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.861,
+      "L2": 0.3065,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.613,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.86,
+      "L2": 0.528,
+      "L3": 0.4405
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.4405
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.336,
+      "L2": 0.802,
+      "L3": 0.002
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.336,
+      "L2": 0.802,
+      "L3": 0.002
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.686,
+      "L2": 0.164,
+      "L3": 0.001
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.328,
+      "L3": 0.002
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.3855,
+      "L2": 0.0315,
+      "L3": 0.0025
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.771,
+      "L2": 0.063,
+      "L3": 0.003
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.4625,
+      "L2": 0.3665,
+      "L3": 0.0355
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.925,
+      "L2": 0.733,
+      "L3": 0.0355
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.255,
+      "L2": 0.87,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.51,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.915,
+      "L2": 0.9655,
+      "L3": 0.0005
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.915,
+      "L2": 1.0,
+      "L3": 0.0005
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.943,
+      "L2": 0.195,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.943,
+      "L2": 0.39,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.459,
+      "L2": 0.1305,
+      "L3": 0.001
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.918,
+      "L2": 0.261,
+      "L3": 0.002
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.4625,
+      "L2": 0.3905,
+      "L3": 0.008
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.925,
+      "L2": 0.781,
+      "L3": 0.008
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.3705,
+      "L2": 0.46,
+      "L3": 0.0615
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.741,
+      "L2": 0.92,
+      "L3": 0.0615
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.992,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.394,
+      "L2": 0.9395,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.788,
+      "L2": 1.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_HEAL_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.9055,
+      "L2": 0.8955,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 1.0,
+      "L2": 0.8955,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   },
+   "MIMIC|closed_yes": {
+    "LLAVA_MED_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0075,
+      "L2": 0.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.015,
+      "L2": 0.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.001,
+      "L2": 0.3195,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.002,
+      "L2": 0.3195,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0405,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0405,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0005,
+      "L2": 0.006,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.001,
+      "L2": 0.012,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN25VL_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.002,
+      "L3": 0.9895
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.004,
+      "L3": 0.9895
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.002,
+      "L1": 0.0035,
+      "L2": 0.0225,
+      "L3": 0.001
+     },
+     "p_holm": {
+      "L0": 0.004,
+      "L1": 0.007,
+      "L2": 0.045,
+      "L3": 0.002
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0145,
+      "L2": 0.014,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.029,
+      "L2": 0.028,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.0135,
+      "L2": 0.1845,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.001,
+      "L1": 0.027,
+      "L2": 0.259,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.1335,
+      "L1": 0.01,
+      "L2": 0.0105,
+      "L3": 0.0005
+     },
+     "p_holm": {
+      "L0": 0.267,
+      "L1": 0.02,
+      "L2": 0.021,
+      "L3": 0.001
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.001,
+      "L1": 0.003,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.002,
+      "L1": 0.006,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0625,
+      "L1": 0.6,
+      "L2": 0.944,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.125,
+      "L1": 1.0,
+      "L2": 0.944,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0005,
+      "L1": 0.373,
+      "L2": 0.0585,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.001,
+      "L1": 0.746,
+      "L2": 0.117,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.045,
+      "L2": 0.216,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.09,
+      "L2": 0.432,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0055,
+      "L2": 0.009,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.011,
+      "L2": 0.018,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.001,
+      "L1": 0.0555,
+      "L2": 0.0035,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.002,
+      "L1": 0.111,
+      "L2": 0.007,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.078,
+      "L1": 0.032,
+      "L2": 0.015,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.156,
+      "L1": 0.064,
+      "L2": 0.03,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0945,
+      "L1": 0.08,
+      "L2": 0.0555,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.189,
+      "L1": 0.16,
+      "L2": 0.111,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.197,
+      "L1": 0.029,
+      "L2": 0.0005,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.394,
+      "L1": 0.058,
+      "L2": 0.001,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.106,
+      "L1": 0.0675,
+      "L2": 0.007,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.212,
+      "L1": 0.135,
+      "L2": 0.014,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.006,
+      "L1": 0.0,
+      "L2": 0.0565,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.012,
+      "L1": 0.0,
+      "L2": 0.113,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed1": {
+     "p": {
+      "L0": 0.006,
+      "L1": 0.0125,
+      "L2": 0.139,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.012,
+      "L1": 0.025,
+      "L2": 0.278,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed2": {
+     "p": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.025,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.0,
+      "L1": 0.0,
+      "L2": 0.05,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0405,
+      "L1": 0.006,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.081,
+      "L1": 0.012,
+      "L2": 0.0,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.0065,
+      "L1": 0.011,
+      "L2": 0.0015,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.013,
+      "L1": 0.022,
+      "L2": 0.003,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.031,
+      "L1": 0.0195,
+      "L2": 0.0035,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.062,
+      "L1": 0.039,
+      "L2": 0.007,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.0125,
+      "L1": 0.0025,
+      "L2": 0.396,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.025,
+      "L1": 0.005,
+      "L2": 0.396,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed1": {
+     "p": {
+      "L0": 0.005,
+      "L1": 0.009,
+      "L2": 0.0075,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.01,
+      "L1": 0.018,
+      "L2": 0.015,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": true,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed2": {
+     "p": {
+      "L0": 0.1005,
+      "L1": 0.395,
+      "L2": 0.3785,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.201,
+      "L1": 0.79,
+      "L2": 0.757,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   },
+   "MIMIC|closed_no": {
+    "LLAVA_MED_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed0": {
+     "p": {
+      "L0": 0.6105,
+      "L1": 0.1265,
+      "L2": 0.0035,
+      "L3": 0.9195
+     },
+     "p_holm": {
+      "L0": 0.6105,
+      "L1": 0.1265,
+      "L2": 0.007,
+      "L3": 0.9195
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed1": {
+     "p": {
+      "L0": 0.397,
+      "L1": 0.403,
+      "L2": 0.0,
+      "L3": 0.9915
+     },
+     "p_holm": {
+      "L0": 0.397,
+      "L1": 0.403,
+      "L2": 0.0,
+      "L3": 0.9915
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "M3AE_MIMIC_seed2": {
+     "p": {
+      "L0": 0.406,
+      "L1": 0.6195,
+      "L2": 0.4,
+      "L3": 0.7135
+     },
+     "p_holm": {
+      "L0": 0.406,
+      "L1": 0.6195,
+      "L2": 0.4,
+      "L3": 0.7135
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDGEMMA_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.315,
+      "L1": 0.846,
+      "L2": 0.9445,
+      "L3": 0.358
+     },
+     "p_holm": {
+      "L0": 0.315,
+      "L1": 0.846,
+      "L2": 0.9445,
+      "L3": 0.358
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "MEDVLTHINKER_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.9075,
+      "L1": 0.0185,
+      "L2": 0.095,
+      "L3": 0.15
+     },
+     "p_holm": {
+      "L0": 0.9075,
+      "L1": 0.0185,
+      "L2": 0.095,
+      "L3": 0.15
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN25VL_ZEROSHOT_MIMIC": {
+     "p": {
+      "L0": 0.245,
+      "L1": 0.0,
+      "L2": 0.0155,
+      "L3": 0.0
+     },
+     "p_holm": {
+      "L0": 0.245,
+      "L1": 0.0,
+      "L2": 0.0155,
+      "L3": 0.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": true,
+      "L2": true,
+      "L3": true
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.372,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 0.372,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed1": {
+     "p": {
+      "L0": 0.369,
+      "L1": 0.369,
+      "L2": 0.6485,
+      "L3": 0.233
+     },
+     "p_holm": {
+      "L0": 0.369,
+      "L1": 0.369,
+      "L2": 0.6485,
+      "L3": 0.233
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.1295,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.259,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.369,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.369,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.374,
+      "L1": 0.1305,
+      "L2": 1.0,
+      "L3": 0.9935
+     },
+     "p_holm": {
+      "L0": 0.374,
+      "L1": 0.1305,
+      "L2": 1.0,
+      "L3": 0.9935
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_DORA_VT_MIMIC_seed2": {
+     "p": {
+      "L0": 0.649,
+      "L1": 0.652,
+      "L2": 0.044,
+      "L3": 0.9465
+     },
+     "p_holm": {
+      "L0": 0.649,
+      "L1": 1.0,
+      "L2": 0.088,
+      "L3": 0.9465
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed0": {
+     "p": {
+      "L0": 0.664,
+      "L1": 0.664,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 0.664,
+      "L1": 0.746,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.398
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.398
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_FROZEN_MIMIC_seed2": {
+     "p": {
+      "L0": 0.6025,
+      "L1": 0.0495,
+      "L2": 0.3715,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 0.6025,
+      "L1": 0.0495,
+      "L2": 0.3715,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed0": {
+     "p": {
+      "L0": 0.369,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 0.369,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed1": {
+     "p": {
+      "L0": 0.3985,
+      "L1": 0.4025,
+      "L2": 0.02,
+      "L3": 0.949
+     },
+     "p_holm": {
+      "L0": 0.3985,
+      "L1": 0.4025,
+      "L2": 0.02,
+      "L3": 0.949
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "QWEN2VL_LORA_VT_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.235,
+      "L3": 0.999
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.235,
+      "L3": 0.999
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.622
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.622
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.3725,
+      "L2": 1.0,
+      "L3": 0.5965
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.3725,
+      "L2": 1.0,
+      "L3": 0.5965
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_FT_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.4185
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.4185
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.3655,
+      "L1": 0.137,
+      "L2": 0.3525,
+      "L3": 0.1325
+     },
+     "p_holm": {
+      "L0": 0.3655,
+      "L1": 0.137,
+      "L2": 0.3525,
+      "L3": 0.1325
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.6495,
+      "L3": 1.0
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.6495,
+      "L3": 1.0
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_DORA_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.659,
+      "L2": 0.3655,
+      "L3": 0.404
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.659,
+      "L2": 0.3655,
+      "L3": 0.404
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed0": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.389
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.389
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.378,
+      "L2": 0.677,
+      "L3": 0.419
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.378,
+      "L2": 0.677,
+      "L3": 0.419
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_FT_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.824,
+      "L3": 0.5855
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 0.824,
+      "L3": 0.5855
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed0": {
+     "p": {
+      "L0": 0.906,
+      "L1": 0.613,
+      "L2": 0.129,
+      "L3": 0.1325
+     },
+     "p_holm": {
+      "L0": 0.906,
+      "L1": 0.613,
+      "L2": 0.258,
+      "L3": 0.1325
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed1": {
+     "p": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.8085
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 1.0,
+      "L2": 1.0,
+      "L3": 0.8085
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    },
+    "SMOLVLM_LORA_MIMIC_seed2": {
+     "p": {
+      "L0": 1.0,
+      "L1": 0.8015,
+      "L2": 1.0,
+      "L3": 0.852
+     },
+     "p_holm": {
+      "L0": 1.0,
+      "L1": 0.8015,
+      "L2": 1.0,
+      "L3": 0.852
+     },
+     "veredito_holm": {
+      "L0": false,
+      "L1": false,
+      "L2": false,
+      "L3": false
+     }
+    }
+   }
+  }
+ },
+ "segundos": 32
+}

@@ -1,0 +1,28 @@
+# Environment for M3AE (fine-tuning and inference with the patched upstream code; see src/m3ae_patch/README.md).
+# Python 3.8, torch 1.9.0 (CUDA 11.1 build) and the versions pinned by the M3AE authors; versions actually installed are listed below.
+name: medvqa-rn-m3ae
+channels: [conda-forge]
+dependencies:
+  - python=3.8
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu111
+      - torch==1.9.0+cu111
+      - torchvision==0.10.0+cu111
+      - pytorch-lightning==1.3.2
+      - transformers==4.6.0
+      - tokenizers==0.10.3
+      - sacred==0.8.2
+      - timm==0.4.12
+      - einops==0.3.0
+      - ftfy==6.0.3
+      - numpy==1.19.5
+      - pandas==1.1.5
+      - Pillow==8.1.0
+      - pyarrow==17.0.0
+      - scipy==1.10.1
+      - regex==2024.11.6
+      - tqdm==4.70.0
+      - torchmetrics==0.7.2
+      - scikit-learn==1.0.2
+      - wandb==0.24.2
