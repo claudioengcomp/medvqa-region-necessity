@@ -3,8 +3,7 @@
 order, dropout), and that the same seed is reproducible. Before this
 module, run_experiment.py did not call any global seed -- there were only
 fixed seeds (42/123) for the eval subsample, unrelated to the training
-itself. See docs/superpowers/specs/
-2026-08-30-kvasir-clean-split-design.md §13.1.
+itself.
 """
 from __future__ import annotations
 

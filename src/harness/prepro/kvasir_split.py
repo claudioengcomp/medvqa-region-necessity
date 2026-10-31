@@ -3,8 +3,7 @@ pure logic, no network/GPU (separate from the CLI script in
 build_kvasir_clean_split.py, which does the actual download).
 
 Motivation: the official HuggingFace split (train/test) has 94% image
-overlap between the two sides -- see docs/superpowers/specs/
-2026-08-30-kvasir-clean-split-design.md §1.B. This module groups ALL
+overlap between the two sides. This module groups ALL
 unique images (from train+test together) and draws a new split, disjoint
 by img_id, stratified by pathology_label so as not to leave an entire rare
 clinical category on one side only.

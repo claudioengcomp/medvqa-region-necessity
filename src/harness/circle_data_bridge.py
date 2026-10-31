@@ -11,9 +11,7 @@ same image bytes (decoded automatically by the HuggingFace
 manually here). `id` is the real `question_id` from the arrow -- unlike the
 `id_key=None` that `med_vlm.data.loader._normalize` uses by default --
 needed to preserve the per-qid pairing between conditions, used by the
-paired McNemar test (harness.stats.compute_ldv.compute_summary_vs_baseline).
-
-See docs/superpowers/specs/2026-08-18-circle-bridge-design.md §3."""
+paired McNemar test (harness.stats.compute_ldv.compute_summary_vs_baseline)."""
 from __future__ import annotations
 
 from datasets import Dataset, Features, Image as HFImage, Sequence, Value

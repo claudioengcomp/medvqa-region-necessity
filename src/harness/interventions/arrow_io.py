@@ -69,5 +69,5 @@ def count_questions(df: pd.DataFrame) -> int:
     the 'questions' column -- counting rows (len(df)) counts images, not
     questions. This exact bug produced a wrong bootstrap 95% CI
     in the first M3AE result (n=96 images instead of n=1061
-    questions) -- see HANDOFF_P0_Execucao_Harness.md §3.0."""
+    questions)."""
     return int(sum(len(qs) for qs in df["questions"]))

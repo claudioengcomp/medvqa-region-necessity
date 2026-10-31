@@ -12,7 +12,7 @@ use vision.
 Scope of this first version: closed-ended questions only (answer_type=="CLOSED"),
 which have a fixed answer vocabulary and allow exact matching.
 Open-ended questions are out of scope, along the same scope cut already
-applied on other fronts (see spec §1.3 of the handoff).
+applied on other fronts.
 
 Generalized to VQA-RAD (03/09/2026, local run): the q_lang=='en' filter
 was hardcoded for the SLAKE format (bilingual, PT/EN) -- VQA-RAD does not

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Runs M3AE inference on SLAKE for ONE condition (C0/C1/C2) -- fallback
-# for M1 (see spec §11). Same logic as LaPA's run_condition.sh, but with
+# for M1. Same logic as LaPA's run_condition.sh, but with
 # M3AE's own conventions (data_root=data/finetune_arrows/, folder
 # 'downloaded' with "ed", without LaPA's extra args).
 #

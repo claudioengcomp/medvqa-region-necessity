@@ -75,7 +75,7 @@ def _normalize(
 
 
 # Kvasir-VQA-x1 no longer uses the official HF Hub split for training
-# generative -- see docs/superpowers/specs/2026-08-30-kvasir-clean-split-design.md
+# generative models
 # (the official split had 94% train/test image overlap, and the HF
 # `answer` field is compound/verbose, incompatible with the format used in
 # evaluation). The 3 arrows below are built by

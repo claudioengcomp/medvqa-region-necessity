@@ -17,9 +17,8 @@ VALID_CONDITIONS = (
     "C4_OCC_25", "C4_OCC_50", "C4_OCC_75",
     "C4_NOISE_25", "C4_NOISE_50", "C4_NOISE_75",
     # C7 reserved (26/08/2026): positional-occlusion control condition
-    # (former "Task 4" of PLANO_AJUSTES_P0_v2.md) -- renamed from C6
-    # for C7 when C6 came to mean "same organ+modality,
-    # free category" (see docs/superpowers/plans/2026-08-21-kvasir-targeted-pathology-swap-condition.md).
+    # -- renamed from C6 to C7 when C6 came to mean "same organ+modality,
+    # free category".
     # Not implemented yet -- added here only to reserve the name.
     "C7",
     # ISBI 2027, placebo posicional (docs/isbi/placebo/preregistration_v2.md): C0 restrita

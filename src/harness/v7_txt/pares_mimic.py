@@ -1,4 +1,4 @@
-"""Measure pipeline on MIMIC (ESPEC_MEDIDA_MIMIC.md section 4; Amendment 10): matrix of same-question pairs, whole eligible pool, HEAL rule
+"""Measure pipeline on MIMIC (Amendment 10 of the protocol): matrix of same-question pairs, whole eligible pool, HEAL rule
 (harness/medida/phase0_final.py full_pool): receiver i and donor j with the same question_key, test x test, never the same image.
 Canonical functions imported from the measure pipeline's worktree (question_key, label, answer_sig, strata_of; not reimplemented). Absolute edges under MedSigLIP
 from v6_medida/design/strata_edges.json (read-only). Distance d = 1 - cos per ruler (MIMIC__TEST__<regua>.npy, order of image_ids.json MIMIC__TEST).

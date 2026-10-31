@@ -15,8 +15,7 @@ It also captures, separately, the answer of the finding-category
 template question ("Are there any abnormalities in the image? Check
 all that are present.") as `pathology_label` per image -- used by
 condition C5 (harness/interventions/make_c5_matched_pathology_swap.py)
-to restrict the swap to a different category. See docs/superpowers/
-plans/2026-08-21-kvasir-targeted-pathology-swap-condition.md.
+to restrict the swap to a different category.
 
 TRAINING of the generative models (LoRA) does NOT use this arrow -- it uses
 Kvasir-VQA-x1 directly via med_vlm.data.loader (compound questions),
@@ -25,9 +24,8 @@ because med_vlm is already configured for that format natively.
 Usage:
     python -m harness.prepro.prepare_kvasir_arrow         --split test         --output data/finetune_arrows/vqa_kvasir_test.arrow
 
-Actual finding during a run (Colab, 21-22/08/2026), not covered by the 17
-patterns mapped in the planning session (which only looked at the TEST
-split): the TRAIN split has 2 extra patterns -- "Does this image contain
+Actual finding during a run (21-22/08/2026), not covered by the 17
+patterns mapped beforehand from the TEST split only: the TRAIN split has 2 extra patterns -- "Does this image contain
 any finding?" (2263/6212 train images, 36%, had ONLY this question and
 were being discarded entirely; answer 100% "no" in the 2263+237
 occurrences measured in train+test -- degenerate question, no variance,

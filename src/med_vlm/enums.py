@@ -21,7 +21,7 @@ class ModelName(str, enum.Enum):
     # Medical-domain VLMs
     LLAVA_MED = "chaoyinshe/llava-med-v1.5-mistral-7b-hf"
     # Qwen2.5-VL-7B + RL on PMC-VQA -- candidate for the accuracy quadrant
-    # high / low VDD (see docs/superpowers/specs/2026-08-25-medvlthinker-third-model-design.md)
+    # high / low VDD
     MEDVLTHINKER = "UCSC-VLAA/MedVLThinker-7B-RL_PMC"
     # v7 (2026-10-09): zero-shot breadth -- the generalist base model of MedVLThinker, without medical RL
     QWEN25VL = "Qwen/Qwen2.5-VL-7B-Instruct"

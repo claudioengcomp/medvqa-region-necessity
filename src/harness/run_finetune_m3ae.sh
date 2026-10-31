@@ -6,8 +6,7 @@
 # Unlike harness/run_extract_predictions_m3ae.sh (which only runs
 # inference, without WandbLogger): this path runs the REAL main.py, which
 # builds a pl.loggers.WandbLogger(...) unconditionally -- that is why
-# WANDB_MODE=disabled is required here (same bug documented in
-# HANDOFF_P0_Execucao_Harness.md §1.3, item 4).
+# WANDB_MODE=disabled is required here.
 #
 # At the end of training, main.py already runs trainer.test(ckpt_path="best", ...)
 # by itself (default behaviour when "finetune" is in exp_name and
@@ -15,8 +14,7 @@
 # harness/find_best_checkpoint.py afterwards to locate the saved file.
 #
 # Real-cost instrumentation (wall-clock time + peak GPU memory) --
-# resolves, on the M3AE side, the same pending item already resolved on the generative side
-# (Task 5 of the Kvasir integration plan). Does NOT use
+# the same instrumentation as on the generative side. Does NOT use
 # torch.cuda.max_memory_allocated(): that counter is per PROCESS, and
 # `python main.py` runs inside here (after 'source activate lapa'),
 # in a different process from whoever CALLS this script -- a torch.cuda counter
