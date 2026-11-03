@@ -6,7 +6,7 @@ to be derived from any hidden question. Finding 26/08/2026: 100% of the
 (the same image always has the same organ across all its associated
 questions) -- CHEST=73, ABD=70, HEAD=60.
 
-C5 is not feasible for VQA-RAD (confirmed in two sessions: 21/08 and
+C5 is not feasible for VQA-RAD (confirmed twice: 21/08 and
 26/08) -- the pathology vocabulary (`question_type=='ABN'`) is almost
 entirely unique free text (34/203 images, most with a distinct answer),
 without enough repetition for a "different category" derangement

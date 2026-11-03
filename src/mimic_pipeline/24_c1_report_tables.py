@@ -1,9 +1,9 @@
-"""executor 2, 14/10/2026: (a) real diff by key between before/after in the JSON files (C1 keys and provenance stamp only); (b) report tables:
+"""14/10/2026: (a) real diff by key between before/after in the JSON files (C1 keys and provenance stamp only); (b) report tables:
 mean per family (5 benchmarks) with C1; TXT - C1 per run and family (HEAL, MIMIC) with CI; C1 coverage (n)."""
 import os   # released package: the original absolute data root is read from the LAB_ROOT environment variable
 import json, re, collections
 from pathlib import Path
-A = Path(os.environ.get("LAB_ROOT", "LAB_ROOT") + "/tmp/v7/exec2_antes_20261014"); V = Path(os.environ.get("LAB_ROOT", "LAB_ROOT") + "/v7_txt")
+A = Path(os.environ.get("LAB_ROOT", "LAB_ROOT") + "/tmp/v7/snapshot_before_20261014"); V = Path(os.environ.get("LAB_ROOT", "LAB_ROOT") + "/v7_txt")
 EXP = {"c1", "txt_menos_c1", "C1_frozen", "t", "definitions"}
 def changes(a, b, path, out):
     if isinstance(a, dict) and isinstance(b, dict):

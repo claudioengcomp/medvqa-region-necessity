@@ -1,12 +1,12 @@
 """Splits the raw VQA-RAD trainset.json (MEVF/data_RAD format, with no
-valset.json of its own -- confirmed in this session by downloading the official package from
+valset.json of its own -- confirmed by downloading the official package from
 `https://huggingface.co/datasets/aiozai/MEVF/resolve/main/data_RAD.zip`) into
 train/val, since M3AE's `prepro_vqa_vqa_rad()` expects the three files
 (trainset.json/valset.json/testset.json).
 
 Split by QUESTION (not by image), with a fixed seed -- consistent with
 VQA-RAD's own official train/test split, which already has image overlap
-between train and test (finding confirmed in this session: all 203 images
+between train and test (finding confirmed: all 203 images
 of `testset.json` also appear in `trainset.json` -- that is how the
 official benchmark works; it is not a leak introduced by us, it is a
 known limitation of the dataset to be recorded in the paper, not to be "fixed").

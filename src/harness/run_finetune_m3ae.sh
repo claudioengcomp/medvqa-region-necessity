@@ -20,8 +20,8 @@
 # in a different process from whoever CALLS this script -- a torch.cuda counter
 # from outside would see nothing. Instead, it polls `nvidia-smi` every 5s
 # in a background process during the whole training and takes the peak -- it measures the
-# whole physical device, which is safe on Colab (1 GPU, exclusive use
-# by this session).
+# whole physical device, which is safe on a single-GPU machine used exclusively
+# for this training.
 #
 # Usage: bash harness/run_finetune_m3ae.sh <task_finetune_vqa_slack|task_finetune_vqa_vqa_rad|task_finetune_vqa_kvasir> \
 #          <M3AE_DIR> <RESULTS_LOG_DIR> [extra Sacred args, e.g. clip_resizedcrop]
@@ -34,13 +34,10 @@ LOG_DIR="${3:?diretório onde salvar o log}"
 shift 3
 EXTRA_ARGS=("$@")
 
-# A bare `source activate lapa` (old syntax) only works on Colab
-# (condacolab patches the environment to support it) -- on gpu-server-a
-# (vanilla miniconda) this script, run as a new bash process, does not
-# inherit functions from the shell that invoked it, so it fails with "activate: No
-# such file or directory". Explicitly sourcing conda.sh + `conda activate`
-# (current syntax) fixes it, with a fallback to the original `source activate`
-# to preserve compatibility with Colab.
+# On installations where the shell was not initialised by conda, this script, run as a new
+# bash process, does not inherit the shell functions of its caller, and a bare `source activate lapa`
+# fails with "activate: No such file or directory". Explicitly sourcing conda.sh + `conda activate`
+# fixes it, with a fallback to the old `source activate` syntax for environments that support it.
 if [ -f "${LAB_ROOT}/miniconda3/etc/profile.d/conda.sh" ]; then
   source ${LAB_ROOT}/miniconda3/etc/profile.d/conda.sh
 fi
@@ -65,9 +62,9 @@ trap 'kill "${GPU_POLL_PID}" 2>/dev/null || true' EXIT
 _start_ts=$(date +%s)
 # python -u (unbuffered): without it, Python's stdout becomes
 # block-buffered as soon as it stops being an interactive terminal (here, the
-# other end is 'tee') -- real finding in execution (Colab, 22/08/2026): the
+# other end is 'tee') -- real finding in execution (22/08/2026): the
 # notebook cell printed nothing for minutes, ambiguous whether it was
-# stuck or just buffered, with no way to check without interrupting (Colab only
+# stuck or just buffered, with no way to check without interrupting (a notebook only
 # runs one cell at a time). With -u, each line appears as soon as it is
 # printed, both in the cell and in LOG_FILE.
 python -u main.py with data_root=data/finetune_arrows/ \

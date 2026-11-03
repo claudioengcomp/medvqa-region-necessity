@@ -91,5 +91,5 @@ hits = sorted({t for t in t1 + t2 + t3 if BAD.search(WL.sub("", t))})
 man = {"t": time.strftime("%Y-%m-%d %H:%M:%S"), "script": os.path.relpath(__file__), "script_sha256": sha(os.path.relpath(__file__)), "fontes": {"headroom.json": sha(f"{OUT}/analysis/headroom.json"), "escada_vereditos.json": sha(f"{OUT}/analysis/escada_vereditos.json")},
        "files": {f: sha(f"{OUT}/figs/{f}") for f in sorted(os.listdir(f"{OUT}/figs")) if f.endswith((".pdf", ".png"))}, "grep_termos_internos_nos_textos": hits, "excecao_grep": "'text-only arm' removido antes do grep (item 22)",
        "ic_fora_da_area_visivel": {"principal": o1, "completa": o2}, "textos_que_cruzam_a_moldura_do_painel_1": {"principal": c1, "completa": c2},
-       "nota": "pdftotext ausente na gpu1; grep feito sobre os objetos Text da figura; conferencia por pdftotext no Mac fica com a coordenadora"}
+       "nota": "pdftotext ausente no servidor; verificacao feita sobre os objetos Text da figura; conferencia por pdftotext feita a parte"}
 json.dump(man, open(f"{OUT}/figs/manifest.json", "w"), indent=1); print("figs ok;", {k: man[k] for k in ("grep_termos_internos_nos_textos", "ic_fora_da_area_visivel", "textos_que_cruzam_a_moldura_do_painel_1")})

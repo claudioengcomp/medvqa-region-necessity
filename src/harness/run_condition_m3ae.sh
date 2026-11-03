@@ -4,7 +4,7 @@
 # M3AE's own conventions (data_root=data/finetune_arrows/, folder
 # 'downloaded' with "ed", without LaPA's extra args).
 #
-# Assumes environment/colab_setup_m3ae.sh has already run and that
+# Assumes the 'lapa' environment (environment/environment-m3ae.yml) is installed and that
 # harness/interventions/make_c1_blank_images.py and make_c2_shuffled_pairs.py
 # have already generated the C1/C2 arrows (same schema and output location as
 # LaPA's prepro, since the prepro_vqa_slack() function is identical in both
@@ -22,13 +22,10 @@ ARROW_DIR="${M3AE_DIR}/data/finetune_arrows"
 TARGET="${ARROW_DIR}/vqa_slack_test.arrow"
 BACKUP="${ARROW_DIR}/vqa_slack_test.arrow.c0_backup"
 
-# A bare `source activate lapa` (old syntax) only works on Colab
-# (condacolab patches the environment to support it) -- on gpu-server-a
-# (vanilla miniconda) this script, run as a new bash process, does not
-# inherit functions from the shell that invoked it, so it fails with "activate: No
-# such file or directory". Explicitly sourcing conda.sh + `conda activate`
-# (current syntax) fixes it, with a fallback to the original `source activate`
-# to preserve compatibility with Colab.
+# On installations where the shell was not initialised by conda, this script, run as a new
+# bash process, does not inherit the shell functions of its caller, and a bare `source activate lapa`
+# fails with "activate: No such file or directory". Explicitly sourcing conda.sh + `conda activate`
+# fixes it, with a fallback to the old `source activate` syntax for environments that support it.
 if [ -f "${LAB_ROOT}/miniconda3/etc/profile.d/conda.sh" ]; then
   source ${LAB_ROOT}/miniconda3/etc/profile.d/conda.sh
 fi

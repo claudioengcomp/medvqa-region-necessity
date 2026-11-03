@@ -35,7 +35,7 @@ VALID_CONDITIONS = (
     "SHAM_ART_black", "SHAM_ART_blur10", "SHAM_POL_Q1_black", "SHAM_POL_Q1_blur10",
     "SHAM_POL_Q3_black", "SHAM_POL_Q3_blur10", "SHAM_INS_black", "SHAM_INS_blur10",
     "SHAM_DIS_black", "SHAM_DIS_blur10",
-    # v7_mimic (2026-10-11): sufficiency with blur/region mean color (S_blur10, S_regmean) and the MIMIC occluder test (HANDOFF_PLACEBO_GPU.md)
+    # v7_mimic (2026-10-11): sufficiency with blur/region mean color (S_blur10, S_regmean) and the MIMIC occluder test
     "S_blur10", "S_regmean", "SHAM_black", "SHAM_blur10",
     # item 21 (22/10/2026): M3AE with a constant BLACK image -- text-only trained with black and tested with black; any model tested with black
     "TXT_PRETO", "C1_PRETO",

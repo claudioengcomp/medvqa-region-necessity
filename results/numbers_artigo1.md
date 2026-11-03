@@ -1,6 +1,6 @@
 # Folha de numeros -- artigo 1 (teste de necessidade da regiao com controle de posicao) -- rodada 1
 
-Gerada 2026-10-30 19:13:47 por v7_artigo1/scripts/make_numbers_artigo1.py (sha256 19dbb23de46d). Um numero por linha; fonte e sha256 abaixo. Acuracia em %, diferencas em pp (uma casa), razoes com tres casas; IC 95 % por bootstrap por imagem (2 000 replicas, semente 20260913, replicas fixas por base). Media (DP) entre as 3 sementes (condicional aos tres modelos). Delta = Acc(mascara deslocada) - Acc(alvo ocluido); headroom = Acc(intacta) - Acc(text-decoder-only da mesma familia e semente); criterio B = IC de Delta exclui zero por cima sob preto E sob blur 10 %. HEAL e Medical-Diff-VQA: so perguntas fechadas no corpo (abertas do MIMIC so no JSON); Kvasir-VQA-x1: as classes do inventario (polipo, instrumento, controle negativo, polipo secundario; abertas e fechadas, como na folha de 01/10). Bases: Kvasir-VQA-x1, HEAL-MedVQA, Medical-Diff-VQA (SLAKE so na S11).
+Gerada 2026-11-03 03:45:18 por v7_artigo1/scripts/make_numbers_artigo1.py (sha256 19dbb23de46d). Um numero por linha; fonte e sha256 abaixo. Acuracia em %, diferencas em pp (uma casa), razoes com tres casas; IC 95 % por bootstrap por imagem (2 000 replicas, semente 20260913, replicas fixas por base). Media (DP) entre as 3 sementes (condicional aos tres modelos). Delta = Acc(mascara deslocada) - Acc(alvo ocluido); headroom = Acc(intacta) - Acc(text-decoder-only da mesma familia e semente); criterio B = IC de Delta exclui zero por cima sob preto E sob blur 10 %. HEAL e Medical-Diff-VQA: so perguntas fechadas no corpo (abertas do MIMIC so no JSON); Kvasir-VQA-x1: as classes do inventario (polipo, instrumento, controle negativo, polipo secundario; abertas e fechadas, como na folha de 01/10). Bases: Kvasir-VQA-x1, HEAL-MedVQA, Medical-Diff-VQA (SLAKE so na S11).
 
 ## S1. Contagens (resumo e introducao)
 
@@ -3194,11 +3194,11 @@ Gerada 2026-10-30 19:13:47 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 ## S10. Limitacoes
 
 - **HEAL: perguntas / unidades em imagens com >= 2 anatomias anotadas** — `579 / 530 (de 1446 / 1360)`  
-  <sub>v7_artigo1/analysis/placebo_geometry_heal.json · sha256 d47551dfe083</sub>
+  <sub>v7_artigo1/analysis/placebo_geometry_heal.json · sha256 1d59874335ff</sub>
 - **HEAL: unidades em que a mascara deslocada toca outra anatomia (qualquer / > 50 % da outra)** — `328 / 175 de 530 (61.9 % / 33.0 %)`  
-  <sub>v7_artigo1/analysis/placebo_geometry_heal.json · sha256 d47551dfe083</sub>
+  <sub>v7_artigo1/analysis/placebo_geometry_heal.json · sha256 1d59874335ff</sub>
 - **HEAL: perguntas afetadas (qualquer / > 50 %) sobre o total** — `361 / 196 de 1446`  
-  <sub>v7_artigo1/analysis/placebo_geometry_heal.json · sha256 d47551dfe083</sub>
+  <sub>v7_artigo1/analysis/placebo_geometry_heal.json · sha256 1d59874335ff</sub>
 - **Medical-Diff-VQA: unidades em que alguma caixa da mascara deslocada toca outra regiao-folha (qualquer / > 50 % da outra)** — `1656 / 1397 de 1657`  
   <sub>v7_artigo1/analysis/placebo_geometry_mimic.json · sha256 70d353366fb8</sub>
 - **Kvasir: mascaras (Kvasir-SEG polipos / Kvasir-Instrument instrumentos casados)** — `1000 / 590 (instrumentos sem par: 410)`  

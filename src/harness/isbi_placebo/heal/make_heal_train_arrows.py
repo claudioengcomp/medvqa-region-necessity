@@ -12,7 +12,7 @@ Vocabulary (M3AE): "no" = 0 and "yes" = 1 fixed (matching the test arrows), the 
 decreasing frequency over train + val + test; written to heal_answer_vocab.json.
 question_id starting at 3_100_000 (the test set uses 3_000_000..3_002_850).
 
-Usage (Mac, CPU):
+Usage (CPU):
     python -m harness.isbi_placebo.heal.make_heal_train_arrows         --annotations data/isbi_placebo/heal/heal_annotations_train.parquet         --png-dir <png/train> --png-manifest data/isbi_placebo/heal/png_manifest_train.json         --test-annotations data/isbi_placebo/heal/heal_annotations_test.parquet         --out-dir data/isbi_placebo --manifest results/isbi_placebo/manifest_heal_train.json
 """
 from __future__ import annotations

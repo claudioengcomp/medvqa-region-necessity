@@ -1,98 +1,37 @@
-# Complete diff between the lab analysis scripts and the released copies (src/analysis). Besides the path configuration
-# (common.py reads config/paths.yaml) and relative script paths, it includes the translation of comments and docstrings to English;
-# code tokens are otherwise identical (see CODE_PROVENANCE.md).
+# Diff between the lab analysis scripts and the released copies (src/analysis), code only: the path configuration (common.py reads
+# config/paths.yaml), relative script paths, the host name (not recorded) and the string literals listed in src/CODE_PROVENANCE.md.
+# Comments and docstrings were translated or edited for the release and are not shown here; code tokens are compared in src/CODE_PROVENANCE.md.
+# Lab-internal names inside string literals of the lab side are masked (<platform>, <internal-document>, <role>, <run>, <snapshot>, <workstation>); see the table of release edits there.
 --- lab/v7_artigo1/scripts/agrega.py
 +++ package/src/analysis/agrega.py
-@@ -1,8 +1,8 @@
--"""Itens 3-7 (CPU): agrega analysis/necessity_v2/*.json em analysis/{criterio,headroom,oclusor_negativos,doses,zeroshot}.json e escreve
--docs/item2..item7 e docs/estatistica.md. Media (DP, ddof=1) entre as tres sementes = descricao das tres linhas (condicional aos tres modelos;
--nao reamostra sementes). So numeros."""
-+"""Items 3-7 (CPU): aggregates analysis/necessity_v2/*.json into analysis/{criterio,headroom,oclusor_negativos,doses,zeroshot}.json and writes
-+docs/item2..item7 and docs/estatistica.md. Mean (SD, ddof=1) over the three seeds = description of the three runs (conditional on the three models;
-+seeds are not resampled). Numbers only."""
+@@ -1,5 +1,5 @@
  import collections, glob, json, os, re, socket, statistics, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
  T0 = time.time(); NV2 = f"{OUT}/analysis/necessity_v2"
  R = {b: [json.load(open(f)) for f in sorted(glob.glob(f"{NV2}/*_{b}.json"))] for b in BASES}
  FT = {b: [r for r in R[b] if not r.get("zero_shot")] for b in BASES}; ZSR = {b: [r for r in R[b] if r.get("zero_shot")] for b in BASES}
-@@ -17,9 +17,9 @@
-     return {"media": statistics.mean(xs), "dp": statistics.stdev(xs) if len(xs) > 1 else None, "min": min(xs), "max": max(xs), "n": len(xs)}
- KEYS = ["acc.C0", "acc_txt", "headroom", "acc_m0", "headroom_m0", "custo_mascara_deslocada_preto", "custo_alvo_preto", "delta_preto", "delta_blur10", "delta_regmean", "suficiencia_preto"]
- def res_ic(bk):
--    """rodada 2 (item 15): resoluvel = limite inferior do IC 95 % por imagem do headroom > 0 (sem o limiar de 0,10)."""
-+    """round 2 (item 15): resolvable (`resoluvel`) = lower bound of the per-image 95 % CI of the headroom > 0 (without the 0.10 threshold)."""
-     c = (bk or {}).get("headroom_ci_by_image"); return bool(c and c[0] > 0)
--def res_010(bk): return bool((bk or {}).get("resoluvel"))   # versao da rodada 1: headroom >= 0,10 e IC > 0
-+def res_010(bk): return bool((bk or {}).get("resoluvel"))   # round-1 version: headroom >= 0.10 and CI > 0
- EXCL_DOSE = {"HEAL": {"QWEN2VL_DORA_HEAL_seed2": "1x do adapter original (ausente na gpu1); 1,5x e 2x do retreino de 03/10: dois checkpoints na mesma celula; fora das medias de dose (item 20)"}}
- def get(b, k):
-     if k.startswith("acc."): return (b.get("acc") or {}).get(k[4:])
-@@ -46,7 +46,7 @@
-                                 "por_grupo": {g: {c: sum(1 for r in v if r["by_class"].get(cls, {}).get(f"criterio_{c}")) for c in ("A", "B", "C")} | {"resoluveis": sum(1 for r in v if res_ic(r["by_class"].get(cls))), "B_entre_resoluveis": sum(1 for r in v if res_ic(r["by_class"].get(cls)) and r["by_class"].get(cls, {}).get("criterio_B")), "n": len(v), "antigo": sum(1 for r in v if ((r.get("necessity_antigo") or {}).get("by_class", {}).get(cls, {}).get("e3") or {}).get("necessary"))} for g, v in by.items()}}
-     for r in FT[b]: B["por_linha"][r["line"]] = {cls: {c: r["by_class"].get(cls, {}).get(f"criterio_{c}") for c in ("A", "B", "C")} | {"antigo": ((r.get("necessity_antigo") or {}).get("by_class", {}).get(cls, {}).get("e3") or {}).get("necessary"),
-                                                     "resoluvel": res_ic(r["by_class"].get(cls)), "resoluvel_ic_e_010": res_010(r["by_class"].get(cls)), "B_e_resoluvel": res_ic(r["by_class"].get(cls)) and bool(r["by_class"].get(cls, {}).get("criterio_B"))} for cls in MAIN[b] if "|" not in cls}
--    # estratos: entidades (MIMIC, fechadas-sim n >= 20) e anatomias (HEAL, fechadas-sim)
-+    # strata: entities (Medical-Diff-VQA, closed-ended yes, n >= 20) and anatomies (HEAL, closed-ended yes)
-     est = {}
-     keys = [k for k in FT[b][0]["by_class"] if k.startswith("entidade=")] if b == "MIMIC" else ([f"anatomia={a}|closed_yes" for a in ("Aorta", "Heart", "Right upper lung", "Left upper lung")] if b == "HEAL" else [])
-     for k in keys:
-@@ -60,7 +60,7 @@
-     crit["bases"][b] = B
- crit["citado_no_prompt"] = {"KVASIR": "15/15 (publicadas) e 12/12 + 11/12 (encoder invertido; polipo, instrumento)", "HEAL": "0/27", "MIMIC": "16/27 e 19/27"}
- json.dump(crit, open(f"{OUT}/analysis/criterio.json", "w"), indent=1)
--# ---------------- item 4: headroom (linha x classe; agregados; entidades/anatomias/classes do Kvasir)
-+# ---------------- item 4: headroom (run x class; aggregates; entities/anatomies/Kvasir classes)
- EXTRA_SEL = {"HEAL": [f"anatomia={a}|closed_yes" for a in ("Aorta", "Heart", "Right upper lung", "Left upper lung")] + [f"anatomia={a}" for a in ("Aorta", "Heart", "Right upper lung", "Left upper lung")], "KVASIR": [], "MIMIC": []}
- FIELDS = ["n", "n_imagens", "acc", "acc_ci_by_image", "n_txt", "acc_txt", "acc_txt_ci_by_image", "headroom", "headroom_ci_by_image", "resoluvel", "n_m0", "acc_m0", "headroom_m0", "headroom_m0_ci_by_image",
-           "delta_preto", "delta_preto_ci_by_image", "delta_blur10", "delta_blur10_ci_by_image", "delta_regmean", "delta_regmean_ci_by_image", "custo_mascara_deslocada_preto", "custo_mascara_deslocada_preto_ci_by_image",
-@@ -84,7 +84,7 @@
-             H["agregado_extra_por_grupo"][g] = {k: {kk: ms([(r["extra"].get(k) or {}).get(kk) if kk != "acc.C0" else ((r["extra"].get(k) or {}).get("acc") or {}).get("C0") for r in rs]) for kk in KEYS} | {"criterio_B": sum(1 for r in rs if (r["extra"].get(k) or {}).get("criterio_B")), "n": (rs[0]["extra"].get(k) or {}).get("n")} for k in EXTRA_SEL[b]}
-     hd["bases"][b] = H
- json.dump(hd, open(f"{OUT}/analysis/headroom.json", "w"), indent=1)
--# ---------------- item 5: oclusor em negativos
-+# ---------------- item 5: occluder test on negative items
- oc = {"t": crit["t"], "definicao": "taxa de afirmativa induzida = P(afirma | oclusor) - P(afirma | intacta), pareada por item; IC 95 % bootstrap por imagem (replicas da base); McNemar mid-p; Holm por linha sobre as condicoes da base", "bases": {}}
- for b in BASES:
-     O = {"linhas": {}, "agregado_por_grupo": {}, "zeroshot": {}}
-@@ -118,7 +118,7 @@
+@@ -108,7 +108,7 @@
+                                                 "n_ic_exclui_zero_por_cima": sum(1 for r in rs if ((((r["doses"].get("by_class") or {}).get(cls, {}).get("niveis", {}).get(L) or {}).get("delta_preto_ci_by_image")) or [0])[0] > 0)} for L in ("1", "1.5", "2")} | {"n_pareado": (rs[0]["doses"].get("by_class") or {}).get(cls, {}).get("n_pareado"), "n_classe": (rs[0]["doses"].get("by_class") or {}).get(cls, {}).get("n_classe")} for cls in raw[b]["familia_holm"]}
      ds["bases"][b] = D
  json.dump(ds, open(f"{OUT}/analysis/doses.json", "w"), indent=1)
- # ---------------- item 7: zero-shot
 -H = "$LAB_ROOT/cache/huggingface/hub"
 +H = os.path.join(os.environ.get("HF_HOME", os.path.expanduser("~/.cache/huggingface")), "hub")
  def hub_meta(rid):
      d = f"{H}/models--" + rid.replace("/", "--"); snaps = sorted(glob.glob(d + "/snapshots/*")); m = {"repo": rid, "snapshots": [os.path.basename(s) for s in snaps]}
      if snaps:
-@@ -139,8 +139,8 @@
+@@ -129,7 +129,7 @@
          if b == "MIMIC": Z[r["line"]]["entidades"] = {c: sel(v) for c, v in r["by_class"].items() if c.startswith("entidade=")}
      zs["bases"][b] = Z
  zs["nota_llava_med"] = "celulas com acuracia 0 do LLaVA-Med: respostas fora do formato (ver docs/item7_zeroshot.md, contagem de predicoes vazias/longas por base e classe)"
--# contagem de respostas fora do formato no LLaVA-Med (fechadas: nao yes/no)
 -sys.path.insert(0, f"{W}/v7_txt/worktree"); from med_vlm.metrics.process_text import normalize_text
-+# count of answers outside the format in LLaVA-Med (closed-ended: not yes/no)
 +sys.path.insert(0, CODE_ROOT); from med_vlm.metrics.process_text import normalize_text
  fora = {}
  for b in BASES:
      inv = json.load(open(INV[b])); cl = {q["qid"]: q["question_class"] for q in inv["questions"] if q["evaluable"]}
-@@ -163,7 +163,7 @@
-         fora[f"{m}_{b}"] = {f"{k[0]}|{k[1]}": v for k, v in sorted(c.items())}
- zs["respostas_fora_do_formato_C0"] = fora
- json.dump(zs, open(f"{OUT}/analysis/zeroshot.json", "w"), indent=1)
--# ---------------- item 27: escada de vereditos
-+# ---------------- item 27: ladder of verdicts
- LCLS = {"KVASIR": ["dependent_polyp", "dependent_instrument"], "HEAL": ["closed_yes", "closed_no"], "MIMIC": ["closed_yes", "closed_no"]}
- def lo(bk, k): c = (bk or {}).get(k); return None if not c else c[0]
- def steps(bk, floor="headroom"):
 --- lab/v7_artigo1/scripts/analise_bases.py
 +++ package/src/analysis/analise_bases.py
-@@ -1,17 +1,18 @@
--"""Itens 2, 4, 5, 6, 7 (CPU): aplica engine.py as 27 linhas afinadas por base (Kvasir, HEAL, MIMIC), aos 4 zero-shot por base, ao oclusor
--em imagens sem o achado e as doses. Saidas: analysis/necessity_v2/<linha>_<base>.json (uma por linha afinada ou zero-shot) e
--analysis/bases_raw.json (indice + conferencia das estimativas pontuais contra os necessity_*.json existentes). Uso: analise_bases.py [BASE,...]"""
-+"""Items 2, 4, 5, 6, 7 (CPU): applies engine.py to the 27 fine-tuned runs per benchmark (Kvasir, HEAL, MIMIC), to the 4 zero-shot models per benchmark,
-+to the occluder test on images without the finding, and to the doses. Outputs: analysis/necessity_v2/<run>_<benchmark>.json (one per fine-tuned or
-+zero-shot run) and analysis/bases_raw.json (index + check of the point estimates against the existing necessity_*.json). Usage: analise_bases.py [BENCHMARK,...]"""
+@@ -1,14 +1,15 @@
  import collections, glob, json, os, socket, sys, time
 -sys.path.insert(0, os.path.dirname(__file__))
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__)))
@@ -106,11 +45,11 @@
  def old_nec(base, line):
      c = [f"{ISBI}/necessity_{line}.json", f"{V5Q}/results_placebo/necessity_{line}.json", f"{V5S}/results_placebo/necessity_{line}.json", f"{V6}/necessity/necessity_{line}.json", f"{W}/v5_analysis/placebo_tower/necessity/necessity_{line}.json",
           f"{V7M}/analysis/necessity_{line}.json", f"{V7Z}/analysis/necessity_{line}.json"]
-+    c += [f"{d}/necessity_{line}.json" for d in CFG["kvasir"]["predictions"]]   # released copies of the earlier per-run reports (default configuration)
++    c += [f"{d}/necessity_{line}.json" for d in CFG["kvasir"]["predictions"]]
      return next((p for p in c if os.path.exists(p)), None)
  def classes(base, inv):
      ev = [q for q in inv["questions"] if q["evaluable"]]; G = collections.OrderedDict(); fam = []; extra = collections.OrderedDict()
-@@ -37,7 +38,7 @@
+@@ -34,7 +35,7 @@
      return G, extra, fam
  def m0_for(base):
      if base == "MIMIC":
@@ -119,7 +58,7 @@
          return mimic_floors()["piso_subset"], f"{V7M}/results/M0_question_only_MIMIC_subset.json (piso composto: M0 subset nas fechadas + prior por template nas abertas)"
      return E.load_correct(M0[base]), M0[base]
  def analyse_line(B, base, line, files, txtp, G, extra, fam, M0, zs=False):
-@@ -53,7 +54,7 @@
+@@ -50,7 +51,7 @@
      E.holm_line(rec["by_class"], fam); rec["holm_family"] = fam
      op = old_nec(base, line)
      if op:
@@ -128,7 +67,7 @@
          for k, b in (o.get("by_class") or {}).items():
              mine = rec["by_class"].get(k, {})
              rec["necessity_antigo"]["by_class"][k] = {"n": b.get("n"), "delta_nec": b.get("delta_nec"), "delta_nec_ci": b.get("delta_nec_ci"), "delta_nec_blur10": b.get("delta_nec_blur10"), "delta_nec_blur10_ci": b.get("delta_nec_blur10_ci"),
-@@ -62,8 +63,8 @@
+@@ -59,8 +60,8 @@
      return rec
  def dose_qids(base):
      if base == "KVASIR":
@@ -139,12 +78,7 @@
      if base == "HEAL":
          p = f"{V7T}/analysis/heal_dose_inventory.json"; U = json.load(open(p))["unidades"]; ok = [u for u in U if all(u["methods"].get(k) for k in ("1.5", "2"))]
          return [q for u in ok for q in u["qids"]], len(U), len(ok), p
-@@ -82,12 +83,12 @@
-         out["by_class"][k] = {"n_classe": len(G[k]), "n_pareado": len(qs), "niveis": lv}
-     return out
- def sham(B, base, line, c0_full, zs, inv, files):
--    """taxa de afirmativa induzida por condicao do oclusor em negativos."""
-+    """affirmative-answer rate induced by each occluder condition on negative items."""
+@@ -82,8 +83,8 @@
      yes = ("yes", "positive") if zs else ("yes",)
      if base == "KVASIR":
          import importlib.util
@@ -155,27 +89,34 @@
          for u in si["units"]:
              if u["generated"]:
                  for q in u["questions"]: Qs[u["condition"]][int(q["qid"])] = q["question"]
-@@ -95,7 +96,7 @@
+@@ -91,8 +92,7 @@
          P0 = E.load_pred(c0_full); out = {"status": "ok", "c0": c0_full, "c0_sha256": sha(c0_full), "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)", "conds": {}}
          for c in SHAM["KVASIR"]:
              if c == "C0_cross": continue
 -            p = f"{V7S}/results/{line}_{c}.json"
+-            if not os.path.exists(p): p = find("KVASIR", line, c) or p
 +            p = find(base, line, c) or ""
              if not os.path.exists(p): out["conds"][c] = {"status": "ausente"}; continue
              Pc = E.load_pred(p); qs = [q for q in Qs[c] if q in Pc and q in P0]
              a = {q: KS.affirms(Qs[c][q], Pc[q]) for q in qs}; z = {q: KS.affirms(Qs[c][q], P0[q]) for q in qs}
-@@ -118,8 +119,8 @@
+@@ -115,14 +115,8 @@
      for k, v in hp.items(): out["conds"][k]["p_holm"] = v
      return out
  def c0_full_kvasir(line, zs):
 -    if zs: return f"{V7Z}/results/{line}_C0.json"
+-    if line.startswith("QWEN25VL_"):
+-        if ALIAS_TESTE: return c0_full_kvasir(alias_teste(line), zs)
+-        for d in (f"{Q25A1}_c0full", Q25E1):
+-            p = f"{d}/{line}_C0.json"
+-            if os.path.exists(p): return p
+-        return None
 -    for d in (f"{P0}/results", f"{V5Q}/results", f"{V5S}/results"):
-+    if zs: return first_existing(ZS_DIRS, f"{line}_C0.json")   # reference of the occluder test: the main zero-shot intact-image run (no instruction suffix)
++    if zs: return first_existing(ZS_DIRS, f"{line}_C0.json")
 +    for d in KV_FULL:
          p = f"{d}/{line}_C0.json"
          if os.path.exists(p): return p
      return None
-@@ -150,7 +151,9 @@
+@@ -153,7 +147,9 @@
      bases = sys.argv[1].split(",") if len(sys.argv) > 1 else BASES
      p = f"{OUT}/analysis/bases_raw.json"; R = json.load(open(p)) if os.path.exists(p) else {"bases": {}}
      for b in bases: R["bases"][b] = run(b)
@@ -185,21 +126,12 @@
 +    R.update({"t": time.strftime("%Y-%m-%d %H:%M:%S"), "host": HOST, "engine": f"{SCRIPTS}/engine.py", "engine_sha256": sha(f"{SCRIPTS}/engine.py"), "script": os.path.relpath(__file__), "script_sha256": sha(os.path.relpath(__file__)),
 +              "shamstats": f"{CODE_ROOT}/harness/v7_sham/shamstats.py", "shamstats_sha256": sha(f"{CODE_ROOT}/harness/v7_sham/shamstats.py"),
 +              "compute_necessity_v7txt_sha256": sha(f"{CODE_ROOT}/harness/isbi_placebo/compute_necessity.py"), "compute_necessity_placebo_sha256": sha(f"{PLC}/harness/isbi_placebo/compute_necessity.py")})
-+    if os.path.exists(p):   # released code: keep the benchmarks not recomputed in this call (e.g. reproduce.sh --kvasir)
++    if os.path.exists(p):
 +        _old = json.load(open(p)); _old.get("bases", {}).update(R.get("bases", {})); R["bases"] = _old["bases"]
      json.dump(R, open(p, "w"), indent=1); print("FIM", round(time.time() - T0), "s")
 --- lab/v7_artigo1/scripts/common.py
 +++ package/src/analysis/common.py
-@@ -1,24 +1,52 @@
--"""v7_artigo1/scripts/common.py -- caminhos, linhas e localizacao de arquivos para o artigo 1 (rodada 1, executor 2, 19/10/2026).
--So leitura nas fontes; nada e escrito fora de $LAB_ROOT/v7_artigo1."""
-+"""Paths, run list and file lookup shared by the analysis scripts (the single configuration point of the pipeline).
-+
-+Every location comes from a YAML file: config/paths.yaml at the repository root by default, or the file named by the
-+environment variable MRN_CONFIG. Relative paths are resolved from the current working directory, so run the scripts from
-+the repository root. Variable names are kept from the original research code (W, PLC, ISBI, P0, V7T, V7S, V7Z, V7M, V5Q,
-+V5S, V6) so that the scripts work unchanged; the README glossary maps the internal names to the paper's terms.
-+Environment overrides: MRN_OUT (output root), MRN_HOST (host name recorded in the JSON outputs; default "not recorded")."""
+@@ -1,23 +1,41 @@
  import hashlib, json, os, re, functools
 -W = "$LAB_ROOT"; OUT = f"{W}/v7_artigo1"
 -PLC = f"{W}/doutorado/med-vqa-icdip-placebo"; ISBI = f"{PLC}/results/isbi_placebo"; P0 = f"{W}/doutorado/med-vqa-icdip-p0"
@@ -208,15 +140,15 @@
 +CFG = yaml.safe_load(open(CFG_PATH))
 +OUT = os.environ.get("MRN_OUT") or CFG["out"]
 +HOST = os.environ.get("MRN_HOST", "not recorded")
-+CODE_ROOT = CFG.get("code_root", "src")                       # importable root: med_vlm/, harness/
-+SCRIPTS = os.path.relpath(os.path.dirname(os.path.abspath(__file__)))   # this directory (analysis scripts)
-+LAB = CFG.get("lab_root", "local/lab")                         # root of the original lab layout (credentialed data; not distributed)
-+LAB_INPUTS = CFG.get("lab_inputs", f"{LAB}/v7_artigo1/inputs")   # credentialed inputs (HEAL annotations parquet, Kvasir-VQA-x1 parquet copy)
++CODE_ROOT = CFG.get("code_root", "src")
++SCRIPTS = os.path.relpath(os.path.dirname(os.path.abspath(__file__)))
++LAB = CFG.get("lab_root", "local/lab")
++LAB_INPUTS = CFG.get("lab_inputs", f"{LAB}/v7_artigo1/inputs")
 +W = LAB; PLC = f"{W}/doutorado/med-vqa-icdip-placebo"; ISBI = f"{PLC}/results/isbi_placebo"; P0 = f"{W}/doutorado/med-vqa-icdip-p0"
  V7T = f"{W}/v7_txt"; V7S = f"{W}/v7_sham"; V7Z = f"{W}/v7_zeroshot"; V7M = f"{W}/v7_mimic"
  V5Q = f"{W}/v5_qwen_vt"; V5S = f"{W}/v5_smolvlm_ft"; V6 = f"{W}/v6_tower_heal"
 +_KV = CFG["kvasir"]; KV_META = _KV["meta"]; KV_OCC_META = _KV["occluder_meta"]
-+KV_FULL = list(_KV["full_test_predictions"])                  # intact-image predictions on the full test set (occluder test reference)
++KV_FULL = list(_KV["full_test_predictions"])
 +_HEAL = CFG.get("heal", {}); _MIMIC = CFG.get("mimic", {})
 +HEAL_META = _HEAL.get("meta", ISBI); MIMIC_META = _MIMIC.get("meta", f"{V7M}/results")
 +BLUR4_META = CFG["blur4_meta"]; PREV_SHEETS = CFG.get("previous_sheets", "results/previous_sheets")
@@ -225,17 +157,19 @@
 +NOIMG_DORA_DIRS = list(CFG.get("no_image_dora_predictions", [])) + list(CFG.get("lab_no_image_dora_predictions", []))
 +M3AE_NOIMG_DIRS = list(CFG.get("m3ae_no_image_predictions", [])) + list(CFG.get("lab_m3ae_no_image_predictions", []))
 +BLUR4_DIRS = list(CFG.get("blur4_predictions", [])) + list(CFG.get("lab_blur4_predictions", []))
-+LAB_BLUR4_ARROWS = CFG.get("lab_blur4_arrows", f"{LAB}/blur4_arrows")   # fixed-scale blur arrows of the credentialed benchmarks (lab only)
++LAB_BLUR4_ARROWS = CFG.get("lab_blur4_arrows", f"{LAB}/blur4_arrows")
  BASES = ["KVASIR", "HEAL", "MIMIC"]
 -INV = {"KVASIR": f"{ISBI}/inventory_kvasir_test_clean.json", "HEAL": f"{ISBI}/inventory_heal_test.json", "MIMIC": f"{V7M}/results/inventory_mimic_test.json"}
--M0 = {"KVASIR": f"{ISBI}/M0_question_only_KVASIR_C0.json", "HEAL": f"{V7T}/results/M0_question_only_HEAL_aligned.json"}   # MIMIC: piso composto (txt_floors.mimic_floors)
--# diretorios de busca por base (ordem = prioridade); o primeiro arquivo existente vence
+-M0 = {"KVASIR": f"{ISBI}/M0_question_only_KVASIR_C0.json", "HEAL": f"{V7T}/results/M0_question_only_HEAL_aligned.json"}
 -DIRS = {"KVASIR": [ISBI, f"{V5Q}/results_placebo", f"{V5S}/results_placebo", f"{V5Q}/results", f"{V5S}/results", f"{P0}/results", f"{V7T}/results", f"{V7S}/results"],
 -        "HEAL": [ISBI, f"{V6}/results_placebo", f"{V6}/results", f"{V7T}/results", f"{V7S}/results"],
 -        "MIMIC": [f"{V7M}/results"]}
+-Q25E1 = f"{V7T}/extra_runs/qwen25vl7b/results"; Q25A1 = f"{V7T}/extra_runs/q25_artigo1/results"
+-FAM_EXTRA = [x for x in os.environ.get("A1_FAMILIAS_EXTRA", "QWEN25VL").split(",") if x]; ALIAS_TESTE = os.environ.get("A1_TESTE_ALIAS") == "1"
+-if "QWEN25VL" in FAM_EXTRA:
+-    for _b in DIRS: DIRS[_b] = DIRS[_b] + [Q25A1, Q25E1]
 +INV = {"KVASIR": f"{KV_META}/inventory_kvasir_test_clean.json", "HEAL": f"{HEAL_META}/inventory_heal_test.json", "MIMIC": f"{MIMIC_META}/inventory_mimic_test.json"}
-+M0 = {"KVASIR": f"{KV_META}/M0_question_only_KVASIR_C0.json", "HEAL": _HEAL.get("question_only", f"{V7T}/results/M0_question_only_HEAL_aligned.json")}   # MIMIC: composite floor (txt_floors.mimic_floors)
-+# search directories per benchmark (order = priority; the first existing file wins)
++M0 = {"KVASIR": f"{KV_META}/M0_question_only_KVASIR_C0.json", "HEAL": _HEAL.get("question_only", f"{V7T}/results/M0_question_only_HEAL_aligned.json")}
 +DIRS = {"KVASIR": list(_KV["predictions"]) + [ISBI, f"{V5Q}/results_placebo", f"{V5S}/results_placebo", f"{V5Q}/results", f"{V5S}/results", f"{P0}/results", f"{V7T}/results", f"{V7S}/results"],
 +        "HEAL": list(_HEAL.get("predictions", [])) + [ISBI, f"{V6}/results_placebo", f"{V6}/results", f"{V7T}/results", f"{V7S}/results"],
 +        "MIMIC": list(_MIMIC.get("predictions", [])) + [f"{V7M}/results"]}
@@ -243,31 +177,44 @@
  COND_DOSE = ["T1.5", "P1.5", "T2", "P2"]
  COND_OTHER = ["C1"]
  SHAM = {"KVASIR": ["C0_cross", "SHAM_ART_black", "SHAM_ART_blur10", "SHAM_POL_Q1_black", "SHAM_POL_Q1_blur10", "SHAM_POL_Q3_black", "SHAM_POL_Q3_blur10", "SHAM_INS_black", "SHAM_INS_blur10"],
--        "HEAL": [], "MIMIC": ["SHAM_black", "SHAM_blur10"]}   # HEAL: oclusor em negativos = T/P (e _blur10) nas closed_no
-+        "HEAL": [], "MIMIC": ["SHAM_black", "SHAM_blur10"]}   # HEAL: occluder on negatives = T/P (and _blur10) on the closed_no questions
+         "HEAL": [], "MIMIC": ["SHAM_black", "SHAM_blur10"]}
 +def first_existing(dirs, name):
-+    """First existing <dir>/<name> over a list of directories; the first candidate when none exists (so callers report it)."""
 +    cands = [f"{d}/{name}" for d in dirs]
 +    return next((p for p in cands if os.path.exists(p)), cands[0])
  def lines(base):
--    """27 linhas: (linha, familia, metodo, grupo_encoder, semente, origem)."""
-+    """27 runs: (line, family, method, encoder group, seed, origin)."""
      L = []
      for s in range(3):
-         for pe in ("LORA", "DORA"):
-@@ -32,9 +60,9 @@
+@@ -28,27 +46,15 @@
+             L.append(dict(line=f"QWEN2VL_{pe}_VT_{base}_seed{s}", family="Qwen2-VL-2B", fam="QWEN2VL", method=pe, encoder="afinado", seed=s, pack="12 de encoder invertido"))
+             L.append(dict(line=f"SMOLVLM_{pe}_FT_{base}_seed{s}", family="SmolVLM2-2.2B", fam="SMOLVLM", method=pe, encoder="congelado", seed=s, pack="12 de encoder invertido"))
+         L.append(dict(line=f"M3AE_{base}_seed{s}", family="M3AE", fam="M3AE", method="ajuste completo", encoder="ajuste completo", seed=s, pack="15 de 01/10" if base != "MIMIC" else "15 (MIMIC, 11-13/10)"))
+-    if "QWEN25VL" in FAM_EXTRA:
+-        for s in range(3):
+-            for pe in ("LORA", "DORA"):
+-                L.append(dict(line=f"QWEN25VL_{pe}_{base}_seed{s}", family="Qwen2.5-VL-7B", fam="QWEN25VL", method=pe, encoder="congelado", seed=s, pack="7B (rodadas 21-22)"))
+-                L.append(dict(line=f"QWEN25VL_{pe}_VT_{base}_seed{s}", family="Qwen2.5-VL-7B", fam="QWEN25VL", method=pe, encoder="afinado", seed=s, pack="7B (rodadas 21-22)"))
+     return L
+-def alias_teste(line):
+-    if not (ALIAS_TESTE and line.startswith("QWEN25VL_")): return line
+-    q = line.replace("QWEN25VL_", "QWEN2VL_")
+-    return q.replace("QWEN2VL_LORA_MIMIC_", "QWEN2VL_LORA_FROZEN_MIMIC_")
  def txt_line(base, fam, s):
      return (f"M3AE_TXT_{base}_seed{s}" if fam == "M3AE" else f"{fam}_LORA_TXT_{base}_seed{s}")
  def txt_file(base, fam, s):
+-    if fam == "QWEN25VL":
+-        if ALIAS_TESTE: return txt_file(base, "QWEN2VL", s)
+-        p = f"{Q25E1}/QWEN25VL_LORA_TXT_{base}_seed{s}_TXT.json"; return p if os.path.exists(p) else None
 -    root = f"{V7M}/results" if base == "MIMIC" else f"{V7T}/results"; p = f"{root}/{txt_line(base, fam, s)}_TXT.json"
 +    p = first_existing(NOIMG_DIRS, f"{txt_line(base, fam, s)}_TXT.json")
      return p if os.path.exists(p) else None
--DOSE_ALIAS = {"QWEN2VL_DORA_HEAL_seed2": "QWEN2VL_DORA_HEAL_seed2_retrain20261003"}   # doses e C1 do HEAL DoRA s2: retreino de 03/10
-+DOSE_ALIAS = {"QWEN2VL_DORA_HEAL_seed2": "QWEN2VL_DORA_HEAL_seed2_retrain20261003"}   # dose and C1 conditions of this run come from the 2026-10-03 retraining
+ DOSE_ALIAS = {"QWEN2VL_DORA_HEAL_seed2": "QWEN2VL_DORA_HEAL_seed2_retrain20261003"}
  def find(base, line, cond):
-     names = [line]
+-    names = [alias_teste(line)]
++    names = [line]
      if cond in COND_DOSE + COND_OTHER and line in DOSE_ALIAS: names = [DOSE_ALIAS[line]]
-@@ -51,5 +79,5 @@
+     for d in DIRS[base]:
+         for n in names:
+@@ -63,5 +69,5 @@
          for b in iter(lambda: f.read(1 << 24), b""): h.update(b)
      return h.hexdigest()
  def zs_file(m, base, c):
@@ -276,25 +223,7 @@
  ZS = ["MEDGEMMA", "QWEN25VL", "LLAVA_MED", "MEDVLTHINKER"]
 --- lab/v7_artigo1/scripts/engine.py
 +++ package/src/analysis/engine.py
-@@ -1,19 +1,20 @@
--"""v7_artigo1/scripts/engine.py -- estatistica unica do artigo 1 (rodada 1, 19/10/2026).
--Metrica (definicoes de harness/isbi_placebo/compute_necessity.py): Acc por condicao; Delta = Acc(P) - Acc(T) pareada; custo da mascara
--deslocada = Acc(C0) - Acc(P); custo do alvo = Acc(C0) - Acc(T); suficiencia = Acc(S)/Acc(C0). Alinhamento: qids avaliaveis presentes em
--todas as condicoes principais carregadas da linha (como compute_necessity: faltantes reportados).
--Inferencia (harness/v7_sham/shamstats.py, a rotina do heal_sham, kvasir_sham e placebo_mimic): IC 95 % percentil por bootstrap POR IMAGEM,
--2 000 replicas, semente 20260913, replicas FIXAS POR BASE (uma matriz de pesos sobre a lista ordenada de todas as imagens do inventario de
--teste da base, a mesma para todas as linhas, condicoes e classes); a media por item e reponderada pelas imagens sorteadas (todas as
--perguntas/unidades de uma imagem entram juntas). McNemar mid-p (binomial exato com meio peso no observado) nos discordantes P x T.
--Holm por linha (e por preenchimento) sobre a familia de classes declarada por base."""
-+"""v7_artigo1/scripts/engine.py -- the single statistical engine of the paper (round 1, 19/10/2026).
-+Metric (definitions of harness/isbi_placebo/compute_necessity.py): Acc per condition; Delta = Acc(P) - Acc(T), paired; cost of the displaced
-+mask = Acc(C0) - Acc(P); cost of the target = Acc(C0) - Acc(T); sufficiency = Acc(S)/Acc(C0). Alignment: evaluable qids present in all the main
-+conditions loaded for the run (as in compute_necessity: missing ones are reported).
-+Inference (harness/v7_sham/shamstats.py, the routine of heal_sham, kvasir_sham and placebo_mimic): percentile 95 % CI by PER-IMAGE bootstrap,
-+2 000 replicates, seed 20260913, replicates FIXED PER BENCHMARK (one weight matrix over the sorted list of all images of the benchmark's test
-+inventory, the same for every run, condition and class); the per-item mean is reweighted by the sampled images (all questions/units of an image
-+enter together). Mid-p McNemar (exact binomial with half weight on the observed value) on the P x T discordant items.
-+Holm per run (and per fill) over the family of classes declared for the benchmark."""
+@@ -1,6 +1,7 @@
  import collections, json, os, sys
  import numpy as np
 -sys.path.insert(0, "$LAB_ROOT/v7_txt/worktree")
@@ -303,35 +232,9 @@
  from harness.v7_sham.shamstats import ImageBootstrap, holm, mcnemar_midp
  N_BOOT, SEED = 2000, 20260913
  FILLS = {"preto": ("T", "P", "S"), "blur10": ("T_blur10", "P_blur10", "S_blur10"), "regmean": ("T_regmean", "P_regmean", "S_regmean")}
--CORE = ["C0", "T", "P", "S", "T_blur10", "P_blur10", "T_regmean", "P_regmean"]   # S_blur10/S_regmean so no MIMIC (ver item 1)
-+CORE = ["C0", "T", "P", "S", "T_blur10", "P_blur10", "T_regmean", "P_regmean"]   # S_blur10/S_regmean only on MIMIC (see item 1)
- class Base:
-     def __init__(self, image_of: dict):
-         self.IMG = image_of; self.bs = ImageBootstrap(sorted(set(image_of.values())), N_BOOT, SEED); self.n_img = len(self.bs.ids)
-@@ -27,7 +28,7 @@
- def load_correct(p): return {int(x["qid"]): bool(x["correct"]) for x in json.load(open(p))["predictions"]}
- def load_pred(p): return {int(x["qid"]): x["predicted"] for x in json.load(open(p))["predictions"]}
- def block(B: Base, qs, C: dict, TX=None, M0=None):
--    """C: cond -> {qid: correct}; qs ja alinhados. Devolve o bloco de uma classe."""
-+    """C: cond -> {qid: correct}; qs already aligned. Returns the block of one class."""
-     if not qs: return {"n": 0}
-     n = len(qs); v = {c: np.array([C[c][q] for q in qs], float) for c in C}; R = {}
-     def R_(c):
 --- lab/v7_artigo1/scripts/fig1_artigo1.py
 +++ package/src/analysis/fig1_artigo1.py
-@@ -1,14 +1,14 @@
--"""Itens 11/17/22: Figura 1 v4 (figs/fig1_necessity.{pdf,png} = reduzida, uma classe por painel; figs/fig1_necessity_full.{pdf,png} = completa, so
--interno) e figura da escada (figs/fig_ladder.{pdf,png}). Valores por linha de analysis/headroom.json e contagens de analysis/escada_vereditos.json (as
--mesmas fontes da folha). Tres paineis na mesma escala de x; faixa cinza de 0 ao image gain; hachura quando o image gain nao e resoluvel (limite
--inferior do IC <= 0); linhas nao resoluveis com marcadores cinza ("not resolvable: Delta not read"); marcador vazio = preto, cheio = blur 10 %.
--Rotulos de grupo dentro do painel (nenhum texto cruza a moldura). Vocabulario do artigo (item 22); sem rotulo interno."""
-+"""Items 11/17/22: Figure 1 v4 (figs/fig1_necessity.{pdf,png} = reduced, one class per panel; figs/fig1_necessity_full.{pdf,png} = full, internal
-+only) and the ladder figure (figs/fig_ladder.{pdf,png}). Per-run values from analysis/headroom.json and counts from analysis/escada_vereditos.json
-+(the same sources as the numbers sheet). Three panels on the same x scale; grey band from 0 to the image gain; hatched when the image gain is not
-+resolvable (lower CI bound <= 0); non-resolvable runs with grey markers ("not resolvable: Delta not read"); hollow marker = black, filled = blur 10 %.
-+Group labels inside the panel (no text crosses the frame). Vocabulary of the paper (item 22); no internal label."""
- import json, os, re, sys, time
- import matplotlib; matplotlib.use("Agg")
+@@ -3,7 +3,7 @@
  import matplotlib.pyplot as plt
  from matplotlib.patches import Patch
  from matplotlib.lines import Line2D
@@ -340,30 +243,7 @@
  plt.rcParams.update({"font.size": 9, "font.family": "serif", "pdf.fonttype": 42, "ps.fonttype": 42, "axes.titlesize": 9, "legend.fontsize": 7})
  H = json.load(open(f"{OUT}/analysis/headroom.json")); ESC = json.load(open(f"{OUT}/analysis/escada_vereditos.json"))
  PANEL = [("KVASIR", "Kvasir-VQA-x1", [("dependent_polyp", "polyp"), ("dependent_instrument", "instrument")]),
-@@ -62,14 +62,14 @@
-     fig.legend(handles=handles, loc="lower center", ncol=3, frameon=False)
-     fig.tight_layout(rect=(0, 0.08, 1, 1))
-     texts += [t.get_text() for t in fig.findobj(matplotlib.text.Text)]
--    # nenhum texto cruza a moldura do painel: confere bbox dos textos do painel 0 contra o eixo
-+    # no text crosses the panel frame: check the bounding boxes of the texts of panel 0 against the axes
-     fig.canvas.draw(); rr = fig.canvas.get_renderer(); ab = axes[0].get_window_extent(rr)
-     cross = [t.get_text() for t in axes[0].texts if (lambda e: e.x0 < ab.x0 - 0.5 or e.x1 > ab.x1 + 0.5)(t.get_window_extent(rr))]
-     for ext in ("pdf", "png"): fig.savefig(f"{OUT}/figs/{fname}.{ext}", dpi=300, bbox_inches="tight")
-     plt.close(fig); return texts, outside, cross
--t1, o1, c1 = [], 0, []   # rodada 4: a principal (v5) sai de scripts/fig1_v5.py; aqui so a completa e a escada
-+t1, o1, c1 = [], 0, []   # round 4: the main figure (v5) comes from scripts/fig1_v5.py; here only the full figure and the ladder
- t2, o2, c2 = draw(2, "fig1_necessity_full")
--# figura da escada
-+# ladder figure
- LB = [("KVASIR", "dependent_polyp", "Kvasir-VQA-x1\npolyp"), ("KVASIR", "dependent_instrument", "Kvasir-VQA-x1\ninstrument"), ("HEAL", "closed_yes", "HEAL-MedVQA\nanswer yes"), ("HEAL", "closed_no", "HEAL-MedVQA\nanswer no"),
-       ("MIMIC", "closed_yes", "Medical-Diff-VQA\nanswer yes"), ("MIMIC", "closed_no", "Medical-Diff-VQA\nanswer no")]
- STEPS = [("L0", "raw drop"), ("L1", "matched control"), ("L2", "dual fill"), ("L3", "image gain readable")]; SC = ["#bdd7ee", "#6fa8dc", "#2e75b6", "#1f3864"]
-@@ -84,11 +84,11 @@
- plt.close(fig)
- for old in ("fig1_necessity_reduced.pdf", "fig1_necessity_reduced.png"):
-     p = f"{OUT}/figs/{old}"
--    if os.path.exists(p): os.rename(p, f"{OUT}/logs/{old}.rodada1")   # a reduzida virou a principal; a copia da rodada 1 fica em logs/ (nada apagado)
-+    if os.path.exists(p): os.rename(p, f"{OUT}/logs/{old}.rodada1")   # the reduced figure became the main one; the round-1 copy stays in logs/ (nothing deleted)
+@@ -81,8 +81,8 @@
  BAD = re.compile(r"placebo|sham|\bTXT\b|\bC0\b|\bC1\b|\bM0\b|\bE[0-9]+\b|torre|tower|\bVT\b|\bFT\b|\bv[5-7]\b|RADORIG|piso|\barms?\b|nΔ|headroom|text-decoder|closed-form|visual encoder|displaced", re.I)
  WL = re.compile(r"text-only arm", re.I)
  hits = sorted({t for t in t1 + t2 + t3 if BAD.search(WL.sub("", t))})
@@ -371,40 +251,12 @@
 +man = {"t": time.strftime("%Y-%m-%d %H:%M:%S"), "script": os.path.relpath(__file__), "script_sha256": sha(os.path.relpath(__file__)), "fontes": {"headroom.json": sha(f"{OUT}/analysis/headroom.json"), "escada_vereditos.json": sha(f"{OUT}/analysis/escada_vereditos.json")},
         "files": {f: sha(f"{OUT}/figs/{f}") for f in sorted(os.listdir(f"{OUT}/figs")) if f.endswith((".pdf", ".png"))}, "grep_termos_internos_nos_textos": hits, "excecao_grep": "'text-only arm' removido antes do grep (item 22)",
         "ic_fora_da_area_visivel": {"principal": o1, "completa": o2}, "textos_que_cruzam_a_moldura_do_painel_1": {"principal": c1, "completa": c2},
-        "nota": "pdftotext ausente na gpu1; grep feito sobre os objetos Text da figura; conferencia por pdftotext no Mac fica com a coordenadora"}
+-       "nota": "pdftotext ausente no servidor; grep feito sobre os objetos Text da figura; conferencia por pdftotext na <workstation> fica com a <role>"}
++       "nota": "pdftotext ausente no servidor; verificacao feita sobre os objetos Text da figura; conferencia por pdftotext feita a parte"}
+ json.dump(man, open(f"{OUT}/figs/manifest.json", "w"), indent=1); print("figs ok;", {k: man[k] for k in ("grep_termos_internos_nos_textos", "ic_fora_da_area_visivel", "textos_que_cruzam_a_moldura_do_painel_1")})
 --- lab/v7_artigo1/scripts/fig_candidatos.py
 +++ package/src/analysis/fig_candidatos.py
-@@ -1,23 +1,24 @@
--"""Rodada 9, item 3: candidatos de figura do protocolo, tres por benchmark, faixas 7,0 x 1,25 in: intact (alvo em vermelho, controle em azul) |
--target (black) | target (blur) | control occlusion (black) | target only (| box-artefact question, so no Kvasir). Quadros lidos dos arrows de condicao
--existentes (nada gerado); mascaras = pixels que mudam entre a condicao ocluida (preto) e a intacta. Regras, fixadas antes de ver as imagens:
--- Kvasir-VQA-x1: unidade de polipo com controle por espelho (hflip), sem sobreposicao alvo-controle, imagem intacta cuja resposta a "Is there a
--  green/black box artefact?" e "no", area (area_frac_fov) entre o 1o e o 3o quartil dessas unidades, luminancia media do polipo >= mediana das que
--  sobraram; ordem = saliencia (distancia RGB entre a media do polipo e a de um anel de 15 px em volta, dentro do campo de visao), tres primeiras.
--  Sexto quadro: imagem do arrow SHAM_ART_black, sem a caixa (resposta "no"), com o oclusor >= 99,9 % dentro do campo de visao; a do proprio par
--  se ela se qualificar, senao as qualificadas por image_id, sem repetir.
--- HEAL-MedVQA: perguntas fechada-sim avaliaveis; 1 com controle 'anatomy' e 2 com 'hflip'; alvo (target_area_frac) mais proximo da mediana das
--  fechada-sim; sem sobreposicao alvo-controle; imagens distintas.
--- Medical-Diff-VQA: fechada-sim avaliaveis; 2 com controle so 'vtrans_pair' e >= 2 regioes-alvo; 1 com controle so 'anatomy' e >= 2 regioes;
--  alvo (target_area_frac_thorax) mais proximo da mediana do grupo; imagens distintas.
--Ids de HEAL-MedVQA e Medical-Diff-VQA (credenciados) so em logs/candidatos_ids_CREDENCIADO.json, no gpu1."""
-+"""Round 9, item 3: candidates for the protocol figure, three per benchmark, strips of 7.0 x 1.25 in: intact (target in red, control in blue) |
-+target (black) | target (blur) | control occlusion (black) | target only (| box-artefact question, Kvasir only). Frames read from the existing
-+condition arrows (nothing generated); masks = pixels that change between the occluded (black) and the intact condition. Rules, fixed before looking
-+at the images:
-+- Kvasir-VQA-x1: polyp unit with mirror control (hflip), no target-control overlap, intact image whose answer to "Is there a green/black box
-+  artefact?" is "no", area (area_frac_fov) between the 1st and the 3rd quartile of these units, mean luminance of the polyp >= median of the
-+  remaining ones; order = salience (RGB distance between the polyp mean and that of a 15 px ring around it, inside the field of view), first three.
-+  Sixth frame: image of the SHAM_ART_black arrow, without the box (answer "no"), with the occluder >= 99.9 % inside the field of view; the one of
-+  the pair itself if it qualifies, otherwise the qualified ones by image_id, without repetition.
-+- HEAL-MedVQA: evaluable closed-ended yes questions; 1 with 'anatomy' control and 2 with 'hflip'; target (target_area_frac) closest to the median
-+  of the closed-ended yes; no target-control overlap; distinct images.
-+- Medical-Diff-VQA: evaluable closed-ended yes; 2 with control 'vtrans_pair' only and >= 2 target regions; 1 with control 'anatomy' only and >= 2
-+  regions; target (target_area_frac_thorax) closest to the group median; distinct images.
-+Ids of HEAL-MedVQA and Medical-Diff-VQA (credentialed) only in logs/candidatos_ids_CREDENCIADO.json, on the lab server."""
- import io, json, os, re, sys, time, collections
- import numpy as np, pyarrow as pa
- from PIL import Image
+@@ -4,7 +4,7 @@
  from scipy import ndimage as ndi
  import matplotlib; matplotlib.use("Agg")
  import matplotlib.pyplot as plt
@@ -413,16 +265,16 @@
  plt.rcParams.update({"font.size": 8, "font.family": "serif", "font.serif": ["STIXGeneral"], "pdf.fonttype": 42, "ps.fonttype": 42})
  A = f"{PLC}/data/isbi_placebo"; MC = f"{V7M}/data/conditions"; TB = {}
  def table(p):
-@@ -38,7 +39,7 @@
+@@ -25,7 +25,7 @@
      m = a.max(axis=2) > 20; lab, n = ndi.label(m)
      if n == 0: return m
      k = 1 + int(np.argmax(ndi.sum(m, lab, range(1, n + 1)))); return ndi.binary_fill_holes(lab == k)
 -OUTI = {"t": time.strftime("%Y-%m-%d %H:%M:%S"), "script": __file__, "script_sha256": sha(__file__)}; IDS = {}
 +OUTI = {"t": time.strftime("%Y-%m-%d %H:%M:%S"), "script": os.path.relpath(__file__), "script_sha256": sha(os.path.relpath(__file__))}; IDS = {}
- # ---------------- Kvasir
  inv = json.load(open(INV["KVASIR"])); IM = {x["image_id"]: x for x in inv["images"]}; QK = {int(q["qid"]): q for q in inv["questions"]}
  TE = f"{PLC}/data/finetune_arrows/vqa_kvasir_test_clean.arrow"; tt = table(TE)
-@@ -140,7 +141,7 @@
+ BOX = {}
+@@ -123,7 +123,7 @@
      for i, q in enumerate(picks):
          fr = [pic(CA[c], row_by_qid(CA[c], q["qid"])) for c in ("C0", "T", "T_blur10", "P", "S")]
          OUTI[name]["candidatos"][i]["figura"] = strip(fr, changed(fr[1], fr[0]), changed(fr[3], fr[0]), f"protocolo_{name}_cand{i + 1}")
@@ -433,17 +285,7 @@
  print("funil kvasir", json.dumps(OUTI["kvasir"]["funil"])); print("mimic grupos", OUTI["mimic"]["grupos"], "heal mediana", medh)
 --- lab/v7_artigo1/scripts/fig_protocol_final.py
 +++ package/src/analysis/fig_protocol_final.py
-@@ -1,13 +1,13 @@
--"""Rodada 11 (decisao do Claudio, 21/10/2026): Fig. 1 final = figura do protocolo, 7,0 x 2,3 in. Linha 1 = protocolo_kvasir_cand3 (seis quadros);
--linha 2 = protocolo_heal_cand2 (cinco quadros, alinhados a esquerda; sexto lugar vazio). Rotulo de linha a esquerda; rotulos dos quadros pedidos;
--contornos alvo (vermelho) e controle (azul) no quadro intacto. Quadros dos arrows de condicao existentes (nada gerado); escolhas da rodada 9
--(analysis/candidatos_figura.json; qid do HEAL em logs/candidatos_ids_CREDENCIADO.json). Saida: figs/fig_protocol.{pdf,png} (a da rodada 8 vai para logs)."""
-+"""Round 11 (authors' decision, 21/10/2026): final Fig. 1 = protocol figure, 7.0 x 2.3 in. Row 1 = protocolo_kvasir_cand3 (six frames);
-+row 2 = protocolo_heal_cand2 (five frames, left-aligned; sixth slot empty). Row label on the left; frame labels as requested;
-+target (red) and control (blue) contours on the intact frame. Frames from the existing condition arrows (nothing generated); choices of round 9
-+(analysis/candidatos_figura.json; HEAL qid in logs/candidatos_ids_CREDENCIADO.json). Output: figs/fig_protocol.{pdf,png} (the round-8 one goes to logs)."""
- import io, json, os, re, sys, time
- import numpy as np, pyarrow as pa
+@@ -3,7 +3,7 @@
  from PIL import Image
  import matplotlib; matplotlib.use("Agg")
  import matplotlib.pyplot as plt
@@ -452,7 +294,7 @@
  plt.rcParams.update({"font.size": 8, "font.family": "serif", "font.serif": ["STIXGeneral"], "pdf.fonttype": 42, "ps.fonttype": 42})
  A = f"{PLC}/data/isbi_placebo"; TB = {}
  def table(p):
-@@ -25,7 +25,7 @@
+@@ -21,7 +21,7 @@
  def small(a, h):
      im = Image.fromarray(a); w = round(im.width * h / im.height); return np.asarray(im.resize((w, h), Image.LANCZOS))
  def smallmask(m, shape): return np.asarray(Image.fromarray(m.astype(np.uint8) * 255).resize((shape[1], shape[0]), Image.NEAREST)) > 127
@@ -461,7 +303,7 @@
  KV = CF["kvasir"]["candidatos"][2]; assert KV["cand"] == 3; HQ = next(x for x in IDS["heal"] if x["cand"] == 2)
  KC = {c: f"{A}/vqa_kvasir_placebo_{c}.arrow" for c in ("C0", "T", "T_blur10", "P", "S")}; SA = f"{V7S}/data/vqa_kvasir_sham_SHAM_ART_black.arrow"
  kfr = [pic(KC[c], row_by_img(KC[c], KV["image_id"])) for c in ("C0", "T", "T_blur10", "P", "S")] + [pic(SA, row_by_img(SA, KV["sexto_quadro_image_id"]))]
-@@ -58,7 +58,7 @@
+@@ -54,7 +54,7 @@
      if os.path.exists(p) and not os.path.exists(f"{OUT}/logs/fig_protocol_r8_20261021.{ext}"): os.rename(p, f"{OUT}/logs/fig_protocol_r8_20261021.{ext}")
      fig.savefig(p, dpi=300)
  plt.close(fig); raw = open(f"{OUT}/figs/fig_protocol.pdf", "rb").read(); mb = [float(x) for x in re.search(rb"/MediaBox\s*\[\s*([\d.\s-]+)\]", raw).group(1).split()]
@@ -472,16 +314,7 @@
  json.dump(chk, open(f"{OUT}/logs/fig_protocol_final_checagens.json", "w"), indent=1); print(json.dumps({k: v for k, v in chk.items() if k != "textos"}, ensure_ascii=False))
 --- lab/v7_artigo1/scripts/item18_sanidade_txt.py
 +++ package/src/analysis/item18_sanidade_txt.py
-@@ -1,11 +1,12 @@
--"""Item 18 (CPU, so leitura): sanidade do text-only arm. (a) itens discordantes entre sementes da mesma familia e entre familias na mesma semente,
--no conjunto inteiro de predicoes TXT de cada base (predicao normalizada); (b) por classe, fracao dos itens cuja predicao TXT e a resposta
--majoritaria do template no treino (template = texto exato da pergunta; MIMIC tambem por template_id). Treino: Kvasir vqa_kvasir_train_clean.arrow,
--HEAL vqa_heal_train.arrow (so colunas de texto, via memory map), MIMIC items_train.parquet. Saidas: analysis/sanidade_txt.json, docs/item18_sanidade_txt.md."""
-+"""Item 18 (CPU, read-only): sanity check of the text-only arm. (a) items that disagree between seeds of the same family and between families at
-+the same seed, over the whole set of TXT predictions of each benchmark (normalised prediction); (b) per class, fraction of items whose TXT prediction
-+is the majority answer of the template in the training set (template = exact question text; MIMIC also by template_id). Training sets: Kvasir
-+vqa_kvasir_train_clean.arrow, HEAL vqa_heal_train.arrow (text columns only, memory-mapped), MIMIC items_train.parquet. Outputs:
-+analysis/sanidade_txt.json, docs/item18_sanidade_txt.md."""
+@@ -1,7 +1,7 @@
  import collections, itertools, json, os, sys, time
  import numpy as np, pandas as pd, pyarrow as pa
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
@@ -493,44 +326,14 @@
  def train_majority(b):
 --- lab/v7_artigo1/scripts/item1_inventario.py
 +++ package/src/analysis/item1_inventario.py
-@@ -1,7 +1,7 @@
--"""Item 1 (CPU): inventario das 81 linhas, cobertura linha x condicao x base, carimbo de checkpoint por predicao, contagens de unidades.
--Saidas: analysis/inventario_linhas.json, analysis/cobertura.json, docs/item1_inventario.md. So leitura nas fontes."""
-+"""Item 1 (CPU): inventory of the 81 runs, coverage run x condition x benchmark, checkpoint stamp per prediction file, unit counts.
-+Outputs: analysis/inventario_linhas.json, analysis/cobertura.json, docs/item1_inventario.md. Sources are read only."""
+@@ -1,5 +1,5 @@
  import collections, glob, json, os, socket, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
  T0 = time.time()
  def prov(p):
      try: return json.load(open(p)).get("provenance") or {}
-@@ -12,7 +12,7 @@
-     return None, None
- ADS = json.load(open(f"{PLC}/manifests/adapters_sha256.json"))["files"]
- def recovered(base, L):
--    """sha recuperado fora do JSON de predicao: (sha, arquivo, como)."""
-+    """sha recovered outside the prediction JSON: (sha, file, how)."""
-     ln, s = L["line"], L["seed"]
-     if L["fam"] == "M3AE" and base in ("KVASIR", "HEAL"):
-         ck = sorted(glob.glob(f"{W}/doutorado/M3AE/checkpoints/task_finetune_vqa_{base.lower()}-seed{s}-from_downloaded_pretrained_m3ae.ckpt_dummy/*/checkpoints/*.ckpt"))
-@@ -70,7 +70,7 @@
-         pv = prov(fs["C0"]) if fs["C0"] else {}
-         zs[f"{m}_{base}"] = {"files": fs, "base_model": pv.get("base_model"), "file_sha256": {c: sha(p) for c, p in fs.items() if p}}
-         cov.setdefault(base, {})[f"{m}_ZEROSHOT"] = {c: fs[c] is not None for c in conds}
--# contagens de unidades
-+# unit counts
- units = {}
- d = json.load(open(INV["KVASIR"])); ev = [q for q in d["questions"] if q["evaluable"]]; s = d["summary"]
- units["KVASIR"] = {"fonte": INV["KVASIR"], "fonte_sha256": sha(INV["KVASIR"]), "n_perguntas": s["n_questions"], "n_avaliaveis": len(ev),
-@@ -91,16 +91,16 @@
-     "v1": ({"fonte": v1, "fonte_sha256": sha(v1), "n_avaliaveis": d1["summary"]["n_evaluable"], "por_classe": d1["summary"]["evaluable_by_class"]} if d1 else None),
-     "explicacao_473_443": "473 (e 2 152 avaliaveis) = inventario v1 (11/10, regiao mais fina, placebo por bloco); 443 (e 1 985) = inventario v2 (12/10, placebo por caixa, decisao do candidato apos a galeria). As predicoes T/P/S existentes foram geradas sobre os arrows v2 (sha no manifesto de condicoes). 430 = v2 so exatas.",
-     "conjunto_fixado": "v2 completo (443 fechadas-sim, 54-67 fechadas-nao conforme alinhamento, 391 negativas do oclusor); so exatas como variante de sensibilidade"}
--# zero-shot: mesmos qids?
-+# zero-shot: same qids?
- qid_check = {}
- for base in BASES:
-     ref = find(base, lines(base)[0]["line"], "T"); R = {int(x["qid"]) for x in json.load(open(ref))["predictions"]}
+@@ -92,9 +92,9 @@
      for m in ZS:
          p = zs_file(m, base, "T")
          if os.path.exists(p): Z = {int(x["qid"]) for x in json.load(open(p))["predictions"]}; qid_check[f"{m}_{base}"] = {"ref": ref, "n_ref": len(R), "n_zs": len(Z), "iguais": R == Z, "so_ref": len(R - Z), "so_zs": len(Z - R)}
@@ -539,27 +342,12 @@
  json.dump(out, open(f"{OUT}/analysis/inventario_linhas.json", "w"), indent=1)
 -json.dump({"t": out["t"], "script": __file__, "cobertura": cov}, open(f"{OUT}/analysis/cobertura.json", "w"), indent=1)
 +json.dump({"t": out["t"], "script": os.path.relpath(__file__), "cobertura": cov}, open(f"{OUT}/analysis/cobertura.json", "w"), indent=1)
- # markdown
  M = ["# Item 1 — inventário das 81 linhas, cobertura e unidades", "", f"Gerado {out['t']} na {out['host']} por `scripts/item1_inventario.py` (sha256 `{out['script_sha256']}`). JSON: `analysis/inventario_linhas.json`, `analysis/cobertura.json`. Só leitura nas fontes.", ""]
  M += ["## Unidades por base", ""]
+ for b, u in units.items():
 --- lab/v7_artigo1/scripts/item8_sobreposicao.py
 +++ package/src/analysis/item8_sobreposicao.py
-@@ -1,18 +1,18 @@
--"""Item 8 (CPU): sobreposicao da mascara deslocada com outra anatomia anotada (HEAL) e com outra regiao do Chest ImaGenome (MIMIC).
--HEAL: mascaras RLE nativas de inputs/heal_annotations_test.parquet (copia do Mac, sha registrado); alvo = anatomia da unidade; mascara
--deslocada = outra anatomia (metodo anatomy:<X>) ou harness.isbi_placebo.conditions.apply_placement(alvo, metodo); 'outras anatomias' =
--anatomias anotadas na mesma imagem (todas as perguntas do teste HEAL), exceto a do alvo. MIMIC: caixas no PNG (inventario v2,
--units[].all_boxes_png e placebo_boxes_png); 'outras regioes' = regioes-folha da imagem (sem filhas na hierarquia de
--analysis/region_hierarchy.json do v7_mimic), exceto as do alvo e suas descendentes. Medidas por unidade avaliavel: qualquer sobreposicao
--(> 0 px) e sobreposicao > 50 % da area da outra regiao. So contagens e fracoes. Saidas: analysis/placebo_geometry_heal.json,
-+"""Item 8 (CPU): overlap of the displaced mask with another annotated anatomy (HEAL) and with another Chest ImaGenome region (MIMIC).
-+HEAL: native RLE masks from inputs/heal_annotations_test.parquet (copy with recorded sha); target = anatomy of the unit; displaced mask =
-+another anatomy (method anatomy:<X>) or harness.isbi_placebo.conditions.apply_placement(target, method); 'other anatomies' = anatomies
-+annotated on the same image (all questions of the HEAL test set), except the target's. MIMIC: boxes on the PNG (inventory v2,
-+units[].all_boxes_png and placebo_boxes_png); 'other regions' = leaf regions of the image (no children in the hierarchy of
-+analysis/region_hierarchy.json of v7_mimic), except the target's and its descendants. Measures per evaluable unit: any overlap
-+(> 0 px) and overlap > 50 % of the area of the other region. Counts and fractions only. Outputs: analysis/placebo_geometry_heal.json,
- analysis/placebo_geometry_mimic.json, docs/item8_sobreposicao.md."""
+@@ -1,10 +1,10 @@
  import collections, json, os, sys, time
  import numpy as np, pandas as pd
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
@@ -570,14 +358,30 @@
  from harness.isbi_placebo.heal.heal_rle import decode_rle
 -T0 = time.time(); PQ = f"{OUT}/inputs/heal_annotations_test.parquet"
 +T0 = time.time(); PQ = f"{LAB_INPUTS}/heal_annotations_test.parquet"
- # ---------------- HEAL
  inv = json.load(open(INV["HEAL"])); ev = [q for q in inv["questions"] if q["evaluable"]]
  units = collections.OrderedDict()
+ for q in ev: units.setdefault((q["image_id"], q["anatomy"]), []).append(q)
+@@ -36,7 +36,7 @@
+         "contagens": dict(cnt), "por_metodo": {k: dict(v) for k, v in by_m.items()}, "estrato_por_unidade": estrato, "estrato_contagem": dict(collections.Counter(e["estrato"] for e in estrato)),
+         "fracoes": {"unidades_qualquer_sobre_2+": cnt["unidades_qualquer_sobreposicao"] / max(cnt["unidades_2+"], 1), "unidades_maior50_sobre_2+": cnt["unidades_sobreposicao_maior_50pct_da_outra"] / max(cnt["unidades_2+"], 1),
+                     "perguntas_qualquer_sobre_total": cnt["perguntas_qualquer_sobreposicao"] / cnt["perguntas"], "perguntas_maior50_sobre_total": cnt["perguntas_sobreposicao_maior_50pct_da_outra"] / cnt["perguntas"]},
+-        "nota_407": "<internal-document> cita 407/1 446 perguntas em imagens com >= 2 anatomias; contagem aqui: perguntas_2+ (anatomias anotadas no parquet de teste do HEAL, todas as perguntas da imagem)"}
++        "nota_407": "contagem previa do protocolo: 407/1 446 perguntas em imagens com >= 2 anatomias; contagem aqui: perguntas_2+ (anatomias anotadas no parquet de teste do HEAL, todas as perguntas da imagem)"}
+ json.dump(heal, open(f"{OUT}/analysis/placebo_geometry_heal.json", "w"), indent=1)
+ H = json.load(open(f"{V7M}/analysis/region_hierarchy.json"))["hierarchy"]
+ def desc(r):
+@@ -66,7 +66,7 @@
+          "nota": "as anatomias homologas do posicionamento v2 sao, por construcao, outra regiao da imagem (sobreposicao total com ela propria); 'outras regioes' exclui as do alvo e suas descendentes, inclui a regiao usada como mascara deslocada"}
+ json.dump(mimic, open(f"{OUT}/analysis/placebo_geometry_mimic.json", "w"), indent=1)
+ L = ["# Item 8 — sobreposição da máscara deslocada com outra anatomia/região", "", __doc__.split("\n", 1)[1].replace("\n", " "), "",
+-     "## HEAL", "", f"Máscaras: `{PQ}` (sha256 `{heal['fonte_mascaras_sha256']}`, cópia da <workstation> `med-vqa-icdip-p0/data/isbi_placebo/heal/heal_annotations_test.parquet`, sha igual nas duas pontas).", "",
++     "## HEAL", "", f"Máscaras: `{PQ}` (sha256 `{heal['fonte_mascaras_sha256']}`, copia local, sha registrado).", "",
+      "| medida | valor |", "|---|---|"] + [f"| {k} | {v} |" for k, v in heal["contagens"].items()] + [f"| fração {k} | {v} |" for k, v in heal["fracoes"].items()] + ["", "Por método (unidades em imagens com ≥ 2 anatomias):", "", "```", json.dumps(heal["por_metodo"], indent=1), "```", "",
+      "## MIMIC", "", "| medida | valor |", "|---|---|"] + [f"| {k} | {v} |" for k, v in mimic["contagens"].items()] + [f"| fração {k} | {v} |" for k, v in mimic["fracoes"].items()] + ["", "Por método da unidade:", "", "```", json.dumps(mimic["por_metodo"], indent=1), "```", "", mimic["nota"], "", f"Tempo: {time.time() - T0:.0f} s."]
+ open(f"{OUT}/docs/item8_sobreposicao.md", "w").write("\n".join(L) + "\n"); print(json.dumps(heal["contagens"]), json.dumps(heal["fracoes"])); print(json.dumps(mimic["contagens"]), json.dumps(mimic["fracoes"]))
 --- lab/v7_artigo1/scripts/item9_fatos.py
 +++ package/src/analysis/item9_fatos.py
-@@ -1,17 +1,17 @@
--"""Item 9 (CPU): fatos de metodo para a folha, cada um com arquivo-fonte e sha256. Saidas: analysis/fatos_metodo.json, docs/item9_fatos_metodo.md."""
-+"""Item 9 (CPU): method facts for the numbers sheet, each with its source file and sha256. Outputs: analysis/fatos_metodo.json, docs/item9_fatos_metodo.md."""
+@@ -1,16 +1,16 @@
  import collections, glob, json, os, re, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
@@ -599,7 +403,7 @@
  add("HEAL: metodo por unidade (1 360)", dict(collections.Counter(u["placebo_method"].split(":")[0] for u in hm["units"])), f"{ISBI}/manifest_heal.json")
  add("HEAL: fechadas sem posicao valida", he["n_closed_without_placement"], INV["HEAL"])
  mi = json.load(open(INV["MIMIC"])); ms_ = mi["summary"]
-@@ -21,16 +21,16 @@
+@@ -20,9 +20,9 @@
  add("MIMIC: metodos por unidade (avaliaveis)", ms_.get("placebo_methods"), INV["MIMIC"])
  add("MIMIC: avaliaveis / total (inventario v2)", f"{ms_['n_evaluable']}/{ms_['n_questions']}", INV["MIMIC"], "o prompt cita 2 152/3 000, que e o inventario v1 (11/10); as predicoes existentes usam o v2")
  add("MIMIC: teto de area do alvo", "40 % do quadro inteiro", INV["MIMIC"])
@@ -612,15 +416,7 @@
  jp = f"{ISBI}/necessity_QWEN2VL_LORA_KVASIR_seed0_jpeg_pilot.json"
  if os.path.exists(jp):
      d = json.load(open(jp)); r = d.get("c0_reference") or {}
-     add("reencode JPEG (piloto Qwen2-VL LoRA s0, Kvasir): predicoes da intacta que mudam", f"{r.get('n_disagree_pred')} de {r.get('n_common')} = {100 * r.get('disagree_pred_rate', 0):.2f} %", jp)
-     add("reencode JPEG: delta de acuracia da intacta", f"{r.get('delta_pp'):+.2f} pp", jp)
- add("composicao de lote (0,6-0,7 %)", "sem fonte localizada na gpu1", f"{PLC}/docs/isbi/placebo/preregistration_v2.md", "o pre-registro (E1) registra 0 predicoes diferentes na intacta reproduzida em bytes originais ('a inferencia independe da composicao dos lotes')")
--# receitas e parametros treinaveis (Kvasir seed 0 como referencia de cada configuracao)
-+# recipes and trainable parameters (Kvasir seed 0 as the reference of each configuration)
- rec = {}
- for cfg, p in (("Qwen2-VL LoRA, encoder congelado", f"{P0}/outputs/qwen2vl_lora_kvasir_seed0.json"), ("Qwen2-VL DoRA, encoder congelado", f"{P0}/outputs/qwen2vl_dora_kvasir_seed0.json"),
-                ("SmolVLM2 LoRA, encoder afinado", f"{P0}/outputs/smolvlm2_lora_kvasir_seed0.json"), ("SmolVLM2 DoRA, encoder afinado", f"{P0}/outputs/smolvlm2_dora_kvasir_seed0.json"),
-@@ -39,12 +39,12 @@
+@@ -37,12 +37,12 @@
      if not os.path.exists(p): add(f"receita: {cfg}", "registro de treino ausente", p); continue
      d = json.load(open(p)); tr = d.get("train", {}); pa = (d.get("efficiency") or {}).get("params") or {}
      add(f"receita: {cfg} (Kvasir semente 0)", f"lr {tr.get('lr')}; epocas {tr.get('epochs')}; grad_accum {tr.get('grad_accum_steps')}; parametros treinaveis {pa.get('trainable_params')} de {pa.get('total_params')} ({pa.get('trainable_ratio')})", p)
@@ -637,49 +433,54 @@
  L += [f"| {x['rotulo']} | {json.dumps(x['valor'], ensure_ascii=False) if not isinstance(x['valor'], str) else x['valor']} | `{x['fonte']}` | `{(x['sha256'] or '—')[:12]}` | {x.get('nota', '')} |" for x in F]
 --- lab/v7_artigo1/scripts/make_numbers_artigo1.py
 +++ package/src/analysis/make_numbers_artigo1.py
-@@ -1,9 +1,9 @@
--"""Item 10: folha unica do artigo 1 (docs/numbers_artigo1.md): uma linha por numero, rotulo em
--negrito, valor entre crases, <sub>fonte · sha256</sub>. Le so os JSON de v7_artigo1/analysis (nenhum numero digitado). Acuracias em %, diferencas em
--pp, uma casa (uma linha por numero); razoes (suficiencia) com tres casas; a precisao completa fica nos JSON. Media (DP) entre as tres
--sementes; faixa = minimo a maximo entre as linhas. Rotulos internos (C0, T, P, S, TXT, M0, E3, B) podem aparecer: a folha e interna."""
-+"""Item 10: the single numbers sheet of the paper (docs/numbers_artigo1.md): one line per number, label in bold, value between back-ticks,
-+<sub>source · sha256</sub>. Reads only the JSON files of v7_artigo1/analysis (no number is typed in). Accuracies in %, differences in pp,
-+one decimal place (one line per number); ratios (sufficiency) with three decimal places; the full precision stays in the JSON files. Mean (SD) over
-+the three seeds; range = minimum to maximum over the runs. Internal labels (C0, T, P, S, TXT, M0, E3, B) may appear: the sheet is internal."""
+@@ -1,12 +1,11 @@
  import collections, glob, hashlib, json, os, statistics, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
  A = f"{OUT}/analysis"; J = lambda n: json.load(open(f"{A}/{n}.json"))
  SRC = {n: (f"v7_artigo1/analysis/{n}.json", sha(f"{A}/{n}.json")[:12]) for n in ("inventario_linhas", "criterio", "headroom", "oclusor_negativos", "doses", "zeroshot", "fatos_metodo", "placebo_geometry_heal", "placebo_geometry_mimic", "bases_raw", "escada_vereditos", "heal_estratificado", "simnao", "sanidade_txt", "rodada3", "split_kvasir", "rodada8", "holm_familias", "holm_rawdrop", "blur4_r10")}
  inv, crit, hd, oc, ds, zs, fm, gh, gm, raw = (J(n) for n in ("inventario_linhas", "criterio", "headroom", "oclusor_negativos", "doses", "zeroshot", "fatos_metodo", "placebo_geometry_heal", "placebo_geometry_mimic", "bases_raw"))
-@@ -26,7 +26,7 @@
+ esc, hst, sn = J("escada_vereditos"), J("heal_estratificado"), J("simnao")
+ r3f = lambda x: "—" if x is None else f"{x:.3f}"
+ L = []
+-NL = {b: len(lines(b)) for b in BASES}; N27 = NL["KVASIR"]
+ def line(rot, val, src): s = SRC[src] if src in SRC else (src, (sha(src) or "")[:12]); L.extend([f"- **{rot}** — `{val}`  ", f"  <sub>{s[0]} · sha256 {s[1]}</sub>"])
+ def pct(x): return "—" if x is None else f"{100 * x:.1f}"
+ def pp(x): return "—" if x is None else f"{100 * x:+.1f}"
+@@ -23,11 +22,11 @@
      xs = [(r["classes"].get(cls) or {}).get(key) for r in hd["bases"][b]["linhas"].values()]; xs = [x for x in xs if x is not None]
      return {"min": min(xs), "max": max(xs)} if xs else None
  L += ["# Folha de numeros -- artigo 1 (teste de necessidade da regiao com controle de posicao) -- rodada 1", "",
 -      f"Gerada {time.strftime('%Y-%m-%d %H:%M:%S')} por v7_artigo1/scripts/make_numbers_artigo1.py (sha256 {sha(__file__)[:12]}). Um numero por linha; fonte e sha256 abaixo. Acuracia em %, diferencas em pp (uma casa), razoes com tres casas; IC 95 % por bootstrap por imagem (2 000 replicas, semente 20260913, replicas fixas por base). Media (DP) entre as 3 sementes (condicional aos tres modelos). Delta = Acc(mascara deslocada) - Acc(alvo ocluido); headroom = Acc(intacta) - Acc(text-decoder-only da mesma familia e semente); criterio B = IC de Delta exclui zero por cima sob preto E sob blur 10 %. HEAL e Medical-Diff-VQA: so perguntas fechadas no corpo (abertas do MIMIC so no JSON); Kvasir-VQA-x1: as classes do inventario (polipo, instrumento, controle negativo, polipo secundario; abertas e fechadas, como na folha de 01/10). Bases: Kvasir-VQA-x1, HEAL-MedVQA, Medical-Diff-VQA (SLAKE so na S11).", ""]
 +      f"Gerada {time.strftime('%Y-%m-%d %H:%M:%S')} por v7_artigo1/scripts/make_numbers_artigo1.py (sha256 {sha(os.path.relpath(__file__))[:12]}). Um numero por linha; fonte e sha256 abaixo. Acuracia em %, diferencas em pp (uma casa), razoes com tres casas; IC 95 % por bootstrap por imagem (2 000 replicas, semente 20260913, replicas fixas por base). Media (DP) entre as 3 sementes (condicional aos tres modelos). Delta = Acc(mascara deslocada) - Acc(alvo ocluido); headroom = Acc(intacta) - Acc(text-decoder-only da mesma familia e semente); criterio B = IC de Delta exclui zero por cima sob preto E sob blur 10 %. HEAL e Medical-Diff-VQA: so perguntas fechadas no corpo (abertas do MIMIC so no JSON); Kvasir-VQA-x1: as classes do inventario (polipo, instrumento, controle negativo, polipo secundario; abertas e fechadas, como na folha de 01/10). Bases: Kvasir-VQA-x1, HEAL-MedVQA, Medical-Diff-VQA (SLAKE so na S11).", ""]
- # ---------------- S1
  L += ["## S1. Contagens (resumo e introducao)", ""]
- line("linhas afinadas por base / total", "27 / 81 (3 bases)", "inventario_linhas")
-@@ -66,7 +66,7 @@
-         for tr, ch in E_["mudancas"].items():
-             ft = {k: v for k, v in ch.items() if "ZEROSHOT" not in k}
-             line(f"escada, {NAME[b]}, {nm}: linhas afinadas que mudam em {tr} (perdem / ganham)", f"{sum(1 for v in ft.values() if v['de'] and not v['para'])} / {sum(1 for v in ft.values() if not v['de'] and v['para'])}", "escada_vereditos")
--# ---------------- rodada 6: controle negativo do Kvasir (resoluveis / necessarias / linhas e escada), hoje so em docs/item3_criterio.md
-+# ---------------- round 6: negative control of Kvasir (resolvable / necessary / runs and ladder), currently only in docs/item3_criterio.md
- SK = J("split_kvasir")
- _nc = crit["bases"]["KVASIR"]["por_classe"]["negative_control"]; _ne = SK["sensibilidade"]["completo"]["negative_control"]
- line("Kvasir-VQA-x1, controle negativo (3 templates, 728 perguntas): resoluveis / necessarias entre as resoluveis / linhas", f"{_nc['resoluveis']} / {_nc['B_entre_resoluveis']} / {_nc['n_linhas']}", "criterio")
-@@ -83,7 +83,7 @@
-         if r["pack"] != "12 de encoder invertido": continue
-         st = r["stamps"].get("C0") or r["stamps"].get("T") or {}
-         line(f"proveniencia {NAME[b]} {r['line']}: sha256 dos pesos (fonte)", f"{st.get('checkpoint_sha256')} ({st.get('fonte_do_sha')})", "inventario_linhas")
--# ---------------- rodada 3: itens 28, 29, 30, 31
-+# ---------------- round 3: items 28, 29, 30, 31
- R3J = J("rodada3")
- NM3 = {"dependent_polyp": "pólipo", "dependent_instrument": "instrumento", "controle_texto": "controle \"Is there text?\"", "closed_yes": "fechada-sim", "closed_no": "fechada-não"}
- def nm3(c): return NM3.get(c) or (f"fechada-sim, entidade {c.split('=', 1)[1]}" if c.startswith("entidade=") else f"fechada-sim, anatomia {c.split('=', 1)[1].split('|')[0]}")
-@@ -116,7 +116,7 @@
+-line("linhas afinadas por base / total", f"{N27} / {3 * N27} (3 bases)", "inventario_linhas")
++line("linhas afinadas por base / total", "27 / 81 (3 bases)", "inventario_linhas")
+ line("familias / sementes", "3 (Qwen2-VL-2B, SmolVLM2-2.2B, M3AE) / 3 (0, 1, 2)", "inventario_linhas")
+-line("linhas por base: Qwen2-VL (LoRA, DoRA) x (encoder congelado, afinado) x 3; SmolVLM2 idem; M3AE ajuste completo x 3" + ("" if N27 == 27 else "; Qwen2.5-VL-7B idem (rodada 24)"), "12 + 12 + 3 = 27" if N27 == 27 else "12 + 12 + 3 + 12 = 39", "inventario_linhas")
++line("linhas por base: Qwen2-VL (LoRA, DoRA) x (encoder congelado, afinado) x 3; SmolVLM2 idem; M3AE ajuste completo x 3", "12 + 12 + 3 = 27", "inventario_linhas")
+ U = inv["unidades"]
+ line("Kvasir-VQA-x1: perguntas avaliaveis (polipo / instrumento / controle negativo / polipo secundario)", f"{U['KVASIR']['n_avaliaveis']} ({U['KVASIR']['por_classe']['dependent_polyp']} / {U['KVASIR']['por_classe']['dependent_instrument']} / {U['KVASIR']['por_classe']['negative_control']} / {U['KVASIR']['por_classe']['dependent_polyp_secondary']})", "inventario_linhas")
+ line("Kvasir-VQA-x1: unidades imagem x alvo (polipo / instrumento) / imagens de teste com mascara / imagens de teste", f"{U['KVASIR']['unidades_imagem_x_alvo']} ({U['KVASIR']['unidades_por_tipo']['polyp']} / {U['KVASIR']['unidades_por_tipo']['instrument']}) / {U['KVASIR']['imagens_com_mascara']} / {U['KVASIR']['imagens_teste']}", "inventario_linhas")
+@@ -89,7 +88,7 @@
+         line(f"{NAME[b]}, {nm3(c)}: n perguntas por linha (faixas abaixo)", "/".join(str(x) for x in F["n_por_linha"]), "rodada3")
+         for k, lab, u, f in Q28: line(f"{NAME[b]}, {nm3(c)}: {lab}, mínimo – máximo entre as {(F[k] or {}).get('n_linhas', 27)} linhas ({u})", mm(F[k], f), "rodada3")
+     for c, X in R3J["item29_gain_tfidf"][b].items():
+-        line(f"{NAME[b]}, {nm3(c)}: image gain against the question-only classifier (TF-IDF), mínimo – máximo entre as {NL[b]} linhas (pp)", mm(X["faixa_gain_tfidf"], pp), "rodada3")
++        line(f"{NAME[b]}, {nm3(c)}: image gain against the question-only classifier (TF-IDF), mínimo – máximo entre as 27 linhas (pp)", mm(X["faixa_gain_tfidf"], pp), "rodada3")
+         for g, x in X["por_grupo"].items():
+             line(f"{NAME[b]}, {nm3(c)}, {g}: image gain against the question-only classifier (TF-IDF) / image gain above the text-only arm, média (DP) entre as {x['n_linhas']} linhas (pp); linhas com IC > 0", f"{msp(x['gain_tfidf'], pp)} / {msp(x['gain_txt'], pp)}; {x['gain_tfidf_ic_inf_maior_0']}/{x['n_linhas']} / {x['gain_txt_ic_inf_maior_0']}/{x['n_linhas']}", "rodada3")
+         for ln, x in X["por_linha"].items():
+@@ -100,7 +99,7 @@
+     line(f"Kvasir-VQA-x1, {T_}: perguntas avaliáveis / n por linha", f"{X['n_avaliaveis']} / " + "/".join(str(x) for x in sorted({v['n'] for v in X['linhas'].values()})), "rodada3")
+     for ln, v in X["linhas"].items():
+         line(f"Kvasir-VQA-x1, artefact-box template, {ln}: Δ preto [IC] / Δ blur 10 % [IC] / Δ cor média [IC] (pp)", " / ".join(f"{pp(v[f]['delta'])} {ci3(v[f]['ci'])}" for f in ("preto", "blur10", "regmean")), "rodada3")
+-    for nl, key in ((f"{N27} linhas", "contagens_27"), ("15 linhas de 01/10", "contagens_15")):
++    for nl, key in (("27 linhas", "contagens_27"), ("15 linhas de 01/10", "contagens_15")):
+         for f, c in X[key].items():
+             line(f"Kvasir-VQA-x1, artefact-box template, Δ {FN[f]}, {nl}: linhas com limite superior do IC < 0 / com limite inferior do IC > 0; mínimo – máximo (pp)", f"{c['ic_sup_menor_0']}/{c['n_linhas']} / {c['ic_inf_maior_0']}/{c['n_linhas']}; {pp(c['min'])} – {pp(c['max'])}", "rodada3")
+     b4 = X["blur4"]
+@@ -108,7 +107,7 @@
          if "blur4" in v: line(f"Kvasir-VQA-x1, artefact-box template, {ln}: Δ blur 4 % [IC] (pp)", f"{pp(v['blur4']['delta'])} {ci3(v['blur4']['ci'])}", "rodada3")
      c = b4["contagens_15"]
      line(f"Kvasir-VQA-x1, artefact-box template, Δ blur 4 %, {b4['n_linhas_com_predicoes']} linhas de 01/10 (as 12 de encoder invertido não têm predições sob blur 4 %): linhas com limite superior do IC < 0 / com limite inferior do IC > 0; mínimo – máximo (pp)", f"{c['ic_sup_menor_0']}/{c['n_linhas']} / {c['ic_inf_maior_0']}/{c['n_linhas']}; {pp(c['min'])} – {pp(c['max'])}", "rodada3")
@@ -688,87 +489,75 @@
  S3_ = R3J["item31_setup"]
  line("Kvasir-VQA-x1: perguntas distintas no teste (perguntas do teste) / entre as avaliáveis (avaliáveis)", f"{S3_['KVASIR']['distintas_teste']} ({S3_['KVASIR']['perguntas_teste']}) / {S3_['KVASIR']['distintas_avaliaveis']} ({S3_['KVASIR']['avaliaveis']})", "rodada3")
  pc_ = S3_["KVASIR"]["por_classe_avaliaveis"]
-@@ -133,7 +133,7 @@
- hd_ = S3_["HEAL"]["doses"]
- line("HEAL-MedVQA: linhas nas médias de dose / linhas", f"{hd_['linhas_nas_medias']} / {hd_['linhas']}", "rodada3")
- for ln, why in hd_["excluidas"].items(): line(f"HEAL-MedVQA: proveniência da linha fora das médias de dose ({ln})", f"{why}; original ausente também no Drive (S10)", "rodada3")
--# ---------------- S3-S5 por base
-+# ---------------- S3-S5 per benchmark
- def base_block(b, sec):
-     H = hd["bases"][b]; L.extend(["", f"## {sec}. {NAME[b]}", ""])
-     for cls, nm in CLS[b]:
-@@ -217,7 +217,7 @@
-             nm = dict(CLS[b]).get(cls, cls)
-             line(f"{NAME[b]}, {nm}, {g} ({x.get('n_linhas')} linhas): n pareado / n classe; Delta 1x / 1,5x / 2x (pp) media (DP); linhas IC>0", f"{x['n_pareado']} / {x['n_classe']}; {msp(x['1']['delta'], pp)} / {msp(x['1.5']['delta'], pp)} / {msp(x['2']['delta'], pp)}; {x['1']['n_ic_exclui_zero_por_cima']} / {x['1.5']['n_ic_exclui_zero_por_cima']} / {x['2']['n_ic_exclui_zero_por_cima']}", "doses")
-     for ln, why in Dd.get("excluidas_das_medias", {}).items(): line(f"{NAME[b]}: linha fora das medias de dose", f"{ln}: {why}", "doses")
--# ---------------- S9 metodo e estatistica
-+# ---------------- S9 method and statistics
- L += ["", "## S9. Metodo e estatistica", ""]
+@@ -139,8 +138,8 @@
+             line(f"{NAME[b]}, {nm}, {g}: Delta preto / blur 10 % / cor media (pp)", f"{msp(x.get('delta_preto'), pp)} / {msp(x.get('delta_blur10'), pp)} / {msp(x.get('delta_regmean'), pp)}", "headroom")
+             line(f"{NAME[b]}, {nm}, {g}: custo da mascara deslocada, preto (pp) / suficiencia, preto / criterio B", f"{msp(x.get('custo_mascara_deslocada_preto'), pp)} / {msr(x.get('suficiencia_preto'))} / {x.get('criterio_B')}/{x.get('n_linhas')}", "headroom")
+         for key, nk in (("delta_preto", "Delta preto"), ("delta_blur10", "Delta blur 10 %"), ("delta_regmean", "Delta cor media"), ("headroom", "headroom"), ("custo_mascara_deslocada_preto", "custo da mascara deslocada, preto")):
+-            line(f"{NAME[b]}, {nm}: faixa de {nk} nas {NL[b]} linhas (pp)", rng(allrng(b, cls, key)), "headroom")
+-        line(f"{NAME[b]}, {nm}: faixa da suficiencia (preto) nas {NL[b]} linhas", rng(allrng(b, cls, "suficiencia_preto"), r3), "headroom")
++            line(f"{NAME[b]}, {nm}: faixa de {nk} nas 27 linhas (pp)", rng(allrng(b, cls, key)), "headroom")
++        line(f"{NAME[b]}, {nm}: faixa da suficiencia (preto) nas 27 linhas", rng(allrng(b, cls, "suficiencia_preto"), r3), "headroom")
+ base_block("KVASIR", "S3"); r3_block("KVASIR"); r3_box(); base_block("HEAL", "S4"); r3_block("HEAL")
+ H = hd["bases"]["HEAL"]
+ for g, gg in H["agregado_extra_por_grupo"].items():
+@@ -156,7 +155,7 @@
+ for e in ents:
+     r0 = next(iter(H["linhas"].values()))["classes"][e]
+     tot = sum(1 for r in H["linhas"].values() if (r["classes"].get(e) or {}).get("criterio_B"))
+-    line(f"Medical-Diff-VQA, fechada-sim, {e.replace('entidade=', '')}: n itens / imagens; criterio B (linhas)", f"{r0['n']} / {r0['n_imagens']}; {tot}/{NL['MIMIC']}", "headroom")
++    line(f"Medical-Diff-VQA, fechada-sim, {e.replace('entidade=', '')}: n itens / imagens; criterio B (linhas)", f"{r0['n']} / {r0['n_imagens']}; {tot}/27", "headroom")
+     for g, gg in H["agregado_por_grupo"].items():
+         x = gg.get(e) or {}
+         line(f"Medical-Diff-VQA, {e.replace('entidade=', '')}, {g}: Acc intacta / text-decoder-only (%) / headroom (pp) / Delta preto / blur 10 % (pp) / custo desloc. (pp) / suficiencia / B", f"{msp(x.get('acc.C0'))} / {msp(x.get('acc_txt'))} / {msp(x.get('headroom'), pp)} / {msp(x.get('delta_preto'), pp)} / {msp(x.get('delta_blur10'), pp)} / {msp(x.get('custo_mascara_deslocada_preto'), pp)} / {msr(x.get('suficiencia_preto'))} / {x.get('criterio_B')}/{x.get('n_linhas')}", "headroom")
+@@ -209,8 +208,8 @@
  line("bootstrap por imagem: replicas / semente / imagens por base (Kvasir / HEAL / MIMIC)", f"2000 / 20260913 / {raw['bases']['KVASIR']['n_imagens_replicas']} / {raw['bases']['HEAL']['n_imagens_replicas']} / {raw['bases']['MIMIC']['n_imagens_replicas']}", "bases_raw")
  for b in BASES: line(f"Holm por linha, familia de classes, {NAME[b]}", ", ".join(raw["bases"][b]["familia_holm"]), "bases_raw")
-@@ -253,7 +253,7 @@
- line("suficiencia sob blur 10 % e cor media", "so no Medical-Diff-VQA; Kvasir e HEAL nao tem S_blur10/S_regmean (54 linhas); suficiencia so sob preto", "inventario_linhas")
- line("composicao de lote", kvf["composicao de lote (0,6-0,7 %)"], "fatos_metodo")
- line("Medical-Diff-VQA: 473 / 443 fechadas-sim", U["MIMIC"]["explicacao_473_443"], "inventario_linhas")
--# ---------------- rodada 6: split do Kvasir-VQA-x1 (S10) e sensibilidade sem as 2 unidades duplicadas (S-split)
-+# ---------------- round 6: Kvasir-VQA-x1 split (S10) and sensitivity without the 2 duplicated units (S-split)
- _o = SK["oficial_hf"]; _n = SK["nosso_split"]
- line("Kvasir-VQA-x1, split oficial do HF: imagens do teste oficial que aparecem no treino oficial, por img_id / imagens do teste oficial", f"{_o['imagens_do_teste_no_treino']} / {_o['imagens_do_teste']}", "split_kvasir")
- line("Kvasir-VQA-x1, split oficial do HF: pares pergunta-resposta (treino / teste)", f"{_o['train']['pares_pergunta_resposta']} / {_o['test']['pares_pergunta_resposta']}", "split_kvasir")
-@@ -287,9 +287,9 @@
+ line("regra de resolubilidade (headroom legivel)", "limite inferior do IC 95 % por imagem do headroom (Acc intacta - text-only arm da mesma familia e semente; zero-shot: com imagem - sem imagem) > 0; sem limiar de 0,10 (a rodada 1 usou tambem headroom >= 0,10; as duas versoes estao em criterio.json)", "criterio")
+-line("independencia das linhas", f"as {N27} linhas por base sao 3 sementes x {N27 // 3} configuracoes (familia x adaptador x encoder) e nao sao independentes; as proporcoes necessarias / resoluveis / linhas sao descritivas, sem IC", "criterio")
+-line("artefact-box template (Kvasir-VQA-x1): estatística", f"IC 95 % por imagem (réplicas fixas da base Kvasir) nas {N27} linhas, sob preto, blur 10 % e cor média; blur 4 % = sigma fixo de {R3J['item30_caixa_artefato']['blur4']['sigma']['blur_sigma_px']:.0f} px (sigma / largura mediana {R3J['item30_caixa_artefato']['blur4']['sigma']['sigma_sobre_largura_kvasir']['median']:.3f} no Kvasir), predições só nas 15 linhas de 01/10; a folha de 01/10 usava IC por pergunta", "rodada3")
++line("independencia das linhas", "as 27 linhas por base sao 3 sementes x 9 configuracoes (familia x adaptador x encoder) e nao sao independentes; as proporcoes necessarias / resoluveis / linhas sao descritivas, sem IC", "criterio")
++line("artefact-box template (Kvasir-VQA-x1): estatística", f"IC 95 % por imagem (réplicas fixas da base Kvasir) nas 27 linhas, sob preto, blur 10 % e cor média; blur 4 % = sigma fixo de {R3J['item30_caixa_artefato']['blur4']['sigma']['blur_sigma_px']:.0f} px (sigma / largura mediana {R3J['item30_caixa_artefato']['blur4']['sigma']['sigma_sobre_largura_kvasir']['median']:.3f} no Kvasir), predições só nas 15 linhas de 01/10; a folha de 01/10 usava IC por pergunta", "rodada3")
+ line("image gain against the question-only classifier (TF-IDF)", "Acc(intacta) - Acc(TF-IDF) nos mesmos itens, IC por imagem; Medical-Diff-VQA: TF-IDF do subconjunto nas fechadas (piso composto); ilustração apenas, não muda contagem nenhuma (a escada com TF-IDF fica só interna)", "rodada3")
+ line("McNemar", "mid-p exato (binomial, meio peso no observado) nos discordantes entre mascara deslocada e alvo ocluido (shamstats.mcnemar_midp)", "bases_raw")
+ for x in fm["fatos"]:
+@@ -266,14 +265,14 @@
+         line(f"sem as 2 unidades, Kvasir-VQA-x1, {nm}: {lab}, mínimo – máximo entre as 27 linhas ({u}) (completo: {a})", b, "split_kvasir")
+ _pk = {x["line"]: x["pack"] for x in lines("KVASIR")}; _pl = SK["sensibilidade"]["por_linha_sem_duplicadas"]
+ for f, fn in (("preto", "preto"), ("blur10", "blur 10 %"), ("regmean", "cor média")):
+-    for nl, sel in ((f"{N27} linhas", lambda ln: True), ("15 linhas de 01/10", lambda ln: _pk[ln].startswith("15 de"))):
++    for nl, sel in (("27 linhas", lambda ln: True), ("15 linhas de 01/10", lambda ln: _pk[ln].startswith("15 de"))):
+         cis = [_pl[ln]["artefato"][f"delta_{f}_ci_by_image"] for ln in _pl if sel(ln)]; up = sum(1 for c_ in cis if c_[1] < 0); lw = sum(1 for c_ in cis if c_[0] > 0)
+-        old = R3J["item30_caixa_artefato"]["contagens_27" if nl == f"{N27} linhas" else "contagens_15"][f]
++        old = R3J["item30_caixa_artefato"]["contagens_27" if nl == "27 linhas" else "contagens_15"][f]
          if (up, lw) == (old["ic_sup_menor_0"], old["ic_inf_maior_0"]): _ig.append(f"artefact-box template, Δ {fn}, {nl}: {up}/{len(cis)} / {lw}/{len(cis)}"); continue
          line(f"sem as 2 unidades, Kvasir-VQA-x1, artefact-box template, Δ {fn}, {nl}: linhas com limite superior do IC < 0 / com limite inferior do IC > 0 (folha completa: {old['ic_sup_menor_0']}/{len(cis)} / {old['ic_inf_maior_0']}/{len(cis)})", f"{up}/{len(cis)} / {lw}/{len(cis)}", "split_kvasir")
  line("sem as 2 unidades: quantidades que nao mudam no valor impresso", "; ".join(_ig), "split_kvasir")
--# ---------------- rodada 8: verificacoes dos extra_runs
-+# ---------------- round 8: checks of the extra runs
  R8 = J("rodada8")
 -L += ["", "## S12. Verificacoes dos extra_runs (rodada 8)", ""]
 +L += ["", "## S12. Verificacoes adicionais (rodada 8)", ""]
  NM8 = {"dependent_polyp": "polipo", "dependent_instrument": "instrumento", "negative_control": "controle negativo (3 templates)", "closed_yes": "fechada-sim", "closed_no": "fechada-nao"}
  for k, x in R8["item1"].items():
      b, c, kind = k.split("|")
-@@ -316,9 +316,9 @@
+@@ -300,7 +299,7 @@
  for b, x in R8["item7"].items():
      if not isinstance(x, dict) or "train" not in x: continue
      for sp in ("train", "val"):
 -        y = x[sp]; line(f"{NAME[b]}, fine-tuning, {'treino' if sp == 'train' else 'validacao'}: arquivo; imagens / pares pergunta-resposta / bytes", f"{os.path.relpath(y['arquivo'], '$LAB_ROOT')}; {y['imagens']} / {y['pares_pergunta_resposta']} / {y['bytes']}", "rodada8")
 +        y = x[sp]; line(f"{NAME[b]}, fine-tuning, {'treino' if sp == 'train' else 'validacao'}: arquivo; imagens / pares pergunta-resposta / bytes", f"{y['arquivo'].split(f"{W}/", 1)[-1]}; {y['imagens']} / {y['pares_pergunta_resposta']} / {y['bytes']}", "rodada8")
  line("HEAL-MedVQA e Medical-Diff-VQA: nota dos arquivos de treino", R8["item7"]["nota"], "rodada8")
--# ---------------- rodada 9: Holm com a familia da Tabela 1; variante da Tabela 1 com queda bruta
-+# ---------------- round 9: Holm with the Table 1 family; variant of Table 1 with the raw drop
  HF = J("holm_familias")
  L += ["", "## S13. Holm por familia da Tabela 1 e variante com queda bruta (rodada 9)", ""]
- line("Holm, familias (rodada 9)", "familia da Tabela 1: Kvasir-VQA-x1 {polipo, instrumento, controle negativo}; HEAL-MedVQA {sim, nao}; Medical-Diff-VQA {sim, nao}. Familia da rodada 8: Kvasir-VQA-x1 {polipo, instrumento, 'Is there text?'} (controle negativo com ele no lugar de 'Is there text?'); HEAL-MedVQA {sim, nao}; Medical-Diff-VQA {sim, nao e as 6 entidades} (8 testes). Mesmos p unilaterais bootstrap; passa se p ajustado < 0,025", "holm_familias")
-@@ -335,9 +335,9 @@
-         ("HEAL-MedVQA & closed-ended, yes-questions", "HEAL|closed_yes|afinados"), ("HEAL-MedVQA & closed-ended, no-questions", "HEAL|closed_no|afinados"), ("Medical-Diff-VQA & closed-ended, yes-questions", "MIMIC|closed_yes|afinados"),
-         ("Medical-Diff-VQA & closed-ended, no-questions", "MIMIC|closed_no|afinados"), ("Medical-Diff-VQA & yes-questions, zero-shot (4 models)", "MIMIC|closed_yes|zero_shot")]
- for row, k in MAPV:
--    x = R8b[k]; ns = (k == "MIMIC|closed_no|afinados")   # coluna anterior n.s. na Tabela 1 (nenhum run com ganho significativo)
-+    x = R8b[k]; ns = (k == "MIMIC|closed_no|afinados")   # previous column n.s. in Table 1 (no run with a significant gain)
-     line(f"Tabela 1, variante com queda bruta (tables/table_criteria_rawdrop.tex), linha '{row}': coluna '...and raw drop' (L3 e L0)", "n.s." if ns else f"{x['L3_e_L0']}", "rodada8")
--# ---------------- rodada 11: declaracao final (dois preenchimentos, ganho significativo e queda bruta) por grupo
-+# ---------------- round 11: final declaration (two fills, significant gain and raw drop) per group
- DR = J("declarados_r11"); SRC["declarados_r11"] = ("v7_artigo1/analysis/declarados_r11.json", sha(f"{A}/declarados_r11.json")[:12])
- L += ["", "## S15. Declaracao final por grupo: dois preenchimentos, ganho significativo e queda bruta (rodada 11)", ""]
- line("declaracao final (regra)", DR["regra"] + "; decisao do Claudio de 21/10/2026", "declarados_r11")
-@@ -346,7 +346,7 @@
-     line(f"{NAME[b]}, {nm}: declarados (dois preenchimentos, ganho significativo e queda bruta) / linhas", f"{x['declarados']} / {x['runs']}", "declarados_r11")
-     for g, y in x["por_grupo"].items():
-         line(f"{NAME[b]}, {nm}, {g}: declarados (dois preenchimentos, ganho significativo e queda bruta) / resoluveis / linhas", f"{y['declarados']} / {y['resoluveis']} / {y['runs']}", "declarados_r11")
--# ---------------- rodada 12: maximos de Delta entre os declarados; entidades do Medical-Diff-VQA pela regra final
-+# ---------------- round 12: maxima of Delta among the declared runs; Medical-Diff-VQA entities under the final rule
- R12 = J("rodada12"); SRC["rodada12"] = ("v7_artigo1/analysis/rodada12.json", sha(f"{A}/rodada12.json")[:12])
- L += ["", "## S16. Maximos de Delta entre os declarados e entidades pela regra final (rodada 12)", ""]
+@@ -333,18 +332,18 @@
  NM12 = {"dependent_polyp": "polipo", "dependent_instrument": "instrumento", "closed_yes": "fechada-sim"}
-@@ -355,16 +355,16 @@
-     line(f"{NAME[b]}, {NM12[c]}: Delta preto maximo entre os {x['declarados']} runs declarados (dois preenchimentos, ganho significativo e queda bruta) / maximo entre os 27 (pp)", f"{pp(x['max_delta_preto_declarados']) if x['max_delta_preto_declarados'] is not None else '—'} / {pp(x['max_delta_preto_27'])}", "rodada12")
+ for k, x in R12["item1"].items():
+     b, c = k.split("|")
+-    line(f"{NAME[b]}, {NM12[c]}: Delta preto maximo entre os {x['declarados']} runs declarados (dois preenchimentos, ganho significativo e queda bruta) / maximo entre os {NL[b]} (pp)", f"{pp(x['max_delta_preto_declarados']) if x['max_delta_preto_declarados'] is not None else '—'} / {pp(x['max_delta_preto_27'])}", "rodada12")
++    line(f"{NAME[b]}, {NM12[c]}: Delta preto maximo entre os {x['declarados']} runs declarados (dois preenchimentos, ganho significativo e queda bruta) / maximo entre os 27 (pp)", f"{pp(x['max_delta_preto_declarados']) if x['max_delta_preto_declarados'] is not None else '—'} / {pp(x['max_delta_preto_27'])}", "rodada12")
  for e, x in R12["item2"].items():
      line(f"Medical-Diff-VQA, fechada-sim, entidade {e} ({x['perguntas']} perguntas): runs com ganho significativo / declarados (dois preenchimentos, ganho significativo e queda bruta) / runs", f"{x['ganho_significativo']} / {x['declarados_L3_e_L0']} / {x['runs']}", "rodada12")
--# ---------------- rodada 10: Holm da coluna com queda bruta; blur 4 % nas tres bases
 -HR = J("holm_rawdrop"); B4 = J("blur4_r10"); BM_ = json.load(open(f"{W}/v7_txt/extra_runs/blur4_r10/data/manifest_blur4_r10.json")); AD_ = json.load(open(f"{W}/v7_txt/extra_runs/blur4_r10/manifest_adaptadores_blur4_r10.json"))
 -SRC["blur4_manifest"] = ("v7_txt/extra_runs/blur4_r10/data/manifest_blur4_r10.json", sha(f"{W}/v7_txt/extra_runs/blur4_r10/data/manifest_blur4_r10.json")[:12])
 -SRC["blur4_adaptadores"] = ("v7_txt/extra_runs/blur4_r10/manifest_adaptadores_blur4_r10.json", sha(f"{W}/v7_txt/extra_runs/blur4_r10/manifest_adaptadores_blur4_r10.json")[:12])
-+# ---------------- round 10: Holm of the raw-drop column; blur 4 % on the three benchmarks
 +HR = J("holm_rawdrop"); B4 = J("blur4_r10"); BM_ = json.load(open(f"{BLUR4_META}/manifest_blur4_r10.json")); AD_ = json.load(open(f"{BLUR4_META}/manifest_adaptadores_blur4_r10.json"))
 +SRC["blur4_manifest"] = ("data/blur4/manifest_blur4_r10.json", sha(f"{BLUR4_META}/manifest_blur4_r10.json")[:12])
 +SRC["blur4_adaptadores"] = ("data/blur4/manifest_adaptadores_blur4_r10.json", sha(f"{BLUR4_META}/manifest_adaptadores_blur4_r10.json")[:12])
@@ -783,70 +572,108 @@
  for k, nm in (("heal", "HEAL-MedVQA"), ("mimic", "Medical-Diff-VQA")):
      x = BM_[k]
      line(f"{nm}: blur 4 % (T_blur/P_blur), sigma fixo (px) / largura mediana (px) / razao sigma/largura mediana (min - max por unidade); razao se fossem 25 px", f"{x['sigma_px']:.2f} / {x['largura_mediana_px']:.0f} / {x['razao_sigma_largura_mediana']:.4f} ({x['razao_por_unidade']['min']:.4f} - {x['razao_por_unidade']['max']:.4f}); {x['razao_se_fossem_25px']:.4f}", "blur4_manifest")
-@@ -381,7 +381,7 @@
-     if not v["fora_das_contagens"]: continue
-     b, ln = k.split("|")
-     line(f"{NAME[b]}, {ln} (blur 4 % no adapter do retreino de 03/10; fora das contagens): Delta blur 4 % [IC] por classe (pp)", "; ".join(f"{NM10[c]} {pp(v[c]['delta_blur4'])} {cpp(v[c]['delta_blur4_ci'])}" for c in ("closed_yes", "closed_no")), "blur4_r10")
--# ---------------- rodada 13: escala do blur e queda bruta sob blur
-+# ---------------- round 13: blur scale and raw drop under blur
- R13 = J("rodada13"); SRC["rodada13"] = ("v7_artigo1/analysis/rodada13.json", sha(f"{A}/rodada13.json")[:12])
- L += ["", "## S17. Escala do blur e queda bruta sob blur (rodada 13)", ""]
- line("mascara do alvo nos itens 1-2 (regra)", "uniao dos pixels alterados pelo preto, pelo blur 10 % ou pelo blur 4 % em relacao a imagem intacta; alteracao = media absoluta, na escala 0-255, da media dos canais dentro da mascara", "rodada13")
-@@ -400,7 +400,7 @@
-     line(f"{NAME[b]}, {NM13[c]}, {'afinados' if kind == 'afinados' else 'zero-shot (4 modelos)'}: declarados (regra final) que tambem tem queda bruta sob blur 10 % (IC > 0) / declarados", f"{x['tambem_queda_bruta_blur10']} / {x['declarados']}", "rodada13")
-     for y in x["sem_queda_bruta_blur10"]:
-         line(f"{NAME[b]}, {NM13[c]}, {y['linha']}: declarado sem queda bruta sob blur 10 %: Acc(C0) - Acc(T blur 10 %) [IC] (pp)", f"{pp(y['queda_bruta_blur10'])} {cpp(y['ic'])}", "rodada13")
--# ---------------- rodada 14: declaracao final com queda bruta sob os dois preenchimentos
-+# ---------------- round 14: final declaration with the raw drop under both fills
- R14 = J("rodada14"); SRC["rodada14"] = ("v7_artigo1/analysis/rodada14.json", sha(f"{A}/rodada14.json")[:12])
- L += ["", "## S18. Declaracao final com queda bruta sob preto e sob blur 10 % (rodada 14)", ""]
- line("declaracao final (regra, decisao A do Claudio, 22/10/2026)", R14["regra"] + "; recalculada a partir das predicoes (mesmas replicas); IC 95 % por imagem", "rodada14")
-@@ -422,7 +422,7 @@
+@@ -399,7 +398,7 @@
+     line(f"Medical-Diff-VQA, fechada-sim, entidade {e} ({x['perguntas']} perguntas): ganho significativo / declarados pela regra final / runs", f"{x['ganho_significativo']} / {x['declarados_regra_final']} / {x['runs']}", "rodada14")
  for k, x in R14["max_delta"].items():
      b, c = k.split("|")
-     if x["declarados"]: line(f"{NAME[b]}, {NM14[c]}: Delta preto maximo entre os {x['declarados']} declarados pela regra final / maximo entre os 27 (pp)", f"{pp(x['max_delta_preto_declarados'])} / {pp(x['max_delta_preto_27'])}", "rodada14")
--# ---------------- rodada 15: regra final com blur 4 %
-+# ---------------- round 15: final rule with blur 4 %
+-    if x["declarados"]: line(f"{NAME[b]}, {NM14[c]}: Delta preto maximo entre os {x['declarados']} declarados pela regra final / maximo entre os {NL[b]} (pp)", f"{pp(x['max_delta_preto_declarados'])} / {pp(x['max_delta_preto_27'])}", "rodada14")
++    if x["declarados"]: line(f"{NAME[b]}, {NM14[c]}: Delta preto maximo entre os {x['declarados']} declarados pela regra final / maximo entre os 27 (pp)", f"{pp(x['max_delta_preto_declarados'])} / {pp(x['max_delta_preto_27'])}", "rodada14")
  R15 = J("rodada15"); SRC["rodada15"] = ("v7_artigo1/analysis/rodada15.json", sha(f"{A}/rodada15.json")[:12])
  L += ["", "## S19. Regra final com blur 4 % (rodada 15)", ""]
  line("regra final com blur 4 % (regra)", R15["regra"] + "; mesmas replicas; HEAL-MedVQA sem QWEN2VL_DORA_HEAL_seed2 (adapter do retreino); zero-shot sem predicoes sob blur 4 %", "rodada15")
-@@ -433,7 +433,7 @@
-     for y in x["saem_so_pela_queda_bruta_blur4"]:
-         line(f"{nm}, {y['linha']}: sai da regra final com blur 4 % so pela queda bruta sob blur 4 %: Acc(C0) - Acc(T blur 4 %) [IC] (pp)", f"{pp(y['queda_bruta_blur4'])} {cpp(y['ic'])}", "rodada15")
- line("regra final com blur 4 %, zero-shot", f"sem predicoes sob blur 4 % para os {len(R15['zero_shot_sem_predicoes'])} pares modelo x base (nada a contar)", "rodada15")
--# ---------------- rodada 16: Holm como teste de intersecao-uniao (IUT)
-+# ---------------- round 16: Holm as an intersection-union test (IUT)
- R16 = J("rodada16"); SRC["rodada16"] = ("v7_artigo1/analysis/rodada16.json", sha(f"{A}/rodada16.json")[:12])
- L += ["", "## S20. Holm como teste de intersecao-uniao (rodada 16)", ""]
- line("procedimento das rodadas 8, 9 e 14 (Holm por condicao)", "para cada run e cada condicao separadamente, os p unilaterais bootstrap das classes da familia foram ajustados por Holm; o run foi declarado se todas as condicoes passaram com p ajustado < 0,025 (Holm por condicao, depois a conjuncao); nao era IUT", "rodada16")
-@@ -444,7 +444,7 @@
-     line(f"{NAME[b]}, {NM16[c]}, {'afinados' if kind == 'afinados' else 'zero-shot (4 modelos)'}: declarados pela regra final com IUT e Holm / com Holm por condicao (rodada 14) / sem Holm / runs", f"{x['iut_holm']} / {x['holm_por_condicao_r14']} / {x['sem_holm_IC']} / {x['runs']}", "rodada16")
- line("runs cuja declaracao muda entre IUT com Holm e Holm por condicao", str(len(R16["runs_que_mudam_vs_holm_por_condicao"])), "rodada16")
- line("alteracao de pixels dentro do alvo (definicao, rodada 13)", "por par imagem-alvo, media, sobre os pixels da mascara-alvo, da diferenca absoluta entre a imagem intacta e a preenchida, na escala 0-255, com a media dos tres canais; mediana [IQR] entre os pares; mascara = uniao dos pixels alterados pelo preto, pelo blur 10 % ou pelo blur 4 %", "rodada13")
--# ---------------- rodada 17: baseline sem imagem treinado com DoRA (so registro; nada muda no artigo)
-+# ---------------- round 17: no-image baseline trained with DoRA (record only; nothing changes in the paper)
- R17 = J("rodada17"); SRC["rodada17"] = ("v7_artigo1/analysis/rodada17.json", sha(f"{A}/rodada17.json")[:12])
- L += ["", "## S21. Baseline sem imagem com DoRA (rodada 17; base do baseline pareado, ver S22)", ""]
- line("baseline sem imagem DoRA (regra)", "mesma receita do baseline sem imagem LoRA (adaptador so no modelo de linguagem, rank 16, alfa 32, projecoes de atencao, lr 2e-4, 3 epocas, batch 4 x 4, mesmo split, mesma entrada sem imagem, mesmos scripts), trocando so LoRA por DoRA; " + R17["regra"], "rodada17")
-@@ -463,7 +463,7 @@
- line("runs DoRA cujo estado nos criterios (iv) ou (v) muda com G_DoRA", str(len(R17["runs_que_mudam"])), "rodada17")
- for m in R17["runs_que_mudam"]:
-     line(f"{NAME[m['base']]}, {NM17[m['classe']]}, {m['linha']}: G [IC] / G_DoRA [IC] (pp); (iv) e (v) atual -> com G_DoRA", f"{pp(m['G'])} {cpp(m['G_ci'])} / {pp(m['G_dora'])} {cpp(m['G_dora_ci'])}; {'sim' if m['iv'] else 'nao'} -> {'sim' if m['iv_dora'] else 'nao'}, {'sim' if m['v'] else 'nao'} -> {'sim' if m['v_dora'] else 'nao'}", "rodada17")
--# ---------------- rodada 19: ganho de imagem com baseline do mesmo adaptador (decisao do Claudio)
-+# ---------------- round 19: image gain with the baseline of the same adapter type (authors' decision)
- R19 = J("rodada19"); SRC["rodada19"] = ("v7_artigo1/analysis/rodada19.json", sha(f"{A}/rodada19.json")[:12])
- L += ["", "## S22. Ganho de imagem com baseline sem imagem do mesmo adaptador (rodada 19)", ""]
- line("ganho de imagem pareado (regra, decisao do Claudio de 22/10/2026)", R19["regra"] + "; oclusoes, C, Delta_nec, replicas e normalizacao inalterados", "rodada19")
-@@ -484,7 +484,7 @@
- cs = R19["cascata_mimic_yes"]["pareado"]
- line("Medical-Diff-VQA, fechada-sim, ganho pareado: linhas em (ii) / (iii) / (iv) / (v)", f"{cs['ii']} / {cs['iii']} / {cs['iv']} / {cs['v']}", "rodada19")
- line("Medical-Diff-VQA, fechada-sim, ganho pareado: tirados pelo criterio de dois preenchimentos / pela condicao do ganho / pela queda bruta", f"{cs['ii'] - cs['iii']} / {cs['iii'] - cs['iv']} / {cs['iv'] - cs['v']}", "rodada19")
--# ---------------- rodada 20: baseline sem imagem do M3AE = M3AE sem imagem (variante sem caminho de imagem)
-+# ---------------- round 20: no-image baseline of M3AE = M3AE without image (variant without an image path)
- TCL20 = {"KVASIR": ["dependent_polyp", "dependent_instrument", "negative_control"], "HEAL": ["closed_yes", "closed_no"], "MIMIC": ["closed_yes", "closed_no"]}
- R20 = J("rodada20"); SRC["rodada20"] = ("v7_artigo1/analysis/rodada20.json", sha(f"{A}/rodada20.json")[:12])
- L += ["", "## S23. Baseline sem imagem do M3AE: M3AE sem imagem (rodada 20)", ""]
-@@ -519,16 +519,16 @@
+@@ -444,10 +443,10 @@
+ NM19 = {"dependent_polyp": "polipo", "dependent_instrument": "instrumento", "negative_control": "controle negativo (3 templates)", "closed_yes": "fechada-sim", "closed_no": "fechada-nao"}
+ for k, x in R19["tabela1"].items():
+     b, c = k.split("|"); y = x["pareado"]
+-    line(f"{NAME[b]}, {NM19[c]}: criterios (i) / (ii) / (iii) / (iv) / (v), ganho pareado (linhas de {NL[b]})", f"{y['i']} / {y['ii']} / {y['iii']} / {y['iv']} / {y['v']}", "rodada19")
++    line(f"{NAME[b]}, {NM19[c]}: criterios (i) / (ii) / (iii) / (iv) / (v), ganho pareado (linhas de 27)", f"{y['i']} / {y['ii']} / {y['iii']} / {y['iv']} / {y['v']}", "rodada19")
+     t = R19["texto_ganho"][k]["pareado"]
+-    line(f"{NAME[b]}, {NM19[c]}: ganho de imagem pareado, minimo – maximo entre as {NL[b]} linhas (pp); linhas com ganho significativo", f"{pp(t['min'])} – {pp(t['max'])}; {t['significativos']}/{NL[b]}", "rodada19")
+-    line(f"{NAME[b]}, {NM19[c]}: declarados pela regra final com IUT e Holm, ganho pareado (linhas de {NL[b]})", f"{R19['holm_iut_v'][k]['pareado']}", "rodada19")
++    line(f"{NAME[b]}, {NM19[c]}: ganho de imagem pareado, minimo – maximo entre as 27 linhas (pp); linhas com ganho significativo", f"{pp(t['min'])} – {pp(t['max'])}; {t['significativos']}/27", "rodada19")
++    line(f"{NAME[b]}, {NM19[c]}: declarados pela regra final com IUT e Holm, ganho pareado (linhas de 27)", f"{R19['holm_iut_v'][k]['pareado']}", "rodada19")
+ for k, gg in R19["tabela2"].items():
+     b, c = k.split("|")
+     for g, y in gg.items():
+@@ -473,10 +472,10 @@
+     line(f"{NAME[b]}, {ln}: acuracia sem imagem / cinza / diferenca nos itens do artigo 1 (%, pp; n itens)", f"{100 * x['acc_sem_imagem']:.2f} / {100 * x['acc_cinza']:.2f} / {pp(x['dif'])} ({x['n_itens']})", "rodada20")
+ for k, x in R20["tabela1"].items():
+     b, c = k.split("|"); y = x["novo"]
+-    line(f"{NAME[b]}, {NM19[c]}: criterios (i) / (ii) / (iii) / (iv) / (v), M3AE sem imagem (linhas de {NL[b]}); linhas com ganho significativo", f"{y['i']} / {y['ii']} / {y['iii']} / {y['iv']} / {y['v']}; {y['ganho']}/{NL[b]}", "rodada20")
++    line(f"{NAME[b]}, {NM19[c]}: criterios (i) / (ii) / (iii) / (iv) / (v), M3AE sem imagem (linhas de 27); linhas com ganho significativo", f"{y['i']} / {y['ii']} / {y['iii']} / {y['iv']} / {y['v']}; {y['ganho']}/27", "rodada20")
+     t = R20["texto_ganho"][k]["novo"]
+-    line(f"{NAME[b]}, {NM19[c]}: ganho de imagem, minimo – maximo entre as {NL[b]} linhas (pp), M3AE sem imagem", f"{pp(t['min'])} – {pp(t['max'])}", "rodada20")
+-    line(f"{NAME[b]}, {NM19[c]}: declarados pela regra final com IUT e Holm, M3AE sem imagem (linhas de {NL[b]})", f"{R20['holm_iut_v'][k]['novo']}", "rodada20")
++    line(f"{NAME[b]}, {NM19[c]}: ganho de imagem, minimo – maximo entre as 27 linhas (pp), M3AE sem imagem", f"{pp(t['min'])} – {pp(t['max'])}", "rodada20")
++    line(f"{NAME[b]}, {NM19[c]}: declarados pela regra final com IUT e Holm, M3AE sem imagem (linhas de 27)", f"{R20['holm_iut_v'][k]['novo']}", "rodada20")
+ for k, gg in R20["tabela2"].items():
+     b, c = k.split("|")
+     for g, y in gg.items():
+@@ -486,79 +485,20 @@
+     line(f"{NAME[b]}, {NM19[c]}: regra final com blur 4 %, M3AE sem imagem: declarados / runs", f"{x['novo']} / {x['runs']}", "rodada20")
+ cs = R20["cascata_mimic_yes"]["novo"]
+ line("Medical-Diff-VQA, fechada-sim, M3AE sem imagem: linhas em (ii) / (iii) / (iv) / (v)", f"{cs['ii']} / {cs['iii']} / {cs['iv']} / {cs['v']}", "rodada20")
+-L += ["", f"## S24. Criterios (i)-(v) por subconjunto com o 7B ({N27} linhas afinadas por base) e zero-shot (rodada 24)", ""]
+-SRC["rodada19"] = ("v7_artigo1/analysis/rodada19.json", sha(f"{A}/rodada19.json")[:12]); SRC["rodada20"] = ("v7_artigo1/analysis/rodada20.json", sha(f"{A}/rodada20.json")[:12])
+-_T24 = {"KVASIR": ["dependent_polyp", "dependent_instrument", "negative_control"], "HEAL": ["closed_yes", "closed_no"], "MIMIC": ["closed_yes", "closed_no"]}
+-_lo24 = lambda c: c[0] if c else None
+-def _crit24(b, Ln, c):
+-    src = R20 if Ln["fam"] == "M3AE" else R19; x = src["por_linha"][f"{b}|{Ln['line']}"]["classes"].get(c); y = R14["por_linha"][f"{b}|{Ln['line']}"]["classes"].get(c)
+-    if not x or not y: return None
+-    g = (_lo24(x["G_ci"]) or 0) > 0; i = x["L0p"]; ii = x["L1"]; iii = ii and x["L2b"]; iv = iii and g; v = iv and x["L0p"] and x["L0b"]
+-    p = dict(y["p"]); p["ganho"] = x["p_G"]; return {"i": i, "ii": ii, "iii": iii, "iv": iv, "v": v, "ganho": g, "p_iut": max(p.values())}
+-def _holm24(ps):
+-    o = sorted(ps.items(), key=lambda kv: kv[1]); m = len(o); run = 0; out = {}
+-    for k, (c, p) in enumerate(o): run = max(run, p * (m - k)); out[c] = min(1.0, run) < 0.025
+-    return out
+-def _zs24(b, c):
+-    out = {k: 0 for k in ("i", "ii", "iii", "iv", "v", "ganho")}; n = 0
+-    for k, r in R14["por_linha"].items():
+-        if not r.get("zero_shot") or not k.startswith(b + "|") or c not in r["classes"]: continue
+-        if b == "KVASIR" and "LLAVA_MED" in k: continue
+-        t = r["classes"][c]["testes_ic"]; n += 1; i = t["L0_preto"]; ii = t["L1_preto"]; iii = ii and t["L2_blur10"]; iv = iii and t["ganho"]; v = r["classes"][c]["declarado_regra_final"]
+-        for kk, vv in (("i", i), ("ii", ii), ("iii", iii), ("iv", iv), ("v", v), ("ganho", t["ganho"])): out[kk] += int(vv)
+-    return out, n
+-for b in BASES:
+-    rows = {c: {k: 0 for k in ("i", "ii", "iii", "iv", "v", "v_holm", "ganho")} for c in _T24[b]}; nlin = 0
+-    for Ln in lines(b):
+-        cr = {c: _crit24(b, Ln, c) for c in _T24[b]}; cr = {c: x for c, x in cr.items() if x}
+-        if not cr: continue
+-        nlin += 1; hv = _holm24({c: x["p_iut"] for c, x in cr.items()})
+-        for c, x in cr.items():
+-            for k in ("i", "ii", "iii", "iv", "v", "ganho"): rows[c][k] += int(x[k])
+-            rows[c]["v_holm"] += int(hv[c])
+-    for c in _T24[b]:
+-        r = rows[c]; nm = f"{NAME[b]}, {NM14[c]}"
+-        line(f"Tabela 1, {nm}, afinados: (i) / (ii) / (iii) / (iv) / (v) (de {nlin} linhas; G pareado)", f"{r['i']} / {r['ii']} / {r['iii']} / {r['iv']} / {r['v']}", "rodada19")
+-        line(f"Tabela 1, {nm}, afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de {nlin})", f"{r['v_holm']} / {r['ganho']}", "rodada19")
+-        z, nz = _zs24(b, c); line(f"Tabela 1, {nm}, zero-shot ({nz} modelos{', sem LLaVA-Med' if b == 'KVASIR' else ''}): (i) / (ii) / (iii) / (iv) / (v); com ganho significativo", f"{z['i']} / {z['ii']} / {z['iii']} / {z['iv']} / {z['v']}; {z['ganho']}", "rodada14")
+-L += ["", "## S25. Linhas citadas pelo texto da v32 (rodada 24b)", ""]
+-_pp2 = lambda x: "—" if x is None else f"{100 * x:+.2f}"; _ci2 = lambda c: "—" if not c else f"[{100 * c[0]:+.2f}, {100 * c[1]:+.2f}]"
+-def _nv25(b, Ln):
+-    f = f"{A}/necessity_v2/{Ln['line']}_{b}.json"; SRC[f"necessity_v2/{Ln['line']}_{b}"] = (f"v7_artigo1/analysis/necessity_v2/{Ln['line']}_{b}.json", sha(f)[:12]); return json.load(open(f))
+-_f25 = [Ln for Ln in lines("KVASIR") if Ln["fam"] == "QWEN25VL"]
+-if _f25:
+-    _t = [R15["por_linha"][f"KVASIR|{Ln['line']}"]["classes"]["dependent_polyp"] for Ln in _f25]
+-    line(f"Kvasir-VQA-x1, polipo, Qwen2.5-VL-7B ({len(_f25)} linhas): Delta blur 4 % significativo / queda blur 4 % significativa / declarados (v) blur 4 %", f"{sum(int(x['testes']['delta_blur4']) for x in _t)} / {sum(int(x['testes']['L0_blur4']) for x in _t)} / {sum(int(x['declarado_final_blur4']) for x in _t)}", "rodada15")
+-for Ln in lines("HEAL"):
+-    x = _crit24("HEAL", Ln, "closed_yes")
+-    if x and x["iv"] and not x["v"]:
+-        c = _nv25("HEAL", Ln)["by_class"]["closed_yes"]
+-        line(f"HEAL-MedVQA, fechada-sim, {Ln['line']}: queda alvo preto [IC] / queda alvo blur 10 % [IC] / custo mascara deslocada preto [IC] / Delta preto [IC] / Delta blur 10 % [IC] (pp)", " / ".join(f"{_pp2(c[k])} {_ci2(c[k + '_ci_by_image'])}" for k in ("custo_alvo_preto", "custo_alvo_blur10", "custo_mascara_deslocada_preto", "delta_preto", "delta_blur10")), f"necessity_v2/{Ln['line']}_HEAL")
+-_acc = {Ln["line"]: _nv25("HEAL", Ln)["by_class"]["closed_yes"]["acc"]["C0"] for Ln in lines("HEAL")}
+-SRC["necessity_v2_HEAL"] = (f"v7_artigo1/analysis/necessity_v2/*_HEAL.json ({len(_acc)} linhas)", hashlib.sha256("".join(sha(f"{A}/necessity_v2/{k}_HEAL.json") for k in sorted(_acc)).encode()).hexdigest()[:12])
+-line(f"HEAL-MedVQA, fechada-sim: acurácia intacta, minimo – maximo entre as {NL['HEAL']} linhas (%)", f"{100 * min(_acc.values()):.1f} – {100 * max(_acc.values()):.1f}", "necessity_v2_HEAL")
+-_rem = []
+-for Ln in lines("MIMIC"):
+-    x = _crit24("MIMIC", Ln, "closed_yes")
+-    if x and x["iv"] and not x["v"]:
+-        c = _nv25("MIMIC", Ln)["by_class"]["closed_yes"]; _rem.append((Ln["line"], c["custo_mascara_deslocada_preto"], c["custo_alvo_preto"], c["custo_alvo_preto_ci_by_image"], c["custo_alvo_blur10"], c["custo_alvo_blur10_ci_by_image"]))
+-_cs25 = R20["cascata_mimic_yes"]["novo"]; assert len(_rem) == _cs25["iv"] - _cs25["v"], (len(_rem), _cs25)
+-line("Medical-Diff-VQA, fechada-sim, ganho pareado: removidos pela condicao de queda com C < 0 / total removidos pela queda", f"{sum(1 for r in _rem if r[1] < 0)} / {len(_rem)}", "rodada19")
+-line("Medical-Diff-VQA, fechada-sim, ganho pareado: runs removidos pela condicao de queda (C preto; queda preto [IC]; queda blur 10 % [IC]) (pp)", "; ".join(f"{r[0]} (C {_pp2(r[1])}; {_pp2(r[2])} {_ci2(r[3])}; {_pp2(r[4])} {_ci2(r[5])})" for r in _rem), "rodada19")
+ L += ["", "## S11. Suplemento interno (nao vai ao corpo)", ""]
+ for b in BASES:
      for cls, nm in CLS[b]:
          v = crit["bases"][b]["por_classe"].get(cls)
          if v: line(f"criterio A / C (so interno) e criterio antigo (IC por pergunta), {NAME[b]}, {nm}", f"A {v['total']['A']}/{v['n_linhas']} / C {v['total']['C']}/{v['n_linhas']} / antigo {v['antigo_e3_ic_por_pergunta'] if v['antigo_e3_ic_por_pergunta'] is not None else '—'}", "criterio")
@@ -860,7 +687,6 @@
 -line("Delta normalizado (so suplemento)", "existe em v7_txt/docs/numbers_own_floor.md e v7_mimic/docs/numbers_placebo_mimic.md; nao reproduzido aqui", f"{V7T}/docs/numbers_own_floor.md")
 +line("Delta normalizado (so suplemento)", "existe em v7_txt/docs/numbers_own_floor.md e v7_mimic/docs/numbers_placebo_mimic.md; nao reproduzido aqui", f"{PREV_SHEETS}/numbers_own_floor.md")
  open(f"{OUT}/docs/numbers_artigo1.md", "w").write("\n".join(L) + "\n")
- # manifest
  man = {"t": time.strftime("%Y-%m-%d %H:%M:%S"), "folha": f"{OUT}/docs/numbers_artigo1.md", "folha_sha256": sha(f"{OUT}/docs/numbers_artigo1.md"), "n_linhas_folha": sum(1 for x in L if x.startswith("- **")),
 -       "scripts": {os.path.basename(p): sha(p) for p in sorted(glob.glob(f"{OUT}/scripts/*.py"))}, "analysis": {os.path.relpath(p, OUT): sha(p) for p in sorted(glob.glob(f"{A}/*.json")) + sorted(glob.glob(f"{A}/necessity_v2/*.json"))},
 -       "entradas_externas": {"heal_annotations_test.parquet": sha(f"{OUT}/inputs/heal_annotations_test.parquet")}}
@@ -869,18 +695,10 @@
  json.dump(man, open(f"{OUT}/manifests/manifest_rodada1.json", "w"), indent=1); print("folha:", man["n_linhas_folha"], "numeros; sha", man["folha_sha256"][:16])
 --- lab/v7_artigo1/scripts/make_tables_artigo1.py
 +++ package/src/analysis/make_tables_artigo1.py
-@@ -1,66 +1,81 @@
--"""Itens 11/16/22/27: tabelas .tex lidas da folha docs/numbers_artigo1.md (nenhum numero de outra fonte). table1_necessity (completa),
--table1_necessity_slim (sem text-only arm e sem Delta cor media), table2_occluder_negatives, table3_zeroshot, table_ladder. booktabs, \\scriptsize,
--table*. Vocabulario do artigo (rodada 2, item 22); sem rotulo interno."""
+@@ -1,72 +1,72 @@
 -import collections, json, os, re, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 -FOLHA = f"{OUT}/docs/numbers_artigo1.md"; txt = open(FOLHA).read()
-+"""Tables of the paper, read from the numbers sheet docs/numbers_artigo1.md (no number comes from any other source).
-+Paper tables: table_criteria.tex (Table 1: runs meeting criteria (i)-(v)), table1_necessity_slim.tex (Table 2: necessity test per
-+benchmark and group) and table2_occluder_negatives.tex (Table 3: occluder test on images without the target). Supplementary:
-+table1_necessity.tex (all quantities per group) and table3_zeroshot.tex (zero-shot models). The sheet labels are the internal
-+names of the research code (see the README glossary); the LaTeX output uses the paper's vocabulary."""
 +import json, os, re, sys, time
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
 +FOLHA = f"{OUT}/docs/numbers_artigo1.md"; txt = open(FOLHA).read(); os.makedirs(f"{OUT}/tables", exist_ok=True)
@@ -889,41 +707,51 @@
      if lbl not in VAL: raise KeyError(lbl)
      return VAL[lbl]
 -HDR = "% gerado por v7_artigo1/scripts/make_tables_artigo1.py a partir de docs/numbers_artigo1.md (sha256 " + sha(FOLHA)[:12] + ")"
+-GRP = [("Qwen2-VL-2B, encoder congelado", "Qwen2-VL-2B", "frozen"), ("Qwen2-VL-2B, encoder afinado", "Qwen2-VL-2B", "fine-tuned")] + ([("Qwen2.5-VL-7B, encoder congelado", "Qwen2.5-VL-7B", "frozen"), ("Qwen2.5-VL-7B, encoder afinado", "Qwen2.5-VL-7B", "fine-tuned")] if "QWEN25VL" in FAM_EXTRA else []) + [("SmolVLM2-2.2B, encoder congelado", "SmolVLM2-2.2B", "frozen"),
 +HDR = f"% generated by {os.path.relpath(__file__)} from {os.path.relpath(FOLHA)} (sha256 {sha(FOLHA)[:12]})"
- GRP = [("Qwen2-VL-2B, encoder congelado", "Qwen2-VL-2B", "frozen"), ("Qwen2-VL-2B, encoder afinado", "Qwen2-VL-2B", "fine-tuned"), ("SmolVLM2-2.2B, encoder congelado", "SmolVLM2-2.2B", "frozen"),
++GRP = [("Qwen2-VL-2B, encoder congelado", "Qwen2-VL-2B", "frozen"), ("Qwen2-VL-2B, encoder afinado", "Qwen2-VL-2B", "fine-tuned"), ("SmolVLM2-2.2B, encoder congelado", "SmolVLM2-2.2B", "frozen"),
         ("SmolVLM2-2.2B, encoder afinado", "SmolVLM2-2.2B", "fine-tuned"), ("M3AE, encoder ajuste completo", "M3AE", "full fine-tuning")]
 -B = [("Kvasir-VQA-x1", "polipo", "polyp"), ("Kvasir-VQA-x1", "instrumento", "instrument"), ("HEAL-MedVQA", "fechada-sim", "closed-ended, answer yes"), ("Medical-Diff-VQA", "fechada-sim", "closed-ended, answer yes")]
  def split(s): return [x.strip() for x in re.split(r" / |; ", s)]
--# rodada 7b: nas tabelas usadas no artigo (criteria, necessity_slim, occluder) os rotulos de linha e o "n.s." vem de inputs/rotulos_redator.json e os
--# numeros com sinal saem em modo matematico ($-2.1$ (1.3)); a tabela completa e a de zero-shot ficam como estavam (fora do main.tex).
--RJF = f"{OUT}/inputs/rotulos_redator.json"; RJ = json.load(open(RJF))
+-RJF = f"{OUT}/inputs/rotulos_<role>.json"; RJ = json.load(open(RJF))
 -RL = {"closed-ended, answer yes": "closed-ended, yes-questions", "closed-ended, answer no": "closed-ended, no-questions"}
--def _rot(e): return e.get("rotulos_de_linha_question_set") or [x.split(" & ", 1)[1] for x in e.get("linhas", [])]   # rodada 12: o JSON v24 traz "linhas" ("Benchmark & rotulo")
+-def _rot(e): return e.get("rotulos_de_linha_question_set") or [x.split(" & ", 1)[1] for x in e.get("linhas", [])]
 -assert all(x in _rot(RJ["tabela1_criterios"]) for x in RL.values()) and RL["closed-ended, answer yes"] in _rot(RJ["tabela2_necessidade"])
--NS = RJ["tabela1_criterios"].get("nao_significativo") or "n.s."   # rodada 12: o JSON v24 nao traz o campo; a tabela segue com n.s.
+-NS = RJ["tabela1_criterios"].get("nao_significativo") or "n.s."
 -def lab(x): return RL.get(x, x)
  SIGNED = re.compile(r"(?<![\w$.])([+-])(\d+(?:\.\d+)?)(?![\w.])")
  def mth(x): return SIGNED.sub(r"$\1\2$", x)
--def DEC(base, cpt, g): return v(f"{base}, {cpt}, {g}: declarados pela regra final (L3, queda bruta sob preto e sob blur 10 %) / resoluveis / linhas").split(" / ")[0]   # rodada 14 (folha S18)   # rodada 11 (folha S15)
+-def DEC(base, cpt, g): return v(f"{base}, {cpt}, {g}: declarados pela regra final (L3, queda bruta sob preto e sob blur 10 %) / resoluveis / linhas").split(" / ")[0]
+-def PAR(base, cpt, g): return v(f"{base}, {cpt}, {g}: ganho de imagem, media (DP) (pp); Declared (nec. / sig. gain / runs), M3AE sem imagem").split("; ")[1].strip()
+-def GAIN(base, cpt, g): return [x.strip() for x in v(f"{base}, {cpt}, {g}: ganho de imagem, media (DP) (pp); Declared (nec. / sig. gain / runs), M3AE sem imagem").split("; ")]
+-SEM_HEAL_SIM = os.environ.get("A1_TABELA2_SEM_HEAL_SIM", "1") == "1"
+-ROW2 = {"closed-ended, answer yes": "yes-questions"}
+-CAP2 = "Necessity test per benchmark and group (family $\\times$ vision-encoder setting): mean (SD) over three seeds $\\times$ two adapters (M3AE: three seeds, full fine-tuning). All quantities in pp: image gain $\\Gimg$, control-occlusion drop $C$ and $\\Dnec$ (Sec.~\\ref{sec:method}). Pass: runs passing the test (criterion (v)) / runs with a significant gain / runs. Per-run estimates and CIs are released with the code."
 -def tab1(slim):
--    cols = ["Benchmark", "Class", "Model", "Vision encoder", "Intact"] + ([] if slim else ["Text-only arm"]) + ["Image gain", "Matched-control cost", "$\\Delta$ black", "$\\Delta$ blur"] + ([] if slim else ["$\\Delta$ region-mean"]) + ([] if slim else ["Sufficiency"]) + ["Dual-fill (nec./res./runs)"]   # rodada 8: suficiencia fora da tabela do artigo (slim)
+-    if slim:
+-        L = [HDR, "\\begin{table*}[t]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{1pt}", "\\caption{" + CAP2 + "}", "\\label{tab:necessity_slim}", "{%", "\\begin{tabular}{llllrrrrl}", "\\toprule",
+-             "Benchmark & Question subset & Model & Vision encoder & Image gain & Control-occlusion drop, black & $\\Dnec$ black & $\\Dnec$ blur & Pass (test / sig. gain / runs) \\\\", "\\midrule"]
+-        BB = [x for x in B if not (SEM_HEAL_SIM and x[0] == "HEAL-MedVQA" and x[1] == "fechada-sim")]
+-        for base, cpt, cen in BB:
+-            for i, (g, fam, enc) in enumerate(GRP):
+-                d = split(v(f"{base}, {cpt}, {g}: Delta preto / blur 10 % / cor media (pp)")); c = split(v(f"{base}, {cpt}, {g}: custo da mascara deslocada, preto (pp) / suficiencia, preto / criterio B")); gn, cell = GAIN(base, cpt, g)
+-                L.append(" & ".join([base if i == 0 else "", ROW2.get(cen, cen) if i == 0 else "", fam, enc, mth(gn), mth(c[0]), mth(d[0]), mth(d[1]), cell]) + " \\\\")
+-            L.append("\\midrule" if (base, cpt) != BB[-1][:2] else "\\bottomrule")
+-        L += ["\\end{tabular}}", "", "\\end{table*}"]
+-        return "\n".join(L).replace("—", "--") + "\n"
+-    cols = ["Benchmark", "Class", "Model", "Vision encoder", "Intact", "Text-only arm", "Image gain", "Matched-control cost", "$\\Delta$ black", "$\\Delta$ blur", "$\\Delta$ region-mean", "Sufficiency", "Pass (test / sig. gain / runs)"]
 -    L = [HDR, "\\begin{table*}[t]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{3pt}",
--         "\\caption{Region-necessity test per benchmark, model family and vision-encoder group: mean (SD) over three seeds and the two adapters (LoRA, DoRA; M3AE: full fine-tuning). Accuracies in \\%; differences in percentage points. Image gain = intact-image accuracy minus the accuracy of the text-only arm of the same family and seed (M3AE: text-only arm, grey image). Matched-control cost = intact-image accuracy minus accuracy under the matched control occlusion. $\\Delta$ (necessity effect) = accuracy under the matched control occlusion minus accuracy with the target occluded."
--         + ("" if not slim else " Text-only arm accuracy and $\\Delta$ under region-mean fill are reported in the supplementary material.") + " Dual-fill: runs whose 95\\% image-bootstrap CI of $\\Delta$ excludes zero from above under both black fill and Gaussian blur, among the runs whose image gain is resolvable (CI lower bound above zero), out of all runs.}",
--         "\\label{tab:necessity" + ("_slim" if slim else "") + "}", "\\begin{tabular}{llll" + "r" * (len(cols) - 5) + "l}", "\\toprule", " & ".join(cols) + " \\\\", "\\midrule"]
+-         "\\caption{Region-necessity test per benchmark, model family and vision-encoder group: mean (SD) over three seeds and the two adapters (LoRA, DoRA; M3AE: full fine-tuning). Accuracies in \\%; differences in percentage points. Image gain = intact-image accuracy minus the accuracy of the paired text-only baseline (an adapter of the run's type; M3AE: no image). Matched-control cost = intact-image accuracy minus accuracy under the matched control occlusion. $\\Delta$ (necessity effect) = accuracy under the matched control occlusion minus accuracy with the target occluded. Pass: runs passing the test (criterion (v)) / runs with a significant gain / runs.}",
+-         "\\label{tab:necessity}", "\\begin{tabular}{llll" + "r" * (len(cols) - 5) + "l}", "\\toprule", " & ".join(cols) + " \\\\", "\\midrule"]
 -    for base, cpt, cen in B:
 -        for i, (g, fam, enc) in enumerate(GRP):
--            a = split(v(f"{base}, {cpt}, {g}: Acc intacta / text-decoder-only / TF-IDF (%)")); h = v(f"{base}, {cpt}, {g}: headroom sobre o text-decoder-only (pp); linhas resoluveis").split(";")[0]
--            d = split(v(f"{base}, {cpt}, {g}: Delta preto / blur 10 % / cor media (pp)")); c = split(v(f"{base}, {cpt}, {g}: custo da mascara deslocada, preto (pp) / suficiencia, preto / criterio B"))
--            r = split(v(f"{base}, {cpt}, {g}: resoluveis / necessarias entre as resoluveis / linhas"))
--            cells = [base if i == 0 else "", (lab(cen) if slim else cen) if i == 0 else "", fam, enc, a[0]] + ([] if slim else [a[1]]) + [mth(x) if slim else x for x in (h, c[0], d[0], d[1])] + ([] if slim else [d[2]]) + ([] if slim else [c[1]]) + [f"{(DEC(base, cpt, g) if slim else r[1])}/{r[0]}/{r[2]}"]
--            L.append(" & ".join(cells) + " \\\\")
+-            a = split(v(f"{base}, {cpt}, {g}: Acc intacta / text-decoder-only / TF-IDF (%)"))
+-            d = split(v(f"{base}, {cpt}, {g}: Delta preto / blur 10 % / cor media (pp)")); c = split(v(f"{base}, {cpt}, {g}: custo da mascara deslocada, preto (pp) / suficiencia, preto / criterio B")); gn, cell = GAIN(base, cpt, g)
+-            L.append(" & ".join([base if i == 0 else "", cen if i == 0 else "", fam, enc, a[0], a[1], gn, c[0], d[0], d[1], d[2], c[1], cell]) + " \\\\")
 -        L.append("\\midrule" if (base, cpt) != B[-1][:2] else "\\bottomrule")
 -    L += ["\\end{tabular}", "\\end{table*}"]
 -    return "\n".join(L).replace("—", "--") + "\n"
 -open(f"{OUT}/tables/table1_necessity.tex", "w").write(tab1(False)); open(f"{OUT}/tables/table1_necessity_slim.tex", "w").write(tab1(True))
--# table 2
-+# ---- Table 1: criteria (i)-(v). Rows from the final sheet section (no-image M3AE baseline); zero-shot row from the zero-shot ladder lines.
 +ROWS1 = [("Kvasir-VQA-x1", "polipo", "polyp"), ("Kvasir-VQA-x1", "instrumento", "instrument"), ("Kvasir-VQA-x1", "controle negativo (3 templates)", "negative control"),
 +         ("HEAL-MedVQA", "fechada-sim", "yes-questions"), ("HEAL-MedVQA", "fechada-nao", "no-questions"), ("Medical-Diff-VQA", "fechada-sim", "yes-questions"), ("Medical-Diff-VQA", "fechada-nao", "no-questions")]
 +CAP1 = r"Runs meeting each criterion (Sec.~\ref{sec:method}), out of 27 per row (last row: out of 4 zero-shot models): (i) drop alone, black fill; (ii) $\Dnec$, black (matched control); (iii) $\Dnec$ under both fills; (iv) plus a significant image gain; (v) plus the drop under both fills, the necessity test. (ii) replaces (i); (iii)--(v) are cumulative."
@@ -938,7 +766,6 @@
 +L.append("Medical-Diff-VQA & yes-questions, zero-shot & " + " & ".join(str(sum(x[i] == "sim" for x in _zs)) for i in range(4)) + f" & {_v5} \\\\")
 +L += ["\\bottomrule", "\\end{tabular}}", "", "\\end{table}"]
 +open(f"{OUT}/tables/table_criteria.tex", "w").write("\n".join(L) + "\n")
-+# ---- Table 2: necessity test per benchmark and group (image gain and pass counts from the final sheet section)
 +B2 = [("Kvasir-VQA-x1", "polipo", "polyp"), ("Kvasir-VQA-x1", "instrumento", "instrument"), ("HEAL-MedVQA", "fechada-sim", "closed-ended, yes-questions"), ("Medical-Diff-VQA", "fechada-sim", "closed-ended, yes-questions")]
 +CAP2 = r"Necessity test per benchmark and group (family $\times$ vision-encoder setting): mean (SD) over three seeds $\times$ two adapters (M3AE: three seeds, full fine-tuning). All quantities in pp: image gain $\Gimg$, control-occlusion drop $C$ and $\Dnec$ (Sec.~\ref{sec:method}). Pass: runs passing the test (criterion (v)) / runs with a significant gain / runs. Per-run estimates and CIs are released with the code."
 +L = [HDR, "\\begin{table*}[t]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{1pt}", "\\caption{" + CAP2 + "}", "\\label{tab:necessity_slim}", "\\resizebox{\\textwidth}{!}{%", "\\begin{tabular}{llllrrrrl}", "\\toprule",
@@ -951,28 +778,23 @@
 +    L.append("\\midrule" if (base, cpt) != B2[-1][:2] else "\\bottomrule")
 +L += ["\\end{tabular}}", "", "\\end{table*}"]
 +open(f"{OUT}/tables/table1_necessity_slim.tex", "w").write("\n".join(L).replace("—", "--") + "\n")
-+# ---- Table 3: occluder test on images without the target
  C2 = [("Kvasir-VQA-x1", "SHAM_ART", "Box artefact$^{\\dagger}$"), ("Kvasir-VQA-x1", "SHAM_POL_Q3", "Polyp (Q3 size)"), ("Kvasir-VQA-x1", "SHAM_INS", "Instrument"), ("HEAL-MedVQA", "alvo", "HEAL-MedVQA"), ("Medical-Diff-VQA", "oclusor", "Medical-Diff-VQA")]
  def rate(base, key, fill, g):
      return v(f"{base}, {key}_{'black' if base == 'Kvasir-VQA-x1' and fill == 'preto' else ('blur10' if base == 'Kvasir-VQA-x1' else fill)}, {g}: taxa induzida (pp) media (DP); linhas com IC > 0 / IC < 0").split(";")[0]
+-CAP3 = "Occluder-induced affirmative rate $\\Delta$Yes (pp) on images without the target: group means (SD), black / blur fill. Kvasir-VQA-x1: box-artefact question$^{\\dagger}$ (532 questions), polyp-shaped patch of third-quartile polyp area (Q3; 1\\,199 questions) and instrument-shaped patch (1\\,411 questions). Chest X-rays: HEAL-MedVQA's 735 no-questions (occluder on the queried region) and Medical-Diff-VQA's 391 no-questions (occluder on the regions where the finding is most frequent)."
+-L = [HDR, "\\begin{table*}[t]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{2pt}", "\\caption{" + CAP3 + "}",
+-     "\\label{tab:occluder}", "{%", "\\begin{tabular}{ll" + "rr" * len(C2) + "}", "\\toprule", "Model & Vision encoder & " + " & ".join(f"\\multicolumn{{2}}{{c}}{{{t}}}" for _, _, t in C2) + " \\\\",
+-     " & & " + " & ".join("black & blur" for _ in C2) + " \\\\", "\\midrule"]
 +CAP3 = r"Occluder-induced affirmative rate $\Delta$Yes (pp) on images without the target: group means (SD), black / blur fill. Kvasir-VQA-x1: box-artefact question ($^{\dagger}$negative control for the necessity test and positive control for the occluder test, as the occluder resembles the artefact asked about; 532 questions), polyp-shaped patch of third-quartile polyp area (Q3; 1\,199 questions) and instrument-shaped patch (1\,411 questions). Chest X-rays: HEAL-MedVQA's 735 no-questions (occluder on the queried region) and Medical-Diff-VQA's 391 no-questions (occluder on the regions where the finding is most frequent)."
 +L = [HDR, "\\begin{table*}[t]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{2pt}", "\\caption{" + CAP3 + "}", "\\label{tab:occluder}", "\\resizebox{\\textwidth}{!}{%", "\\begin{tabular}{ll" + "rr" * len(C2) + "}", "\\toprule",
 +     "Model & Vision encoder & " + " & ".join(f"\\multicolumn{{2}}{{c}}{{{t}}}" for _, _, t in C2) + " \\\\", " & & " + " & ".join("black & blur" for _ in C2) + " \\\\", "\\midrule"]
-+for g, fam, enc in GRP: L.append(f"{fam} & {enc} & " + " & ".join(f"{mth(rate(b, k, 'preto', g))} & {mth(rate(b, k, 'blur10', g))}" for b, k, _ in C2) + " \\\\")
-+L += ["\\bottomrule", "\\end{tabular}}", "", "\\end{table*}"]
-+open(f"{OUT}/tables/table2_occluder_negatives.tex", "w").write("\n".join(L).replace("—", "--") + "\n")
-+# ---- supplementary: full necessity table (all quantities, no-image arm accuracy, region-mean fill, sufficiency) and zero-shot table
+ for g, fam, enc in GRP: L.append(f"{fam} & {enc} & " + " & ".join(f"{mth(rate(b, k, 'preto', g))} & {mth(rate(b, k, 'blur10', g))}" for b, k, _ in C2) + " \\\\")
+ L += ["\\bottomrule", "\\end{tabular}}", "", "\\end{table*}"]
+ open(f"{OUT}/tables/table2_occluder_negatives.tex", "w").write("\n".join(L).replace("—", "--") + "\n")
+-ZS = [("MEDGEMMA", "MedGemma 1.5 4B"), ("QWEN25VL", "Qwen2.5-VL 7B"), ("LLAVA_MED", "LLaVA-Med v1.5 7B"), ("MEDVLTHINKER", "MedVLThinker 7B")]
 +B = [("Kvasir-VQA-x1", "polipo", "polyp"), ("Kvasir-VQA-x1", "instrumento", "instrument"), ("HEAL-MedVQA", "fechada-sim", "closed-ended, answer yes"), ("Medical-Diff-VQA", "fechada-sim", "closed-ended, answer yes")]
 +cols = ["Benchmark", "Class", "Model", "Vision encoder", "Intact", "No-image baseline", "Image gain", "Control-occlusion drop", "$\\Delta$ black", "$\\Delta$ blur", "$\\Delta$ region-mean", "Sufficiency", "Both fills (nec./res./runs)"]
- L = [HDR, "\\begin{table*}[t]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{3pt}",
--     "\\caption{Occluder on images without the finding: induced affirmative rate ($\\Delta$Yes), P(affirmative $\\mid$ occluder) $-$ P(affirmative $\\mid$ intact image), in percentage points; mean (SD) over three seeds and the two adapters (M3AE: full fine-tuning). Black fill / Gaussian blur ($\\sigma$ = 10\\% of width). $^{\\dagger}$Positive control: the black box creates the artefact the question asks about. HEAL-MedVQA: occluder on the target region of the 735 closed-ended questions answered no.}",
--     "\\label{tab:occluder}", "\\begin{tabular}{ll" + "rr" * len(C2) + "}", "\\toprule", "Model & Vision encoder & " + " & ".join(f"\\multicolumn{{2}}{{c}}{{{t}}}" for _, _, t in C2) + " \\\\",
--     " & & " + " & ".join("black & blur" for _ in C2) + " \\\\", "\\midrule"]
--for g, fam, enc in GRP: L.append(f"{fam} & {enc} & " + " & ".join(f"{mth(rate(b, k, 'preto', g))} & {mth(rate(b, k, 'blur10', g))}" for b, k, _ in C2) + " \\\\")
--L += ["\\bottomrule", "\\end{tabular}", "\\end{table*}"]
--open(f"{OUT}/tables/table2_occluder_negatives.tex", "w").write("\n".join(L).replace("—", "--") + "\n")
--# table 3
--ZS = [("MEDGEMMA", "MedGemma 1.5 4B"), ("QWEN25VL", "Qwen2.5-VL 7B"), ("LLAVA_MED", "LLaVA-Med v1.5 7B"), ("MEDVLTHINKER", "MedVLThinker 7B")]
++L = [HDR, "\\begin{table*}[t]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{3pt}",
 +     "\\caption{Supplementary: necessity test per benchmark, model family and vision-encoder group: mean (SD) over three seeds and the two adapters (LoRA, DoRA; M3AE: full fine-tuning). Accuracies in \\%; differences in percentage points. Image gain = intact-image accuracy minus the accuracy of the no-image baseline of the same family and seed (sheet sections S3--S5: shared LoRA no-image baseline and grey-image M3AE; the paper tables use the paired baselines of sections S22--S23). Both fills: runs whose 95\\% image-bootstrap CI of $\\Delta$ excludes zero from above under both the black fill and the blur fill, among the runs whose image gain is significant / runs with a significant gain / runs.}",
 +     "\\label{tab:necessity}", "\\begin{tabular}{llll" + "r" * (len(cols) - 5) + "l}", "\\toprule", " & ".join(cols) + " \\\\", "\\midrule"]
 +for base, cpt, cen in B:
@@ -997,57 +819,35 @@
      cells = []
      for b, bn, c, aff in ZB:
          if m == "LLAVA_MED" and b == "KVASIR": cells.append("--$^{\\ddagger}$ & -- & -- & --"); continue
-@@ -77,84 +92,9 @@
+@@ -83,82 +83,9 @@
      L.append(f"{mn}{'$^{\\ddagger}$' if m == 'LLAVA_MED' else ''} & " + " & ".join(cells) + " \\\\")
  L += ["\\bottomrule", "\\end{tabular}", "\\end{table*}"]
  open(f"{OUT}/tables/table3_zeroshot.tex", "w").write("\n".join(L).replace("—", "--") + "\n")
--# ladder
 -LB = [("Kvasir-VQA-x1", "polipo", "polyp"), ("Kvasir-VQA-x1", "instrumento", "instrument"), ("Kvasir-VQA-x1", "controle negativo (3 templates)", "negative control"), ("HEAL-MedVQA", "fechada-sim", "closed-ended, answer yes"), ("HEAL-MedVQA", "fechada-nao", "closed-ended, answer no"),
 -      ("Medical-Diff-VQA", "fechada-sim", "closed-ended, answer yes"), ("Medical-Diff-VQA", "fechada-nao", "closed-ended, answer no")]
 -L = [HDR, "\\begin{table}[t]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{3pt}",
 -     "\\caption{Verdict ladder: runs (out of 27 per benchmark) declared region-necessary at four cumulative levels, each with 95\\% image-bootstrap CIs. Raw drop: intact minus target-occluded accuracy above zero (black fill). Matched control: $\\Delta$ above zero under black fill. Dual fill: also above zero under Gaussian blur. Image gain readable: also image gain above zero. n.r.: image gain not resolvable in any run.}",
 -     "\\label{tab:ladder}", "\\begin{tabular}{llrrrr}", "\\toprule", "Benchmark & Class & Raw drop & Matched control & Dual fill & Image gain readable \\\\", "\\midrule"]
 -for bn, cp, ce in LB:
--    RESL = {"controle negativo (3 templates)": "Kvasir-VQA-x1, controle negativo (3 templates, 728 perguntas): resoluveis / necessarias entre as resoluveis / linhas"}   # rodada 7b: linha nova (folha, escada do controle negativo)
+-    RESL = {"controle negativo (3 templates)": "Kvasir-VQA-x1, controle negativo (3 templates, 728 perguntas): resoluveis / necessarias entre as resoluveis / linhas"}
 -    c = v(f"escada, {bn}, {cp}: L0 / L1 / L2 / L3 (linhas)").split(" de ")[0].split(" / "); res = int(v(RESL.get(cp, f"{bn}, {cp}: resoluveis / necessarias entre as resoluveis / linhas")).split(" / ")[0])
 -    L.append(f"{bn} & {lab(ce)} & {c[0]} & {c[1]} & {c[2]} & {c[3] if res > 0 else NS} \\\\")
--_zs = [v(f"escada, Medical-Diff-VQA, fechada-sim, zero-shot {m}: L0 / L1 / L2 / L3").split(" / ") for m, _ in ZS]   # rodada 8: linha zero-shot (folha, escada zero-shot)
+-_zs = [v(f"escada, Medical-Diff-VQA, fechada-sim, zero-shot {m}: L0 / L1 / L2 / L3").split(" / ") for m, _ in ZS]
 -L.append("Medical-Diff-VQA & yes-questions, zero-shot (" + str(len(_zs)) + " models) & " + " & ".join(str(sum(x[i] == "sim" for x in _zs)) for i in range(4)) + " \\\\")
 -L += ["\\bottomrule", "\\end{tabular}", "\\end{table}"]
--open(f"{OUT}/tables/table_criteria.tex", "w").write("\n".join(L) + "\n")   # rodada 7: antes table_ladder.tex; o nome antigo nao e mais gerado
--# rodada 6 (item 4): textos do redator (v22). Se inputs/rotulos_redator.json existir, cada par [texto gerado, texto do redator] e aplicado por
--# substituicao exata no .tex indicado, com assert de uma unica ocorrencia: uma regeneracao nao reverte o texto dele, e se o texto gerado mudar
--# o gerador para em vez de perder a troca. Sem o arquivo, a saida e identica a da rodada anterior. Formato:
--# {"table1_necessity.tex": [["<texto gerado exato>", "<texto do redator exato>"], ...], "table2_occluder_negatives.tex": [...]}
--ROT = f"{OUT}/inputs/rotulos_redator_pares.json"; ROT_APLICADOS = {}   # rodada 7: pares derivados por scripts/r7_rotulos_pares.py de inputs/rotulos_redator.json e dos .tex do redator (inputs/paper_tables_v22/)
--ROT_ORIG = f"{OUT}/inputs/rotulos_redator.json"
+-open(f"{OUT}/tables/table_criteria.tex", "w").write("\n".join(L) + "\n")
+-ROT = f"{OUT}/inputs/rotulos_<role>_pares.json"; ROT_APLICADOS = {}
+-ROT_ORIG = f"{OUT}/inputs/rotulos_<role>.json"
+-FINAIS = {"table1_necessity_slim.tex", "table2_occluder_negatives.tex"}
 -if os.path.exists(ROT):
 -    for f, pares in json.load(open(ROT)).items():
--        if f.startswith("_"): continue
+-        if f.startswith("_") or f in FINAIS: continue
 -        t = open(f"{OUT}/tables/{f}").read()
 -        for velho, novo in pares:
 -            assert t.count(velho) == 1, f"{f}: texto gerado nao encontrado exatamente uma vez: {velho[:80]}"
 -            t = t.replace(velho, novo)
 -        open(f"{OUT}/tables/{f}", "w").write(t); ROT_APLICADOS[f] = len(pares)
 -BAD = re.compile(r"placebo|sham|\bTXT\b|\bC0\b|\bC1\b|\bM0\b|\bE[0-9]+\b|torre|tower|\bVT\b|\bFT\b|\bv[5-7]\b|RADORIG|piso|\barms?\b|nΔ|headroom|text-decoder|closed-form|visual encoder|displaced|resolvab|readable|ladder|\bL[0-3]\b|dual[- ]fill|matched-control cost|answer-yes|answer-no|answer yes|answer no|n\.r\.", re.I)
--# rodada 11 (decisao do Claudio, 21/10): a declaracao final exige tambem a queda bruta; na Tabela 2 a coluna conta como nec. os runs declarados
--# (dois preenchimentos, ganho significativo e queda bruta; folha S15). Cabecalho e frase da legenda trocados depois dos pares do redator.
--_s = open(f"{OUT}/tables/table1_necessity_slim.tex").read()
--for _a, _b in (("Both fills (nec. / sig. gain / runs)", "Declared (nec. / sig. gain / runs)"),
--               ("Both fills: runs declared necessary under both fills with a significant gain / runs with a significant gain / runs.", "Declared: runs declared region-necessary (both fills, significant gain and raw drop) / runs with a significant gain / runs.")):
--    assert _s.count(_a) == 1, _a; _s = _s.replace(_a, _b)
--# rodada 13: a Tabela 2 perde a coluna "Intact" e o \tabcolsep cai de 2 pt para 1 pt (a tabela sobe de escala no \resizebox); feito depois dos pares
--_L = _s.split("\n"); _hi = next(i for i, l in enumerate(_L) if l.startswith("Benchmark & ")); _hc = _L[_hi].rstrip()[:-2].rstrip().split(" & "); _j = _hc.index("Intact")
--for _i, _l in enumerate(_L):
--    if " & " in _l and _l.rstrip().endswith("\\\\"):
--        _cs = _l.rstrip()[:-2].rstrip().split(" & "); assert len(_cs) == len(_hc), (_i, len(_cs), len(_hc)); del _cs[_j]; _L[_i] = " & ".join(_cs) + " \\\\"
--_ti = next(i for i, l in enumerate(_L) if l.startswith("\\begin{tabular}{")); _spec = _L[_ti][len("\\begin{tabular}{"):-1]; assert _spec[_j] == "r", _spec
--_L[_ti] = "\\begin{tabular}{" + _spec[:_j] + _spec[_j + 1:] + "}"
--assert _L.count("\\setlength{\\tabcolsep}{2pt}") == 1; _L[_L.index("\\setlength{\\tabcolsep}{2pt}")] = "\\setlength{\\tabcolsep}{1pt}"
--_s = "\n".join(_L)
--open(f"{OUT}/tables/table1_necessity_slim.tex", "w").write(_s)
--# rodada 9 (item 2): variante da Tabela 1 com a queda bruta exigida (decisao pendente). Copia a table_criteria.tex final (ja com os textos do redator)
--# e acrescenta a coluna "\ldots and raw drop" = L3 e L0 (folha, S12); n.s. onde a coluna anterior e n.s. A table_criteria.tex nao muda.
 -_t = open(f"{OUT}/tables/table_criteria.tex").read()
 -_map = {"Kvasir-VQA-x1 & polyp": "Kvasir-VQA-x1, polipo, afinados", "Kvasir-VQA-x1 & instrument": "Kvasir-VQA-x1, instrumento, afinados", "Kvasir-VQA-x1 & negative control": "Kvasir-VQA-x1, controle negativo (3 templates), afinados",
 -        "HEAL-MedVQA & closed-ended, yes-questions": "HEAL-MedVQA, fechada-sim, afinados", "HEAL-MedVQA & closed-ended, no-questions": "HEAL-MedVQA, fechada-nao, afinados",
@@ -1060,27 +860,47 @@
 -    k2 = " & ".join(l.split(" & ")[:2])
 -    if k2 in _map:
 -        last = l.rstrip()[:-2].rstrip().split(" & ")[-1].strip()
--        val = "n.s." if last == "n.s." else v(f"{_map[k2]}: declarados pela regra final (L3, queda bruta sob preto e sob blur 10 %) / linhas").split(" / ")[0]   # rodada 14: regra final (folha S18)
+-        val = "n.s." if last == "n.s." else v(f"{_map[k2]}: declarados pela regra final (L3, queda bruta sob preto e sob blur 10 %) / linhas").split(" / ")[0]
 -        l = l.rstrip()[:-2].rstrip() + f" & {val} \\\\"; _feito["linhas"] += 1
 -    elif l.startswith("Benchmark & Question set"): l = l.rstrip()[:-2].rstrip() + " & \\ldots and raw drop \\\\"; _feito["cabecalho"] += 1
 -    elif l.startswith("\\begin{tabular}{llrrrr}"): l = l.replace("{llrrrr}", "{llrrrrr}"); _feito["tabular"] += 1
--    elif l == "\\label{tab:criteria}": _feito["label"] += 1   # rodada 11: a variante vira a Tabela 1 e mantem tab:criteria
+-    elif l == "\\label{tab:criteria}": _feito["label"] += 1
 -    elif l.startswith("\\caption{") and _CAP_A in l: l = l.replace(_CAP_A, _CAP_B); _feito["legenda"] += 1
 -    _o.append(l)
 -assert dict(_feito) == {"linhas": len(_map), "cabecalho": 1, "tabular": 1, "label": 1, "legenda": 1}, dict(_feito)
--open(f"{OUT}/logs/table_criteria_sem_coluna_rawdrop_r11.tex", "w").write(_t)   # rodada 11: a versao sem a coluna fica so como registro
+-open(f"{OUT}/logs/table_criteria_sem_coluna_rawdrop_r11.tex", "w").write(_t)
 -_CAP11 = r"Runs (out of 27 per benchmark) declared region-necessary under five criteria of increasing strictness, each testing a 95\,\% image-level bootstrap CI. Raw drop: intact minus target-occluded accuracy above zero (black fill). Matched control: $\Dnec$ above zero (black fill). Both fills: also under the blur fill. Significant gain: also the lower CI bound of the image gain above zero. Raw drop as well: also the raw drop, which $\Dnec > 0$ does not imply. The last four are cumulative; the first is the naive reading. n.s.: image gain not significant in any run."
--_cj = (RJ.get("tabela1_criterios") or {}).get("caption", "")   # rodada 12: quando o JSON do redator trouxer a legenda de cinco criterios (v25), ela vale; senao, a da rodada 11
+-_cj = (RJ.get("tabela1_criterios") or {}).get("caption", "")
 -if "five criteria" in _cj: _CAP11 = _cj
--_RA, _RB = r"Raw drop as well: also the raw drop, which $\Dnec > 0$ does not imply.", r"Raw drop as well: also the raw drop under both fills, which $\Dnec > 0$ does not imply."   # rodada 14 (decisao A)
+-_RA, _RB = r"Raw drop as well: also the raw drop, which $\Dnec > 0$ does not imply.", r"Raw drop as well: also the raw drop under both fills, which $\Dnec > 0$ does not imply."
 -if _RA in _CAP11: _CAP11 = _CAP11.replace(_RA, _RB)
 -assert _RB in _CAP11, "legenda da Tabela 1 sem a frase da rodada 14"
 -_o = [("\\caption{" + _CAP11 + "}" if l.startswith("\\caption{") else l) for l in _o]; assert sum(1 for l in _o if l.startswith("\\caption{")) == 1
--open(f"{OUT}/tables/table_criteria.tex", "w").write("\n".join(_o) + "\n")   # rodada 11: Tabela 1 = variante com a coluna da queda bruta
--USADAS = ["table_criteria.tex", "table1_necessity_slim.tex", "table2_occluder_negatives.tex"]   # \input no main.tex do artigo
--WL = re.compile(r"(?!x)x")   # rodada 7: sem excecao (antes "text-only arm"); glossario do redator acrescentado ao BAD   # rotulo pedido no item 22; casa com \barms?\b da lista antiga -- excecao registrada
+-open(f"{OUT}/tables/table_criteria.tex", "w").write("\n".join(_o) + "\n")
+-_prev = open(f"{OUT}/tables/table_criteria.tex").read(); open(f"{OUT}/logs/table_criteria_um_bloco_r23.tex", "w").write(_prev)
+-_R24 = [("Kvasir-VQA-x1", "polipo", "polyp"), ("Kvasir-VQA-x1", "instrumento", "instrument"), ("Kvasir-VQA-x1", "controle negativo (3 templates)", "negative control"), ("HEAL-MedVQA", "fechada-sim", "yes-questions"),
+-        ("HEAL-MedVQA", "fechada-nao", "no-questions"), ("Medical-Diff-VQA", "fechada-sim", "yes-questions"), ("Medical-Diff-VQA", "fechada-nao", "no-questions")]
+-_NFT = {k.split(", afinados: (i)")[0]: int(re.search(r"\(de (\d+) linhas", k).group(1)) for k in VAL if k.startswith("Tabela 1, ") and ", afinados: (i) /" in k}
+-_nft = sorted(set(_NFT.values())); assert len(_nft) == 1, _nft; _nft = _nft[0]
+-_nzs = sorted(set(int(re.search(r"zero-shot \((\d+) modelos", k).group(1)) for k in VAL if k.startswith("Tabela 1, ") and ", zero-shot (" in k and "): (i) /" in k and "Kvasir" not in k)); assert _nzs == [4], _nzs
+-_lines24 = [HDR, "\\begin{table}[t]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{3pt}",
+-            "\\caption{Runs meeting criteria (i)--(v) of Sec.~\\ref{sec:method}, out of " + str(_nft) + " fine-tuned runs and 4 zero-shot models per row (3 on Kvasir-VQA-x1$^{\\ddagger}$); (ii) replaces (i), (iii)--(v) are cumulative, (v) is the necessity test. n.s.: image gain not significant in any model. $^{\\ddagger}$LLaVA-Med excluded: answers outside the short-answer format.}",
+-            "\\label{tab:criteria}", "\\resizebox{\\columnwidth}{!}{%", "\\begin{tabular}{llrrrrrrrrrr}", "\\toprule",
+-            "\\multicolumn{2}{l}{} & \\multicolumn{5}{c}{Fine-tuned (of " + str(_nft) + ")} & \\multicolumn{5}{c}{Zero-shot (of 4)} \\\\", "\\cmidrule(lr){3-7}\\cmidrule(lr){8-12}",
+-            "Benchmark & Question subset & (i) & (ii) & (iii) & (iv) & (v) & (i) & (ii) & (iii) & (iv) & (v) \\\\", "\\midrule"]
+-for _bn, _cp, _ce in _R24:
+-    _ft = v(f"Tabela 1, {_bn}, {_cp}, afinados: (i) / (ii) / (iii) / (iv) / (v) (de {_nft} linhas; G pareado)").split(" / "); _gan = int(v(f"Tabela 1, {_bn}, {_cp}, afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de {_nft})").split(" / ")[1])
+-    _zk = [k for k in VAL if k.startswith(f"Tabela 1, {_bn}, {_cp}, zero-shot (") and "): (i) /" in k]; assert len(_zk) == 1, _zk; _zv, _zg = VAL[_zk[0]].split("; "); _zs_ = _zv.split(" / ")
+-    if _gan == 0: _ft = _ft[:3] + [NS, NS]
+-    if int(_zg) == 0: _zs_ = _zs_[:3] + [NS, NS]
+-    if _bn == "Kvasir-VQA-x1": _zs_[0] = _zs_[0] + "$^{\\ddagger}$"
+-    _lines24.append(f"{_bn} & {_ce} & " + " & ".join(_ft) + " & " + " & ".join(_zs_) + " \\\\")
+-_lines24 += ["\\bottomrule", "\\end{tabular}}", "", "\\end{table}"]
+-open(f"{OUT}/tables/table_criteria.tex", "w").write("\n".join(_lines24) + "\n")
+-USADAS = ["table_criteria.tex", "table1_necessity_slim.tex", "table2_occluder_negatives.tex"]
+-WL = re.compile(r"(?!x)x")
 -hits = {f: [l for l in open(f"{OUT}/tables/{f}").read().splitlines() if not l.startswith("%") and BAD.search(WL.sub("", l))] for f in os.listdir(f"{OUT}/tables") if f.endswith(".tex")}
--json.dump({"t": time.strftime("%Y-%m-%d %H:%M:%S"), "folha_sha256": sha(FOLHA), "script_sha256": sha(__file__), "rotulos_redator": {"arquivo": ROT if os.path.exists(ROT) else None, "sha256": sha(ROT), "substituicoes_por_tabela": ROT_APLICADOS, "original_do_redator": ROT_ORIG, "original_sha256": sha(ROT_ORIG)}, "tabelas_usadas_no_artigo": USADAS, "variante_pendente": {"table_criteria_rawdrop.tex": hits.get("table_criteria_rawdrop.tex", [])}, "grep_nas_usadas": {f: hits.get(f, []) for f in USADAS}, "files": {f: sha(f"{OUT}/tables/{f}") for f in sorted(os.listdir(f"{OUT}/tables")) if f.endswith(".tex")}, "grep_termos_internos": hits, "grep_padrao": BAD.pattern, "excecao": "a expressao 'text-only arm' (item 22) e removida da linha antes do grep porque casa com \\barms?\\b"},
+-json.dump({"t": time.strftime("%Y-%m-%d %H:%M:%S"), "folha_sha256": sha(FOLHA), "script_sha256": sha(__file__), "rotulos_<role>": {"arquivo": ROT if os.path.exists(ROT) else None, "sha256": sha(ROT), "substituicoes_por_tabela": ROT_APLICADOS, "original_do_<role>": ROT_ORIG, "original_sha256": sha(ROT_ORIG)}, "tabelas_usadas_no_artigo": USADAS, "variante_pendente": {"table_criteria_rawdrop.tex": hits.get("table_criteria_rawdrop.tex", [])}, "grep_nas_usadas": {f: hits.get(f, []) for f in USADAS}, "files": {f: sha(f"{OUT}/tables/{f}") for f in sorted(os.listdir(f"{OUT}/tables")) if f.endswith(".tex")}, "grep_termos_internos": hits, "grep_padrao": BAD.pattern, "excecao": "a expressao 'text-only arm' (item 22) e removida da linha antes do grep porque casa com \\barms?\\b"},
 -          open(f"{OUT}/tables/manifest.json", "w"), indent=1); print("tabelas ok; grep nas usadas:", {f: len(hits.get(f, [])) for f in USADAS}, "; nas outras:", {k: len(v) for k, v in hits.items() if v and k not in USADAS})
 +USED = ["table_criteria.tex", "table1_necessity_slim.tex", "table2_occluder_negatives.tex"]
 +BAD = re.compile(r"placebo|sham|\bTXT\b|\bC0\b|\bC1\b|\bM0\b|\bE[0-9]+\b|torre|tower|\bVT\b|\bFT\b|\bv[5-7]\b|RADORIG|piso|\barms?\b|headroom|text-decoder|displaced|resolvab|readable|ladder|\bL[0-3]\b|dual[- ]fill|matched-control cost|answer-yes|answer-no|n\.r\.", re.I)
@@ -1090,19 +910,7 @@
 +print("tables ok; internal terms in paper tables:", {f: len(hits.get(f, [])) for f in USED})
 --- lab/v7_artigo1/scripts/r10_blur4.py
 +++ package/src/analysis/r10_blur4.py
-@@ -1,21 +1,21 @@
--"""Rodada 10, item C5 (CPU, depois da GPU): blur 4 % nas tres bases. Delta blur4 = Acc(P_blur) - Acc(T_blur) por run e classe, IC 95 % por imagem
--(engine.block, 2 000 replicas, semente 20260913, replicas fixas por base); itens alinhados as condicoes principais da linha e as duas de blur 4 %.
--Criterio final com blur 4 %: L1 (Delta preto) e Delta blur4 com IC > 0 e image gain com IC > 0 (L3_blur4), e tambem com a queda bruta (L3_blur4 e L0);
--ao lado, os mesmos com blur 10 %. Predicoes: Kvasir 15 de 01/10 em results/isbi_placebo; demais em v7_txt/extra_runs/blur4_r10/results.
--QWEN2VL_DORA_HEAL_seed2: blur 4 % do adapter do retreino de 03/10 (o original nao existe) -- fora das contagens (26 runs), valores a parte.
--Saida: analysis/blur4_r10.json."""
-+"""Round 10, item C5 (CPU, after the GPU step): blur 4 % on the three benchmarks. Delta blur4 = Acc(P_blur) - Acc(T_blur) per run and class, per-image
-+95 % CI (engine.block, 2 000 replicates, seed 20260913, replicates fixed per benchmark); items aligned to the main conditions of the run and to the
-+two blur 4 % conditions. Final criterion with blur 4 %: L1 (Delta black) and Delta blur4 with CI > 0 and image gain with CI > 0 (L3_blur4), and also
-+with the raw drop (L3_blur4 and L0); next to them, the same with blur 10 %. Predictions: the 15 Kvasir runs of 01/10 in results/isbi_placebo; the
-+others in v7_txt/extra_runs/blur4_r10/results. QWEN2VL_DORA_HEAL_seed2: blur 4 % from the adapter retrained on 03/10 (the original no longer exists)
-+-- outside the counts (26 runs), values reported separately. Output: analysis/blur4_r10.json."""
+@@ -1,15 +1,15 @@
  import json, os, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
@@ -1116,21 +924,25 @@
 -    for p in (f"{ISBI}/{line}_{c}.json", f"{TASK}/{line}_{c}.json"):
 +    for p in [f"{d}/{line}_{c}.json" for d in DIRS[b] + TASK]:
          if os.path.exists(p): return p
-     return None
+-    return find(b, line, c) if line.startswith("QWEN25VL_") else None
 -OUTJ = {"script": __file__, "script_sha256": sha(__file__), "engine_sha256": sha(f"{OUT}/scripts/engine.py"), "por_linha": {}, "contagens": {}, "faltando": []}
++    return None
 +OUTJ = {"script": os.path.relpath(__file__), "script_sha256": sha(os.path.relpath(__file__)), "engine_sha256": sha(f"{OUT}/scripts/engine.py"), "por_linha": {}, "contagens": {}, "faltando": []}
  for b in BASES:
      inv = json.load(open(INV[b])); IMG = {int(q["qid"]): q["image_id"] for q in inv["questions"]}; Bb = E.Base(IMG); G, extra, _ = AB.classes(b, inv)
      for L in lines(b):
+@@ -18,7 +18,7 @@
+         C = {c: E.load_correct(p) for c, p in r["files"].items() if c in E.CORE}; C4 = {"C0": C["C0"], "T": E.load_correct(pt), "P": E.load_correct(pp_)}
+         rec = {"pack": L["pack"], "fora_das_contagens": (b, L["line"]) in EXCL, "arquivos": {"T_blur": pt, "P_blur": pp_}, "sha256": {"T_blur": sha(pt), "P_blur": sha(pp_)}}
+         for c in CL[b]:
+-            qs = [q for q in G[c] if all(q in C[k] for k in E.CORE if k in C) and q in C4["T"] and q in C4["P"]]; b4 = E.block(Bb, qs, C4); bk = r["by_class"][c]
++            qs = [q for q in G[c] if all(q in C[k] for k in E.CORE) and q in C4["T"] and q in C4["P"]]; b4 = E.block(Bb, qs, C4); bk = r["by_class"][c]
+             L0 = (lo(bk, "custo_alvo_preto_ci_by_image") or 0) > 0; L1 = (lo(bk, "delta_preto_ci_by_image") or 0) > 0; gain = (lo(bk, "headroom_ci_by_image") or 0) > 0
+             b10 = (lo(bk, "delta_blur10_ci_by_image") or 0) > 0; b4ok = (lo(b4, "delta_preto_ci_by_image") or 0) > 0
+             rec[c] = {"n_blur4": b4["n"], "n_classe": bk["n"], "delta_blur4": b4["delta_preto"], "delta_blur4_ci": b4["delta_preto_ci_by_image"], "delta_blur10": bk.get("delta_blur10"),
 --- lab/v7_artigo1/scripts/r11_declarados.py
 +++ package/src/analysis/r11_declarados.py
-@@ -1,11 +1,11 @@
--"""Rodada 11 (21/10/2026, CPU): declaracao final = dois preenchimentos com ganho significativo E queda bruta (L3 e L0), por grupo (familia x
--encoder), para as classes da Tabela 1. Fonte: analysis/rodada8.json (item1: L3_linhas e L3_sem_L0 por classe) e analysis/criterio.json
--(resoluveis por grupo, regra do IC sem limiar). Saida: analysis/declarados_r11.json."""
-+"""Round 11 (21/10/2026, CPU): final declaration = both fills with a significant gain AND a raw drop (L3 and L0), per group (family x encoder),
-+for the classes of Table 1. Sources: analysis/rodada8.json (item1: L3_linhas and L3_sem_L0 per class) and analysis/criterio.json (resolvable runs
-+per group, CI rule without threshold). Output: analysis/declarados_r11.json."""
+@@ -1,8 +1,8 @@
  import collections, json, os, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
@@ -1143,13 +955,7 @@
      for c in TCL[b]:
 --- lab/v7_artigo1/scripts/r12_itens.py
 +++ package/src/analysis/r12_itens.py
-@@ -1,14 +1,14 @@
--"""Rodada 12 (21/10/2026, CPU): (1) maximo de Delta preto entre os runs declarados (dois preenchimentos, ganho significativo e queda bruta) e entre
--os 27, por classe; (2) Medical-Diff-VQA, yes-questions, por entidade: runs com ganho significativo / declarados (L3 e L0) / 27. Fonte:
--analysis/necessity_v2/*.json (IC 95 % por imagem). Saida: analysis/rodada12.json."""
-+"""Round 12 (21/10/2026, CPU): (1) maximum Delta black among the declared runs (both fills, significant gain and raw drop) and among the 27, per class;
-+(2) Medical-Diff-VQA, yes-questions, per entity: runs with a significant gain / declared (L3 and L0) / 27. Source: analysis/necessity_v2/*.json
-+(per-image 95 % CI). Output: analysis/rodada12.json."""
+@@ -1,11 +1,11 @@
  import json, os, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
@@ -1165,22 +971,7 @@
      rows = {ln: r["by_class"][c] for ln, r in R[b].items()}; dec = [ln for ln, bk in rows.items() if st(bk)["declarado"]]
 --- lab/v7_artigo1/scripts/r13_itens.py
 +++ package/src/analysis/r13_itens.py
-@@ -1,16 +1,16 @@
--"""Rodada 13 (22/10/2026, CPU). Itens 1-2: por par imagem-alvo dos arrows de condicao (Kvasir 243, HEAL 1 360, Medical-Diff-VQA 1 266 unidades):
--mascara do alvo = uniao dos pixels alterados por T (preto), T_blur10 ou T_blur (4 %) em relacao a intacta (um pixel do alvo que nenhum
--preenchimento altera fica de fora); alteracao media absoluta dentro da mascara (0-255, media dos canais) para preto, blur 10 % e blur 4 %;
--razoes blur/preto; diametro equivalente sqrt(4 area/pi) em px e em % da largura; sigma/diametro para o sigma de cada blur (blur 10 % = 0,10 x largura
--da imagem; blur 4 % = sigma fixo da base: Kvasir 25 px, HEAL e Medical-Diff-VQA do manifesto da rodada 10); fracao de pares com sigma < diametro/2.
--Item 3: queda bruta sob blur 10 % = IC por imagem de Acc(C0) - Acc(T_blur10) (custo_alvo_blur10, ja calculado nas mesmas replicas em
--analysis/necessity_v2) entre os declarados (L3 e queda bruta sob preto). Saida: analysis/rodada13.json."""
-+"""Round 13 (22/10/2026, CPU). Items 1-2: per image-target pair of the condition arrows (Kvasir 243, HEAL 1 360, Medical-Diff-VQA 1 266 units):
-+target mask = union of the pixels changed by T (black), T_blur10 or T_blur (4 %) relative to the intact image (a target pixel that no fill changes
-+is left out); mean absolute change inside the mask (0-255, mean over channels) for black, blur 10 % and blur 4 %; blur/black ratios; equivalent
-+diameter sqrt(4 area/pi) in px and in % of the width; sigma/diameter for the sigma of each blur (blur 10 % = 0.10 x image width; blur 4 % = fixed
-+sigma of the benchmark: Kvasir 25 px, HEAL and Medical-Diff-VQA from the round-10 manifest); fraction of pairs with sigma < diameter/2.
-+Item 3: raw drop under blur 10 % = per-image CI of Acc(C0) - Acc(T_blur10) (custo_alvo_blur10, already computed on the same replicates in
-+analysis/necessity_v2) among the declared runs (L3 and raw drop under black). Output: analysis/rodada13.json."""
- import io, json, os, sys, time
+@@ -2,8 +2,8 @@
  from concurrent.futures import ProcessPoolExecutor
  import numpy as np, pyarrow as pa
  from PIL import Image
@@ -1191,7 +982,7 @@
  ARW = {"KVASIR": {c: f"{A}/vqa_kvasir_placebo_{c}.arrow" for c in ("C0", "T", "T_blur10", "T_blur")},
         "HEAL": {"C0": f"{A}/vqa_heal_placebo_C0.arrow", "T": f"{A}/vqa_heal_placebo_T.arrow", "T_blur10": f"{A}/vqa_heal_placebo_T_blur10.arrow", "T_blur": f"{TK}/vqa_heal_placebo_T_blur.arrow"},
         "MIMIC": {"C0": f"{V7M}/data/conditions/vqa_mimic_placebo_C0.arrow", "T": f"{V7M}/data/conditions/vqa_mimic_placebo_T.arrow", "T_blur10": f"{V7M}/data/conditions/vqa_mimic_placebo_T_blur10.arrow", "T_blur": f"{TK}/vqa_mimic_placebo_T_blur.arrow"}}
-@@ -29,7 +29,7 @@
+@@ -22,7 +22,7 @@
      return {"preto": ch(t), "blur10": ch(b10), "blur4": ch(b4), "area_px": a, "diam_px": d, "diam_pct_largura": 100 * d / Wd, "sigma10_px": s10, "sigma4_px": s4, "largura": Wd}
  def stats(xs):
      xs = np.asarray(xs, float); return {"mediana": float(np.median(xs)), "q1": float(np.percentile(xs, 25)), "q3": float(np.percentile(xs, 75)), "n": int(len(xs))}
@@ -1202,15 +993,7 @@
      jobs = [(b, [T_[c].column("image")[i].as_py() for c in ("C0", "T", "T_blur10", "T_blur")]) for i in range(len(ids[0]))]
 --- lab/v7_artigo1/scripts/r14_itens.py
 +++ package/src/analysis/r14_itens.py
-@@ -1,10 +1,10 @@
--"""Rodada 14 (22/10/2026, CPU; decisao A do Claudio): declaracao final = Delta preto e Delta blur 10 % com IC > 0, image gain com IC > 0 e queda bruta
--(Acc C0 - Acc T) com IC > 0 sob preto E sob blur 10 %. Recalculado a partir das predicoes (arquivos de cada linha, engine.block, 2 000 replicas
--por imagem, semente 20260913, replicas fixas por base), afinados e zero-shot; conferido contra analysis/necessity_v2. Holm por linha sobre a familia
--da Tabela 1 (p unilateral bootstrap = fracao das replicas <= 0; passa se p ajustado < 0,025) para os cinco testes. Saida: analysis/rodada14.json."""
-+"""Round 14 (22/10/2026, CPU; authors' decision A): final declaration = Delta black and Delta blur 10 % with CI > 0, image gain with CI > 0 and raw
-+drop (Acc C0 - Acc T) with CI > 0 under black AND under blur 10 %. Recomputed from the predictions (files of each run, engine.block, 2 000 per-image
-+replicates, seed 20260913, replicates fixed per benchmark), fine-tuned and zero-shot; checked against analysis/necessity_v2. Holm per run over the
-+Table 1 family (one-sided bootstrap p = fraction of replicates <= 0; passes if adjusted p < 0.025) for the five tests. Output: analysis/rodada14.json."""
+@@ -1,6 +1,6 @@
  import collections, json, os, sys, time
  import numpy as np
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
@@ -1218,7 +1001,7 @@
  import engine as E, analise_bases as AB
  T0 = time.time(); NV2 = f"{OUT}/analysis/necessity_v2"
  TCL = {"KVASIR": ["dependent_polyp", "dependent_instrument", "negative_control"], "HEAL": ["closed_yes", "closed_no"], "MIMIC": ["closed_yes", "closed_no"]}
-@@ -14,7 +14,7 @@
+@@ -10,7 +10,7 @@
      for i, key in enumerate(k): run = max(run, min(1.0, (m - i) * p[key])); out[key] = run
      return out
  TESTS = ("L0_preto", "L0_blur10", "L1_preto", "L2_blur10", "ganho")
@@ -1229,17 +1012,7 @@
      cls = TCL[b] + ([k for k in G if k.startswith("entidade=")] if b == "MIMIC" else [])
 --- lab/v7_artigo1/scripts/r15_blur4_final.py
 +++ package/src/analysis/r15_blur4_final.py
-@@ -1,20 +1,20 @@
--"""Rodada 15 (22/10/2026, CPU): regra final com blur 4 % no lugar do blur 10 %: Delta preto > 0, Delta blur4 > 0, image gain > 0 e queda bruta > 0
--sob preto e sob blur 4 % (todos pelo limite inferior do IC 95 % por imagem; engine.block, 2 000 replicas, semente 20260913, replicas fixas por base).
--Blur 4 % = T_blur/P_blur (Kvasir: as 15 de 01/10 em results/isbi_placebo; demais em v7_txt/extra_runs/blur4_r10/results). Itens alinhados como na
--rodada 10 (condicoes principais da linha e as duas de blur 4 %). HEAL QWEN2VL_DORA_HEAL_seed2 fora (adapter do retreino). Zero-shot: so se
--houver predicoes T_blur/P_blur. Saida: analysis/rodada15.json."""
-+"""Round 15 (22/10/2026, CPU): final rule with blur 4 % instead of blur 10 %: Delta black > 0, Delta blur4 > 0, image gain > 0 and raw drop > 0
-+under black and under blur 4 % (all by the lower bound of the per-image 95 % CI; engine.block, 2 000 replicates, seed 20260913, replicates fixed
-+per benchmark). Blur 4 % = T_blur/P_blur (Kvasir: the 15 runs of 01/10 in results/isbi_placebo; the others in v7_txt/extra_runs/blur4_r10/results).
-+Items aligned as in round 10 (main conditions of the run and the two blur 4 % conditions). HEAL QWEN2VL_DORA_HEAL_seed2 excluded (retrained adapter).
-+Zero-shot: only if T_blur/P_blur predictions exist. Output: analysis/rodada15.json."""
+@@ -1,19 +1,15 @@
  import glob, json, os, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
@@ -1253,32 +1026,35 @@
 -    for p in (f"{ISBI}/{line}_{c}.json", f"{TASK}/{line}_{c}.json", f"{V7Z}/results/{line}_{c}.json"):
 +    for p in [f"{d}/{line}_{c}.json" for d in DIRS["KVASIR"] + DIRS["HEAL"] + DIRS["MIMIC"] + TASK + ZS_DIRS]:
          if os.path.exists(p): return p
+-    if line.startswith("QWEN25VL_"):
+-        for b_ in BASES:
+-            q = find(b_, line, c)
+-            if q: return q
      return None
 -OUTJ = {"script": __file__, "script_sha256": sha(__file__), "regra": "regra final com blur 4 %: Delta preto, Delta blur 4 %, image gain, queda bruta sob preto e queda bruta sob blur 4 %, todos com IC > 0", "por_linha": {}, "contagens": {}, "zero_shot_sem_predicoes": []}
 +OUTJ = {"script": os.path.relpath(__file__), "script_sha256": sha(os.path.relpath(__file__)), "regra": "regra final com blur 4 %: Delta preto, Delta blur 4 %, image gain, queda bruta sob preto e queda bruta sob blur 4 %, todos com IC > 0", "por_linha": {}, "contagens": {}, "zero_shot_sem_predicoes": []}
  for b in BASES:
      inv = json.load(open(INV[b])); IMG = {int(q["qid"]): q["image_id"] for q in inv["questions"]}; Bb = E.Base(IMG); G, extra, _ = AB.classes(b, inv)
      recs = [(L["line"], False) for L in lines(b)] + [(f"{m}_ZEROSHOT_{b}", True) for m in ZS]
+@@ -25,7 +21,7 @@
+         r = json.load(open(f"{NV2}/{ln}_{b}.json")); C = {c: E.load_correct(p) for c, p in r["files"].items() if c in E.CORE}; C4 = {"C0": C["C0"], "T": E.load_correct(pt), "P": E.load_correct(pp_)}
+         rec = {"zero_shot": zs, "fora": (b, ln) in EXCL, "classes": {}}
+         for c in TCL[b]:
+-            qs = [q for q in G[c] if all(q in C[k] for k in E.CORE if k in C) and q in C4["T"] and q in C4["P"]]; b4 = E.block(Bb, qs, C4); bk = r["by_class"][c]
++            qs = [q for q in G[c] if all(q in C[k] for k in E.CORE) and q in C4["T"] and q in C4["P"]]; b4 = E.block(Bb, qs, C4); bk = r["by_class"][c]
+             t = {"L0_preto": (lo(bk, "custo_alvo_preto_ci_by_image") or 0) > 0, "L1_preto": (lo(bk, "delta_preto_ci_by_image") or 0) > 0, "ganho": (lo(bk, "headroom_ci_by_image") or 0) > 0,
+                  "delta_blur4": (lo(b4, "delta_preto_ci_by_image") or 0) > 0, "L0_blur4": (lo(b4, "custo_alvo_preto_ci_by_image") or 0) > 0}
+             rec["classes"][c] = {"testes": t, "declarado_final_blur4": all(t.values()), "declarado_s14": t["L1_preto"] and t["delta_blur4"] and t["ganho"] and t["L0_preto"],
 --- lab/v7_artigo1/scripts/r16_iut.py
 +++ package/src/analysis/r16_iut.py
-@@ -1,10 +1,10 @@
--"""Rodada 16 (22/10/2026, CPU): Holm como teste de intersecao-uniao (IUT). p do run (por classe) = maximo dos cinco p unilaterais bootstrap da
--rodada 14 (ganho; Delta preto; Delta blur 10 %; queda bruta sob preto; queda bruta sob blur 10 %; p = fracao das 2 000 replicas por imagem <= 0);
--Holm por run sobre as classes da Tabela 1 do benchmark (Kvasir {polipo, instrumento, controle negativo}; HEAL {sim, nao}; Medical-Diff-VQA {sim, nao});
--declarado se p ajustado < 0,025. Comparado com o Holm por condicao da rodada 14 (Holm em cada um dos cinco testes, depois a conjuncao).
--Saida: analysis/rodada16.json."""
-+"""Round 16 (22/10/2026, CPU): Holm as an intersection-union test (IUT). p of the run (per class) = maximum of the five one-sided bootstrap p values
-+of round 14 (gain; Delta black; Delta blur 10 %; raw drop under black; raw drop under blur 10 %; p = fraction of the 2 000 per-image replicates <= 0);
-+Holm per run over the Table 1 classes of the benchmark (Kvasir {polyp, instrument, negative control}; HEAL {yes, no}; Medical-Diff-VQA {yes, no});
-+declared if adjusted p < 0.025. Compared with the per-condition Holm of round 14 (Holm on each of the five tests, then the conjunction).
-+Output: analysis/rodada16.json."""
+@@ -1,5 +1,5 @@
  import json, os, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
  R14 = json.load(open(f"{OUT}/analysis/rodada14.json"))
  TCL = {"KVASIR": ["dependent_polyp", "dependent_instrument", "negative_control"], "HEAL": ["closed_yes", "closed_no"], "MIMIC": ["closed_yes", "closed_no"]}
  TESTS = ("ganho", "L1_preto", "L2_blur10", "L0_preto", "L0_blur10")
-@@ -26,7 +26,7 @@
+@@ -21,7 +21,7 @@
          for kind in ("afinados", "zero_shot"):
              xs = [por[k][c] for k, v in R14["por_linha"].items() if k.startswith(b + "|") and v["zero_shot"] == (kind == "zero_shot") and c in por[k]]
              cont[f"{b}|{c}|{kind}"] = {"runs": len(xs), "iut_holm": sum(x["declarado_iut_holm"] for x in xs), "holm_por_condicao_r14": sum(x["declarado_holm_por_condicao"] for x in xs), "sem_holm_IC": sum(x["declarado_sem_holm_IC"] for x in xs)}
@@ -1289,15 +1065,7 @@
  for k, v in cont.items(): print(k, v)
 --- lab/v7_artigo1/scripts/r17_analise.py
 +++ package/src/analysis/r17_analise.py
-@@ -1,22 +1,22 @@
--"""Rodada 17 (analise, CPU): ganho de imagem dos 36 runs DoRA (Qwen2-VL-2B e SmolVLM2-2.2B x encoder congelado/afinado x sementes 0-2 x 3 bases)
--contra o baseline sem imagem DoRA da mesma familia e semente: G_DoRA = A_int - A_text,DoRA, IC 95 % por imagem (engine.block, 2 000 replicas,
--semente 20260913, replicas fixas por base), por classe da Tabela 1. Comparacao com G atual (baseline LoRA). Recontagem dos criterios (iv) e (v)
--da Tabela 1 (regra final da rodada 14) com G_DoRA nos runs DoRA; LoRA e M3AE nao mudam. Saida: analysis/rodada17.json. Nada muda no artigo."""
-+"""Round 17 (analysis, CPU): image gain of the 36 DoRA runs (Qwen2-VL-2B and SmolVLM2-2.2B x frozen/fine-tuned encoder x seeds 0-2 x 3 benchmarks)
-+against the DoRA no-image baseline of the same family and seed: G_DoRA = A_int - A_text,DoRA, per-image 95 % CI (engine.block, 2 000 replicates,
-+seed 20260913, replicates fixed per benchmark), per Table 1 class. Comparison with the current G (LoRA baseline). Recount of criteria (iv) and (v)
-+of Table 1 (final rule of round 14) with G_DoRA on the DoRA runs; LoRA and M3AE do not change. Output: analysis/rodada17.json. Nothing changes in the paper."""
+@@ -1,18 +1,18 @@
  import collections, json, os, statistics, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
@@ -1320,29 +1088,9 @@
          rec = {"familia": L["family"], "encoder": L["encoder"], "semente": L["seed"], "txt_dora": tf, "txt_dora_sha256": sha(tf), "classes": {}}
          for c in TCL[b]:
              qs = [q for q in G[c] if all(q in C[k] for k in core)]; bkd = E.block(Bb, qs, C, TXd); bk = r["by_class"][c]
-@@ -39,7 +39,7 @@
-         for fam in ("QWEN2VL", "SMOLVLM"):
-             t = [v for k, v in OUTJ["txt"].items() if k.startswith(f"{b}|{c}|{fam}|")]
-             TXT[f"{b}|{c}|{fam}"] = {"lora": ms([x["lora"] for x in t]), "dora": ms([x["dora"] for x in t])}
--        allr = R14  # todos os runs afinados: LoRA e M3AE inalterados
-+        allr = R14  # all fine-tuned runs: LoRA and M3AE unchanged
-         iv0 = sum(1 for k, v in allr.items() if k.startswith(b + "|") and not v["zero_shot"] and (lambda t: t["L1_preto"] and t["L2_blur10"] and t["ganho"])(v["classes"][c]["testes_ic"]))
-         v0 = sum(1 for k, v in allr.items() if k.startswith(b + "|") and not v["zero_shot"] and v["classes"][c]["declarado_regra_final"])
-         div = sum(int(x["iv_dora"]) - int(x["iv"]) for _, x in rows); dv = sum(int(x["v_dora"]) - int(x["v"]) for _, x in rows)
 --- lab/v7_artigo1/scripts/r19_ganho_pareado.py
 +++ package/src/analysis/r19_ganho_pareado.py
-@@ -1,17 +1,18 @@
--"""Rodada 19 (22/10/2026, CPU): ganho de imagem com baseline sem imagem do MESMO tipo de adaptador (decisao do Claudio): runs LoRA -> baseline LoRA
--(o atual); runs DoRA -> baseline DoRA da rodada 17 (mesma familia, semente e base); M3AE -> baseline com imagem cinza (o atual). G = A_int - A_text,
--IC 95 % por imagem e p unilateral bootstrap (fracao das 2 000 replicas <= 0), engine.block e as mesmas replicas fixas por base. Nada mais muda.
--Recalcula, com G atual (LoRA para todos) e G pareado lado a lado: Tabela 1 (criterios i-v), Tabela 2 (Image gain media (DP) e Declared por grupo),
--Holm IUT (rodada 16), blur 4 % pela regra final (rodada 15), faixas e contagens de texto, cascata do Medical-Diff-VQA. Saida: analysis/rodada19.json."""
-+"""Round 19 (22/10/2026, CPU): image gain with the no-image baseline of the SAME adapter type (authors' decision): LoRA runs -> LoRA baseline
-+(the current one); DoRA runs -> DoRA baseline of round 17 (same family, seed and benchmark); M3AE -> grey-image baseline (the current one).
-+G = A_int - A_text, per-image 95 % CI and one-sided bootstrap p (fraction of the 2 000 replicates <= 0), engine.block and the same replicates fixed
-+per benchmark. Nothing else changes. Recomputes, with the current G (LoRA for all) and the paired G side by side: Table 1 (criteria i-v), Table 2
-+(mean (SD) image gain and Declared per group), Holm IUT (round 16), blur 4 % under the final rule (round 15), ranges and text counts, the
-+Medical-Diff-VQA cascade. Output: analysis/rodada19.json."""
+@@ -1,13 +1,12 @@
  import collections, json, os, statistics, sys, time
  import numpy as np
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
@@ -1353,12 +1101,13 @@
  TCL = {"KVASIR": ["dependent_polyp", "dependent_instrument", "negative_control"], "HEAL": ["closed_yes", "closed_no"], "MIMIC": ["closed_yes", "closed_no"]}
  def lo(c): return c[0] if c else None
  def base_txt(b, L):
+-    if L["method"] == "DORA" and L["fam"] == "QWEN25VL": return f"{W}/v7_txt/extra_runs/q25_artigo1/results/QWEN25VL_DORA_TXT_{b}_seed{L['seed']}_TXT.json", "DoRA 7B (rodada 21)"
 -    if L["method"] == "DORA": return f"{TKD}/{L['fam']}_DORA_TXT_{b}_seed{L['seed']}_TXT.json", "DoRA (rodada 17)"
 +    if L["method"] == "DORA": return first_existing(TKD, f"{L['fam']}_DORA_TXT_{b}_seed{L['seed']}_TXT.json"), "DoRA (rodada 17)"
      return txt_file(b, L["fam"], L["seed"]), ("imagem cinza" if L["fam"] == "M3AE" else "LoRA")
  R14 = json.load(open(f"{OUT}/analysis/rodada14.json"))["por_linha"]; R15 = json.load(open(f"{OUT}/analysis/rodada15.json"))["por_linha"]
  POR = {}
-@@ -80,7 +81,7 @@
+@@ -76,7 +75,7 @@
      xs = [(k, v["classes"]["closed_yes"]) for k, v in POR.items() if k.startswith("MIMIC|")]
      ii = [(k, x) for k, x in xs if x["L1"]]; iii = [(k, x) for k, x in ii if x["L2b"]]; iv = [(k, x) for k, x in iii if (lo(x[g + "_ci"]) or 0) > 0]; v_ = [(k, x) for k, x in iv if x["L0p"] and x["L0b"]]
      CASC[s] = {"ii": len(ii), "iii": len(iii), "iv": len(iv), "v": len(v_), "tirados_pela_queda": [{"linha": k.split("|")[1], "sem_L0_preto": not x["L0p"], "sem_L0_blur": not x["L0b"]} for k, x in iv if not (x["L0p"] and x["L0b"])]}
@@ -1369,15 +1118,7 @@
  for k, v in T1.items(): print("T1", k, v)
 --- lab/v7_artigo1/scripts/r20_m3ae_semimg.py
 +++ package/src/analysis/r20_m3ae_semimg.py
-@@ -1,19 +1,19 @@
--"""Rodada 20 (23/10/2026, CPU): baseline sem imagem do M3AE = M3AE sem imagem (variante sem caminho de imagem; mesma base e semente), no lugar do M3AE com
--imagem cinza (decisao do Claudio). LoRA e DoRA como na rodada 19 (baseline do mesmo adaptador). Nada mais muda: oclusoes, C, Delta_nec, replicas
--(2 000, semente 20260913, fixas por base), normalizacao. 'atual' = G pareado da rodada 19; 'novo' = idem com o M3AE sem imagem. Le as predicoes do
--no diretorio de origem (so leitura). txt_file de common.py nao muda. Saida: analysis/rodada20.json."""
-+"""Round 20 (23/10/2026, CPU): no-image baseline of M3AE = M3AE without image (variant without an image path; same benchmark and seed), instead of
-+M3AE with a grey image (authors' decision). LoRA and DoRA as in round 19 (baseline of the same adapter type). Nothing else changes: occlusions, C,
-+Delta_nec, replicates (2 000, seed 20260913, fixed per benchmark), normalisation. 'atual' = paired G of round 19; 'novo' = the same with the
-+no-image M3AE. Reads the predictions in their source directory (read-only). txt_file of common.py does not change. Output: analysis/rodada20.json."""
+@@ -1,15 +1,15 @@
  import collections, json, os, statistics, sys, time
  import numpy as np
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
@@ -1387,9 +1128,9 @@
 +T0 = time.time(); NV2 = f"{OUT}/analysis/necessity_v2"; SEMI = M3AE_NOIMG_DIRS
  TCL = {"KVASIR": ["dependent_polyp", "dependent_instrument", "negative_control"], "HEAL": ["closed_yes", "closed_no"], "MIMIC": ["closed_yes", "closed_no"]}
 -SHA_REL = {("KVASIR", 0): "6357cbd341386659", ("KVASIR", 1): "c0b45ebf0e8a6278", ("KVASIR", 2): "a1a9334ec01f644a", ("HEAL", 0): "69f9644270b9d602", ("HEAL", 1): "48492d6f2f0bfc62",
--           ("HEAL", 2): "0727bc52aa77f23f", ("MIMIC", 0): "dc7217e4e4736c8f", ("MIMIC", 1): "d68e8fff4cdfd413", ("MIMIC", 2): "6c1a519657f6902e"}   # docs/consulta_m3ae_sem_imagem.md (sha a48d3f50fa351e52), secao 3
+-           ("HEAL", 2): "0727bc52aa77f23f", ("MIMIC", 0): "dc7217e4e4736c8f", ("MIMIC", 1): "d68e8fff4cdfd413", ("MIMIC", 2): "6c1a519657f6902e"}
 -CONS = f"{OUT}/docs/consulta_m3ae_sem_imagem.md"; assert sha(CONS).startswith("a48d3f50fa351e52")
-+SHA_REL = {("KVASIR", 0): "1e888b3063159bb8", ("KVASIR", 1): "1e888b3063159bb8", ("KVASIR", 2): "1e888b3063159bb8", ("HEAL", 0): "b0c882cfba5d9de3", ("HEAL", 1): "f892a0585d22055f", ("HEAL", 2): "36f01785dba9b5f0", ("MIMIC", 0): "35f783423fe4925d", ("MIMIC", 1): "c5d0eebe4e69be23", ("MIMIC", 2): "fe62fa295580245f"}   # sha256 of the predictions list (sort_keys, compact JSON) of each no-image M3AE prediction file; the released files carry edited stamps, so the digest covers the predictions only
++SHA_REL = {("KVASIR", 0): "1e888b3063159bb8", ("KVASIR", 1): "1e888b3063159bb8", ("KVASIR", 2): "1e888b3063159bb8", ("HEAL", 0): "b0c882cfba5d9de3", ("HEAL", 1): "f892a0585d22055f", ("HEAL", 2): "36f01785dba9b5f0", ("MIMIC", 0): "35f783423fe4925d", ("MIMIC", 1): "c5d0eebe4e69be23", ("MIMIC", 2): "fe62fa295580245f"}
 +import hashlib as _hl
 +def pred_digest(q): return _hl.sha256(json.dumps(json.load(open(q))["predictions"], sort_keys=True, separators=(",", ":")).encode()).hexdigest()
  PRED = {}
@@ -1399,7 +1140,7 @@
  def lo(c): return c[0] if c else None
  R19 = json.load(open(f"{OUT}/analysis/rodada19.json")); P19 = R19["por_linha"]
  R14 = json.load(open(f"{OUT}/analysis/rodada14.json"))["por_linha"]; R15 = json.load(open(f"{OUT}/analysis/rodada15.json"))["por_linha"]
-@@ -29,14 +29,14 @@
+@@ -25,7 +25,7 @@
              POR[key] = rec; continue
          r = json.load(open(f"{NV2}/{L['line']}_{b}.json")); C = {c: E.load_correct(p) for c, p in r["files"].items() if c in E.CORE}; core = [c for c in E.CORE if c in C]
          tf = PRED[(b, L["seed"])]["arquivo"]; TX = E.load_correct(tf); TXg = E.load_correct(o["baseline"]); assert set(TX) == set(TXg), (b, L["line"])
@@ -1408,15 +1149,7 @@
          uni = set()
          for c in G:
              qs = [q for q in G[c] if all(q in C[k] for k in core)]
-             if not qs: continue
-             bk = E.block(Bb, qs, C, TX); q2 = [q for q in qs if q in TX]; uni |= set(q2)
-             reps = Bb.reps(q2, np.array([C["C0"][q] for q in q2], float) - np.array([TX[q] for q in q2], float))
--            bg = E.block(Bb, qs, C, TXg); x = o["classes"][c]; assert bg["headroom"] == x["G"] and bg["headroom_ci_by_image"] == x["G_ci"], (key, c)   # reproduz a rodada 19
-+            bg = E.block(Bb, qs, C, TXg); x = o["classes"][c]; assert bg["headroom"] == x["G"] and bg["headroom_ci_by_image"] == x["G_ci"], (key, c)   # reproduces round 19
-             rec["classes"][c] = {**{k: x[k] for k in ("n", "L0p", "L0b", "L1", "L2b")}, "G": bk["headroom"], "G_ci": bk["headroom_ci_by_image"], "p_G": float(np.mean(reps <= 0)),
-                                  "acc_txt": bk["acc_txt"], "acc_txt_cinza": bg["acc_txt"], "G_atual": x["G"], "G_atual_ci": x["G_ci"], "p_G_atual": x["p_G"]}
-         uni = sorted(uni); ACC[key] = {"n_itens": len(uni), "acc_sem_imagem": float(np.mean([TX[q] for q in uni])), "acc_cinza": float(np.mean([TXg[q] for q in uni])),
-@@ -91,8 +91,8 @@
+@@ -87,8 +87,8 @@
      CASC[s] = {"ii": len(ii), "iii": len(iii), "iv": len(iv), "v": len(v_), "tirados_pela_queda": [k.split("|")[1] for k, x in iv if not (x["L0p"] and x["L0b"])]}
  M3 = {k: {c: {"G_atual": x["G_atual"], "G_atual_ci": x["G_atual_ci"], "G": x["G"], "G_ci": x["G_ci"], "p_G": x["p_G"], "sig_atual": crit(x, "G_atual")["ganho"], "sig": crit(x, "G")["ganho"],
                "v_atual": crit(x, "G_atual")["v"], "v": crit(x, "G")["v"]} for c, x in v["classes"].items()} for k, v in POR.items() if v["familia"] == "M3AE"}
@@ -1429,20 +1162,7 @@
  for k, v in T1.items(): print("T1", k, v)
 --- lab/v7_artigo1/scripts/r2_heal_simnao.py
 +++ package/src/analysis/r2_heal_simnao.py
-@@ -1,14 +1,15 @@
--"""Rodada 2, itens 23 e 24 (CPU). 23: HEAL estratificado pela geometria do controle (a: imagem com uma so anatomia anotada; b: multi-anatomia sem
--sobreposicao da mascara deslocada com outra anatomia; c: multi-anatomia com sobreposicao; analysis/placebo_geometry_heal.json), por linha e classe
--(fechadas-sim e fechadas-nao): custo da mascara deslocada, Delta preto e blur 10 %, IC por imagem (replicas da base). 24: HEAL e Medical-Diff-VQA,
--por linha afinada e zero-shot: sensibilidade (Acc nas fechadas-sim), especificidade (Acc nas fechadas-nao), taxa afirmativa nas fechadas, nas condicoes
--intacta, alvo ocluido (preto, blur 10 %), mascara deslocada (preto, blur 10 %) e text-only arm / sem imagem; IC por imagem. Afirma = normalize_text(pred)
--== 'yes' (zero-shot: tambem 'positive', E7). Saidas: analysis/heal_estratificado.json, analysis/simnao.json, docs/item23_heal_estratificado.md, docs/item24_simnao.md."""
-+"""Round 2, items 23 and 24 (CPU). 23: HEAL stratified by the geometry of the control (a: image with a single annotated anatomy; b: multi-anatomy
-+without overlap of the displaced mask with another anatomy; c: multi-anatomy with overlap; analysis/placebo_geometry_heal.json), per run and class
-+(closed-ended yes and closed-ended no): cost of the displaced mask, Delta black and blur 10 %, per-image CI (replicates of the benchmark). 24: HEAL
-+and Medical-Diff-VQA, per fine-tuned and zero-shot run: sensitivity (Acc on closed-ended yes), specificity (Acc on closed-ended no), affirmative rate
-+on closed-ended items, under the conditions intact, target occluded (black, blur 10 %), displaced mask (black, blur 10 %) and text-only arm / no image;
-+per-image CI. Affirmative = normalize_text(pred) == 'yes' (zero-shot: also 'positive', E7). Outputs: analysis/heal_estratificado.json,
-+analysis/simnao.json, docs/item23_heal_estratificado.md, docs/item24_simnao.md."""
+@@ -1,8 +1,8 @@
  import collections, glob, json, os, statistics, sys, time
  import numpy as np
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
@@ -1455,29 +1175,14 @@
  def ms(xs):
 --- lab/v7_artigo1/scripts/r3_itens.py
 +++ package/src/analysis/r3_itens.py
-@@ -1,8 +1,8 @@
--"""Rodada 3 (itens 28-31, CPU, 19/10/2026): faixas minimo-maximo entre as 27 linhas; image gain contra o TF-IDF por grupo; template da caixa de
--artefato no Kvasir sob a estatistica unica (IC por imagem, replicas da base); linhas de setup. Le analysis/necessity_v2/*.json, analysis/doses.json,
--os inventarios de teste e (so para blur 4 %) as predicoes T_blur/P_blur das 15 linhas de 01/10. Saida: analysis/rodada3.json."""
-+"""Round 3 (items 28-31, CPU, 19/10/2026): minimum-maximum ranges over the 27 runs; image gain against TF-IDF per group; the box-artefact template
-+of Kvasir under the single statistical engine (per-image CI, replicates of the benchmark); setup lines. Reads analysis/necessity_v2/*.json,
-+analysis/doses.json, the test inventories and (for blur 4 % only) the T_blur/P_blur predictions of the 15 runs of 01/10. Output: analysis/rodada3.json."""
+@@ -1,5 +1,5 @@
  import collections, json, os, re, statistics, sys, time
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
 +sys.path.insert(0, os.path.dirname(os.path.relpath(__file__))); from common import *
  import engine as E
  NV2 = f"{OUT}/analysis/necessity_v2"; T0 = time.time()
  def grp(L): return f"{L['family']}, encoder {L['encoder']}"
-@@ -26,7 +26,7 @@
- I28 = {b: {c: faixa(b, lambda r, c=c: r["by_class"].get(c)) for c in CLS28[b]} for b in BASES}
- ents = [c for c in R["MIMIC"][0][1]["by_class"] if c.startswith("entidade=")]
- I28["MIMIC"].update({c: faixa("MIMIC", lambda r, c=c: r["by_class"].get(c)) for c in ents if R["MIMIC"][0][1]["by_class"][c]["n"] >= 20})
--anat = [k for k in crit["bases"]["HEAL"]["por_estrato"]]   # as quatro anatomias do item 15 (fechada-sim)
-+anat = [k for k in crit["bases"]["HEAL"]["por_estrato"]]   # the four anatomies of item 15 (closed-ended yes)
- I28["HEAL"].update({k: faixa("HEAL", lambda r, k=k: r["extra"].get(k)) for k in anat})
- # item 29
- def ms(xs):
-@@ -59,7 +59,7 @@
+@@ -54,7 +54,7 @@
              "min": min(x["delta"] for x in v), "max": max(x["delta"] for x in v)}
  for f in ("preto", "blur10", "regmean"):
      I30["contagens_27"][f] = cnt(I30["linhas"].values(), f); I30["contagens_15"][f] = cnt([x for x in I30["linhas"].values() if x["pack"].startswith("15 de")], f)
@@ -1486,7 +1191,7 @@
  for L, r in R["KVASIR"]:
      pt, pp_ = f"{ISBI}/{L['line']}_T_blur.json", f"{ISBI}/{L['line']}_P_blur.json"
      if not (os.path.exists(pt) and os.path.exists(pp_)):
-@@ -93,7 +93,7 @@
+@@ -87,7 +87,7 @@
                               "fechadas_avaliaveis_por_template": dict(collections.Counter(next(t for t, rx in PAT if re.match(rx.replace("{A}", re.escape(x["anatomy"])), x["question"])) for x in cl))}
  ds = json.load(open(f"{OUT}/analysis/doses.json"))["bases"]["HEAL"]
  S["HEAL"]["doses"] = {"linhas_nas_medias": sum(next(iter(g.values()))["n_linhas"] for g in ds["agregado_por_grupo"].values()), "linhas": 27, "excluidas": ds["excluidas_das_medias"]}
@@ -1497,23 +1202,7 @@
  json.dump(out, open(f"{OUT}/analysis/rodada3.json", "w"), indent=1)
 --- lab/v7_artigo1/scripts/r6_split.py
 +++ package/src/analysis/r6_split.py
-@@ -1,14 +1,14 @@
--"""Rodada 6 (21/10/2026, CPU): split do Kvasir-VQA-x1.
--(a) split oficial do HF (SimulaMet/Kvasir-VQA-x1, parquets copiados do cache para inputs/kvasir_vqa_x1_hf/, sha256 = nome do blob): imagens do teste
--    oficial que aparecem no treino oficial, por img_id;
--(b) nosso split (data/finetune_arrows/vqa_kvasir_{train,val,test}_clean.arrow): intersecoes por image_id e por md5 dos bytes da imagem; unidades de
--    data/isbi_placebo/vqa_kvasir_placebo_C0.arrow cujos bytes repetem uma imagem de treino ou val;
--(c) sensibilidade: as 27 linhas do Kvasir recalculadas sem as perguntas das imagens dessas unidades, com o mesmo engine e a MESMA matriz de replicas
--    (Base construida sobre todas as imagens do inventario; so os qids saem), comparadas com o calculo completo (analysis/necessity_v2).
--Saida: analysis/split_kvasir.json. Nada e re-inferido."""
-+"""Round 6 (21/10/2026, CPU): Kvasir-VQA-x1 split.
-+(a) official HF split (SimulaMet/Kvasir-VQA-x1, parquets copied from the cache to inputs/kvasir_vqa_x1_hf/, sha256 = blob name): images of the
-+    official test set that appear in the official training set, by img_id;
-+(b) our split (data/finetune_arrows/vqa_kvasir_{train,val,test}_clean.arrow): intersections by image_id and by md5 of the image bytes; units of
-+    data/isbi_placebo/vqa_kvasir_placebo_C0.arrow whose bytes repeat a training or validation image;
-+(c) sensitivity: the 27 Kvasir runs recomputed without the questions of the images of those units, with the same engine and the SAME replicate
-+    matrix (Base built over all images of the inventory; only the qids are removed), compared with the full computation (analysis/necessity_v2).
-+Output: analysis/split_kvasir.json. Nothing is re-inferred."""
+@@ -1,6 +1,6 @@
  import collections, hashlib, json, os, sys, time
  import pyarrow as pa, pyarrow.parquet as pq
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
@@ -1521,14 +1210,12 @@
  import engine as E
  import analise_bases as AB
  T0 = time.time(); A = f"{PLC}/data"
-@@ -21,15 +21,15 @@
+@@ -13,14 +13,14 @@
      t = arrow(p); ids = t.column("image_id").to_pylist(); out = {}
      for i, b in zip(ids, t.column("image").to_pylist()): out[i] = hashlib.md5(b).hexdigest()
      return out
 -OUTJ = {"t": None, "script": __file__, "script_sha256": sha(__file__)}
--# (a) split oficial
 +OUTJ = {"t": None, "script": os.path.relpath(__file__), "script_sha256": sha(os.path.relpath(__file__))}
-+# (a) official split
  H = {}
  for sp in ("train", "test"):
 -    p = f"{OUT}/inputs/kvasir_vqa_x1_hf/{sp}-00000-of-00001.parquet"; t = pq.read_table(p, columns=["img_id"]); H[sp] = {"arquivo": p, "sha256": sha(p), "linhas": t.num_rows, "img_ids": set(t.column("img_id").to_pylist())}
@@ -1539,38 +1226,11 @@
 -                      "docstring": f"{PLC}/harness/prepro/build_kvasir_clean_split.py: 3,821 of its 4,058 test images (94%)", "docstring_sha256": sha(f"{PLC}/harness/prepro/build_kvasir_clean_split.py"),
 +                      "docstring": f"{PLC}/harness/prepro/build_kvasir_clean_split.py: 3,821 of its 4,058 test images (94%)", "docstring_sha256": sha(f"{CODE_ROOT}/harness/prepro/build_kvasir_clean_split.py"),
                        "nota_teste_automatico": "tests/prepro/test_kvasir_split.py so testa split_records_by_image em registros sinteticos; nao mede o split oficial"}
- # (b) nosso split
  F = {sp: f"{A}/finetune_arrows/vqa_kvasir_{sp}_clean.arrow" for sp in ("train", "val", "test")}; M = {sp: md5s(p) for sp, p in F.items()}
-@@ -47,7 +47,7 @@
-     "unidades": {"arquivo": U, "sha256": sha(U), "n": len(MU), "duplicadas": [{"image_id": i, "copia_no_treino": sorted(inv_md5["train"].get(MU[i], [])), "copia_na_val": sorted(inv_md5["val"].get(MU[i], []))} for i in dup_units]}}
- # (c) sensibilidade
- inv = json.load(open(INV["KVASIR"])); IMG = {int(q["qid"]): q["image_id"] for q in inv["questions"]}; B = E.Base(IMG)
--nid = lambda i: i.split("/", 1)[-1]   # o inventario guarda o image_id sem o prefixo "kvasir/" dos arrows
-+nid = lambda i: i.split("/", 1)[-1]   # the inventory stores the image_id without the "kvasir/" prefix of the arrows
- drop = {nid(i) for i in dup_units}; ev = [q for q in inv["questions"] if q["evaluable"]]
- OUTJ["perguntas_avaliaveis_nas_unidades"] = {i: dict(collections.Counter(q["question_class"] for q in ev if q["image_id"] == nid(i))) for i in dup_units}
- OUTJ["perguntas_avaliaveis_nas_unidades_total"] = dict(collections.Counter(q["question_class"] for q in ev if q["image_id"] in drop))
+ U = f"{A}/isbi_placebo/vqa_kvasir_placebo_C0.arrow"; MU = md5s(U)
 --- lab/v7_artigo1/scripts/r8_itens.py
 +++ package/src/analysis/r8_itens.py
-@@ -1,17 +1,17 @@
--"""Rodada 8 (21/10/2026, CPU): verificacoes dos extra_runs. Saida: analysis/rodada8.json. Nada re-inferido.
--1. L3 e L0 entre os declarados (afinados e zero-shot), por classe da Tabela 1.
--3. Baseline sem imagem nas 314 perguntas de instrumento do Kvasir: distribuicao das respostas previstas e de referencia; respostas no treino.
--4. Holm: para cada criterio (L0 queda bruta, L1 Delta preto, L2 Delta blur 10 %, L3 image gain), p unilateral bootstrap = fracao das 2 000 replicas
--   por imagem (as mesmas da base) <= 0; Holm por linha sobre a familia de classes registrada (Kvasir: polipo, instrumento, 'Is there text?'; para o
--   controle negativo de 3 templates, a mesma familia com ele no lugar de 'Is there text?'; HEAL: sim, nao; Medical-Diff-VQA: sim, nao e as 6 entidades);
--   passa se p ajustado < 0,025 (equivale ao IC 95 % bilateral). Sem Holm, o mesmo p < 0,025 e conferido contra a regra do IC.
--5. Blur 4 % (sigma fixo 25 px) no lugar do blur 10 % nas 15 linhas de 01/10 do Kvasir.
--7. Arquivos de treino do fine-tuning por benchmark."""
-+"""Round 8 (21/10/2026, CPU): checks of the extra runs. Output: analysis/rodada8.json. Nothing re-inferred.
-+1. L3 and L0 among the declared runs (fine-tuned and zero-shot), per Table 1 class.
-+3. No-image baseline on the 314 instrument questions of Kvasir: distribution of the predicted and reference answers; answers in the training set.
-+4. Holm: for each criterion (L0 raw drop, L1 Delta black, L2 Delta blur 10 %, L3 image gain), one-sided bootstrap p = fraction of the 2 000
-+   per-image replicates (the benchmark's) <= 0; Holm per run over the registered family of classes (Kvasir: polyp, instrument, 'Is there text?'; for
-+   the 3-template negative control, the same family with it in place of 'Is there text?'; HEAL: yes, no; Medical-Diff-VQA: yes, no and the 6 entities);
-+   passes if adjusted p < 0.025 (equivalent to the two-sided 95 % CI). Without Holm, the same p < 0.025 is checked against the CI rule.
-+5. Blur 4 % (fixed sigma 25 px) instead of blur 10 % on the 15 Kvasir runs of 01/10.
-+7. Training files of the fine-tuning per benchmark."""
+@@ -1,8 +1,8 @@
  import collections, json, os, sys, time
  import numpy as np, pyarrow as pa
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
@@ -1583,19 +1243,7 @@
  def steps(bk):
 --- lab/v7_artigo1/scripts/r9_holm.py
 +++ package/src/analysis/r9_holm.py
-@@ -1,12 +1,12 @@
--"""Rodada 9, item 1 (21/10/2026, CPU): Holm com duas familias, sobre os mesmos p unilaterais bootstrap da rodada 8 (recalculados aqui com o mesmo
--codigo e as mesmas replicas por imagem; agora gravados por linha, classe e criterio). Variantes:
--  'rodada8' (8 testes no Medical-Diff-VQA): Kvasir polipo e instrumento com {polipo, instrumento, 'Is there text?'}, controle negativo com {polipo,
--     instrumento, controle negativo}; HEAL {sim, nao}; Medical-Diff-VQA {sim, nao, 6 entidades};
--  'tabela1': so as linhas da Tabela 1 -- Kvasir {polipo, instrumento, controle negativo}; HEAL {sim, nao}; Medical-Diff-VQA {sim, nao}.
--Afinados e zero-shot nas tres bases. Discordancias por classe entre p < 0,025 e a regra do IC. Saida: analysis/holm_familias.json."""
-+"""Round 9, item 1 (21/10/2026, CPU): Holm with two families, on the same one-sided bootstrap p values of round 8 (recomputed here with the same
-+code and the same per-image replicates; now stored per run, class and criterion). Variants:
-+  'rodada8' (8 tests on Medical-Diff-VQA): Kvasir polyp and instrument with {polyp, instrument, 'Is there text?'}, negative control with {polyp,
-+     instrument, negative control}; HEAL {yes, no}; Medical-Diff-VQA {yes, no, 6 entities};
-+  'tabela1': only the rows of Table 1 -- Kvasir {polyp, instrument, negative control}; HEAL {yes, no}; Medical-Diff-VQA {yes, no}.
-+Fine-tuned and zero-shot on the three benchmarks. Disagreements per class between p < 0.025 and the CI rule. Output: analysis/holm_familias.json."""
+@@ -1,6 +1,6 @@
  import collections, json, os, sys, time
  import numpy as np
 -sys.path.insert(0, os.path.dirname(__file__)); from common import *
@@ -1603,7 +1251,7 @@
  import engine as E, analise_bases as AB
  T0 = time.time(); NV2 = f"{OUT}/analysis/necessity_v2"
  def lo(bk, k): c = (bk or {}).get(k); return c[0] if c else None
-@@ -59,7 +59,7 @@
+@@ -53,7 +53,7 @@
      for k in ("L0", "L1", "L2", "L3"):
          d["testes"] += 1
          if (p[k] < 0.025) != CI[(b, ln, c)][k]: d["discordam"] += 1; d["casos"].append({"linha": ln, "criterio": k, "p": p[k], "ic_inf_maior_0": CI[(b, ln, c)][k]})

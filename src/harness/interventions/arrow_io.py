@@ -48,7 +48,7 @@ def write_arrow(df: pd.DataFrame, path: str) -> None:
     (same column order, same RecordBatchFileWriter).
 
     Creates the directory of `path` if it does not exist (observed in a real run,
-    Colab, 21/08/2026: `data/finetune_arrows/` is gitignored and never
+    21/08/2026: `data/finetune_arrows/` is gitignored and never
     existed in a fresh clone of the harness -- pa.OSFile raises a
     low-level `FileNotFoundError`, with no clear message, after
     minutes of work already done, e.g. downloading ~4,000 Kvasir images)."""

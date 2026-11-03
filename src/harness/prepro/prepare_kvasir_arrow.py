@@ -143,7 +143,7 @@ def build_image_records(rows: list[dict]) -> list[dict]:
 
 def _download_image_bytes(url: str, max_retries: int = 5, backoff_base_s: float = 1.0) -> bytes:
     """Downloads the bytes of `url`, with exponential retry. Actual finding during a
-    run (21/08/2026, Colab): a transient `ConnectionResetError`/`URLError`
+    run (21/08/2026): a transient `ConnectionResetError`/`URLError`
     happened in the middle of ~4,000 sequential downloads via
     urllib -- without retry, a single network failure brought down the whole
     script after most of it had already been downloaded successfully, with no
@@ -178,7 +178,7 @@ def _placeholder_image_bytes(url: str) -> bytes:
     points that decode the `image` column). Saves downloading thousands of
     full training images when one only wants to rebuild the vocabulary
     to run inference from an already trained checkpoint (e.g. resuming
-    after a Colab session drop, without retraining)."""
+    after a session drop, without retraining)."""
     global _PLACEHOLDER_JPEG_BYTES
     if _PLACEHOLDER_JPEG_BYTES is None:
         import io

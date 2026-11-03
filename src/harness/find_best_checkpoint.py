@@ -18,7 +18,7 @@ def find_best_checkpoint(search_root: str, after_timestamp: float = 0.0) -> str:
     """Search recursively for `**/checkpoints/*.ckpt` under `search_root`,
     ignore files named 'last.ckpt', keep only those modified after
     `after_timestamp` (isolates the checkpoint of ONE specific training run
-    in a Colab session where several runs may happen) and return the
+    in a directory where several runs may happen) and return the
     most recent among the remaining candidates. Raises FileNotFoundError if
     no candidate is left."""
     candidates = glob.glob(os.path.join(search_root, "**", "checkpoints", "*.ckpt"), recursive=True)

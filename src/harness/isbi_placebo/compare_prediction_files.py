@@ -3,7 +3,7 @@
 Reads the `correct` field already stored (scoring rule of `rescore_predictions.py`); does not
 recompute anything. Serves to tell whether a re-inference reproduces a cache --
 for example the original C0 cell re-run in a new environment (F0, step 9 of the ISBI
-session plan). Reading reference: 0 % per-item disagreement
+protocol). Reading reference: 0 % per-item disagreement
 in the same environment, 2.7-5.9 % across environments.
 
 Usage:

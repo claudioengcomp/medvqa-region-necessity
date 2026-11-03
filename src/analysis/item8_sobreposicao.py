@@ -45,7 +45,7 @@ heal = {"t": time.strftime("%Y-%m-%d %H:%M:%S"), "fonte_mascaras": PQ, "fonte_ma
         "contagens": dict(cnt), "por_metodo": {k: dict(v) for k, v in by_m.items()}, "estrato_por_unidade": estrato, "estrato_contagem": dict(collections.Counter(e["estrato"] for e in estrato)),
         "fracoes": {"unidades_qualquer_sobre_2+": cnt["unidades_qualquer_sobreposicao"] / max(cnt["unidades_2+"], 1), "unidades_maior50_sobre_2+": cnt["unidades_sobreposicao_maior_50pct_da_outra"] / max(cnt["unidades_2+"], 1),
                     "perguntas_qualquer_sobre_total": cnt["perguntas_qualquer_sobreposicao"] / cnt["perguntas"], "perguntas_maior50_sobre_total": cnt["perguntas_sobreposicao_maior_50pct_da_outra"] / cnt["perguntas"]},
-        "nota_407": "o handoff cita 407/1 446 perguntas em imagens com >= 2 anatomias; contagem aqui: perguntas_2+ (anatomias anotadas no parquet de teste do HEAL, todas as perguntas da imagem)"}
+        "nota_407": "contagem previa do protocolo: 407/1 446 perguntas em imagens com >= 2 anatomias; contagem aqui: perguntas_2+ (anatomias anotadas no parquet de teste do HEAL, todas as perguntas da imagem)"}
 json.dump(heal, open(f"{OUT}/analysis/placebo_geometry_heal.json", "w"), indent=1)
 # ---------------- MIMIC
 H = json.load(open(f"{V7M}/analysis/region_hierarchy.json"))["hierarchy"]
@@ -76,7 +76,7 @@ mimic = {"t": heal["t"], "inventario": INV["MIMIC"], "inventario_sha256": sha(IN
          "nota": "as anatomias homologas do posicionamento v2 sao, por construcao, outra regiao da imagem (sobreposicao total com ela propria); 'outras regioes' exclui as do alvo e suas descendentes, inclui a regiao usada como mascara deslocada"}
 json.dump(mimic, open(f"{OUT}/analysis/placebo_geometry_mimic.json", "w"), indent=1)
 L = ["# Item 8 — sobreposição da máscara deslocada com outra anatomia/região", "", __doc__.split("\n", 1)[1].replace("\n", " "), "",
-     "## HEAL", "", f"Máscaras: `{PQ}` (sha256 `{heal['fonte_mascaras_sha256']}`, cópia do Mac `med-vqa-icdip-p0/data/isbi_placebo/heal/heal_annotations_test.parquet`, sha igual nas duas pontas).", "",
+     "## HEAL", "", f"Máscaras: `{PQ}` (sha256 `{heal['fonte_mascaras_sha256']}`, copia local, sha registrado).", "",
      "| medida | valor |", "|---|---|"] + [f"| {k} | {v} |" for k, v in heal["contagens"].items()] + [f"| fração {k} | {v} |" for k, v in heal["fracoes"].items()] + ["", "Por método (unidades em imagens com ≥ 2 anatomias):", "", "```", json.dumps(heal["por_metodo"], indent=1), "```", "",
      "## MIMIC", "", "| medida | valor |", "|---|---|"] + [f"| {k} | {v} |" for k, v in mimic["contagens"].items()] + [f"| fração {k} | {v} |" for k, v in mimic["fracoes"].items()] + ["", "Por método da unidade:", "", "```", json.dumps(mimic["por_metodo"], indent=1), "```", "", mimic["nota"], "", f"Tempo: {time.time() - T0:.0f} s."]
 open(f"{OUT}/docs/item8_sobreposicao.md", "w").write("\n".join(L) + "\n"); print(json.dumps(heal["contagens"]), json.dumps(heal["fracoes"])); print(json.dumps(mimic["contagens"]), json.dumps(mimic["fracoes"]))

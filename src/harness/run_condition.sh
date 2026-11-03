@@ -5,7 +5,7 @@
 # of the original test.sh (running the whole test.sh would also try VQA-RAD and
 # MedVQA-2019, which we do not have).
 #
-# Assumes environment/colab_setup.sh has already run ('lapa' environment active,
+# Assumes the 'lapa' environment (environment/environment-m3ae.yml) is active (
 # checkpoints/data in place) and that harness/interventions/make_c1_blank_images.py
 # and make_c2_shuffled_pairs.py have already generated the C1/C2 arrows.
 #

@@ -1,7 +1,7 @@
 """Construction of the paper's conditions (plan v2 §2), at the original resolution.
 
     C0     intact, with the ORIGINAL BYTES of the arrow (same evaluable questions; same
-           session as T/P/S); reproduces the reference cache with 0 % disagreement
+           named T/P/S); reproduces the reference cache with 0 % disagreement
     T      target filled (necessity)
     P      control occlusion (`placebo` in the code) filled: same shape and area, different position (artifact control)
     S      everything outside the target filled (sufficiency)

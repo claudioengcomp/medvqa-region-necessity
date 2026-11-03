@@ -4,7 +4,7 @@
 
 Actual finding (not an assumption), confirmed by reading the source code of the
 `zhjohnchan/M3AE` repository, commit `14da377255280eed547e451f368cf71a43f3ca1c` (pinned
-by `environment/colab_setup_m3ae.sh`), file
+in `src/m3ae_patch/UPSTREAM_COMMIT.txt`), file
 `m3ae/datamodules/vqa_vqa_rad_datamodule.py`: `VQAVQARADDataModule.setup()`
 builds `self.answer2id`/`self.id2answer` (used by
 `harness/extract_predictions_m3ae.py` to decode the prediction) by reading the

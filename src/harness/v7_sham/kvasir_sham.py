@@ -1,7 +1,7 @@
 """P2.2 analysis (2026-10-09): per run and Kvasir occluder-test (`sham`) condition, IPR = P(affirms | sham) - P(affirms | C0) paired per
 item, where affirms = ART: yes; POL count: != 0; POL type: != none; INS presence: != none; INS count: != 0 (crossed
 likewise). C0 per item: the published _C0.json (native; the crossed questions also exist natively) -- and, as a control, the
-C0_cross generated in this round in the same session. McNemar mid-p; bootstrap by image (2000, seed 20260913, shared
+C0_cross generated in the same run. McNemar mid-p; bootstrap by image (2000, seed 20260913, shared
 replicates); Holm over the 8 conditions per run; family x condition table with mean and SD across seeds; native vs crossed
 contrast on the same image (paired difference with CI); classification of the changed answers in the open-ended questions
 (mentions the finding / artifact box / other). No interpretation."""
@@ -61,7 +61,7 @@ def main():
             c0x_p = f"{R}/results/{line}_C0_cross.json"
             if os.path.exists(c0x_p):
                 C0X = {int(p["qid"]): p["predicted"] for p in json.load(open(c0x_p))["predictions"]}; common = [q for q in C0X if q in C0]
-                rec["c0_cross_vs_published_c0"] = {"n": len(common), "n_identical_pred": int(sum(normalize_text(str(C0X[q])) == normalize_text(str(C0[q])) for q in common)), "note": "mesma (imagem, pergunta); predicao da sessao atual x publicada"}
+                rec["c0_cross_vs_published_c0"] = {"n": len(common), "n_identical_pred": int(sum(normalize_text(str(C0X[q])) == normalize_text(str(C0[q])) for q in common)), "note": "mesma (imagem, pergunta); predicao recomputada x publicada"}
             for cond in CONDS:
                 p = f"{R}/results/{line}_{cond}.json"
                 if not os.path.exists(p): rec["missing"].append(cond); continue
@@ -158,7 +158,7 @@ def main():
                 x = out["pol_by_size"]["bins"].get(f"{k}|{cond}|Q{b}")
                 cells.append(f"{x['ipr_seed_mean']:+.3f} ({x['ipr_seed_sd']:.3f}) \\| {x['ipr_pooled']:+.3f} [{x['ipr_pooled_ci'][0]:+.3f}, {x['ipr_pooled_ci'][1]:+.3f}] (n={x['n_items_pooled']})" if x and x["ipr_seed_sd"] is not None else (f"{x['ipr_pooled']:+.3f} [{x['ipr_pooled_ci'][0]:+.3f}, {x['ipr_pooled_ci'][1]:+.3f}] (n={x['n_items_pooled']})" if x else "-"))
             M.append(f"| {k} | {cond} | " + " | ".join(cells) + " |")
-    M += ["", "## C0_cross (sessao atual) x C0 publicada, mesma (imagem, pergunta)", ""]
+    M += ["", "## C0_cross (recomputada) x C0 publicada, mesma (imagem, pergunta)", ""]
     for r in out["lines"]:
         if "c0_cross_vs_published_c0" in r: M.append(f"- {r['line']}: {r['c0_cross_vs_published_c0']['n_identical_pred']}/{r['c0_cross_vs_published_c0']['n']} predicoes identicas")
     open(a.out_md, "w").write("\n".join(M) + "\n"); print("FIM")

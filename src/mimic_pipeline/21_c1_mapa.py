@@ -1,4 +1,4 @@
-"""executor 2, 14/10/2026: v7_txt/docs/c1_mapa.md -- where each generator defines c1 (gray image), per benchmark and run; existence and short sha256
+"""14/10/2026: v7_txt/docs/c1_mapa.md -- where each generator defines c1 (gray image), per benchmark and run; existence and short sha256
 of the 27 *_C1.json files of HEAL (v7_txt/results) and MIMIC (v7_mimic/results)."""
 # released package: occurrences of the original absolute data root were replaced by the LAB_ROOT environment variable
 import hashlib, os, sys, time, json
@@ -6,7 +6,7 @@ sys.path.insert(0, os.environ.get("LAB_ROOT", "LAB_ROOT") + "/v7_txt/worktree")
 from harness.v7_txt.txt_floors import cells
 V7 = os.environ.get("LAB_ROOT", "LAB_ROOT") + "/v7_txt"; MIMIC = os.environ.get("LAB_ROOT", "LAB_ROOT") + "/v7_mimic"
 def sh(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()[:12] if p and os.path.exists(p) else "—"
-L = ["# Mapa das entradas C1 (imagem cinza) nos geradores — exec2, " + time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "",
+L = ["# Mapa das entradas C1 (imagem cinza) nos geradores — " + time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "",
      "Fontes: `harness/v7_txt/txt_floors.py::cells()` define `c1` por (base, familia, semente) e e importado por `decomposicao.py` (linha 31: `C1 = preds(c['c1']) if c['c1'] and os.path.exists(c['c1'])`); `own_floor_ceilings.py` **nao usa C1** (so C0, T, P, TXT, M0). Convencao: C1 = imagem cinza da **linha congelada** da familia (Kvasir/SLAKE/VQA-RAD: p0/v5; HEAL: `v7_txt/results`; MIMIC: `v7_mimic/results`, desde 14/10). Patch: `v7_txt/patches/c1_mimic_heal_20261014.patch`.", "",
      "## Caminhos definidos em `cells()` (apos o patch)", "", "| base | linha TXT | caminho esperado de c1 | existe | sha256 curto |", "|---|---|---|---|---|"]
 for bench in ("HEAL", "MIMIC", "KVASIR", "SLAKE", "VQARAD"):

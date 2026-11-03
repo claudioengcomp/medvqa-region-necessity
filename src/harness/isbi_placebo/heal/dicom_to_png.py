@@ -2,7 +2,7 @@
 lossless, with a manifest (id, native size, PNG size, scale, sha256 of the PNG, window used).
 Window: VOI LUT / WindowCenter+Width of the DICOM when present (pydicom.pixels.apply_voi_lut), otherwise
 min-max; MONOCHROME1 is inverted to MONOCHROME2. Processes in parallel (CPU), skips PNGs already
-present with a sha256 in the manifest. No DICOM is copied; only the derived PNG leaves the Mac.
+present with a sha256 in the manifest. No DICOM is copied; only the derived PNG leaves the workstation.
 
     python -m harness.isbi_placebo.heal.dicom_to_png --dicom-dir <base>/train --ids data/isbi_placebo/heal/ids_heal_train.txt         --out-dir <png_dir> --manifest data/isbi_placebo/heal/png_manifest_train.json --long-side 1024 --workers 8
 """

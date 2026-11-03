@@ -4,7 +4,7 @@ harness/isbi_placebo/make_placebo_conditions.py (@2b7e731). What changes stays o
 inserted before "<h2>Amostra de unidades" by .replace, as make_heal_conditions.py did; (b) the <h2> title of the sample is
 replaced by .replace to list the extra panels (T_blur10, P_blur10); (c) own thumbnails (JPEG, long side 512) instead of
 _thumb (PNG 220) to fit in 8 MB; (d) rich caption passed through the target_key/placebo_method/questions fields (the function
-inserts them as is). Condition images read from the delivered ARROWS (bytes identical to those of the handoff)."""
+inserts them as is). Condition images read from the delivered ARROWS (bytes identical to those delivered for inference)."""
 import os   # released package: the original absolute data root is read from the LAB_ROOT environment variable
 import base64, collections, io, json, random, sys, time
 from pathlib import Path

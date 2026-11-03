@@ -1,11 +1,11 @@
-"""executor 2, 14/10/2026: identity proof -- compares the JSON and MD files from before (tmp/v7/exec2_antes_20261014) and after (v7_txt/analysis, docs).
+"""14/10/2026: identity proof -- compares the JSON and MD files from before (a snapshot taken before the change) and after (v7_txt/analysis, docs).
 JSON: recursive diff by key; cells that involve the HEAL/MIMIC gray image (keys c1 / txt_menos_c1 / C1_frozen / files.c1 /
 sha256.c1 / definitions) and the provenance stamp t are expected; any other difference is listed. MD: line-by-line diff with the
 C1 columns masked (txt_floors: 6th column 'Acc C1'; decomposicao: columns 'C1' and 'TXT - C1'); only the 'Gerado' line may change."""
 import os   # released package: the original absolute data root is read from the LAB_ROOT environment variable
 import json, re, sys, difflib, collections
 from pathlib import Path
-A = Path(os.environ.get("LAB_ROOT", "LAB_ROOT") + "/tmp/v7/exec2_antes_20261014"); V = Path(os.environ.get("LAB_ROOT", "LAB_ROOT") + "/v7_txt")
+A = Path(os.environ.get("LAB_ROOT", "LAB_ROOT") + "/tmp/v7/snapshot_before_20261014"); V = Path(os.environ.get("LAB_ROOT", "LAB_ROOT") + "/v7_txt")
 EXPECTED_KEYS = {"c1", "txt_menos_c1", "C1_frozen", "t", "definitions"}
 def walk(a, b, path, out):
     if isinstance(a, dict) and isinstance(b, dict):
