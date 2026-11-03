@@ -1,6 +1,6 @@
 {
  "script": "src/analysis/r15_blur4_final.py",
- "script_sha256": "772dbb1626eeb3023e62f540fed254dc1cff5876fbd739f1c0490cd33073372f",
+ "script_sha256": "351dc32f1e739c15f949862ae74418293d93bc694cbf91ecb2291317532065a9",
  "regra": "regra final com blur 4 %: Delta preto, Delta blur 4 %, image gain, queda bruta sob preto e queda bruta sob blur 4 %, todos com IC > 0",
  "por_linha": {
   "KVASIR|QWEN2VL_LORA_KVASIR_seed0": {
@@ -1542,6 +1542,690 @@
     }
    }
   },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.0042417815482502655,
+     "queda_bruta_blur4_ci": [
+      -0.021374849578820698,
+      0.029995411775401402
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.2898089171974522,
+     "queda_bruta_blur4_ci": [
+      0.2197775175644028,
+      0.3642774461928015
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.01098901098901099,
+     "queda_bruta_blur4_ci": [
+      0.002898237028671811,
+      0.019802307179198765
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.010604453870625663,
+     "queda_bruta_blur4_ci": [
+      -0.007526301010477828,
+      0.028249443588426633
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.06687898089171974,
+     "queda_bruta_blur4_ci": [
+      0.02197716077026422,
+      0.10820264665218247
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.004120879120879121,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.009321216156236128
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.005302226935312832,
+     "queda_bruta_blur4_ci": [
+      -0.018849600166705737,
+      0.03066280909990109
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.24522292993630573,
+     "queda_bruta_blur4_ci": [
+      0.17781827016520896,
+      0.31493506493506496
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.013736263736263736,
+     "queda_bruta_blur4_ci": [
+      0.004154552322520089,
+      0.024460541658416386
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.006362672322375398,
+     "queda_bruta_blur4_ci": [
+      -0.014989561027837259,
+      0.02793703021177891
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.17834394904458598,
+     "queda_bruta_blur4_ci": [
+      0.12232248137815996,
+      0.23463737571345017
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.012362637362637362,
+     "queda_bruta_blur4_ci": [
+      0.0028328611898017,
+      0.022944789928712257
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.0010604453870625664,
+     "queda_bruta_blur4_ci": [
+      -0.03180862815119692,
+      0.02648144122365748
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.321656050955414,
+     "queda_bruta_blur4_ci": [
+      0.24826018808777428,
+      0.3945214798248066
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.01098901098901099,
+     "queda_bruta_blur4_ci": [
+      0.002812840752856398,
+      0.01992302606455436
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.02014846235418876,
+     "queda_bruta_blur4_ci": [
+      -0.0029505109565950275,
+      0.04293998817500984
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.1305732484076433,
+     "queda_bruta_blur4_ci": [
+      0.08168870365047427,
+      0.18128261466630038
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.005494505494505495,
+     "queda_bruta_blur4_ci": [
+      0.0013089005235602095,
+      0.011412675769309148
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.008483563096500531,
+     "queda_bruta_blur4_ci": [
+      -0.03647530680805357,
+      0.019123267836201323
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.3248407643312102,
+     "queda_bruta_blur4_ci": [
+      0.2536196560494126,
+      0.39414143178618766
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.012362637362637362,
+     "queda_bruta_blur4_ci": [
+      0.004160887656033287,
+      0.021628911800667523
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.03711558854718982,
+     "queda_bruta_blur4_ci": [
+      0.013015130097559599,
+      0.06237812838532259
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.2070063694267516,
+     "queda_bruta_blur4_ci": [
+      0.14469255503339104,
+      0.27642537840169396
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.01098901098901099,
+     "queda_bruta_blur4_ci": [
+      0.004200950199273033,
+      0.01884316513877955
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.0010604453870625664,
+     "queda_bruta_blur4_ci": [
+      -0.025593874218295058,
+      0.024010456641673058
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.32802547770700635,
+     "queda_bruta_blur4_ci": [
+      0.25422605290190037,
+      0.4007936507936508
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.012362637362637362,
+     "queda_bruta_blur4_ci": [
+      0.0013020410029258777,
+      0.024219219219219202
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.031813361611876985,
+     "queda_bruta_blur4_ci": [
+      0.006962022852471143,
+      0.05714357357787648
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.15605095541401273,
+     "queda_bruta_blur4_ci": [
+      0.1,
+      0.21470633345362683
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.0027472527472527475,
+     "queda_bruta_blur4_ci": [
+      -0.004032393739417358,
+      0.00949861084189442
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.003181336161187699,
+     "queda_bruta_blur4_ci": [
+      -0.027029225537902327,
+      0.02017580917717402
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.267515923566879,
+     "queda_bruta_blur4_ci": [
+      0.19402674990697483,
+      0.3457694377185902
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.013736263736263736,
+     "queda_bruta_blur4_ci": [
+      0.00526854825428195,
+      0.023631886725897836
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "dependent_polyp": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.019088016967126194,
+     "queda_bruta_blur4_ci": [
+      -0.006704852175004708,
+      0.042776630883567285
+     ],
+     "n_blur4": 943
+    },
+    "dependent_instrument": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.1592356687898089,
+     "queda_bruta_blur4_ci": [
+      0.10122522075250895,
+      0.21712455895324895
+     ],
+     "n_blur4": 314
+    },
+    "negative_control": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.005494505494505495,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.012295871327894108
+     ],
+     "n_blur4": 728
+    }
+   }
+  },
   "HEAL|QWEN2VL_LORA_HEAL_seed0": {
    "zero_shot": false,
    "fora": false,
@@ -2617,6 +3301,486 @@
      "queda_bruta_blur4_ci": [
       0.008633093525179856,
       0.027701791525313022
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.005625879043600563,
+     "queda_bruta_blur4_ci": [
+      -0.019471488178025034,
+      0.0071433688088415855
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.02857142857142857,
+     "queda_bruta_blur4_ci": [
+      0.01664239961786592,
+      0.041959226410445916
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.004219409282700422,
+     "queda_bruta_blur4_ci": [
+      -0.01295104378924606,
+      0.0029501802687643378
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.021768707482993196,
+     "queda_bruta_blur4_ci": [
+      0.008757852806881867,
+      0.03497693391509861
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.01828410689170183,
+     "queda_bruta_blur4_ci": [
+      -0.03292254766705579,
+      -0.005345656048980868
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.0326530612244898,
+     "queda_bruta_blur4_ci": [
+      0.018053682572614107,
+      0.048678720445062586
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.0014064697609001407,
+     "queda_bruta_blur4_ci": [
+      -0.015007847740765141,
+      0.010974691641052633
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.03945578231292517,
+     "queda_bruta_blur4_ci": [
+      0.02360866182572614,
+      0.05645216831067271
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.004219409282700422,
+     "queda_bruta_blur4_ci": [
+      -0.015408332347023317,
+      0.005928153717627389
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.01904761904761905,
+     "queda_bruta_blur4_ci": [
+      0.0057543679342240495,
+      0.03283704794413581
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.004219409282700422,
+     "queda_bruta_blur4_ci": [
+      -0.009818016530879178,
+      0.0
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.010884353741496598,
+     "queda_bruta_blur4_ci": [
+      0.002603661983204134,
+      0.02024497218656396
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.005625879043600563,
+     "queda_bruta_blur4_ci": [
+      -0.015827433040375087,
+      0.004184393012844893
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.04081632653061224,
+     "queda_bruta_blur4_ci": [
+      0.026594861687999773,
+      0.05586045425963681
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.008438818565400843,
+     "queda_bruta_blur4_ci": [
+      -0.019445589705147426,
+      0.0014144772429489
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.027210884353741496,
+     "queda_bruta_blur4_ci": [
+      0.014386943167529014,
+      0.04149539257423074
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.011251758087201125,
+     "queda_bruta_blur4_ci": [
+      -0.022988894591946245,
+      0.0
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.03537414965986395,
+     "queda_bruta_blur4_ci": [
+      0.021682853621827623,
+      0.050398149018133984
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.004219409282700422,
+     "queda_bruta_blur4_ci": [
+      -0.007082152974504249,
+      0.015300628977241815
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.012244897959183673,
+     "queda_bruta_blur4_ci": [
+      -0.001403023308242176,
+      0.026316752716344295
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.02531645569620253,
+     "queda_bruta_blur4_ci": [
+      -0.040405500087581016,
+      -0.012259506365845307
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.053061224489795916,
+     "queda_bruta_blur4_ci": [
+      0.03557211933949961,
+      0.07103101406199824
+     ],
+     "n_blur4": 735
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.011251758087201125,
+     "queda_bruta_blur4_ci": [
+      -0.022988505747126436,
+      0.0
+     ],
+     "n_blur4": 711
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.0163265306122449,
+     "queda_bruta_blur4_ci": [
+      0.005509263463808919,
+      0.027932960893854747
      ],
      "n_blur4": 735
     }
@@ -3701,13 +4865,493 @@
      "n_blur4": 67
     }
    }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.056433408577878104,
+     "queda_bruta_blur4_ci": [
+      0.033683451417004046,
+      0.08102156432748536
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.014925373134328358,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.04918032786885246
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.006772009029345372,
+     "queda_bruta_blur4_ci": [
+      -0.007059657905715478,
+      0.02098197161488299
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.014925373134328358,
+     "queda_bruta_blur4_ci": [
+      -0.034482758620689655,
+      0.068496508192318
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.05191873589164785,
+     "queda_bruta_blur4_ci": [
+      0.027143233975204434,
+      0.07922974598563463
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.014925373134328358,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.050638275048272875
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed0": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.013544018058690745,
+     "queda_bruta_blur4_ci": [
+      -0.03355892798025702,
+      0.004774130255186337
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.0,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.0
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.040632054176072234,
+     "queda_bruta_blur4_ci": [
+      0.016277185615848407,
+      0.06572769953051644
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.014925373134328358,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.04918032786885246
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": true,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.004514672686230248,
+     "queda_bruta_blur4_ci": [
+      -0.023358307474549513,
+      0.01405152224824356
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.014925373134328358,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.04938271604938271
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.056433408577878104,
+     "queda_bruta_blur4_ci": [
+      0.030229059000861327,
+      0.08334205020920497
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.014925373134328358,
+     "queda_bruta_blur4_ci": [
+      -0.030303030303030304,
+      0.06779661016949153
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed1": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.020316027088036117,
+     "queda_bruta_blur4_ci": [
+      0.0022727272727272726,
+      0.038901601830663615
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.014925373134328358,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.046875
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.03611738148984198,
+     "queda_bruta_blur4_ci": [
+      0.01091525447811384,
+      0.06178552846267699
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.029850746268656716,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.07792715097402594
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.009029345372460496,
+     "queda_bruta_blur4_ci": [
+      -0.014493630908516686,
+      0.03305882812652638
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.029850746268656716,
+     "queda_bruta_blur4_ci": [
+      0.0,
+      0.07695312499999984
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": true,
+      "L1_preto": true,
+      "ganho": true,
+      "delta_blur4": true,
+      "L0_blur4": true
+     },
+     "declarado_final_blur4": true,
+     "declarado_s14": true,
+     "queda_bruta_blur4": 0.04740406320541761,
+     "queda_bruta_blur4_ci": [
+      0.020782830293859998,
+      0.07568981095357241
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.029850746268656716,
+     "queda_bruta_blur4_ci": [
+      -0.07501179245283018,
+      0.0
+     ],
+     "n_blur4": 67
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed2": {
+   "zero_shot": false,
+   "fora": false,
+   "classes": {
+    "closed_yes": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": 0.004514672686230248,
+     "queda_bruta_blur4_ci": [
+      -0.015054574527252503,
+      0.02422158746973361
+     ],
+     "n_blur4": 443
+    },
+    "closed_no": {
+     "testes": {
+      "L0_preto": false,
+      "L1_preto": false,
+      "ganho": false,
+      "delta_blur4": false,
+      "L0_blur4": false
+     },
+     "declarado_final_blur4": false,
+     "declarado_s14": false,
+     "queda_bruta_blur4": -0.014925373134328358,
+     "queda_bruta_blur4_ci": [
+      -0.050869374634716545,
+      0.0
+     ],
+     "n_blur4": 67
+    }
+   }
   }
  },
  "contagens": {
   "KVASIR|dependent_polyp|afinados": {
-   "runs": 27,
-   "declarados_final_blur4": 9,
-   "declarados_s14": 13,
+   "runs": 39,
+   "declarados_final_blur4": 10,
+   "declarados_s14": 14,
    "saem_so_pela_queda_bruta_blur4": [
     {
      "linha": "QWEN2VL_LORA_KVASIR_seed0",
@@ -3744,37 +5388,37 @@
    ]
   },
   "KVASIR|dependent_instrument|afinados": {
-   "runs": 27,
-   "declarados_final_blur4": 23,
-   "declarados_s14": 23,
+   "runs": 39,
+   "declarados_final_blur4": 35,
+   "declarados_s14": 35,
    "saem_so_pela_queda_bruta_blur4": []
   },
   "KVASIR|negative_control|afinados": {
-   "runs": 27,
+   "runs": 39,
    "declarados_final_blur4": 0,
    "declarados_s14": 0,
    "saem_so_pela_queda_bruta_blur4": []
   },
   "HEAL|closed_yes|afinados": {
-   "runs": 26,
+   "runs": 38,
    "declarados_final_blur4": 0,
    "declarados_s14": 0,
    "saem_so_pela_queda_bruta_blur4": []
   },
   "HEAL|closed_no|afinados": {
-   "runs": 26,
+   "runs": 38,
    "declarados_final_blur4": 0,
    "declarados_s14": 0,
    "saem_so_pela_queda_bruta_blur4": []
   },
   "MIMIC|closed_yes|afinados": {
-   "runs": 27,
-   "declarados_final_blur4": 7,
-   "declarados_s14": 7,
+   "runs": 39,
+   "declarados_final_blur4": 13,
+   "declarados_s14": 13,
    "saem_so_pela_queda_bruta_blur4": []
   },
   "MIMIC|closed_no|afinados": {
-   "runs": 27,
+   "runs": 39,
    "declarados_final_blur4": 0,
    "declarados_s14": 0,
    "saem_so_pela_queda_bruta_blur4": []
@@ -3796,12 +5440,12 @@
  ],
  "confere_s14": {
   "KVASIR|dependent_polyp|27_runs": [
-   13,
-   13
+   14,
+   14
   ],
   "KVASIR|dependent_instrument|27_runs": [
-   23,
-   23
+   35,
+   35
   ],
   "KVASIR|negative_control|27_runs": [
    0,
@@ -3816,14 +5460,14 @@
    0
   ],
   "MIMIC|closed_yes|27_runs": [
-   7,
-   7
+   13,
+   13
   ],
   "MIMIC|closed_no|27_runs": [
    0,
    0
   ]
  },
- "t": "2026-10-30 19:09:42",
- "segundos": 22
+ "t": "2026-11-03 05:01:54",
+ "segundos": 77
 }

@@ -1,5 +1,5 @@
 {
- "t": "2026-10-30 19:09:20",
+ "t": "2026-11-03 05:00:36",
  "script": "src/analysis/r14_itens.py",
  "script_sha256": "f9ca60a15360567045bb3557ca3a8a1dab5ff09b788723fa30d64a3c80d9a7f5",
  "regra": "declarado = Delta preto e Delta blur 10 % (IC > 0), image gain (IC > 0) e queda bruta sob preto e sob blur 10 % (IC > 0)",
@@ -2839,6 +2839,1266 @@
     }
    }
   },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.12725344644750794,
+     "custo_alvo_blur10": 0.05514316012725345,
+     "custo_alvo_blur10_ci": [
+      0.02452268384421927,
+      0.0878185615932513
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.001,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.002,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.4968152866242038,
+     "custo_alvo_blur10": 0.6019108280254777,
+     "custo_alvo_blur10_ci": [
+      0.5372651557928237,
+      0.6636092577147623
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.023351648351648352,
+     "custo_alvo_blur10": 0.02197802197802198,
+     "custo_alvo_blur10_ci": [
+      0.009928375816305035,
+      0.034996916067779486
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0005,
+      "L1_preto": 0.9895,
+      "L2_blur10": 0.38,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0005,
+      "L1_preto": 0.9895,
+      "L2_blur10": 0.38,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.07211028632025451,
+     "custo_alvo_blur10": 0.032873806998939555,
+     "custo_alvo_blur10_ci": [
+      0.009290239609641622,
+      0.05592846556600415
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.003,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.1735,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.003,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.1735,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.23885350318471338,
+     "custo_alvo_blur10": 0.3630573248407643,
+     "custo_alvo_blur10_ci": [
+      0.2907338955345865,
+      0.4448473878557324
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.008241758241758242,
+     "custo_alvo_blur10": 0.024725274725274724,
+     "custo_alvo_blur10_ci": [
+      0.01400400464368257,
+      0.03655145787002717
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.8755,
+      "L2_blur10": 0.0005,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.8755,
+      "L2_blur10": 0.001,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.14103923647932132,
+     "custo_alvo_blur10": 0.06574761399787911,
+     "custo_alvo_blur10_ci": [
+      0.03793179636430128,
+      0.09491667455733357
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.3821656050955414,
+     "custo_alvo_blur10": 0.5605095541401274,
+     "custo_alvo_blur10_ci": [
+      0.49006456953642386,
+      0.6274604987626118
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.03021978021978022,
+     "custo_alvo_blur10": 0.03571428571428571,
+     "custo_alvo_blur10_ci": [
+      0.019363093464157172,
+      0.05263157894736842
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.9965,
+      "L2_blur10": 0.56,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.9965,
+      "L2_blur10": 0.56,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.2142099681866384,
+     "custo_alvo_blur10": 0.06786850477200425,
+     "custo_alvo_blur10_ci": [
+      0.040726871095077506,
+      0.09721547382014432
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.46496815286624205,
+     "custo_alvo_blur10": 0.3821656050955414,
+     "custo_alvo_blur10_ci": [
+      0.3111045943304008,
+      0.45487398550527947
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.017857142857142856,
+     "custo_alvo_blur10": 0.017857142857142856,
+     "custo_alvo_blur10_ci": [
+      0.007977668017561635,
+      0.029787709674350762
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.958,
+      "L2_blur10": 0.81,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.958,
+      "L2_blur10": 0.81,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.11876988335100742,
+     "custo_alvo_blur10": 0.044538706256627786,
+     "custo_alvo_blur10_ci": [
+      0.015036185970544338,
+      0.07389196271259574
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.001,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0035,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.001,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.007,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.45222929936305734,
+     "custo_alvo_blur10": 0.6146496815286624,
+     "custo_alvo_blur10_ci": [
+      0.5531821246628709,
+      0.6719825916681011
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.03159340659340659,
+     "custo_alvo_blur10": 0.038461538461538464,
+     "custo_alvo_blur10_ci": [
+      0.024030677480646506,
+      0.054377074015293604
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.998,
+      "L2_blur10": 0.4135,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.998,
+      "L2_blur10": 0.4135,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.10922587486744433,
+     "custo_alvo_blur10": 0.05938494167550371,
+     "custo_alvo_blur10_ci": [
+      0.029409369611036597,
+      0.09027307827095744
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.007,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.014,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.4140127388535032,
+     "custo_alvo_blur10": 0.4681528662420382,
+     "custo_alvo_blur10_ci": [
+      0.3881896063103701,
+      0.5492107583774251
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.0027472527472527475,
+     "custo_alvo_blur10": 0.019230769230769232,
+     "custo_alvo_blur10_ci": [
+      0.01014419452123649,
+      0.030056506809041077
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.622,
+      "L2_blur10": 0.0345,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.622,
+      "L2_blur10": 0.0345,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.11452810180275716,
+     "custo_alvo_blur10": 0.03499469777306469,
+     "custo_alvo_blur10_ci": [
+      0.004158004158004158,
+      0.06544402120030711
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0145,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0125,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0145,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.025,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.40445859872611467,
+     "custo_alvo_blur10": 0.6178343949044586,
+     "custo_alvo_blur10_ci": [
+      0.553628865530674,
+      0.6775386155606408
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.023351648351648352,
+     "custo_alvo_blur10": 0.0260989010989011,
+     "custo_alvo_blur10_ci": [
+      0.012534383099399119,
+      0.040324617139133254
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.9875,
+      "L2_blur10": 0.5845,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.9875,
+      "L2_blur10": 0.5845,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.0975609756097561,
+     "custo_alvo_blur10": 0.07211028632025451,
+     "custo_alvo_blur10_ci": [
+      0.04474091234286104,
+      0.1002225946998467
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.5,
+     "custo_alvo_blur10": 0.5700636942675159,
+     "custo_alvo_blur10_ci": [
+      0.5015669128565466,
+      0.6397070241139934
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.019230769230769232,
+     "custo_alvo_blur10": 0.03983516483516483,
+     "custo_alvo_blur10_ci": [
+      0.02600351703290315,
+      0.05508474576271186
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.957,
+      "L2_blur10": 0.0165,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.957,
+      "L2_blur10": 0.0165,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.11558854718981973,
+     "custo_alvo_blur10": 0.029692470837751856,
+     "custo_alvo_blur10_ci": [
+      0.0011264439384672822,
+      0.058890243902439014
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.021,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.003,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.021,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.006,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.42356687898089174,
+     "custo_alvo_blur10": 0.6273885350318471,
+     "custo_alvo_blur10_ci": [
+      0.5624902950310559,
+      0.688135593220339
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.01510989010989011,
+     "custo_alvo_blur10": 0.03983516483516483,
+     "custo_alvo_blur10_ci": [
+      0.024555780246904402,
+      0.05570451466282068
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.9255,
+      "L2_blur10": 0.421,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.9255,
+      "L2_blur10": 0.421,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.1071049840933192,
+     "custo_alvo_blur10": 0.04772004241781548,
+     "custo_alvo_blur10_ci": [
+      0.018679274773366675,
+      0.07823467135198449
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.01,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.02,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.2611464968152866,
+     "custo_alvo_blur10": 0.37261146496815284,
+     "custo_alvo_blur10_ci": [
+      0.3049602885456135,
+      0.441769403194172
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.01510989010989011,
+     "custo_alvo_blur10": 0.012362637362637362,
+     "custo_alvo_blur10_ci": [
+      0.0025673940949935813,
+      0.022955908169116822
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0095,
+      "L1_preto": 0.9535,
+      "L2_blur10": 0.0215,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0095,
+      "L1_preto": 0.9535,
+      "L2_blur10": 0.0215,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.1474019088016967,
+     "custo_alvo_blur10": 0.031813361611876985,
+     "custo_alvo_blur10_ci": [
+      0.002599815841433779,
+      0.06279121936516034
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.02,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0835,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.02,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.167,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.3980891719745223,
+     "custo_alvo_blur10": 0.5796178343949044,
+     "custo_alvo_blur10_ci": [
+      0.5093564862104188,
+      0.6476235399820306
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.03159340659340659,
+     "custo_alvo_blur10": 0.0260989010989011,
+     "custo_alvo_blur10_ci": [
+      0.013697590787203525,
+      0.04068299340804923
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.998,
+      "L2_blur10": 0.7415,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.998,
+      "L2_blur10": 0.7415,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "delta_preto": 0.1569459172852598,
+     "custo_alvo_blur10": 0.06574761399787911,
+     "custo_alvo_blur10_ci": [
+      0.03769906102902385,
+      0.09633137006471935
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "delta_preto": 0.3535031847133758,
+     "custo_alvo_blur10": 0.5732484076433121,
+     "custo_alvo_blur10_ci": [
+      0.5029394861392833,
+      0.6433126326963906
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "negative_control": {
+     "n": 728,
+     "delta_preto": -0.01098901098901099,
+     "custo_alvo_blur10": 0.03296703296703297,
+     "custo_alvo_blur10_ci": [
+      0.0196078431372549,
+      0.04846956441856521
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.881,
+      "L2_blur10": 0.001,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.881,
+      "L2_blur10": 0.001,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
   "KVASIR|MEDGEMMA_ZEROSHOT_KVASIR": {
    "zero_shot": true,
    "grupo": "MEDGEMMA",
@@ -5198,6 +6458,870 @@
       "L1_preto": 0.151,
       "L2_blur10": 0.222,
       "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": -0.0028129395218002813,
+     "custo_alvo_blur10": -0.009845288326300985,
+     "custo_alvo_blur10_ci": [
+      -0.02550497635753508,
+      0.004511448047830419
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.934,
+      "L0_blur10": 0.921,
+      "L1_preto": 0.72,
+      "L2_blur10": 0.3565,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.934,
+      "L0_blur10": 0.921,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.713,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.01904761904761905,
+     "custo_alvo_blur10": 0.027210884353741496,
+     "custo_alvo_blur10_ci": [
+      0.014062242179949554,
+      0.04155263754038876
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.014,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.9985,
+      "L2_blur10": 0.772,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.028,
+      "L0_blur10": 0.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.772,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": 0.01969057665260197,
+     "custo_alvo_blur10": 0.0014064697609001407,
+     "custo_alvo_blur10_ci": [
+      -0.007052684917897392,
+      0.01021935160285141
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.027,
+      "L0_blur10": 0.447,
+      "L1_preto": 0.001,
+      "L2_blur10": 0.0175,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.03,
+      "L0_blur10": 0.447,
+      "L1_preto": 0.002,
+      "L2_blur10": 0.035,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.00816326530612245,
+     "custo_alvo_blur10": 0.02040816326530612,
+     "custo_alvo_blur10_ci": [
+      0.00824091264412742,
+      0.03274620535670718
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.015,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.8985,
+      "L2_blur10": 0.7705,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.03,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.8985,
+      "L2_blur10": 0.7705,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": 0.008438818565400843,
+     "custo_alvo_blur10": -0.011251758087201125,
+     "custo_alvo_blur10_ci": [
+      -0.026017349024366875,
+      0.0029260651629072565
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.799,
+      "L0_blur10": 0.948,
+      "L1_preto": 0.085,
+      "L2_blur10": 0.5635,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.799,
+      "L0_blur10": 0.948,
+      "L1_preto": 0.17,
+      "L2_blur10": 1.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.0013605442176870747,
+     "custo_alvo_blur10": 0.0380952380952381,
+     "custo_alvo_blur10_ci": [
+      0.021739130434782608,
+      0.05509669643650582
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.611,
+      "L2_blur10": 0.9305,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.611,
+      "L2_blur10": 1.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": 0.02250351617440225,
+     "custo_alvo_blur10": -0.007032348804500703,
+     "custo_alvo_blur10_ci": [
+      -0.0209287975279798,
+      0.005518392403242044
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.062,
+      "L0_blur10": 0.888,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.2835,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.062,
+      "L0_blur10": 0.888,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.567,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.031292517006802724,
+     "custo_alvo_blur10": 0.044897959183673466,
+     "custo_alvo_blur10_ci": [
+      0.02770000985405056,
+      0.06285890170021496
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": 0.008438818565400843,
+     "custo_alvo_blur10": -0.007032348804500703,
+     "custo_alvo_blur10_ci": [
+      -0.018767385789085413,
+      0.004342644781273003
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.446,
+      "L0_blur10": 0.9135,
+      "L1_preto": 0.094,
+      "L2_blur10": 0.0365,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.446,
+      "L0_blur10": 0.9135,
+      "L1_preto": 0.188,
+      "L2_blur10": 0.073,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.0013605442176870747,
+     "custo_alvo_blur10": 0.017687074829931974,
+     "custo_alvo_blur10_ci": [
+      0.004243131637618968,
+      0.0324782134500451
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.015,
+      "L0_blur10": 0.0095,
+      "L1_preto": 0.6195,
+      "L2_blur10": 0.738,
+      "ganho": 0.1235
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.03,
+      "L0_blur10": 0.019,
+      "L1_preto": 0.6195,
+      "L2_blur10": 0.738,
+      "ganho": 0.1235
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": 0.0028129395218002813,
+     "custo_alvo_blur10": -0.0014064697609001407,
+     "custo_alvo_blur10_ci": [
+      -0.00656386119953091,
+      0.0028986558970152073
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.4165,
+      "L0_blur10": 0.8225,
+      "L1_preto": 0.3055,
+      "L2_blur10": 0.884,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.4165,
+      "L0_blur10": 0.8225,
+      "L1_preto": 0.611,
+      "L2_blur10": 0.884,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.021768707482993196,
+     "custo_alvo_blur10_ci": [
+      0.009562515375841478,
+      0.034946706519287156
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.001,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.529,
+      "L2_blur10": 0.108,
+      "ganho": 0.081
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.002,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.611,
+      "L2_blur10": 0.216,
+      "ganho": 0.081
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": 0.004219409282700422,
+     "custo_alvo_blur10": -0.009845288326300985,
+     "custo_alvo_blur10_ci": [
+      -0.023383970012146368,
+      0.0028252600154083183
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.8575,
+      "L0_blur10": 0.946,
+      "L1_preto": 0.262,
+      "L2_blur10": 0.5645,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.8575,
+      "L0_blur10": 0.946,
+      "L1_preto": 0.524,
+      "L2_blur10": 1.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.013605442176870748,
+     "custo_alvo_blur10": 0.03537414965986395,
+     "custo_alvo_blur10_ci": [
+      0.021678751922654362,
+      0.049316368996011786
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.976,
+      "L2_blur10": 0.6925,
+      "ganho": 0.02
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.976,
+      "L2_blur10": 1.0,
+      "ganho": 0.02
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": 0.008438818565400843,
+     "custo_alvo_blur10": -0.008438818565400843,
+     "custo_alvo_blur10_ci": [
+      -0.01828475069828252,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.34,
+      "L0_blur10": 0.9795,
+      "L1_preto": 0.066,
+      "L2_blur10": 0.715,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.34,
+      "L0_blur10": 0.9795,
+      "L1_preto": 0.132,
+      "L2_blur10": 1.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.017687074829931974,
+     "custo_alvo_blur10": 0.027210884353741496,
+     "custo_alvo_blur10_ci": [
+      0.013717421124828532,
+      0.04172461752433936
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.053,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.993,
+      "L2_blur10": 0.9255,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.106,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.993,
+      "L2_blur10": 1.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": 0.0014064697609001407,
+     "custo_alvo_blur10": -0.014064697609001406,
+     "custo_alvo_blur10_ci": [
+      -0.027145484624367458,
+      -0.001461828698383514
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.996,
+      "L0_blur10": 0.991,
+      "L1_preto": 0.4395,
+      "L2_blur10": 0.211,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.996,
+      "L0_blur10": 0.991,
+      "L1_preto": 0.879,
+      "L2_blur10": 0.422,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.005442176870748299,
+     "custo_alvo_blur10": 0.05170068027210884,
+     "custo_alvo_blur10_ci": [
+      0.03530991996872341,
+      0.06911825901935678
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.786,
+      "L2_blur10": 0.6755,
+      "ganho": 0.014
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.879,
+      "L2_blur10": 0.6755,
+      "ganho": 0.014
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": 0.016877637130801686,
+     "custo_alvo_blur10": 0.0028129395218002813,
+     "custo_alvo_blur10_ci": [
+      -0.0059703723534792405,
+      0.012097998563406027
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0995,
+      "L0_blur10": 0.3265,
+      "L1_preto": 0.003,
+      "L2_blur10": 0.044,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0995,
+      "L0_blur10": 0.3265,
+      "L1_preto": 0.006,
+      "L2_blur10": 0.088,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.009523809523809525,
+     "custo_alvo_blur10": 0.013605442176870748,
+     "custo_alvo_blur10_ci": [
+      -0.0013775055933519017,
+      0.028264414116858712
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0085,
+      "L0_blur10": 0.044,
+      "L1_preto": 0.9075,
+      "L2_blur10": 0.959,
+      "ganho": 0.003
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.017,
+      "L0_blur10": 0.088,
+      "L1_preto": 0.9075,
+      "L2_blur10": 0.959,
+      "ganho": 0.003
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": -0.005625879043600563,
+     "custo_alvo_blur10": -0.029535864978902954,
+     "custo_alvo_blur10_ci": [
+      -0.04391015001716314,
+      -0.016104241698816947
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.9995,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.908,
+      "L2_blur10": 0.805,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.9995,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.009523809523809525,
+     "custo_alvo_blur10": 0.055782312925170066,
+     "custo_alvo_blur10_ci": [
+      0.038028169014084505,
+      0.07417622581573984
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.9285,
+      "L2_blur10": 0.7125,
+      "ganho": 0.0055
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.0055
+     },
+     "declarado_holm_tabela1": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "delta_preto": -0.007032348804500703,
+     "custo_alvo_blur10": -0.005625879043600563,
+     "custo_alvo_blur10_ci": [
+      -0.016622813447634627,
+      0.005526796353900665
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.461,
+      "L0_blur10": 0.875,
+      "L1_preto": 0.897,
+      "L2_blur10": 0.1865,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.461,
+      "L0_blur10": 0.875,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.373,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 735,
+     "delta_preto": -0.004081632653061225,
+     "custo_alvo_blur10": 0.014965986394557823,
+     "custo_alvo_blur10_ci": [
+      0.0055248618784530384,
+      0.025498470738518433
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.016,
+      "L0_blur10": 0.0005,
+      "L1_preto": 0.775,
+      "L2_blur10": 1.0,
+      "ganho": 0.0005
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.032,
+      "L0_blur10": 0.001,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.0005
      },
      "declarado_holm_tabela1": false
     }
@@ -11485,6 +13609,2670 @@
     }
    }
   },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.06997742663656885,
+     "custo_alvo_blur10": 0.07674943566591422,
+     "custo_alvo_blur10_ci": [
+      0.04834478021978022,
+      0.10652309474514442
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": -0.029850746268656716,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      -0.037037037037037035,
+      0.04168133802816893
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 0.6605,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.6515,
+      "ganho": 0.82
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 1.0,
+      "L0_blur10": 0.6605,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.6515,
+      "ganho": 0.82
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.052083333333333336,
+     "custo_alvo_blur10": 0.09375,
+     "custo_alvo_blur10_ci": [
+      0.030612244897959183,
+      0.16129846855653301
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0015,
+      "L1_preto": 0.062,
+      "L2_blur10": 0.005,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": -0.011494252873563218,
+     "custo_alvo_blur10": -0.011494252873563218,
+     "custo_alvo_blur10_ci": [
+      -0.038461538461538464,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.3665,
+      "ganho": 0.816
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.4666666666666667,
+     "custo_alvo_blur10": 0.5111111111111111,
+     "custo_alvo_blur10_ci": [
+      0.3617021276595745,
+      0.6666666666666666
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.17391304347826086,
+     "custo_alvo_blur10": 0.08695652173913043,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.22580645161290322
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.014,
+      "L0_blur10": 0.1175,
+      "L1_preto": 0.014,
+      "L2_blur10": 0.015,
+      "ganho": 0.014
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": true
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.03837471783295711,
+     "custo_alvo_blur10": 0.011286681715575621,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.023966449753118124
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.226,
+      "L0_blur10": 0.034,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.259,
+      "L0_blur10": 0.034,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": 0.029850746268656716,
+     "custo_alvo_blur10": 0.05970149253731343,
+     "custo_alvo_blur10_ci": [
+      0.013513513513513514,
+      0.12333047945205455
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": true,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.1295,
+      "L0_blur10": 0.017,
+      "L1_preto": 0.244,
+      "L2_blur10": 0.15,
+      "ganho": 0.8135
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.259,
+      "L0_blur10": 0.034,
+      "L1_preto": 0.244,
+      "L2_blur10": 0.15,
+      "ganho": 0.8135
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.010416666666666666,
+     "custo_alvo_blur10": 0.010416666666666666,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.03530462184873944
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 0.383,
+      "L1_preto": 0.3695,
+      "L2_blur10": 0.007,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.011494252873563218,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.3755,
+      "L2_blur10": 0.3755,
+      "ganho": 0.401
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": -0.015151515151515152,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.41
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.2222222222222222,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      -0.06521739130434782,
+      0.06253324468085088
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0535,
+      "L0_blur10": 0.667,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0165,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.30434782608695654,
+     "custo_alvo_blur10": 0.08695652173913043,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.21739130434782608
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.131,
+      "L0_blur10": 0.1245,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.001,
+      "ganho": 0.0045
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.09480812641083522,
+     "custo_alvo_blur10": 0.06772009029345373,
+     "custo_alvo_blur10_ci": [
+      0.03837255709434039,
+      0.09863521540607952
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.07291666666666667,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      -0.054352766798418974,
+      0.05102040816326531
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.268,
+      "L0_blur10": 0.576,
+      "L1_preto": 0.007,
+      "L2_blur10": 0.176,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.034482758620689655,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      -0.03333333333333333,
+      0.032266830294530105
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.1325,
+      "L0_blur10": 0.658,
+      "L1_preto": 0.045,
+      "L2_blur10": 0.3665,
+      "ganho": 0.6565
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.3505,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.017241379310344827,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.058823529411764705
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 0.375,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.375,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.4444444444444444,
+     "custo_alvo_blur10": 0.4888888888888889,
+     "custo_alvo_blur10_ci": [
+      0.34146341463414637,
+      0.6363636363636364
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.34782608695652173,
+     "custo_alvo_blur10": 0.08695652173913043,
+     "custo_alvo_blur10_ci": [
+      -0.07692307692307693,
+      0.2608695652173913
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.016,
+      "L0_blur10": 0.2175,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0055,
+      "ganho": 0.006
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": true
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed0": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": -0.006772009029345372,
+     "custo_alvo_blur10_ci": [
+      -0.02664450159533502,
+      0.013733949911009385
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.8395,
+      "L0_blur10": 0.7745,
+      "L1_preto": 0.5595,
+      "L2_blur10": 0.6555,
+      "ganho": 0.1235
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.8395,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.745,
+      "L2_blur10": 1.0,
+      "ganho": 0.247
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": 0.014925373134328358,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.3725,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.3725,
+      "L2_blur10": 1.0,
+      "ganho": 0.607
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.745,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.745,
+      "L2_blur10": 1.0,
+      "ganho": 0.607
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.396
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.6715
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.022222222222222223,
+     "custo_alvo_blur10": -0.06666666666666667,
+     "custo_alvo_blur10_ci": [
+      -0.24324324324324326,
+      0.12123059866962296
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.698,
+      "L0_blur10": 0.792,
+      "L1_preto": 0.4445,
+      "L2_blur10": 0.569,
+      "ganho": 0.033
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.0835214446952596,
+     "custo_alvo_blur10": 0.05191873589164785,
+     "custo_alvo_blur10_ci": [
+      0.02708803611738149,
+      0.0787037037037037
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.029850746268656716,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.07575757575757576
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.378,
+      "L0_blur10": 0.1325,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.669,
+      "ganho": 0.41
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.378,
+      "L0_blur10": 0.1325,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.669,
+      "ganho": 0.41
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.052083333333333336,
+     "custo_alvo_blur10": -0.020833333333333332,
+     "custo_alvo_blur10_ci": [
+      -0.06452359617682198,
+      0.020010204081632597
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.432,
+      "L0_blur10": 0.9005,
+      "L1_preto": 0.0595,
+      "L2_blur10": 0.4255,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      -0.032266830294530154,
+      0.03333333333333333
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 0.6505,
+      "L1_preto": 0.658,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.015151515151515152,
+     "custo_alvo_blur10": 0.030303030303030304,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.08197282730743316
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.3585,
+      "L0_blur10": 0.1405,
+      "L1_preto": 0.3585,
+      "L2_blur10": 0.6365,
+      "ganho": 0.6715
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.017241379310344827,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.058823529411764705
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.1435,
+      "L0_blur10": 0.375,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.657,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.37777777777777777,
+     "custo_alvo_blur10": 0.24444444444444444,
+     "custo_alvo_blur10_ci": [
+      0.12195121951219512,
+      0.37777777777777777
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.999
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.391304347826087,
+     "custo_alvo_blur10": 0.21739130434782608,
+     "custo_alvo_blur10_ci": [
+      0.05263157894736842,
+      0.4
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.004,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.011286681715575621,
+     "custo_alvo_blur10": 0.002257336343115124,
+     "custo_alvo_blur10_ci": [
+      -0.018561484918793503,
+      0.023148148148148147
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.766,
+      "L0_blur10": 0.4805,
+      "L1_preto": 0.183,
+      "L2_blur10": 0.3425,
+      "ganho": 0.002
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.766,
+      "L0_blur10": 0.738,
+      "L1_preto": 0.366,
+      "L2_blur10": 0.685,
+      "ganho": 0.004
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.014925373134328358,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.04938271604938271
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.1345,
+      "L0_blur10": 0.369,
+      "L1_preto": 0.6555,
+      "L2_blur10": 0.369,
+      "ganho": 0.2785
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.269,
+      "L0_blur10": 0.738,
+      "L1_preto": 0.6555,
+      "L2_blur10": 0.685,
+      "ganho": 0.2785
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.07291666666666667,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      -0.04951732673267327,
+      0.04763049450549444
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.2835,
+      "L0_blur10": 0.591,
+      "L1_preto": 0.0165,
+      "L2_blur10": 0.4355,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": -0.011494252873563218,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.368,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.6715
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.044444444444444446,
+     "custo_alvo_blur10": 0.1111111111111111,
+     "custo_alvo_blur10_ci": [
+      -0.02943404634581105,
+      0.25
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.2955,
+      "L0_blur10": 0.0835,
+      "L1_preto": 0.298,
+      "L2_blur10": 0.138,
+      "ganho": 0.946
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": -0.08695652173913043,
+     "custo_alvo_blur10": -0.08695652173913043,
+     "custo_alvo_blur10_ci": [
+      -0.26666666666666666,
+      0.07407407407407407
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.914,
+      "L0_blur10": 0.914,
+      "L1_preto": 0.9105,
+      "L2_blur10": 0.763,
+      "ganho": 0.373
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.06772009029345373,
+     "custo_alvo_blur10": 0.05869074492099323,
+     "custo_alvo_blur10_ci": [
+      0.032817405575111785,
+      0.08584686774941995
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": 0.014925373134328358,
+     "custo_alvo_blur10": -0.014925373134328358,
+     "custo_alvo_blur10_ci": [
+      -0.046153846153846156,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.3905,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.4035,
+      "L2_blur10": 1.0,
+      "ganho": 0.2245
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.3905,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.4035,
+      "L2_blur10": 1.0,
+      "ganho": 0.2245
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.052083333333333336,
+     "custo_alvo_blur10": 0.020833333333333332,
+     "custo_alvo_blur10_ci": [
+      -0.01772833528134914,
+      0.06593406593406594
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.048,
+      "L0_blur10": 0.2235,
+      "L1_preto": 0.081,
+      "L2_blur10": 0.016,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.011494252873563218,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.038461538461538464
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.3665,
+      "L0_blur10": 0.3665,
+      "L1_preto": 0.6485,
+      "L2_blur10": 0.6485,
+      "ganho": 0.6425
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.015151515151515152,
+     "custo_alvo_blur10": 0.015151515151515152,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.05174682395644271
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.134,
+      "L0_blur10": 0.3575,
+      "L1_preto": 0.3675,
+      "L2_blur10": 0.3575,
+      "ganho": 0.1425
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.017241379310344827,
+     "custo_alvo_blur10": 0.034482758620689655,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.09259259259259259
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.1435,
+      "L0_blur10": 0.1435,
+      "L1_preto": 0.3805,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.28888888888888886,
+     "custo_alvo_blur10": 0.3111111111111111,
+     "custo_alvo_blur10_ci": [
+      0.17777777777777778,
+      0.45243506493506463
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.997
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.2608695652173913,
+     "custo_alvo_blur10": 0.17391304347826086,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.3888888888888889
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.002,
+      "L0_blur10": 0.062,
+      "L1_preto": 0.0025,
+      "L2_blur10": 0.1615,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed1": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.040632054176072234,
+     "custo_alvo_blur10": 0.02708803611738149,
+     "custo_alvo_blur10_ci": [
+      0.006769746665527106,
+      0.04677321130289531
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0975,
+      "L0_blur10": 0.0045,
+      "L1_preto": 0.0005,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.195,
+      "L0_blur10": 0.009,
+      "L1_preto": 0.001,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.029850746268656716,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0784313725490196
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.3725,
+      "L0_blur10": 0.147,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.4025,
+      "ganho": 0.4025
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.3725,
+      "L0_blur10": 0.147,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.4025,
+      "ganho": 0.4025
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.020833333333333332,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      -0.04822251970846349,
+      0.047619047619047616
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.8565,
+      "L0_blur10": 0.5855,
+      "L1_preto": 0.2135,
+      "L2_blur10": 0.265,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.8095
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.015151515151515152,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.3505,
+      "L2_blur10": 0.3505,
+      "ganho": 0.6715
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.2222222222222222,
+     "custo_alvo_blur10": 0.15555555555555556,
+     "custo_alvo_blur10_ci": [
+      0.03225806451612903,
+      0.2857142857142857
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.1055,
+      "L0_blur10": 0.009,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.9665
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.043478260869565216,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.3785,
+      "L2_blur10": 0.347,
+      "ganho": 0.0475
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.0835214446952596,
+     "custo_alvo_blur10": 0.05191873589164785,
+     "custo_alvo_blur10_ci": [
+      0.026785171185262423,
+      0.08018022696858286
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.014925373134328358,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.05002118644067785
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 0.3715,
+      "L1_preto": 0.6555,
+      "L2_blur10": 0.649,
+      "ganho": 0.3935
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 1.0,
+      "L0_blur10": 0.3715,
+      "L1_preto": 0.6555,
+      "L2_blur10": 0.649,
+      "ganho": 0.3935
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.052083333333333336,
+     "custo_alvo_blur10": 0.010416666666666666,
+     "custo_alvo_blur10_ci": [
+      -0.050517934446505874,
+      0.0734114848793747
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.43,
+      "L0_blur10": 0.4405,
+      "L1_preto": 0.0555,
+      "L2_blur10": 0.128,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.022988505747126436,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.1355,
+      "L2_blur10": 0.1355,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.015151515151515152,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 0.3675,
+      "L2_blur10": 0.3505,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.017241379310344827,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.058823529411764705
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.375,
+      "L0_blur10": 0.375,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.375,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.4222222222222222,
+     "custo_alvo_blur10": 0.35555555555555557,
+     "custo_alvo_blur10_ci": [
+      0.21736192714453584,
+      0.5
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0675
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.30434782608695654,
+     "custo_alvo_blur10": 0.13043478260869565,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.2857142857142857
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.041,
+      "L1_preto": 0.0005,
+      "L2_blur10": 0.0505,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.011286681715575621,
+     "custo_alvo_blur10": 0.004514672686230248,
+     "custo_alvo_blur10_ci": [
+      -0.01171307035750358,
+      0.021693152881260013
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.3685,
+      "L0_blur10": 0.354,
+      "L1_preto": 0.0985,
+      "L2_blur10": 0.3345,
+      "ganho": 0.186
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.737,
+      "L0_blur10": 0.435,
+      "L1_preto": 0.197,
+      "L2_blur10": 0.3345,
+      "ganho": 0.372
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": -0.014925373134328358,
+     "custo_alvo_blur10": 0.029850746268656716,
+     "custo_alvo_blur10_ci": [
+      -0.01786525974025974,
+      0.09230769230769231
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.656,
+      "L0_blur10": 0.2175,
+      "L1_preto": 0.8105,
+      "L2_blur10": 0.0535,
+      "ganho": 0.6665
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.737,
+      "L0_blur10": 0.435,
+      "L1_preto": 0.8105,
+      "L2_blur10": 0.107,
+      "ganho": 0.6665
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 0.3765
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.1111111111111111,
+     "custo_alvo_blur10": 0.044444444444444446,
+     "custo_alvo_blur10_ci": [
+      -0.11373663101604277,
+      0.21280395136778094
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.285,
+      "L0_blur10": 0.354,
+      "L1_preto": 0.0985,
+      "L2_blur10": 0.2335,
+      "ganho": 0.0525
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.05191873589164785,
+     "custo_alvo_blur10": 0.05417607223476298,
+     "custo_alvo_blur10_ci": [
+      0.0285683025945608,
+      0.07957339878447871
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": true,
+     "declarado_rodada11": true,
+     "p_holm_tabela1": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0
+     },
+     "declarado_holm_tabela1": true
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": -0.014925373134328358,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      -0.04287267080745342,
+      0.04477611940298507
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.8295,
+      "L0_blur10": 0.66,
+      "L1_preto": 0.8105,
+      "L2_blur10": 0.3715,
+      "ganho": 0.825
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.8295,
+      "L0_blur10": 0.66,
+      "L1_preto": 0.8105,
+      "L2_blur10": 0.3715,
+      "ganho": 0.825
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.03125,
+     "custo_alvo_blur10": 0.020833333333333332,
+     "custo_alvo_blur10_ci": [
+      -0.0183528712198437,
+      0.06451612903225806
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.1675,
+      "L0_blur10": 0.22,
+      "L1_preto": 0.1695,
+      "L2_blur10": 0.0565,
+      "ganho": 0.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 0.3755,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": -0.015151515151515152,
+     "custo_alvo_blur10": -0.015151515151515152,
+     "custo_alvo_blur10_ci": [
+      -0.05263157894736842,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.3333333333333333,
+     "custo_alvo_blur10": 0.4,
+     "custo_alvo_blur10_ci": [
+      0.2580414746543779,
+      0.5434782608695652
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": true,
+      "L1_preto": true,
+      "L2_blur10": true,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.0,
+      "L0_blur10": 0.0,
+      "L1_preto": 0.0,
+      "L2_blur10": 0.0,
+      "ganho": 0.0805
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.17391304347826086,
+     "custo_alvo_blur10": 0.13043478260869565,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.2857142857142857
+     ],
+     "testes_ic": {
+      "L0_preto": true,
+      "L0_blur10": false,
+      "L1_preto": true,
+      "L2_blur10": false,
+      "ganho": true
+     },
+     "p": {
+      "L0_preto": 0.0025,
+      "L0_blur10": 0.043,
+      "L1_preto": 0.019,
+      "L2_blur10": 0.069,
+      "ganho": 0.0005
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed2": {
+   "zero_shot": false,
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "delta_preto": 0.004514672686230248,
+     "custo_alvo_blur10": 0.011286681715575621,
+     "custo_alvo_blur10_ci": [
+      -0.006787330316742082,
+      0.030501472889625333
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.468,
+      "L0_blur10": 0.1395,
+      "L1_preto": 0.3705,
+      "L2_blur10": 0.074,
+      "ganho": 0.186
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 0.936,
+      "L0_blur10": 0.279,
+      "L1_preto": 0.741,
+      "L2_blur10": 0.148,
+      "ganho": 0.372
+     },
+     "declarado_holm_tabela1": false
+    },
+    "closed_no": {
+     "n": 67,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false,
+     "p_holm_tabela1": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_holm_tabela1": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.015151515151515152,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.05172413793103448
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.3505,
+      "L0_blur10": 0.3505,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "delta_preto": 0.06666666666666667,
+     "custo_alvo_blur10": 0.06666666666666667,
+     "custo_alvo_blur10_ci": [
+      -0.1,
+      0.24444444444444444
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 0.482,
+      "L0_blur10": 0.269,
+      "L1_preto": 0.2835,
+      "L2_blur10": 0.074,
+      "ganho": 0.083
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "delta_preto": 0.0,
+     "custo_alvo_blur10": 0.0,
+     "custo_alvo_blur10_ci": [
+      0.0,
+      0.0
+     ],
+     "testes_ic": {
+      "L0_preto": false,
+      "L0_blur10": false,
+      "L1_preto": false,
+      "L2_blur10": false,
+      "ganho": false
+     },
+     "p": {
+      "L0_preto": 1.0,
+      "L0_blur10": 1.0,
+      "L1_preto": 1.0,
+      "L2_blur10": 1.0,
+      "ganho": 1.0
+     },
+     "declarado_regra_final": false,
+     "declarado_rodada11": false
+    }
+   }
+  },
   "MIMIC|MEDGEMMA_ZEROSHOT_MIMIC": {
    "zero_shot": true,
    "grupo": "MEDGEMMA",
@@ -12375,15 +17163,15 @@
   }
  },
  "conferencia_necessity_v2": {
-  "igual": 2015
+  "igual": 2795
  },
  "contagens": {
   "KVASIR|dependent_polyp|afinados": {
-   "linhas": 27,
-   "declarados_regra_final": 24,
-   "declarados_rodada11": 25,
-   "declarados_holm_tabela1": 24,
-   "resoluveis": 27,
+   "linhas": 39,
+   "declarados_regra_final": 34,
+   "declarados_rodada11": 35,
+   "declarados_holm_tabela1": 33,
+   "resoluveis": 39,
    "perdidos_pela_queda_sob_blur": [
     {
      "linha": "QWEN2VL_LORA_KVASIR_seed1",
@@ -12404,11 +17192,11 @@
    "perdidos_pela_queda_sob_blur": []
   },
   "KVASIR|dependent_instrument|afinados": {
-   "linhas": 27,
-   "declarados_regra_final": 25,
-   "declarados_rodada11": 25,
-   "declarados_holm_tabela1": 25,
-   "resoluveis": 27,
+   "linhas": 39,
+   "declarados_regra_final": 37,
+   "declarados_rodada11": 37,
+   "declarados_holm_tabela1": 37,
+   "resoluveis": 39,
    "perdidos_pela_queda_sob_blur": []
   },
   "KVASIR|dependent_instrument|zero_shot": {
@@ -12420,11 +17208,11 @@
    "perdidos_pela_queda_sob_blur": []
   },
   "KVASIR|negative_control|afinados": {
-   "linhas": 27,
+   "linhas": 39,
    "declarados_regra_final": 0,
    "declarados_rodada11": 0,
    "declarados_holm_tabela1": 0,
-   "resoluveis": 27,
+   "resoluveis": 39,
    "perdidos_pela_queda_sob_blur": []
   },
   "KVASIR|negative_control|zero_shot": {
@@ -12436,11 +17224,11 @@
    "perdidos_pela_queda_sob_blur": []
   },
   "HEAL|closed_yes|afinados": {
-   "linhas": 27,
+   "linhas": 39,
    "declarados_regra_final": 0,
    "declarados_rodada11": 0,
    "declarados_holm_tabela1": 0,
-   "resoluveis": 21,
+   "resoluveis": 33,
    "perdidos_pela_queda_sob_blur": []
   },
   "HEAL|closed_yes|zero_shot": {
@@ -12452,11 +17240,11 @@
    "perdidos_pela_queda_sob_blur": []
   },
   "HEAL|closed_no|afinados": {
-   "linhas": 27,
+   "linhas": 39,
    "declarados_regra_final": 0,
    "declarados_rodada11": 0,
    "declarados_holm_tabela1": 0,
-   "resoluveis": 21,
+   "resoluveis": 31,
    "perdidos_pela_queda_sob_blur": []
   },
   "HEAL|closed_no|zero_shot": {
@@ -12468,11 +17256,11 @@
    "perdidos_pela_queda_sob_blur": []
   },
   "MIMIC|closed_yes|afinados": {
-   "linhas": 27,
-   "declarados_regra_final": 8,
-   "declarados_rodada11": 9,
-   "declarados_holm_tabela1": 5,
-   "resoluveis": 27,
+   "linhas": 39,
+   "declarados_regra_final": 14,
+   "declarados_rodada11": 15,
+   "declarados_holm_tabela1": 11,
+   "resoluveis": 36,
    "perdidos_pela_queda_sob_blur": [
     {
      "linha": "SMOLVLM_LORA_MIMIC_seed1",
@@ -12493,7 +17281,7 @@
    "perdidos_pela_queda_sob_blur": []
   },
   "MIMIC|closed_no|afinados": {
-   "linhas": 27,
+   "linhas": 39,
    "declarados_regra_final": 0,
    "declarados_rodada11": 0,
    "declarados_holm_tabela1": 0,
@@ -12540,6 +17328,18 @@
     "declarados_rodada11": 2,
     "runs": 3,
     "resoluveis": 3
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "declarados_regra_final": 5,
+    "declarados_rodada11": 5,
+    "runs": 6,
+    "resoluveis": 6
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "declarados_regra_final": 5,
+    "declarados_rodada11": 5,
+    "runs": 6,
+    "resoluveis": 6
    }
   },
   "KVASIR|dependent_instrument": {
@@ -12572,6 +17372,18 @@
     "declarados_rodada11": 2,
     "runs": 3,
     "resoluveis": 3
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "declarados_regra_final": 6,
+    "declarados_rodada11": 6,
+    "runs": 6,
+    "resoluveis": 6
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "declarados_regra_final": 6,
+    "declarados_rodada11": 6,
+    "runs": 6,
+    "resoluveis": 6
    }
   },
   "KVASIR|negative_control": {
@@ -12604,6 +17416,18 @@
     "declarados_rodada11": 0,
     "runs": 3,
     "resoluveis": 3
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "declarados_regra_final": 0,
+    "declarados_rodada11": 0,
+    "runs": 6,
+    "resoluveis": 6
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "declarados_regra_final": 0,
+    "declarados_rodada11": 0,
+    "runs": 6,
+    "resoluveis": 6
    }
   },
   "HEAL|closed_yes": {
@@ -12636,6 +17460,18 @@
     "declarados_rodada11": 0,
     "runs": 3,
     "resoluveis": 0
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "declarados_regra_final": 0,
+    "declarados_rodada11": 0,
+    "runs": 6,
+    "resoluveis": 6
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "declarados_regra_final": 0,
+    "declarados_rodada11": 0,
+    "runs": 6,
+    "resoluveis": 6
    }
   },
   "HEAL|closed_no": {
@@ -12668,6 +17504,18 @@
     "declarados_rodada11": 0,
     "runs": 3,
     "resoluveis": 3
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "declarados_regra_final": 0,
+    "declarados_rodada11": 0,
+    "runs": 6,
+    "resoluveis": 5
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "declarados_regra_final": 0,
+    "declarados_rodada11": 0,
+    "runs": 6,
+    "resoluveis": 5
    }
   },
   "MIMIC|closed_yes": {
@@ -12700,6 +17548,18 @@
     "declarados_rodada11": 1,
     "runs": 3,
     "resoluveis": 3
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "declarados_regra_final": 6,
+    "declarados_rodada11": 6,
+    "runs": 6,
+    "resoluveis": 6
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "declarados_regra_final": 0,
+    "declarados_rodada11": 0,
+    "runs": 6,
+    "resoluveis": 3
    }
   },
   "MIMIC|closed_no": {
@@ -12732,57 +17592,69 @@
     "declarados_rodada11": 0,
     "runs": 3,
     "resoluveis": 0
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "declarados_regra_final": 0,
+    "declarados_rodada11": 0,
+    "runs": 6,
+    "resoluveis": 0
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "declarados_regra_final": 0,
+    "declarados_rodada11": 0,
+    "runs": 6,
+    "resoluveis": 0
    }
   }
  },
  "entidades_mimic": {
   "pleural effusion": {
    "perguntas": 96,
-   "ganho_significativo": 27,
+   "ganho_significativo": 36,
    "declarados_regra_final": 0,
-   "runs": 27
+   "runs": 39
   },
   "atelectasis": {
    "perguntas": 87,
    "ganho_significativo": 0,
    "declarados_regra_final": 0,
-   "runs": 27
+   "runs": 39
   },
   "lung opacity": {
    "perguntas": 66,
    "ganho_significativo": 2,
    "declarados_regra_final": 0,
-   "runs": 27
+   "runs": 39
   },
   "cardiomegaly": {
    "perguntas": 58,
    "ganho_significativo": 0,
    "declarados_regra_final": 0,
-   "runs": 27
+   "runs": 39
   },
   "edema": {
    "perguntas": 45,
-   "ganho_significativo": 12,
-   "declarados_regra_final": 3,
-   "runs": 27
+   "ganho_significativo": 15,
+   "declarados_regra_final": 5,
+   "runs": 39
   },
   "vascular congestion": {
    "perguntas": 23,
-   "ganho_significativo": 23,
-   "declarados_regra_final": 1,
-   "runs": 27
+   "ganho_significativo": 30,
+   "declarados_regra_final": 2,
+   "runs": 39
   }
  },
  "max_delta": {
   "KVASIR|dependent_polyp": {
-   "declarados": 24,
+   "declarados": 34,
    "max_delta_preto_declarados": 0.26193001060445387,
    "max_delta_preto_27": 0.26193001060445387
   },
   "KVASIR|dependent_instrument": {
-   "declarados": 25,
-   "max_delta_preto_declarados": 0.4713375796178344,
-   "max_delta_preto_27": 0.4713375796178344
+   "declarados": 37,
+   "max_delta_preto_declarados": 0.5,
+   "max_delta_preto_27": 0.5
   },
   "KVASIR|negative_control": {
    "declarados": 0,
@@ -12800,9 +17672,9 @@
    "max_delta_preto_27": 0.00816326530612245
   },
   "MIMIC|closed_yes": {
-   "declarados": 8,
-   "max_delta_preto_declarados": 0.06772009029345373,
-   "max_delta_preto_27": 0.06772009029345373
+   "declarados": 14,
+   "max_delta_preto_declarados": 0.09480812641083522,
+   "max_delta_preto_27": 0.09480812641083522
   },
   "MIMIC|closed_no": {
    "declarados": 0,
@@ -12810,5 +17682,5 @@
    "max_delta_preto_27": 0.04477611940298507
   }
  },
- "segundos": 170
+ "segundos": 571
 }

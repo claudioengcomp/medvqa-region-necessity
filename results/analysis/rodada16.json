@@ -1,16 +1,16 @@
 {
- "t": "2026-10-30 19:09:42",
+ "t": "2026-11-03 05:01:54",
  "script": "src/analysis/r16_iut.py",
  "script_sha256": "9a9a2fd7b179a7cf4790ef29f21646cb3af9ca7ae41cc930e290c2fac988ed5b",
  "fonte_p": "analysis/rodada14.json (p unilaterais bootstrap por run, classe e teste)",
- "fonte_p_sha256": "c4dc3cc361c4d4c307fe936e4d2ac5bcee9870da0d81348b8673909fac9dfd29",
+ "fonte_p_sha256": "7b9d62b378d8418c3fef938f0adfedb9f0243ce02f16a5bc8c056eb5d81d5d4d",
  "regra": "IUT: p do run = maximo dos cinco p unilaterais; Holm por run sobre as classes da Tabela 1 do benchmark; declarado se p ajustado < 0,025",
  "contagens": {
   "KVASIR|dependent_polyp|afinados": {
-   "runs": 27,
-   "iut_holm": 24,
-   "holm_por_condicao_r14": 24,
-   "sem_holm_IC": 24
+   "runs": 39,
+   "iut_holm": 32,
+   "holm_por_condicao_r14": 33,
+   "sem_holm_IC": 34
   },
   "KVASIR|dependent_polyp|zero_shot": {
    "runs": 4,
@@ -19,10 +19,10 @@
    "sem_holm_IC": 2
   },
   "KVASIR|dependent_instrument|afinados": {
-   "runs": 27,
-   "iut_holm": 25,
-   "holm_por_condicao_r14": 25,
-   "sem_holm_IC": 25
+   "runs": 39,
+   "iut_holm": 37,
+   "holm_por_condicao_r14": 37,
+   "sem_holm_IC": 37
   },
   "KVASIR|dependent_instrument|zero_shot": {
    "runs": 4,
@@ -31,7 +31,7 @@
    "sem_holm_IC": 2
   },
   "KVASIR|negative_control|afinados": {
-   "runs": 27,
+   "runs": 39,
    "iut_holm": 0,
    "holm_por_condicao_r14": 0,
    "sem_holm_IC": 0
@@ -43,7 +43,7 @@
    "sem_holm_IC": 0
   },
   "HEAL|closed_yes|afinados": {
-   "runs": 27,
+   "runs": 39,
    "iut_holm": 0,
    "holm_por_condicao_r14": 0,
    "sem_holm_IC": 0
@@ -55,7 +55,7 @@
    "sem_holm_IC": 0
   },
   "HEAL|closed_no|afinados": {
-   "runs": 27,
+   "runs": 39,
    "iut_holm": 0,
    "holm_por_condicao_r14": 0,
    "sem_holm_IC": 0
@@ -67,10 +67,10 @@
    "sem_holm_IC": 1
   },
   "MIMIC|closed_yes|afinados": {
-   "runs": 27,
-   "iut_holm": 5,
-   "holm_por_condicao_r14": 5,
-   "sem_holm_IC": 8
+   "runs": 39,
+   "iut_holm": 11,
+   "holm_por_condicao_r14": 11,
+   "sem_holm_IC": 14
   },
   "MIMIC|closed_yes|zero_shot": {
    "runs": 4,
@@ -79,7 +79,7 @@
    "sem_holm_IC": 2
   },
   "MIMIC|closed_no|afinados": {
-   "runs": 27,
+   "runs": 39,
    "iut_holm": 0,
    "holm_por_condicao_r14": 0,
    "sem_holm_IC": 0
@@ -91,7 +91,19 @@
    "sem_holm_IC": 0
   }
  },
- "runs_que_mudam_vs_holm_por_condicao": [],
+ "runs_que_mudam_vs_holm_por_condicao": [
+  {
+   "base": "KVASIR",
+   "linha": "QWEN25VL_LORA_KVASIR_seed2",
+   "classe": "dependent_polyp",
+   "p_iut": 0.021,
+   "p_iut_holm": 0.042,
+   "declarado_iut_holm": false,
+   "declarado_holm_por_condicao": true,
+   "declarado_sem_holm_IC": true,
+   "teste_do_maximo": "L0_blur10"
+  }
+ ],
  "por_linha": {
   "KVASIR|QWEN2VL_LORA_KVASIR_seed0": {
    "dependent_polyp": {
@@ -795,6 +807,318 @@
     "teste_do_maximo": "L1_preto"
    }
   },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed0": {
+   "dependent_polyp": {
+    "p_iut": 0.001,
+    "p_iut_holm": 0.002,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "L2_blur10"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.9895,
+    "p_iut_holm": 0.9895,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed0": {
+   "dependent_polyp": {
+    "p_iut": 0.1735,
+    "p_iut_holm": 0.347,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L2_blur10"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.8755,
+    "p_iut_holm": 0.8755,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed0": {
+   "dependent_polyp": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.9965,
+    "p_iut_holm": 0.9965,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed0": {
+   "dependent_polyp": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.958,
+    "p_iut_holm": 0.958,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed1": {
+   "dependent_polyp": {
+    "p_iut": 0.0035,
+    "p_iut_holm": 0.007,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "L2_blur10"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.998,
+    "p_iut_holm": 0.998,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed1": {
+   "dependent_polyp": {
+    "p_iut": 0.007,
+    "p_iut_holm": 0.014,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "L2_blur10"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.622,
+    "p_iut_holm": 0.622,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed1": {
+   "dependent_polyp": {
+    "p_iut": 0.0145,
+    "p_iut_holm": 0.029,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.9875,
+    "p_iut_holm": 0.9875,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed1": {
+   "dependent_polyp": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.957,
+    "p_iut_holm": 0.957,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed2": {
+   "dependent_polyp": {
+    "p_iut": 0.021,
+    "p_iut_holm": 0.042,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.9255,
+    "p_iut_holm": 0.9255,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed2": {
+   "dependent_polyp": {
+    "p_iut": 0.01,
+    "p_iut_holm": 0.02,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "L2_blur10"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.9535,
+    "p_iut_holm": 0.9535,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed2": {
+   "dependent_polyp": {
+    "p_iut": 0.0835,
+    "p_iut_holm": 0.167,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L2_blur10"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.998,
+    "p_iut_holm": 0.998,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed2": {
+   "dependent_polyp": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "dependent_instrument": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "negative_control": {
+    "p_iut": 0.881,
+    "p_iut_holm": 0.881,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
   "KVASIR|MEDGEMMA_ZEROSHOT_KVASIR": {
    "dependent_polyp": {
     "p_iut": 0.0,
@@ -1385,6 +1709,222 @@
     "teste_do_maximo": "L2_blur10"
    }
   },
+  "HEAL|QWEN25VL_LORA_HEAL_seed0": {
+   "closed_yes": {
+    "p_iut": 0.934,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   },
+   "closed_no": {
+    "p_iut": 0.9985,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed0": {
+   "closed_yes": {
+    "p_iut": 0.447,
+    "p_iut_holm": 0.894,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "closed_no": {
+    "p_iut": 0.8985,
+    "p_iut_holm": 0.8985,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed0": {
+   "closed_yes": {
+    "p_iut": 0.948,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "closed_no": {
+    "p_iut": 0.9305,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L2_blur10"
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed0": {
+   "closed_yes": {
+    "p_iut": 0.888,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed1": {
+   "closed_yes": {
+    "p_iut": 0.9135,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "closed_no": {
+    "p_iut": 0.738,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L2_blur10"
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed1": {
+   "closed_yes": {
+    "p_iut": 0.884,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L2_blur10"
+   },
+   "closed_no": {
+    "p_iut": 0.529,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed1": {
+   "closed_yes": {
+    "p_iut": 0.946,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "closed_no": {
+    "p_iut": 0.976,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed1": {
+   "closed_yes": {
+    "p_iut": 0.9795,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "closed_no": {
+    "p_iut": 0.993,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed2": {
+   "closed_yes": {
+    "p_iut": 0.996,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   },
+   "closed_no": {
+    "p_iut": 0.786,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed2": {
+   "closed_yes": {
+    "p_iut": 0.3265,
+    "p_iut_holm": 0.653,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "closed_no": {
+    "p_iut": 0.959,
+    "p_iut_holm": 0.959,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L2_blur10"
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed2": {
+   "closed_yes": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_blur10"
+   },
+   "closed_no": {
+    "p_iut": 0.9285,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed2": {
+   "closed_yes": {
+    "p_iut": 0.897,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L2_blur10"
+   }
+  },
   "HEAL|MEDGEMMA_ZEROSHOT_HEAL": {
    "closed_yes": {
     "p_iut": 1.0,
@@ -1937,6 +2477,222 @@
    "closed_no": {
     "p_iut": 0.7135,
     "p_iut_holm": 0.7135,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "ganho"
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed0": {
+   "closed_yes": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed0": {
+   "closed_yes": {
+    "p_iut": 0.226,
+    "p_iut_holm": 0.452,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   },
+   "closed_no": {
+    "p_iut": 0.8135,
+    "p_iut_holm": 0.8135,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "ganho"
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed0": {
+   "closed_yes": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "ganho"
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed0": {
+   "closed_yes": {
+    "p_iut": 0.8395,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L2_blur10"
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed1": {
+   "closed_yes": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed1": {
+   "closed_yes": {
+    "p_iut": 0.766,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   },
+   "closed_no": {
+    "p_iut": 0.6555,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed1": {
+   "closed_yes": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L2_blur10"
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed1": {
+   "closed_yes": {
+    "p_iut": 0.0975,
+    "p_iut_holm": 0.195,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed2": {
+   "closed_yes": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed2": {
+   "closed_yes": {
+    "p_iut": 0.3685,
+    "p_iut_holm": 0.737,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   },
+   "closed_no": {
+    "p_iut": 0.8105,
+    "p_iut_holm": 0.8105,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L1_preto"
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed2": {
+   "closed_yes": {
+    "p_iut": 0.0,
+    "p_iut_holm": 0.0,
+    "declarado_iut_holm": true,
+    "declarado_holm_por_condicao": true,
+    "declarado_sem_holm_IC": true,
+    "teste_do_maximo": "ganho"
+   },
+   "closed_no": {
+    "p_iut": 0.8295,
+    "p_iut_holm": 0.8295,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed2": {
+   "closed_yes": {
+    "p_iut": 0.468,
+    "p_iut_holm": 0.936,
+    "declarado_iut_holm": false,
+    "declarado_holm_por_condicao": false,
+    "declarado_sem_holm_IC": false,
+    "teste_do_maximo": "L0_preto"
+   },
+   "closed_no": {
+    "p_iut": 1.0,
+    "p_iut_holm": 1.0,
     "declarado_iut_holm": false,
     "declarado_holm_por_condicao": false,
     "declarado_sem_holm_IC": false,

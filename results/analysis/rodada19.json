@@ -1,7 +1,7 @@
 {
- "t": "2026-10-30 19:12:57",
+ "t": "2026-11-03 05:13:21",
  "script": "src/analysis/r19_ganho_pareado.py",
- "script_sha256": "459e3ffc09b7c896a600799718212d4b4c1306deecd07722239b142981fd672f",
+ "script_sha256": "f0d018581f7f441c58e57bcfd97fbd1608dc5ced8e5b45c8a635a809755aac2c",
  "regra": "G pareado: runs LoRA -> baseline LoRA; runs DoRA -> baseline DoRA (rodada 17); M3AE -> imagem cinza; IC 95 % por imagem, p unilateral bootstrap",
  "por_linha": {
   "KVASIR|QWEN2VL_LORA_KVASIR_seed0": {
@@ -2893,6 +2893,1290 @@
     }
    }
   },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed0": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 0,
+   "baseline": "results/predictions/kvasir/no_image/QWEN25VL_LORA_TXT_KVASIR_seed0_TXT.json",
+   "baseline_sha256": "daa997e5613978578276e3209e096ccc20c6517644b8625dd0b5f643f31e5d56",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.35100742311770944,
+     "G_ci": [
+      0.32558080569838205,
+      0.3771934676292501
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.35100742311770944,
+     "G_atual_ci": [
+      0.32558080569838205,
+      0.3771934676292501
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7452229299363057,
+     "G_ci": [
+      0.6956379187455453,
+      0.7932355889724311
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7452229299363057,
+     "G_atual_ci": [
+      0.6956379187455453,
+      0.7932355889724311
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.1771978021978022,
+     "G_ci": [
+      0.14920330887252942,
+      0.20198224018581973
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.1771978021978022,
+     "G_atual_ci": [
+      0.14920330887252942,
+      0.20198224018581973
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9852941176470589,
+     "G_ci": [
+      0.9609375,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9852941176470589,
+     "G_atual_ci": [
+      0.9609375,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed0": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 0,
+   "baseline": "results/predictions/kvasir/no_image/QWEN25VL_LORA_TXT_KVASIR_seed0_TXT.json",
+   "baseline_sha256": "daa997e5613978578276e3209e096ccc20c6517644b8625dd0b5f643f31e5d56",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.35737009544008486,
+     "G_ci": [
+      0.32995652008809906,
+      0.3845260989010989
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.35737009544008486,
+     "G_atual_ci": [
+      0.32995652008809906,
+      0.3845260989010989
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": false
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7484076433121019,
+     "G_ci": [
+      0.7036978618997547,
+      0.7919605761767793
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7484076433121019,
+     "G_atual_ci": [
+      0.7036978618997547,
+      0.7919605761767793
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.17857142857142858,
+     "G_ci": [
+      0.15143710042959105,
+      0.20417365950152835
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.17857142857142858,
+     "G_atual_ci": [
+      0.15143710042959105,
+      0.20417365950152835
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": true
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9852941176470589,
+     "G_ci": [
+      0.961531007751938,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9852941176470589,
+     "G_atual_ci": [
+      0.961531007751938,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07851239669421488,
+      0.16144045652247208
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07851239669421488,
+      0.16144045652247208
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed0": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 0,
+   "baseline": "results/predictions/kvasir/no_image_dora/QWEN25VL_DORA_TXT_KVASIR_seed0_TXT.json",
+   "baseline_sha256": "40a16a12935d9231de09e67fdf8a23b4c73512c7acc1b1bc3eebc69740f7e3da",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.34358430540827145,
+     "G_ci": [
+      0.3176097254838448,
+      0.3707003490209439
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.34358430540827145,
+     "G_atual_ci": [
+      0.3176097254838448,
+      0.3707003490209439
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7579617834394905,
+     "G_ci": [
+      0.7117386394744046,
+      0.8020632809230586
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7579617834394905,
+     "G_atual_ci": [
+      0.7117386394744046,
+      0.8020632809230586
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.17994505494505494,
+     "G_ci": [
+      0.1523889893474804,
+      0.20492242781171713
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.17994505494505494,
+     "G_atual_ci": [
+      0.1523889893474804,
+      0.20492242781171713
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9926470588235294,
+     "G_ci": [
+      0.9749947478991596,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9926470588235294,
+     "G_atual_ci": [
+      0.9749947478991596,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.12345679012345678,
+     "G_ci": [
+      0.08218616662923871,
+      0.16533749819181243
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.12345679012345678,
+     "G_atual_ci": [
+      0.08218616662923871,
+      0.16533749819181243
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed0": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 0,
+   "baseline": "results/predictions/kvasir/no_image_dora/QWEN25VL_DORA_TXT_KVASIR_seed0_TXT.json",
+   "baseline_sha256": "40a16a12935d9231de09e67fdf8a23b4c73512c7acc1b1bc3eebc69740f7e3da",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.36903499469777307,
+     "G_ci": [
+      0.3402601158661262,
+      0.397229168596215
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.36903499469777307,
+     "G_atual_ci": [
+      0.3402601158661262,
+      0.397229168596215
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7611464968152867,
+     "G_ci": [
+      0.7161685613005745,
+      0.8045125027552595
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7611464968152867,
+     "G_atual_ci": [
+      0.7161685613005745,
+      0.8045125027552595
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.1771978021978022,
+     "G_ci": [
+      0.14993464991396294,
+      0.20249877445119324
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.1771978021978022,
+     "G_atual_ci": [
+      0.14993464991396294,
+      0.20249877445119324
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9852941176470589,
+     "G_ci": [
+      0.9618320610687023,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9852941176470589,
+     "G_atual_ci": [
+      0.9618320610687023,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed1": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 1,
+   "baseline": "results/predictions/kvasir/no_image/QWEN25VL_LORA_TXT_KVASIR_seed1_TXT.json",
+   "baseline_sha256": "824bb26e70386d16fa74c3960c93124cd4b352626590b1bb11641a3cbd6813de",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.3404029692470838,
+     "G_ci": [
+      0.31262999712395745,
+      0.3665510083036773
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.3404029692470838,
+     "G_atual_ci": [
+      0.31262999712395745,
+      0.3665510083036773
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7292993630573248,
+     "G_ci": [
+      0.6835434621599784,
+      0.7736499400776924
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7292993630573248,
+     "G_atual_ci": [
+      0.6835434621599784,
+      0.7736499400776924
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.1771978021978022,
+     "G_ci": [
+      0.14939282189322567,
+      0.2022534245507955
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.1771978021978022,
+     "G_atual_ci": [
+      0.14939282189322567,
+      0.2022534245507955
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9852941176470589,
+     "G_ci": [
+      0.961036424512987,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9852941176470589,
+     "G_atual_ci": [
+      0.961036424512987,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed1": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 1,
+   "baseline": "results/predictions/kvasir/no_image/QWEN25VL_LORA_TXT_KVASIR_seed1_TXT.json",
+   "baseline_sha256": "824bb26e70386d16fa74c3960c93124cd4b352626590b1bb11641a3cbd6813de",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.3828207847295864,
+     "G_ci": [
+      0.3566647286821706,
+      0.40833841463414633
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.3828207847295864,
+     "G_atual_ci": [
+      0.3566647286821706,
+      0.40833841463414633
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7738853503184714,
+     "G_ci": [
+      0.7312493824110672,
+      0.8169571229259055
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7738853503184714,
+     "G_atual_ci": [
+      0.7312493824110672,
+      0.8169571229259055
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.17994505494505494,
+     "G_ci": [
+      0.15207833572453372,
+      0.20488466757123475
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.17994505494505494,
+     "G_atual_ci": [
+      0.15207833572453372,
+      0.20488466757123475
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9852941176470589,
+     "G_ci": [
+      0.9612403100775194,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9852941176470589,
+     "G_atual_ci": [
+      0.9612403100775194,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed1": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 1,
+   "baseline": "results/predictions/kvasir/no_image_dora/QWEN25VL_DORA_TXT_KVASIR_seed1_TXT.json",
+   "baseline_sha256": "da766244d59c8912ec32bbb9b9b1d82ac93c963663a089d1ee3c3a86ae2eb898",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.3297985153764581,
+     "G_ci": [
+      0.30223971253465637,
+      0.35772357723577236
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.3297985153764581,
+     "G_atual_ci": [
+      0.30223971253465637,
+      0.35772357723577236
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7356687898089171,
+     "G_ci": [
+      0.6880695462102087,
+      0.7821030935778402
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7356687898089171,
+     "G_atual_ci": [
+      0.6880695462102087,
+      0.7821030935778402
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.1771978021978022,
+     "G_ci": [
+      0.14939282189322567,
+      0.2022534245507955
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.1771978021978022,
+     "G_atual_ci": [
+      0.14939282189322567,
+      0.2022534245507955
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9632352941176471,
+     "G_ci": [
+      0.9274193548387096,
+      0.9921259842519685
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9632352941176471,
+     "G_atual_ci": [
+      0.9274193548387096,
+      0.9921259842519685
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed1": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 1,
+   "baseline": "results/predictions/kvasir/no_image_dora/QWEN25VL_DORA_TXT_KVASIR_seed1_TXT.json",
+   "baseline_sha256": "da766244d59c8912ec32bbb9b9b1d82ac93c963663a089d1ee3c3a86ae2eb898",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.3584305408271474,
+     "G_ci": [
+      0.33015247912581364,
+      0.3887336835402738
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.3584305408271474,
+     "G_atual_ci": [
+      0.33015247912581364,
+      0.3887336835402738
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7547770700636943,
+     "G_ci": [
+      0.7075030554399834,
+      0.8013250607621468
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7547770700636943,
+     "G_atual_ci": [
+      0.7075030554399834,
+      0.8013250607621468
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.17857142857142858,
+     "G_ci": [
+      0.1517575671383536,
+      0.20334491818238687
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.17857142857142858,
+     "G_atual_ci": [
+      0.1517575671383536,
+      0.20334491818238687
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": true
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9852941176470589,
+     "G_ci": [
+      0.9612403100775194,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9852941176470589,
+     "G_atual_ci": [
+      0.9612403100775194,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_KVASIR_seed2": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 2,
+   "baseline": "results/predictions/kvasir/no_image/QWEN25VL_LORA_TXT_KVASIR_seed2_TXT.json",
+   "baseline_sha256": "3133c58704c6e77b8d8fa198062880cba77f574e8d416622d38f394728f5a452",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.3361611876988335,
+     "G_ci": [
+      0.3104490558606979,
+      0.36229745580853995
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.3361611876988335,
+     "G_atual_ci": [
+      0.3104490558606979,
+      0.36229745580853995
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7611464968152867,
+     "G_ci": [
+      0.712117534568991,
+      0.8093787202380952
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7611464968152867,
+     "G_atual_ci": [
+      0.712117534568991,
+      0.8093787202380952
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.17582417582417584,
+     "G_ci": [
+      0.1480484522207268,
+      0.2013888888888889
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.17582417582417584,
+     "G_atual_ci": [
+      0.1480484522207268,
+      0.2013888888888889
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9926470588235294,
+     "G_ci": [
+      0.9749947478991596,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9926470588235294,
+     "G_atual_ci": [
+      0.9749947478991596,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": true
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_LORA_VT_KVASIR_seed2": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 2,
+   "baseline": "results/predictions/kvasir/no_image/QWEN25VL_LORA_TXT_KVASIR_seed2_TXT.json",
+   "baseline_sha256": "3133c58704c6e77b8d8fa198062880cba77f574e8d416622d38f394728f5a452",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.3531283138918346,
+     "G_ci": [
+      0.32128979165965466,
+      0.38293756332320167
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.3531283138918346,
+     "G_atual_ci": [
+      0.32128979165965466,
+      0.38293756332320167
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7292993630573248,
+     "G_ci": [
+      0.6859199990743312,
+      0.7730517624642743
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7292993630573248,
+     "G_atual_ci": [
+      0.6859199990743312,
+      0.7730517624642743
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.17857142857142858,
+     "G_ci": [
+      0.15135046230440968,
+      0.20329903147699757
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.17857142857142858,
+     "G_atual_ci": [
+      0.15135046230440968,
+      0.20329903147699757
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": true
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9705882352941176,
+     "G_ci": [
+      0.9393939393939394,
+      0.9932432432432432
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9705882352941176,
+     "G_atual_ci": [
+      0.9393939393939394,
+      0.9932432432432432
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11522633744855967,
+     "G_ci": [
+      0.07377049180327869,
+      0.15765765765765766
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11522633744855967,
+     "G_atual_ci": [
+      0.07377049180327869,
+      0.15765765765765766
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_KVASIR_seed2": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 2,
+   "baseline": "results/predictions/kvasir/no_image_dora/QWEN25VL_DORA_TXT_KVASIR_seed2_TXT.json",
+   "baseline_sha256": "f7a9e4950ada8eb1e645b0f85725769a7af73c6c6f94a45143368e2b1911ad42",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.33510074231177095,
+     "G_ci": [
+      0.3068023981556402,
+      0.36353670492587276
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.33510074231177095,
+     "G_atual_ci": [
+      0.3068023981556402,
+      0.36353670492587276
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": false
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7515923566878981,
+     "G_ci": [
+      0.7075450577302168,
+      0.7964653392330383
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7515923566878981,
+     "G_atual_ci": [
+      0.7075450577302168,
+      0.7964653392330383
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.1771978021978022,
+     "G_ci": [
+      0.14920330887252942,
+      0.20198224018581973
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.1771978021978022,
+     "G_atual_ci": [
+      0.14920330887252942,
+      0.20198224018581973
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9852941176470589,
+     "G_ci": [
+      0.9609375,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9852941176470589,
+     "G_atual_ci": [
+      0.9609375,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": true
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07825908033637503,
+      0.16170212765957448
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "KVASIR|QWEN25VL_DORA_VT_KVASIR_seed2": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 2,
+   "baseline": "results/predictions/kvasir/no_image_dora/QWEN25VL_DORA_TXT_KVASIR_seed2_TXT.json",
+   "baseline_sha256": "f7a9e4950ada8eb1e645b0f85725769a7af73c6c6f94a45143368e2b1911ad42",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "dependent_polyp": {
+     "n": 943,
+     "G": 0.3488865323435843,
+     "G_ci": [
+      0.32110423768501073,
+      0.3769476934650197
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.2757158006362672,
+     "G_atual": 0.3488865323435843,
+     "G_atual_ci": [
+      0.32110423768501073,
+      0.3769476934650197
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "dependent_instrument": {
+     "n": 314,
+     "G": 0.7611464968152867,
+     "G_ci": [
+      0.7147333019212646,
+      0.8078182282685061
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.7611464968152867,
+     "G_atual_ci": [
+      0.7147333019212646,
+      0.8078182282685061
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "negative_control": {
+     "n": 728,
+     "G": 0.1771978021978022,
+     "G_ci": [
+      0.14985657724628312,
+      0.20218853635016582
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.7994505494505495,
+     "G_atual": 0.1771978021978022,
+     "G_atual_ci": [
+      0.14985657724628312,
+      0.20218853635016582
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": true
+    },
+    "dependent_polyp_secondary": {
+     "n": 136,
+     "G": 0.9852941176470589,
+     "G_ci": [
+      0.9615384615384616,
+      1.0
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.0,
+     "G_atual": 0.9852941176470589,
+     "G_atual_ci": [
+      0.9615384615384616,
+      1.0
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "controle_texto": {
+     "n": 243,
+     "G": 0.11934156378600823,
+     "G_ci": [
+      0.07825908033637503,
+      0.16101694915254236
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8641975308641975,
+     "G_atual": 0.11934156378600823,
+     "G_atual_ci": [
+      0.07825908033637503,
+      0.16101694915254236
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
   "HEAL|QWEN2VL_LORA_HEAL_seed0": {
    "metodo": "LORA",
    "familia": "Qwen2-VL-2B",
@@ -4235,6 +5519,606 @@
      "G_atual_ci": [
       0.07978484110922715,
       0.1361734678779629
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed0": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 0,
+   "baseline": "QWEN25VL_LORA_TXT_HEAL_seed0_TXT.json",
+   "baseline_sha256": "89a9eea2db7e2d8ddccd71495a145f73e0f0fae84373ae4fe3615f8f7d06bc59",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.035161744022503515,
+     "G_ci": [
+      0.012837433941771495,
+      0.056552358191484166
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.90014064697609,
+     "G_atual": 0.035161744022503515,
+     "G_atual_ci": [
+      0.012837433941771495,
+      0.056552358191484166
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.04625850340136054,
+     "G_ci": [
+      0.024793388429752067,
+      0.06878418176209586
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8095238095238095,
+     "G_atual": 0.04625850340136054,
+     "G_atual_ci": [
+      0.024793388429752067,
+      0.06878418176209586
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed0": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 0,
+   "baseline": "QWEN25VL_LORA_TXT_HEAL_seed0_TXT.json",
+   "baseline_sha256": "89a9eea2db7e2d8ddccd71495a145f73e0f0fae84373ae4fe3615f8f7d06bc59",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.0450070323488045,
+     "G_ci": [
+      0.023087191386903204,
+      0.06722783283717074
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.90014064697609,
+     "G_atual": 0.0450070323488045,
+     "G_atual_ci": [
+      0.023087191386903204,
+      0.06722783283717074
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.0761904761904762,
+     "G_ci": [
+      0.05086835003293289,
+      0.10056217525491266
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8095238095238095,
+     "G_atual": 0.0761904761904762,
+     "G_atual_ci": [
+      0.05086835003293289,
+      0.10056217525491266
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed0": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 0,
+   "baseline": "QWEN25VL_DORA_TXT_HEAL_seed0_TXT.json",
+   "baseline_sha256": "b071a9bc40f9a8475985746906cc6562fa42da2649fcf89277f07afd1b34a7c3",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.029535864978902954,
+     "G_ci": [
+      0.011095316215935853,
+      0.04801332349518289
+     ],
+     "p_G": 0.0005,
+     "acc_txt": 0.9029535864978903,
+     "G_atual": 0.03234880450070324,
+     "G_atual_ci": [
+      0.013656229197074257,
+      0.0518303665565474
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.044897959183673466,
+     "G_ci": [
+      0.023152213667867527,
+      0.06812064894854722
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8081632653061225,
+     "G_atual": 0.04353741496598639,
+     "G_atual_ci": [
+      0.021303248256373256,
+      0.06591976375417703
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed0": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 0,
+   "baseline": "QWEN25VL_DORA_TXT_HEAL_seed0_TXT.json",
+   "baseline_sha256": "b071a9bc40f9a8475985746906cc6562fa42da2649fcf89277f07afd1b34a7c3",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.04922644163150492,
+     "G_ci": [
+      0.02975386575929162,
+      0.06896673142302087
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.9029535864978903,
+     "G_atual": 0.052039381153305204,
+     "G_atual_ci": [
+      0.03159124266144814,
+      0.0722456670924689
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.061224489795918366,
+     "G_ci": [
+      0.03405647943093549,
+      0.08840744842056182
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8081632653061225,
+     "G_atual": 0.05986394557823129,
+     "G_atual_ci": [
+      0.0327174583918614,
+      0.08643976812194896
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed1": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 1,
+   "baseline": "QWEN25VL_LORA_TXT_HEAL_seed1_TXT.json",
+   "baseline_sha256": "06bd77361f44440b1f10a96fec154fe494726a428ec83d2ea2852e8e04eab894",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.05625879043600562,
+     "G_ci": [
+      0.03361181892111683,
+      0.07806454128922956
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8973277074542897,
+     "G_atual": 0.05625879043600562,
+     "G_atual_ci": [
+      0.03361181892111683,
+      0.07806454128922956
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.014965986394557823,
+     "G_ci": [
+      -0.009656848659003832,
+      0.040334873281831156
+     ],
+     "p_G": 0.1235,
+     "acc_txt": 0.8122448979591836,
+     "G_atual": 0.014965986394557823,
+     "G_atual_ci": [
+      -0.009656848659003832,
+      0.040334873281831156
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed1": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 1,
+   "baseline": "QWEN25VL_LORA_TXT_HEAL_seed1_TXT.json",
+   "baseline_sha256": "06bd77361f44440b1f10a96fec154fe494726a428ec83d2ea2852e8e04eab894",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.06047819971870605,
+     "G_ci": [
+      0.04211846949509116,
+      0.0788400090326587
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8973277074542897,
+     "G_atual": 0.06047819971870605,
+     "G_atual_ci": [
+      0.04211846949509116,
+      0.0788400090326587
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.0163265306122449,
+     "G_ci": [
+      -0.005488106825128494,
+      0.038979806147701114
+     ],
+     "p_G": 0.081,
+     "acc_txt": 0.8122448979591836,
+     "G_atual": 0.0163265306122449,
+     "G_atual_ci": [
+      -0.005488106825128494,
+      0.038979806147701114
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed1": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 1,
+   "baseline": "QWEN25VL_DORA_TXT_HEAL_seed1_TXT.json",
+   "baseline_sha256": "760ec4e92ad09ed1d632d2c7769259f0e6b960527ee9b38c1e51c7eee3c6e779",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.053445850914205346,
+     "G_ci": [
+      0.032737211104563395,
+      0.07468895481226596
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8973277074542897,
+     "G_atual": 0.053445850914205346,
+     "G_atual_ci": [
+      0.03421273856323377,
+      0.07407898614795164
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.027210884353741496,
+     "G_ci": [
+      0.002623905961171196,
+      0.05211301416178828
+     ],
+     "p_G": 0.0185,
+     "acc_txt": 0.8108843537414966,
+     "G_atual": 0.02585034013605442,
+     "G_atual_ci": [
+      0.002676666932631187,
+      0.04950727311337031
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed1": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 1,
+   "baseline": "QWEN25VL_DORA_TXT_HEAL_seed1_TXT.json",
+   "baseline_sha256": "760ec4e92ad09ed1d632d2c7769259f0e6b960527ee9b38c1e51c7eee3c6e779",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.05063291139240506,
+     "G_ci": [
+      0.03159153704461727,
+      0.0700280112044818
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8973277074542897,
+     "G_atual": 0.05063291139240506,
+     "G_atual_ci": [
+      0.0317443919716647,
+      0.07005618158230488
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.0653061224489796,
+     "G_ci": [
+      0.041132374770789064,
+      0.08928571428571429
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8108843537414966,
+     "G_atual": 0.06394557823129252,
+     "G_atual_ci": [
+      0.040515351771776675,
+      0.08707502739847753
+     ],
+     "L0p": false,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_HEAL_seed2": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 2,
+   "baseline": "QWEN25VL_LORA_TXT_HEAL_seed2_TXT.json",
+   "baseline_sha256": "42ae7c023d294e2824d4a1e0e21eb0ad512a53571f2bb7d060530090f9b10130",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.05625879043600562,
+     "G_ci": [
+      0.03561634078757366,
+      0.07692837465564736
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8959212376933896,
+     "G_atual": 0.05625879043600562,
+     "G_atual_ci": [
+      0.03561634078757366,
+      0.07692837465564736
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.027210884353741496,
+     "G_ci": [
+      0.0028121570629625068,
+      0.05271068107387114
+     ],
+     "p_G": 0.014,
+     "acc_txt": 0.8108843537414966,
+     "G_atual": 0.027210884353741496,
+     "G_atual_ci": [
+      0.0028121570629625068,
+      0.05271068107387114
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_LORA_VT_HEAL_seed2": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 2,
+   "baseline": "QWEN25VL_LORA_TXT_HEAL_seed2_TXT.json",
+   "baseline_sha256": "42ae7c023d294e2824d4a1e0e21eb0ad512a53571f2bb7d060530090f9b10130",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.05907172995780591,
+     "G_ci": [
+      0.03655898581438417,
+      0.08163409025582062
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8959212376933896,
+     "G_atual": 0.05907172995780591,
+     "G_atual_ci": [
+      0.03655898581438417,
+      0.08163409025582062
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.03945578231292517,
+     "G_ci": [
+      0.013868188749511498,
+      0.06693468434407084
+     ],
+     "p_G": 0.003,
+     "acc_txt": 0.8108843537414966,
+     "G_atual": 0.03945578231292517,
+     "G_atual_ci": [
+      0.013868188749511498,
+      0.06693468434407084
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_HEAL_seed2": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 2,
+   "baseline": "QWEN25VL_DORA_TXT_HEAL_seed2_TXT.json",
+   "baseline_sha256": "5f3968af195cbe141dc1b6965bfe8e6d225d056c5b9dda9b9c1d2156583639a4",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.052039381153305204,
+     "G_ci": [
+      0.02924712477850899,
+      0.07450286742711866
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8917018284106891,
+     "G_atual": 0.04781997187060478,
+     "G_atual_ci": [
+      0.02493064637980195,
+      0.06938818870324333
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.02857142857142857,
+     "G_ci": [
+      0.004052040451047074,
+      0.05489117486896737
+     ],
+     "p_G": 0.0145,
+     "acc_txt": 0.8149659863945579,
+     "G_atual": 0.0326530612244898,
+     "G_atual_ci": [
+      0.008129806264233144,
+      0.060027335065785926
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "HEAL|QWEN25VL_DORA_VT_HEAL_seed2": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 2,
+   "baseline": "QWEN25VL_DORA_TXT_HEAL_seed2_TXT.json",
+   "baseline_sha256": "5f3968af195cbe141dc1b6965bfe8e6d225d056c5b9dda9b9c1d2156583639a4",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 711,
+     "G": 0.052039381153305204,
+     "G_ci": [
+      0.033610081587220036,
+      0.07285787172011661
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.8917018284106891,
+     "G_atual": 0.04781997187060478,
+     "G_atual_ci": [
+      0.027582967909109028,
+      0.06930759075907592
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 735,
+     "G": 0.050340136054421766,
+     "G_ci": [
+      0.02496469752530082,
+      0.07681760451676595
+     ],
+     "p_G": 0.0005,
+     "acc_txt": 0.8149659863945579,
+     "G_atual": 0.05442176870748299,
+     "G_atual_ci": [
+      0.02812897158253266,
+      0.08210190084625453
      ],
      "L0p": true,
      "L0b": true,
@@ -10209,115 +12093,2767 @@
      "L2b": false
     }
    }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed0": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 0,
+   "baseline": "QWEN25VL_LORA_TXT_MIMIC_seed0_TXT.json",
+   "baseline_sha256": "0e8766a8f6de2e0aa886156e70c27c6f414f5211f0b362ff8073a1742b616c3c",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.1580135440180587,
+     "G_ci": [
+      0.12253390761617225,
+      0.19463599268992024
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6139954853273137,
+     "G_atual": 0.1580135440180587,
+     "G_atual_ci": [
+      0.12253390761617225,
+      0.19463599268992024
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no": {
+     "n": 67,
+     "G": -0.014925373134328358,
+     "G_ci": [
+      -0.06493506493506493,
+      0.03125
+     ],
+     "p_G": 0.82,
+     "acc_txt": 0.835820895522388,
+     "G_atual": -0.014925373134328358,
+     "G_atual_ci": [
+      -0.06493506493506493,
+      0.03125
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": 0.011992619926199263,
+     "G_ci": [
+      -0.0072208706116255955,
+      0.030163101280599038
+     ],
+     "p_G": 0.113,
+     "acc_txt": 0.477859778597786,
+     "G_atual": 0.011992619926199263,
+     "G_atual_ci": [
+      -0.0072208706116255955,
+      0.030163101280599038
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.40625,
+     "G_ci": [
+      0.3106796116504854,
+      0.5053792981212336
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.40625,
+     "G_atual_ci": [
+      0.3106796116504854,
+      0.5053792981212336
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": false,
+     "L2b": true
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": -0.011494252873563218,
+     "G_ci": [
+      -0.05194805194805195,
+      0.025982570061517385
+     ],
+     "p_G": 0.816,
+     "acc_txt": 0.9770114942528736,
+     "G_atual": -0.011494252873563218,
+     "G_atual_ci": [
+      -0.05194805194805195,
+      0.025982570061517385
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.8636363636363636,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": 0.4888888888888889,
+     "G_ci": [
+      0.3181818181818182,
+      0.6491738066095468
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3333333333333333,
+     "G_atual": 0.4888888888888889,
+     "G_atual_ci": [
+      0.3181818181818182,
+      0.6491738066095468
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.17391304347826086,
+     "G_ci": [
+      0.041666666666666664,
+      0.35294117647058826
+     ],
+     "p_G": 0.014,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.17391304347826086,
+     "G_atual_ci": [
+      0.041666666666666664,
+      0.35294117647058826
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.16511627906976745,
+     "G_ci": [
+      0.13032581453634084,
+      0.20241037320011754
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6139534883720931,
+     "G_atual": 0.16511627906976745,
+     "G_atual_ci": [
+      0.13032581453634084,
+      0.20241037320011754
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": -0.015384615384615385,
+     "G_ci": [
+      -0.06668918918918919,
+      0.03225806451612903
+     ],
+     "p_G": 0.82,
+     "acc_txt": 0.8307692307692308,
+     "G_atual": -0.015384615384615385,
+     "G_atual_ci": [
+      -0.06668918918918919,
+      0.03225806451612903
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed0": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 0,
+   "baseline": "QWEN25VL_LORA_TXT_MIMIC_seed0_TXT.json",
+   "baseline_sha256": "0e8766a8f6de2e0aa886156e70c27c6f414f5211f0b362ff8073a1742b616c3c",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.16252821670428894,
+     "G_ci": [
+      0.12469958900590804,
+      0.19910610350229224
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6139954853273137,
+     "G_atual": 0.16252821670428894,
+     "G_atual_ci": [
+      0.12469958900590804,
+      0.19910610350229224
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no": {
+     "n": 67,
+     "G": -0.029850746268656716,
+     "G_ci": [
+      -0.11428571428571428,
+      0.05172413793103448
+     ],
+     "p_G": 0.8135,
+     "acc_txt": 0.835820895522388,
+     "G_atual": -0.029850746268656716,
+     "G_atual_ci": [
+      -0.11428571428571428,
+      0.05172413793103448
+     ],
+     "L0p": false,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": 0.014760147601476014,
+     "G_ci": [
+      -0.004704001668471219,
+      0.03273646121320535
+     ],
+     "p_G": 0.066,
+     "acc_txt": 0.477859778597786,
+     "G_atual": 0.014760147601476014,
+     "G_atual_ci": [
+      -0.004704001668471219,
+      0.03273646121320535
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.375,
+     "G_ci": [
+      0.2803738317757009,
+      0.47115660919540225
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.375,
+     "G_atual_ci": [
+      0.2803738317757009,
+      0.47115660919540225
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": true
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": 0.011494252873563218,
+     "G_ci": [
+      -0.024103732001175434,
+      0.05263157894736842
+     ],
+     "p_G": 0.401,
+     "acc_txt": 0.9770114942528736,
+     "G_atual": 0.011494252873563218,
+     "G_atual_ci": [
+      -0.024103732001175434,
+      0.05263157894736842
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.015151515151515152,
+     "G_ci": [
+      -0.03571428571428571,
+      0.07142857142857142
+     ],
+     "p_G": 0.41,
+     "acc_txt": 0.8636363636363636,
+     "G_atual": 0.015151515151515152,
+     "G_atual_ci": [
+      -0.03571428571428571,
+      0.07142857142857142
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": 0.4222222222222222,
+     "G_ci": [
+      0.25,
+      0.5882730015082954
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3333333333333333,
+     "G_atual": 0.4222222222222222,
+     "G_atual_ci": [
+      0.25,
+      0.5882730015082954
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": true,
+     "L2b": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.21739130434782608,
+     "G_ci": [
+      0.058823529411764705,
+      0.4
+     ],
+     "p_G": 0.0045,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.21739130434782608,
+     "G_atual_ci": [
+      0.058823529411764705,
+      0.4
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.16511627906976745,
+     "G_ci": [
+      0.12698324318591578,
+      0.2028687819824702
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6139534883720931,
+     "G_atual": 0.16511627906976745,
+     "G_atual_ci": [
+      0.12698324318591578,
+      0.2028687819824702
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": -0.03076923076923077,
+     "G_ci": [
+      -0.11669117647058823,
+      0.05263157894736842
+     ],
+     "p_G": 0.8135,
+     "acc_txt": 0.8307692307692308,
+     "G_atual": -0.03076923076923077,
+     "G_atual_ci": [
+      -0.11669117647058823,
+      0.05263157894736842
+     ],
+     "L0p": false,
+     "L0b": true,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed0": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 0,
+   "baseline": "QWEN25VL_DORA_TXT_MIMIC_seed0_TXT.json",
+   "baseline_sha256": "5cfd1159ef39ec8621c33ef52b011461bdd4a2f67588c11d0eb5b200544b4930",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.12866817155756208,
+     "G_ci": [
+      0.09442870848371328,
+      0.16328566903479783
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.636568848758465,
+     "G_atual": 0.15124153498871332,
+     "G_atual_ci": [
+      0.1162227602905569,
+      0.1881885145794107
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no": {
+     "n": 67,
+     "G": -0.014925373134328358,
+     "G_ci": [
+      -0.05084745762711865,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.8208955223880597,
+     "G_atual": -0.029850746268656716,
+     "G_atual_ci": [
+      -0.07692307692307693,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": 0.013837638376383764,
+     "G_ci": [
+      -0.004622586485008342,
+      0.0330758109938302
+     ],
+     "p_G": 0.0875,
+     "acc_txt": 0.47601476014760147,
+     "G_atual": 0.011992619926199263,
+     "G_atual_ci": [
+      -0.006239417217529393,
+      0.030665715610128246
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.3645833333333333,
+     "G_ci": [
+      0.2727272727272727,
+      0.46155913978494617
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.3645833333333333,
+     "G_atual_ci": [
+      0.2727272727272727,
+      0.46155913978494617
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.9770114942528736,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.033707865168539325,
+      0.03261315039201708
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.0,
+     "G_ci": [
+      -0.041666666666666664,
+      0.04413410886742748
+     ],
+     "p_G": 0.6445,
+     "acc_txt": 0.8636363636363636,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": 0.2,
+     "G_ci": [
+      0.044444444444444446,
+      0.358974358974359
+     ],
+     "p_G": 0.0105,
+     "acc_txt": 0.5555555555555556,
+     "G_atual": 0.4222222222222222,
+     "G_atual_ci": [
+      0.2558139534883721,
+      0.5853658536585366
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.21739130434782608,
+     "G_ci": [
+      0.06245265151515152,
+      0.4
+     ],
+     "p_G": 0.006,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.21739130434782608,
+     "G_atual_ci": [
+      0.06245265151515152,
+      0.4
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.1325581395348837,
+     "G_ci": [
+      0.1,
+      0.16667570498915396
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6372093023255814,
+     "G_atual": 0.1558139534883721,
+     "G_atual_ci": [
+      0.1223892054488867,
+      0.19318181818181818
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": -0.015384615384615385,
+     "G_ci": [
+      -0.05263157894736842,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.8153846153846154,
+     "G_atual": -0.03076923076923077,
+     "G_atual_ci": [
+      -0.07938095238095237,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed0": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 0,
+   "baseline": "QWEN25VL_DORA_TXT_MIMIC_seed0_TXT.json",
+   "baseline_sha256": "5cfd1159ef39ec8621c33ef52b011461bdd4a2f67588c11d0eb5b200544b4930",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": -0.009029345372460496,
+     "G_ci": [
+      -0.029021110265855223,
+      0.009528432732316202
+     ],
+     "p_G": 0.852,
+     "acc_txt": 0.636568848758465,
+     "G_atual": 0.013544018058690745,
+     "G_atual_ci": [
+      -0.0069767441860465115,
+      0.03496503496503497
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 67,
+     "G": 0.014925373134328358,
+     "G_ci": [
+      -0.04838709677419355,
+      0.07694805194805182
+     ],
+     "p_G": 0.423,
+     "acc_txt": 0.8208955223880597,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.057971014492753624,
+      0.058823529411764705
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": 0.00922509225092251,
+     "G_ci": [
+      0.0,
+      0.019056694046494602
+     ],
+     "p_G": 0.032,
+     "acc_txt": 0.47601476014760147,
+     "G_atual": 0.007380073800738007,
+     "G_atual_ci": [
+      -0.0027249196073715763,
+      0.017369318906509067
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": 0.011494252873563218,
+     "G_ci": [
+      -0.02531645569620253,
+      0.05435899344848118
+     ],
+     "p_G": 0.3965,
+     "acc_txt": 0.9770114942528736,
+     "G_atual": 0.011494252873563218,
+     "G_atual_ci": [
+      -0.02631578947368421,
+      0.05194805194805195
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.0,
+     "G_ci": [
+      -0.04411764705882353,
+      0.043478260869565216
+     ],
+     "p_G": 0.6595,
+     "acc_txt": 0.8636363636363636,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.046171875,
+      0.045454545454545456
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": -0.08888888888888889,
+     "G_ci": [
+      -0.21153846153846154,
+      0.02564102564102564
+     ],
+     "p_G": 0.9475,
+     "acc_txt": 0.5555555555555556,
+     "G_atual": 0.13333333333333333,
+     "G_atual_ci": [
+      0.0,
+      0.2765957446808511
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.0,
+     "G_ci": [
+      -0.018475750577367205,
+      0.018519592678525387
+     ],
+     "p_G": 0.559,
+     "acc_txt": 0.6372093023255814,
+     "G_atual": 0.023255813953488372,
+     "G_atual_ci": [
+      0.004534128258044791,
+      0.043583535108958835
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": 0.015384615384615385,
+     "G_ci": [
+      -0.05,
+      0.08064516129032258
+     ],
+     "p_G": 0.423,
+     "acc_txt": 0.8153846153846154,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.06,
+      0.059714979320266065
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed1": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 1,
+   "baseline": "QWEN25VL_LORA_TXT_MIMIC_seed1_TXT.json",
+   "baseline_sha256": "1ad2a9854c7c8599aeee9b72dba1297e7a8597d02dcaa3982ae9e8e13fb6998d",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.06772009029345373,
+     "G_ci": [
+      0.03270837418033679,
+      0.10560420713938805
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6749435665914221,
+     "G_atual": 0.06772009029345373,
+     "G_atual_ci": [
+      0.03270837418033679,
+      0.10560420713938805
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no": {
+     "n": 67,
+     "G": 0.014925373134328358,
+     "G_ci": [
+      -0.03391291642314436,
+      0.06757329363261563
+     ],
+     "p_G": 0.41,
+     "acc_txt": 0.8059701492537313,
+     "G_atual": 0.014925373134328358,
+     "G_atual_ci": [
+      -0.03391291642314436,
+      0.06757329363261563
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": 0.0036900369003690036,
+     "G_ci": [
+      -0.01555241627489161,
+      0.021912048753213422
+     ],
+     "p_G": 0.364,
+     "acc_txt": 0.4833948339483395,
+     "G_atual": 0.0036900369003690036,
+     "G_atual_ci": [
+      -0.01555241627489161,
+      0.021912048753213422
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.2916666666666667,
+     "G_ci": [
+      0.19995049504950496,
+      0.38680006086427265
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.2916666666666667,
+     "G_atual_ci": [
+      0.19995049504950496,
+      0.38680006086427265
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.9885057471264368,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.0,
+     "G_ci": [
+      -0.046171875,
+      0.045454545454545456
+     ],
+     "p_G": 0.6715,
+     "acc_txt": 0.8636363636363636,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.046171875,
+      0.045454545454545456
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": -0.26666666666666666,
+     "G_ci": [
+      -0.4423076923076923,
+      -0.09297040169133221
+     ],
+     "p_G": 0.999,
+     "acc_txt": 0.8888888888888888,
+     "G_atual": -0.26666666666666666,
+     "G_atual_ci": [
+      -0.4423076923076923,
+      -0.09297040169133221
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.34782608695652173,
+     "G_ci": [
+      0.15789473684210525,
+      0.5714285714285714
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.34782608695652173,
+     "G_atual_ci": [
+      0.15789473684210525,
+      0.5714285714285714
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.06744186046511629,
+     "G_ci": [
+      0.031888848622903296,
+      0.10437164903637153
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6813953488372093,
+     "G_atual": 0.06744186046511629,
+     "G_atual_ci": [
+      0.031888848622903296,
+      0.10437164903637153
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": 0.015384615384615385,
+     "G_ci": [
+      -0.03571428571428571,
+      0.06896551724137931
+     ],
+     "p_G": 0.41,
+     "acc_txt": 0.8,
+     "G_atual": 0.015384615384615385,
+     "G_atual_ci": [
+      -0.03571428571428571,
+      0.06896551724137931
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed1": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 1,
+   "baseline": "QWEN25VL_LORA_TXT_MIMIC_seed1_TXT.json",
+   "baseline_sha256": "1ad2a9854c7c8599aeee9b72dba1297e7a8597d02dcaa3982ae9e8e13fb6998d",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.056433408577878104,
+     "G_ci": [
+      0.02267468715881414,
+      0.09213915298184958
+     ],
+     "p_G": 0.002,
+     "acc_txt": 0.6749435665914221,
+     "G_atual": 0.056433408577878104,
+     "G_atual_ci": [
+      0.02267468715881414,
+      0.09213915298184958
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 67,
+     "G": 0.029850746268656716,
+     "G_ci": [
+      -0.043494245524296676,
+      0.10294117647058823
+     ],
+     "p_G": 0.2785,
+     "acc_txt": 0.8059701492537313,
+     "G_atual": 0.029850746268656716,
+     "G_atual_ci": [
+      -0.043494245524296676,
+      0.10294117647058823
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": 0.0,
+     "G_ci": [
+      -0.014968312164232674,
+      0.015326449241503904
+     ],
+     "p_G": 0.5165,
+     "acc_txt": 0.4833948339483395,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.014968312164232674,
+      0.015326449241503904
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.3229166666666667,
+     "G_ci": [
+      0.22914402173913043,
+      0.4242613636363635
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.3229166666666667,
+     "G_atual_ci": [
+      0.22914402173913043,
+      0.4242613636363635
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": -0.034482758620689655,
+     "G_ci": [
+      -0.07692307692307693,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.9885057471264368,
+     "G_atual": -0.034482758620689655,
+     "G_atual_ci": [
+      -0.07692307692307693,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.0,
+     "G_ci": [
+      -0.046171875,
+      0.045454545454545456
+     ],
+     "p_G": 0.6715,
+     "acc_txt": 0.8636363636363636,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.046171875,
+      0.045454545454545456
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": -0.13333333333333333,
+     "G_ci": [
+      -0.30773809523809526,
+      0.046511627906976744
+     ],
+     "p_G": 0.946,
+     "acc_txt": 0.8888888888888888,
+     "G_atual": -0.13333333333333333,
+     "G_atual_ci": [
+      -0.30773809523809526,
+      0.046511627906976744
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.043478260869565216,
+     "G_ci": [
+      0.0,
+      0.14285714285714285
+     ],
+     "p_G": 0.373,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.043478260869565216,
+     "G_atual_ci": [
+      0.0,
+      0.14285714285714285
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.05813953488372093,
+     "G_ci": [
+      0.02350214676034348,
+      0.0936804323710202
+     ],
+     "p_G": 0.002,
+     "acc_txt": 0.6813953488372093,
+     "G_atual": 0.05813953488372093,
+     "G_atual_ci": [
+      0.02350214676034348,
+      0.0936804323710202
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": 0.046153846153846156,
+     "G_ci": [
+      -0.017248941318814277,
+      0.11539855072463762
+     ],
+     "p_G": 0.14,
+     "acc_txt": 0.8,
+     "G_atual": 0.046153846153846156,
+     "G_atual_ci": [
+      -0.017248941318814277,
+      0.11539855072463762
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed1": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 1,
+   "baseline": "QWEN25VL_DORA_TXT_MIMIC_seed1_TXT.json",
+   "baseline_sha256": "6deda8cab4e27bd9113a0719ed6b8bc3b1e1dcbcf0327c7302c78dc81e0a3d10",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.1038374717832957,
+     "G_ci": [
+      0.06474587571322253,
+      0.14318451190423273
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6704288939051919,
+     "G_atual": 0.09932279909706546,
+     "G_atual_ci": [
+      0.061773293467466864,
+      0.13825244815668203
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no": {
+     "n": 67,
+     "G": 0.014925373134328358,
+     "G_ci": [
+      0.0,
+      0.04918032786885246
+     ],
+     "p_G": 0.378,
+     "acc_txt": 0.8208955223880597,
+     "G_atual": 0.029850746268656716,
+     "G_atual_ci": [
+      -0.02857142857142857,
+      0.09094405594405576
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": -0.005535055350553505,
+     "G_ci": [
+      -0.0225228397411496,
+      0.012441086794809389
+     ],
+     "p_G": 0.752,
+     "acc_txt": 0.4843173431734317,
+     "G_atual": -0.004612546125461255,
+     "G_atual_ci": [
+      -0.024042969184398535,
+      0.014367816091954023
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.3333333333333333,
+     "G_ci": [
+      0.23761100336837807,
+      0.43209876543209874
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.3333333333333333,
+     "G_atual_ci": [
+      0.23761100336837807,
+      0.43209876543209874
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": true
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": 0.0,
+     "G_ci": [
+      -0.032266830294530154,
+      0.03296703296703297
+     ],
+     "p_G": 0.6425,
+     "acc_txt": 0.9885057471264368,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.032266830294530154,
+      0.03296703296703297
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.030303030303030304,
+     "G_ci": [
+      0.0,
+      0.07894736842105263
+     ],
+     "p_G": 0.1425,
+     "acc_txt": 0.8636363636363636,
+     "G_atual": 0.030303030303030304,
+     "G_atual_ci": [
+      0.0,
+      0.07894736842105263
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": -0.1111111111111111,
+     "G_ci": [
+      -0.3,
+      0.08113738738738709
+     ],
+     "p_G": 0.89,
+     "acc_txt": 0.7777777777777778,
+     "G_atual": -0.2222222222222222,
+     "G_atual_ci": [
+      -0.37841891891891893,
+      -0.05401849217638711
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.5217391304347826,
+     "G_ci": [
+      0.3102785145888594,
+      0.7391304347826086
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.5217391304347826,
+     "G_atual_ci": [
+      0.3102785145888594,
+      0.7391304347826086
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.10465116279069768,
+     "G_ci": [
+      0.06636068042777751,
+      0.14390899704191545
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.672093023255814,
+     "G_atual": 0.09534883720930233,
+     "G_atual_ci": [
+      0.05827232052064266,
+      0.1341499970755103
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": 0.015384615384615385,
+     "G_ci": [
+      0.0,
+      0.050015822784810045
+     ],
+     "p_G": 0.378,
+     "acc_txt": 0.8153846153846154,
+     "G_atual": 0.03076923076923077,
+     "G_atual_ci": [
+      -0.02942273924495171,
+      0.09525440313111537
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed1": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 1,
+   "baseline": "QWEN25VL_DORA_TXT_MIMIC_seed1_TXT.json",
+   "baseline_sha256": "6deda8cab4e27bd9113a0719ed6b8bc3b1e1dcbcf0327c7302c78dc81e0a3d10",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.11060948081264109,
+     "G_ci": [
+      0.07473541346786576,
+      0.14726973405157787
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6704288939051919,
+     "G_atual": 0.10609480812641084,
+     "G_atual_ci": [
+      0.06789584344169497,
+      0.14320012000252633
+     ],
+     "L0p": false,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no": {
+     "n": 67,
+     "G": 0.0,
+     "G_ci": [
+      -0.041666666666666664,
+      0.037037037037037035
+     ],
+     "p_G": 0.6595,
+     "acc_txt": 0.8208955223880597,
+     "G_atual": 0.014925373134328358,
+     "G_atual_ci": [
+      -0.03333333333333333,
+      0.06779661016949153
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": 0.008302583025830259,
+     "G_ci": [
+      -0.012795613279927382,
+      0.028519515757122936
+     ],
+     "p_G": 0.2235,
+     "acc_txt": 0.4843173431734317,
+     "G_atual": 0.00922509225092251,
+     "G_atual_ci": [
+      -0.012764127353165013,
+      0.030885827983805146
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.4166666666666667,
+     "G_ci": [
+      0.31681905435441504,
+      0.5154805453940803
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.4166666666666667,
+     "G_atual_ci": [
+      0.31681905435441504,
+      0.5154805453940803
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": -0.011494252873563218,
+     "G_ci": [
+      -0.053195035460992905,
+      0.025974025974025976
+     ],
+     "p_G": 0.8095,
+     "acc_txt": 0.9885057471264368,
+     "G_atual": -0.011494252873563218,
+     "G_atual_ci": [
+      -0.053195035460992905,
+      0.025974025974025976
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.0,
+     "G_ci": [
+      -0.046171875,
+      0.045454545454545456
+     ],
+     "p_G": 0.6715,
+     "acc_txt": 0.8636363636363636,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.046171875,
+      0.045454545454545456
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": -0.022222222222222223,
+     "G_ci": [
+      -0.16216216216216217,
+      0.1111111111111111
+     ],
+     "p_G": 0.677,
+     "acc_txt": 0.7777777777777778,
+     "G_atual": -0.13333333333333333,
+     "G_atual_ci": [
+      -0.285782967032967,
+      0.02128815911193333
+     ],
+     "L0p": false,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.13043478260869565,
+     "G_ci": [
+      0.0,
+      0.2917279411764703
+     ],
+     "p_G": 0.0475,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.13043478260869565,
+     "G_atual_ci": [
+      0.0,
+      0.2917279411764703
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.11162790697674418,
+     "G_ci": [
+      0.07623266603838068,
+      0.14640472618154537
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.672093023255814,
+     "G_atual": 0.10232558139534884,
+     "G_atual_ci": [
+      0.06337805312889998,
+      0.13817641636354575
+     ],
+     "L0p": false,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": 0.0,
+     "G_ci": [
+      -0.043478260869565216,
+      0.03847402597402591
+     ],
+     "p_G": 0.6595,
+     "acc_txt": 0.8153846153846154,
+     "G_atual": 0.015384615384615385,
+     "G_atual_ci": [
+      -0.034482758620689655,
+      0.06897749042145587
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_MIMIC_seed2": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 2,
+   "baseline": "QWEN25VL_LORA_TXT_MIMIC_seed2_TXT.json",
+   "baseline_sha256": "cffd48a1a462dac730e9e7e1bedc8cc4885a2b53f018d2d3f9302fe17adbc31c",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.1038374717832957,
+     "G_ci": [
+      0.0706388780677834,
+      0.13927218450721296
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6455981941309256,
+     "G_atual": 0.1038374717832957,
+     "G_atual_ci": [
+      0.0706388780677834,
+      0.13927218450721296
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no": {
+     "n": 67,
+     "G": 0.014925373134328358,
+     "G_ci": [
+      -0.03078125,
+      0.06666666666666667
+     ],
+     "p_G": 0.3935,
+     "acc_txt": 0.8059701492537313,
+     "G_atual": 0.014925373134328358,
+     "G_atual_ci": [
+      -0.03078125,
+      0.06666666666666667
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": 0.012915129151291513,
+     "G_ci": [
+      -0.007301802197208586,
+      0.03403370884097168
+     ],
+     "p_G": 0.1195,
+     "acc_txt": 0.48616236162361626,
+     "G_atual": 0.012915129151291513,
+     "G_atual_ci": [
+      -0.007301802197208586,
+      0.03403370884097168
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.28125,
+     "G_ci": [
+      0.19318181818181818,
+      0.3717948717948718
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.28125,
+     "G_atual_ci": [
+      0.19318181818181818,
+      0.3717948717948718
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": -0.011494252873563218,
+     "G_ci": [
+      -0.038461538461538464,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.9770114942528736,
+     "G_atual": -0.011494252873563218,
+     "G_atual_ci": [
+      -0.038461538461538464,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": -0.030303030303030304,
+     "G_ci": [
+      -0.07692307692307693,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.9090909090909091,
+     "G_atual": -0.030303030303030304,
+     "G_atual_ci": [
+      -0.07692307692307693,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": -0.017241379310344827,
+     "G_ci": [
+      -0.06060606060606061,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": -0.017241379310344827,
+     "G_atual_ci": [
+      -0.06060606060606061,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": 0.13333333333333333,
+     "G_ci": [
+      -0.025,
+      0.2941510695187164
+     ],
+     "p_G": 0.0675,
+     "acc_txt": 0.5555555555555556,
+     "G_atual": 0.13333333333333333,
+     "G_atual_ci": [
+      -0.025,
+      0.2941510695187164
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.43478260869565216,
+     "G_ci": [
+      0.22727272727272727,
+      0.6471323529411761
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.43478260869565216,
+     "G_atual_ci": [
+      0.22727272727272727,
+      0.6471323529411761
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.10465116279069768,
+     "G_ci": [
+      0.07090143573254735,
+      0.13991177895994408
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6511627906976745,
+     "G_atual": 0.10465116279069768,
+     "G_atual_ci": [
+      0.07090143573254735,
+      0.13991177895994408
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": 0.015384615384615385,
+     "G_ci": [
+      -0.031746031746031744,
+      0.06850495984884264
+     ],
+     "p_G": 0.3935,
+     "acc_txt": 0.8,
+     "G_atual": 0.015384615384615385,
+     "G_atual_ci": [
+      -0.031746031746031744,
+      0.06850495984884264
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_LORA_VT_MIMIC_seed2": {
+   "metodo": "LORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 2,
+   "baseline": "QWEN25VL_LORA_TXT_MIMIC_seed2_TXT.json",
+   "baseline_sha256": "cffd48a1a462dac730e9e7e1bedc8cc4885a2b53f018d2d3f9302fe17adbc31c",
+   "baseline_tipo": "LoRA",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.011286681715575621,
+     "G_ci": [
+      -0.010640580768879554,
+      0.03303964757709251
+     ],
+     "p_G": 0.186,
+     "acc_txt": 0.6455981941309256,
+     "G_atual": 0.011286681715575621,
+     "G_atual_ci": [
+      -0.010640580768879554,
+      0.03303964757709251
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 67,
+     "G": 0.0,
+     "G_ci": [
+      -0.0379746835443038,
+      0.043478260869565216
+     ],
+     "p_G": 0.6665,
+     "acc_txt": 0.8059701492537313,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.0379746835443038,
+      0.043478260869565216
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": -0.005535055350553505,
+     "G_ci": [
+      -0.019705096202699418,
+      0.009001713179448022
+     ],
+     "p_G": 0.7855,
+     "acc_txt": 0.48616236162361626,
+     "G_atual": -0.005535055350553505,
+     "G_atual_ci": [
+      -0.019705096202699418,
+      0.009001713179448022
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": 0.011494252873563218,
+     "G_ci": [
+      0.0,
+      0.03797769740807714
+     ],
+     "p_G": 0.3765,
+     "acc_txt": 0.9770114942528736,
+     "G_atual": 0.011494252873563218,
+     "G_atual_ci": [
+      0.0,
+      0.03797769740807714
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": -0.06060606060606061,
+     "G_ci": [
+      -0.1267661524703778,
+      -0.014084507042253521
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.9090909090909091,
+     "G_atual": -0.06060606060606061,
+     "G_atual_ci": [
+      -0.1267661524703778,
+      -0.014084507042253521
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": 0.15555555555555556,
+     "G_ci": [
+      -0.021288159111933394,
+      0.3333333333333333
+     ],
+     "p_G": 0.0525,
+     "acc_txt": 0.5555555555555556,
+     "G_atual": 0.15555555555555556,
+     "G_atual_ci": [
+      -0.021288159111933394,
+      0.3333333333333333
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.0069767441860465115,
+     "G_ci": [
+      -0.013860859899419396,
+      0.02843601895734597
+     ],
+     "p_G": 0.3195,
+     "acc_txt": 0.6511627906976745,
+     "G_atual": 0.0069767441860465115,
+     "G_atual_ci": [
+      -0.013860859899419396,
+      0.02843601895734597
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": 0.0,
+     "G_ci": [
+      -0.03847402597402597,
+      0.045454545454545456
+     ],
+     "p_G": 0.6665,
+     "acc_txt": 0.8,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      -0.03847402597402597,
+      0.045454545454545456
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_MIMIC_seed2": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "congelado",
+   "grupo": "Qwen2.5-VL-7B, encoder congelado",
+   "semente": 2,
+   "baseline": "QWEN25VL_DORA_TXT_MIMIC_seed2_TXT.json",
+   "baseline_sha256": "92929f0ce129c370a5b5a0bd38ce0386c6cb9e5def9051fc300f447f2fffdbc8",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.14221218961625282,
+     "G_ci": [
+      0.10690423162583519,
+      0.17833142572515606
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6094808126410836,
+     "G_atual": 0.10609480812641084,
+     "G_atual_ci": [
+      0.07206010860745272,
+      0.14189881146206443
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no": {
+     "n": 67,
+     "G": -0.014925373134328358,
+     "G_ci": [
+      -0.0684931506849315,
+      0.03278688524590164
+     ],
+     "p_G": 0.8185,
+     "acc_txt": 0.8059701492537313,
+     "G_atual": -0.014925373134328358,
+     "G_atual_ci": [
+      -0.06493506493506493,
+      0.03225806451612903
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": 0.012915129151291513,
+     "G_ci": [
+      -0.008137985503943708,
+      0.033637128794772105
+     ],
+     "p_G": 0.125,
+     "acc_txt": 0.48616236162361626,
+     "G_atual": 0.012915129151291513,
+     "G_atual_ci": [
+      -0.007591219201297855,
+      0.03457695185937939
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.3333333333333333,
+     "G_ci": [
+      0.2386228354978355,
+      0.4301106526631658
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.3333333333333333,
+     "G_atual_ci": [
+      0.2386228354978355,
+      0.4301106526631658
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": -0.011494252873563218,
+     "G_ci": [
+      -0.03614457831325301,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.9770114942528736,
+     "G_atual": -0.011494252873563218,
+     "G_atual_ci": [
+      -0.03614457831325301,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.015151515151515152,
+     "G_ci": [
+      0.0,
+      0.05172413793103448
+     ],
+     "p_G": 0.3505,
+     "acc_txt": 0.8484848484848485,
+     "G_atual": -0.045454545454545456,
+     "G_atual_ci": [
+      -0.1025735294117647,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": 0.37777777777777777,
+     "G_ci": [
+      0.2105050933786078,
+      0.5490441176470587
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3111111111111111,
+     "G_atual": 0.13333333333333333,
+     "G_atual_ci": [
+      -0.0408375850340136,
+      0.30439219165927217
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.30434782608695654,
+     "G_ci": [
+      0.125,
+      0.5
+     ],
+     "p_G": 0.0005,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.30434782608695654,
+     "G_atual_ci": [
+      0.125,
+      0.5
+     ],
+     "L0p": true,
+     "L0b": false,
+     "L1": true,
+     "L2b": false
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.13953488372093023,
+     "G_ci": [
+      0.10440585360207501,
+      0.17432194453232094
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6162790697674418,
+     "G_atual": 0.10465116279069768,
+     "G_atual_ci": [
+      0.06935012293175627,
+      0.14097216164347712
+     ],
+     "L0p": true,
+     "L0b": true,
+     "L1": true,
+     "L2b": true
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": -0.015384615384615385,
+     "G_ci": [
+      -0.07042253521126761,
+      0.03333333333333333
+     ],
+     "p_G": 0.8185,
+     "acc_txt": 0.8,
+     "G_atual": -0.015384615384615385,
+     "G_atual_ci": [
+      -0.06666666666666667,
+      0.03333333333333333
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
+  },
+  "MIMIC|QWEN25VL_DORA_VT_MIMIC_seed2": {
+   "metodo": "DORA",
+   "familia": "Qwen2.5-VL-7B",
+   "encoder": "afinado",
+   "grupo": "Qwen2.5-VL-7B, encoder afinado",
+   "semente": 2,
+   "baseline": "QWEN25VL_DORA_TXT_MIMIC_seed2_TXT.json",
+   "baseline_sha256": "92929f0ce129c370a5b5a0bd38ce0386c6cb9e5def9051fc300f447f2fffdbc8",
+   "baseline_tipo": "DoRA 7B (rodada 21)",
+   "classes": {
+    "closed_yes": {
+     "n": 443,
+     "G": 0.04740406320541761,
+     "G_ci": [
+      0.02499858276643991,
+      0.07110117227319063
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6094808126410836,
+     "G_atual": 0.011286681715575621,
+     "G_atual_ci": [
+      -0.009029856082040386,
+      0.03196529889345161
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no": {
+     "n": 67,
+     "G": 0.0,
+     "G_ci": [
+      -0.04479308005427408,
+      0.0410958904109589
+     ],
+     "p_G": 0.6465,
+     "acc_txt": 0.8059701492537313,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "open": {
+     "n": 1084,
+     "G": -0.012915129151291513,
+     "G_ci": [
+      -0.030391402482815227,
+      0.0034249517488113713
+     ],
+     "p_G": 0.9465,
+     "acc_txt": 0.48616236162361626,
+     "G_atual": -0.012915129151291513,
+     "G_atual_ci": [
+      -0.02852109272045467,
+      0.0028090545791518797
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=pleural effusion": {
+     "n": 96,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.3541666666666667,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=atelectasis": {
+     "n": 87,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.9770114942528736,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=lung opacity": {
+     "n": 66,
+     "G": 0.030303030303030304,
+     "G_ci": [
+      0.0,
+      0.08
+     ],
+     "p_G": 0.133,
+     "acc_txt": 0.8484848484848485,
+     "G_atual": -0.030303030303030304,
+     "G_atual_ci": [
+      -0.07692307692307693,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=cardiomegaly": {
+     "n": 58,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 1.0,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=edema": {
+     "n": 45,
+     "G": 0.37777777777777777,
+     "G_ci": [
+      0.2127659574468085,
+      0.5333720930232556
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.3111111111111111,
+     "G_atual": 0.13333333333333333,
+     "G_atual_ci": [
+      -0.03225806451612903,
+      0.3
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "entidade=vascular congestion": {
+     "n": 23,
+     "G": 0.0,
+     "G_ci": [
+      0.0,
+      0.0
+     ],
+     "p_G": 1.0,
+     "acc_txt": 0.13043478260869565,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_yes|so_exatas": {
+     "n": 430,
+     "G": 0.04186046511627907,
+     "G_ci": [
+      0.020686112423240435,
+      0.06496606728538282
+     ],
+     "p_G": 0.0,
+     "acc_txt": 0.6162790697674418,
+     "G_atual": 0.0069767441860465115,
+     "G_atual_ci": [
+      -0.013636363636363636,
+      0.027227722772277228
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    },
+    "closed_no|so_exatas": {
+     "n": 65,
+     "G": 0.0,
+     "G_ci": [
+      -0.046171875,
+      0.04226861167002004
+     ],
+     "p_G": 0.6465,
+     "acc_txt": 0.8,
+     "G_atual": 0.0,
+     "G_atual_ci": [
+      0.0,
+      0.0
+     ],
+     "L0p": false,
+     "L0b": false,
+     "L1": false,
+     "L2b": false
+    }
+   }
   }
  },
  "tabela1": {
   "KVASIR|dependent_polyp": {
    "atual": {
-    "i": 27,
-    "ii": 27,
-    "iii": 25,
-    "iv": 25,
-    "v": 24,
-    "ganho": 27
+    "i": 39,
+    "ii": 39,
+    "iii": 35,
+    "iv": 35,
+    "v": 34,
+    "ganho": 39
    },
    "pareado": {
-    "i": 27,
-    "ii": 27,
-    "iii": 25,
-    "iv": 25,
-    "v": 24,
-    "ganho": 27
+    "i": 39,
+    "ii": 39,
+    "iii": 35,
+    "iv": 35,
+    "v": 34,
+    "ganho": 39
    }
   },
   "KVASIR|dependent_instrument": {
    "atual": {
-    "i": 27,
-    "ii": 26,
-    "iii": 25,
-    "iv": 25,
-    "v": 25,
-    "ganho": 27
+    "i": 39,
+    "ii": 38,
+    "iii": 37,
+    "iv": 37,
+    "v": 37,
+    "ganho": 39
    },
    "pareado": {
-    "i": 27,
-    "ii": 26,
-    "iii": 25,
-    "iv": 25,
-    "v": 25,
-    "ganho": 27
+    "i": 39,
+    "ii": 38,
+    "iii": 37,
+    "iv": 37,
+    "v": 37,
+    "ganho": 39
    }
   },
   "KVASIR|negative_control": {
    "atual": {
-    "i": 25,
+    "i": 37,
     "ii": 0,
     "iii": 0,
     "iv": 0,
     "v": 0,
-    "ganho": 27
+    "ganho": 39
    },
    "pareado": {
-    "i": 25,
+    "i": 37,
     "ii": 0,
     "iii": 0,
     "iv": 0,
     "v": 0,
-    "ganho": 27
+    "ganho": 39
    }
   },
   "HEAL|closed_yes": {
    "atual": {
     "i": 0,
-    "ii": 1,
-    "iii": 0,
-    "iv": 0,
+    "ii": 4,
+    "iii": 1,
+    "iv": 1,
     "v": 0,
-    "ganho": 21
+    "ganho": 33
    },
    "pareado": {
     "i": 0,
-    "ii": 1,
-    "iii": 0,
-    "iv": 0,
+    "ii": 4,
+    "iii": 1,
+    "iv": 1,
     "v": 0,
-    "ganho": 21
+    "ganho": 33
    }
   },
   "HEAL|closed_no": {
    "atual": {
-    "i": 27,
+    "i": 38,
     "ii": 0,
     "iii": 0,
     "iv": 0,
     "v": 0,
-    "ganho": 21
+    "ganho": 31
    },
    "pareado": {
-    "i": 27,
+    "i": 38,
     "ii": 0,
     "iii": 0,
     "iv": 0,
     "v": 0,
-    "ganho": 21
+    "ganho": 31
    }
   },
   "MIMIC|closed_yes": {
    "atual": {
-    "i": 18,
-    "ii": 18,
-    "iii": 12,
-    "iv": 12,
-    "v": 8,
-    "ganho": 27
+    "i": 24,
+    "ii": 26,
+    "iii": 20,
+    "iv": 20,
+    "v": 14,
+    "ganho": 36
    },
    "pareado": {
-    "i": 18,
-    "ii": 18,
-    "iii": 12,
-    "iv": 12,
-    "v": 8,
-    "ganho": 27
+    "i": 24,
+    "ii": 26,
+    "iii": 20,
+    "iv": 20,
+    "v": 14,
+    "ganho": 37
    }
   },
   "MIMIC|closed_no": {
@@ -10410,6 +14946,34 @@
     },
     "declared_atual": "2/3/3",
     "declared": "2/3/3"
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "G_atual": {
+     "media": 0.33934252386002123,
+     "dp": 0.007407952999606778,
+     "n": 6
+    },
+    "G": {
+     "media": 0.33934252386002123,
+     "dp": 0.007407952999606778,
+     "n": 6
+    },
+    "declared_atual": "5/6/6",
+    "declared": "5/6/6"
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "G_atual": {
+     "media": 0.3616118769883351,
+     "dp": 0.012384985213706406,
+     "n": 6
+    },
+    "G": {
+     "media": 0.3616118769883351,
+     "dp": 0.012384985213706406,
+     "n": 6
+    },
+    "declared_atual": "5/6/6",
+    "declared": "5/6/6"
    }
   },
   "KVASIR|dependent_instrument": {
@@ -10482,6 +15046,34 @@
     },
     "declared_atual": "2/3/3",
     "declared": "2/3/3"
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "G_atual": {
+     "media": 0.7468152866242038,
+     "dp": 0.012538229098744972,
+     "n": 6
+    },
+    "G": {
+     "media": 0.7468152866242038,
+     "dp": 0.012538229098744972,
+     "n": 6
+    },
+    "declared_atual": "6/6/6",
+    "declared": "6/6/6"
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "G_atual": {
+     "media": 0.7547770700636943,
+     "dp": 0.015072814734011805,
+     "n": 6
+    },
+    "G": {
+     "media": 0.7547770700636943,
+     "dp": 0.015072814734011805,
+     "n": 6
+    },
+    "declared_atual": "6/6/6",
+    "declared": "6/6/6"
    }
   },
   "HEAL|closed_yes": {
@@ -10554,6 +15146,34 @@
     },
     "declared_atual": "0/0/3",
     "declared": "0/0/3"
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "G_atual": {
+     "media": 0.04688232536333802,
+     "dp": 0.010661993235592932,
+     "n": 6
+    },
+    "G": {
+     "media": 0.047116736990154715,
+     "dp": 0.011691478166312464,
+     "n": 6
+    },
+    "declared_atual": "0/6/6",
+    "declared": "0/6/6"
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "G_atual": {
+     "media": 0.05250820440693858,
+     "dp": 0.006141405679817278,
+     "n": 6
+    },
+    "G": {
+     "media": 0.052742616033755275,
+     "dp": 0.005950547342139573,
+     "n": 6
+    },
+    "declared_atual": "0/6/6",
+    "declared": "0/6/6"
    }
   },
   "MIMIC|closed_yes": {
@@ -10626,17 +15246,45 @@
     },
     "declared_atual": "1/3/3",
     "declared": "1/3/3"
+   },
+   "Qwen2.5-VL-7B, encoder congelado": {
+    "G_atual": {
+     "media": 0.1143717080511663,
+     "dp": 0.03419448578703323,
+     "n": 6
+    },
+    "G": {
+     "media": 0.11738148984198646,
+     "dp": 0.03233589991777875,
+     "n": 6
+    },
+    "declared_atual": "6/6/6",
+    "declared": "6/6/6"
+   },
+   "Qwen2.5-VL-7B, encoder afinado": {
+    "G_atual": {
+     "media": 0.06019563581640331,
+     "dp": 0.0625354147753082,
+     "n": 6
+    },
+    "G": {
+     "media": 0.06320541760722348,
+     "dp": 0.06375127081933672,
+     "n": 6
+    },
+    "declared_atual": "0/3/6",
+    "declared": "0/4/6"
    }
   }
  },
  "holm_iut_v": {
   "KVASIR|dependent_instrument": {
-   "atual": 25,
-   "pareado": 25
+   "atual": 37,
+   "pareado": 37
   },
   "KVASIR|dependent_polyp": {
-   "atual": 24,
-   "pareado": 24
+   "atual": 32,
+   "pareado": 32
   },
   "KVASIR|negative_control": {
    "atual": 0,
@@ -10651,8 +15299,8 @@
    "pareado": 0
   },
   "MIMIC|closed_yes": {
-   "atual": 5,
-   "pareado": 5
+   "atual": 11,
+   "pareado": 11
   },
   "MIMIC|closed_no": {
    "atual": 0,
@@ -10661,37 +15309,37 @@
  },
  "blur4_v": {
   "KVASIR|dependent_polyp": {
-   "runs": 27,
-   "atual": 9,
-   "pareado": 9
+   "runs": 39,
+   "atual": 10,
+   "pareado": 10
   },
   "KVASIR|dependent_instrument": {
-   "runs": 27,
-   "atual": 23,
-   "pareado": 23
+   "runs": 39,
+   "atual": 35,
+   "pareado": 35
   },
   "KVASIR|negative_control": {
-   "runs": 27,
+   "runs": 39,
    "atual": 0,
    "pareado": 0
   },
   "HEAL|closed_yes": {
-   "runs": 26,
+   "runs": 38,
    "atual": 0,
    "pareado": 0
   },
   "HEAL|closed_no": {
-   "runs": 26,
+   "runs": 38,
    "atual": 0,
    "pareado": 0
   },
   "MIMIC|closed_yes": {
-   "runs": 27,
-   "atual": 7,
-   "pareado": 7
+   "runs": 39,
+   "atual": 13,
+   "pareado": 13
   },
   "MIMIC|closed_no": {
-   "runs": 27,
+   "runs": 39,
    "atual": 0,
    "pareado": 0
   }
@@ -10700,73 +15348,73 @@
   "KVASIR|dependent_polyp": {
    "atual": {
     "min": 0.2926829268292683,
-    "max": 0.35949098621421,
-    "significativos": 27
+    "max": 0.3828207847295864,
+    "significativos": 39
    },
    "pareado": {
     "min": 0.2926829268292683,
-    "max": 0.35949098621421,
-    "significativos": 27
+    "max": 0.3828207847295864,
+    "significativos": 39
    }
   },
   "KVASIR|dependent_instrument": {
    "atual": {
     "min": 0.6815286624203821,
-    "max": 0.7707006369426752,
-    "significativos": 27
+    "max": 0.7738853503184714,
+    "significativos": 39
    },
    "pareado": {
     "min": 0.6815286624203821,
-    "max": 0.7707006369426752,
-    "significativos": 27
+    "max": 0.7738853503184714,
+    "significativos": 39
    }
   },
   "KVASIR|negative_control": {
    "atual": {
     "min": 0.17582417582417584,
     "max": 0.18681318681318682,
-    "significativos": 27
+    "significativos": 39
    },
    "pareado": {
     "min": 0.17582417582417584,
     "max": 0.18681318681318682,
-    "significativos": 27
+    "significativos": 39
    }
   },
   "HEAL|closed_yes": {
    "atual": {
     "min": -0.029535864978902954,
-    "max": 0.053445850914205346,
-    "significativos": 21
+    "max": 0.06047819971870605,
+    "significativos": 33
    },
    "pareado": {
     "min": -0.029535864978902954,
-    "max": 0.053445850914205346,
-    "significativos": 21
+    "max": 0.06047819971870605,
+    "significativos": 33
    }
   },
   "HEAL|closed_no": {
    "atual": {
     "min": -0.013605442176870748,
     "max": 0.14421768707482993,
-    "significativos": 21
+    "significativos": 31
    },
    "pareado": {
     "min": -0.013605442176870748,
     "max": 0.14421768707482993,
-    "significativos": 21
+    "significativos": 31
    }
   },
   "MIMIC|closed_yes": {
    "atual": {
-    "min": 0.060948081264108354,
+    "min": 0.011286681715575621,
     "max": 0.21218961625282168,
-    "significativos": 27
+    "significativos": 36
    },
    "pareado": {
-    "min": 0.05869074492099323,
+    "min": -0.009029345372460496,
     "max": 0.21218961625282168,
-    "significativos": 27
+    "significativos": 37
    }
   },
   "MIMIC|closed_no": {
@@ -10784,10 +15432,10 @@
  },
  "cascata_mimic_yes": {
   "atual": {
-   "ii": 18,
-   "iii": 12,
-   "iv": 12,
-   "v": 8,
+   "ii": 26,
+   "iii": 20,
+   "iv": 20,
+   "v": 14,
    "tirados_pela_queda": [
     {
      "linha": "SMOLVLM_LORA_FT_MIMIC_seed0",
@@ -10806,16 +15454,26 @@
     },
     {
      "linha": "SMOLVLM_LORA_FT_MIMIC_seed2",
+     "sem_L0_preto": true,
+     "sem_L0_blur": false
+    },
+    {
+     "linha": "QWEN25VL_LORA_VT_MIMIC_seed0",
+     "sem_L0_preto": true,
+     "sem_L0_blur": true
+    },
+    {
+     "linha": "QWEN25VL_DORA_VT_MIMIC_seed1",
      "sem_L0_preto": true,
      "sem_L0_blur": false
     }
    ]
   },
   "pareado": {
-   "ii": 18,
-   "iii": 12,
-   "iv": 12,
-   "v": 8,
+   "ii": 26,
+   "iii": 20,
+   "iv": 20,
+   "v": 14,
    "tirados_pela_queda": [
     {
      "linha": "SMOLVLM_LORA_FT_MIMIC_seed0",
@@ -10836,9 +15494,19 @@
      "linha": "SMOLVLM_LORA_FT_MIMIC_seed2",
      "sem_L0_preto": true,
      "sem_L0_blur": false
+    },
+    {
+     "linha": "QWEN25VL_LORA_VT_MIMIC_seed0",
+     "sem_L0_preto": true,
+     "sem_L0_blur": true
+    },
+    {
+     "linha": "QWEN25VL_DORA_VT_MIMIC_seed1",
+     "sem_L0_preto": true,
+     "sem_L0_blur": false
     }
    ]
   }
  },
- "segundos": 164
+ "segundos": 578
 }

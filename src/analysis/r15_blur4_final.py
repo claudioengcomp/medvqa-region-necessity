@@ -26,7 +26,7 @@ for b in BASES:
         r = json.load(open(f"{NV2}/{ln}_{b}.json")); C = {c: E.load_correct(p) for c, p in r["files"].items() if c in E.CORE}; C4 = {"C0": C["C0"], "T": E.load_correct(pt), "P": E.load_correct(pp_)}
         rec = {"zero_shot": zs, "fora": (b, ln) in EXCL, "classes": {}}
         for c in TCL[b]:
-            qs = [q for q in G[c] if all(q in C[k] for k in E.CORE) and q in C4["T"] and q in C4["P"]]; b4 = E.block(Bb, qs, C4); bk = r["by_class"][c]
+            qs = [q for q in G[c] if all(q in C[k] for k in E.CORE if k in C) and q in C4["T"] and q in C4["P"]]; b4 = E.block(Bb, qs, C4); bk = r["by_class"][c]
             t = {"L0_preto": (lo(bk, "custo_alvo_preto_ci_by_image") or 0) > 0, "L1_preto": (lo(bk, "delta_preto_ci_by_image") or 0) > 0, "ganho": (lo(bk, "headroom_ci_by_image") or 0) > 0,
                  "delta_blur4": (lo(b4, "delta_preto_ci_by_image") or 0) > 0, "L0_blur4": (lo(b4, "custo_alvo_preto_ci_by_image") or 0) > 0}
             rec["classes"][c] = {"testes": t, "declarado_final_blur4": all(t.values()), "declarado_s14": t["L1_preto"] and t["delta_blur4"] and t["ganho"] and t["L0_preto"],

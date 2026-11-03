@@ -10,6 +10,7 @@ inv, crit, hd, oc, ds, zs, fm, gh, gm, raw = (J(n) for n in ("inventario_linhas"
 esc, hst, sn = J("escada_vereditos"), J("heal_estratificado"), J("simnao")
 r3f = lambda x: "—" if x is None else f"{x:.3f}"
 L = []
+NL = {b: len(lines(b)) for b in BASES}; N27 = NL["KVASIR"]   # 27 runs (7B family disabled) or 39 (enabled)
 def line(rot, val, src): s = SRC[src] if src in SRC else (src, (sha(src) or "")[:12]); L.extend([f"- **{rot}** — `{val}`  ", f"  <sub>{s[0]} · sha256 {s[1]}</sub>"])
 def pct(x): return "—" if x is None else f"{100 * x:.1f}"
 def pp(x): return "—" if x is None else f"{100 * x:+.1f}"
@@ -29,9 +30,9 @@ L += ["# Folha de numeros -- artigo 1 (teste de necessidade da regiao com contro
       f"Gerada {time.strftime('%Y-%m-%d %H:%M:%S')} por v7_artigo1/scripts/make_numbers_artigo1.py (sha256 {sha(os.path.relpath(__file__))[:12]}). Um numero por linha; fonte e sha256 abaixo. Acuracia em %, diferencas em pp (uma casa), razoes com tres casas; IC 95 % por bootstrap por imagem (2 000 replicas, semente 20260913, replicas fixas por base). Media (DP) entre as 3 sementes (condicional aos tres modelos). Delta = Acc(mascara deslocada) - Acc(alvo ocluido); headroom = Acc(intacta) - Acc(text-decoder-only da mesma familia e semente); criterio B = IC de Delta exclui zero por cima sob preto E sob blur 10 %. HEAL e Medical-Diff-VQA: so perguntas fechadas no corpo (abertas do MIMIC so no JSON); Kvasir-VQA-x1: as classes do inventario (polipo, instrumento, controle negativo, polipo secundario; abertas e fechadas, como na folha de 01/10). Bases: Kvasir-VQA-x1, HEAL-MedVQA, Medical-Diff-VQA (SLAKE so na S11).", ""]
 # ---------------- S1
 L += ["## S1. Contagens (resumo e introducao)", ""]
-line("linhas afinadas por base / total", "27 / 81 (3 bases)", "inventario_linhas")
+line("linhas afinadas por base / total", f"{N27} / {3 * N27} (3 bases)", "inventario_linhas")
 line("familias / sementes", "3 (Qwen2-VL-2B, SmolVLM2-2.2B, M3AE) / 3 (0, 1, 2)", "inventario_linhas")
-line("linhas por base: Qwen2-VL (LoRA, DoRA) x (encoder congelado, afinado) x 3; SmolVLM2 idem; M3AE ajuste completo x 3", "12 + 12 + 3 = 27", "inventario_linhas")
+line("linhas por base: Qwen2-VL (LoRA, DoRA) x (encoder congelado, afinado) x 3; SmolVLM2 idem; M3AE ajuste completo x 3" + ("" if N27 == 27 else "; Qwen2.5-VL-7B idem (rodada 24)"), "12 + 12 + 3 = 27" if N27 == 27 else "12 + 12 + 3 + 12 = 39", "inventario_linhas")
 U = inv["unidades"]
 line("Kvasir-VQA-x1: perguntas avaliaveis (polipo / instrumento / controle negativo / polipo secundario)", f"{U['KVASIR']['n_avaliaveis']} ({U['KVASIR']['por_classe']['dependent_polyp']} / {U['KVASIR']['por_classe']['dependent_instrument']} / {U['KVASIR']['por_classe']['negative_control']} / {U['KVASIR']['por_classe']['dependent_polyp_secondary']})", "inventario_linhas")
 line("Kvasir-VQA-x1: unidades imagem x alvo (polipo / instrumento) / imagens de teste com mascara / imagens de teste", f"{U['KVASIR']['unidades_imagem_x_alvo']} ({U['KVASIR']['unidades_por_tipo']['polyp']} / {U['KVASIR']['unidades_por_tipo']['instrument']}) / {U['KVASIR']['imagens_com_mascara']} / {U['KVASIR']['imagens_teste']}", "inventario_linhas")
@@ -97,7 +98,7 @@ def r3_block(b):
         line(f"{NAME[b]}, {nm3(c)}: n perguntas por linha (faixas abaixo)", "/".join(str(x) for x in F["n_por_linha"]), "rodada3")
         for k, lab, u, f in Q28: line(f"{NAME[b]}, {nm3(c)}: {lab}, mínimo – máximo entre as {(F[k] or {}).get('n_linhas', 27)} linhas ({u})", mm(F[k], f), "rodada3")
     for c, X in R3J["item29_gain_tfidf"][b].items():
-        line(f"{NAME[b]}, {nm3(c)}: image gain against the question-only classifier (TF-IDF), mínimo – máximo entre as 27 linhas (pp)", mm(X["faixa_gain_tfidf"], pp), "rodada3")
+        line(f"{NAME[b]}, {nm3(c)}: image gain against the question-only classifier (TF-IDF), mínimo – máximo entre as {NL[b]} linhas (pp)", mm(X["faixa_gain_tfidf"], pp), "rodada3")
         for g, x in X["por_grupo"].items():
             line(f"{NAME[b]}, {nm3(c)}, {g}: image gain against the question-only classifier (TF-IDF) / image gain above the text-only arm, média (DP) entre as {x['n_linhas']} linhas (pp); linhas com IC > 0", f"{msp(x['gain_tfidf'], pp)} / {msp(x['gain_txt'], pp)}; {x['gain_tfidf_ic_inf_maior_0']}/{x['n_linhas']} / {x['gain_txt_ic_inf_maior_0']}/{x['n_linhas']}", "rodada3")
         for ln, x in X["por_linha"].items():
@@ -108,7 +109,7 @@ def r3_box():
     line(f"Kvasir-VQA-x1, {T_}: perguntas avaliáveis / n por linha", f"{X['n_avaliaveis']} / " + "/".join(str(x) for x in sorted({v['n'] for v in X['linhas'].values()})), "rodada3")
     for ln, v in X["linhas"].items():
         line(f"Kvasir-VQA-x1, artefact-box template, {ln}: Δ preto [IC] / Δ blur 10 % [IC] / Δ cor média [IC] (pp)", " / ".join(f"{pp(v[f]['delta'])} {ci3(v[f]['ci'])}" for f in ("preto", "blur10", "regmean")), "rodada3")
-    for nl, key in (("27 linhas", "contagens_27"), ("15 linhas de 01/10", "contagens_15")):
+    for nl, key in ((f"{N27} linhas", "contagens_27"), ("15 linhas de 01/10", "contagens_15")):
         for f, c in X[key].items():
             line(f"Kvasir-VQA-x1, artefact-box template, Δ {FN[f]}, {nl}: linhas com limite superior do IC < 0 / com limite inferior do IC > 0; mínimo – máximo (pp)", f"{c['ic_sup_menor_0']}/{c['n_linhas']} / {c['ic_inf_maior_0']}/{c['n_linhas']}; {pp(c['min'])} – {pp(c['max'])}", "rodada3")
     b4 = X["blur4"]
@@ -148,8 +149,8 @@ def base_block(b, sec):
             line(f"{NAME[b]}, {nm}, {g}: Delta preto / blur 10 % / cor media (pp)", f"{msp(x.get('delta_preto'), pp)} / {msp(x.get('delta_blur10'), pp)} / {msp(x.get('delta_regmean'), pp)}", "headroom")
             line(f"{NAME[b]}, {nm}, {g}: custo da mascara deslocada, preto (pp) / suficiencia, preto / criterio B", f"{msp(x.get('custo_mascara_deslocada_preto'), pp)} / {msr(x.get('suficiencia_preto'))} / {x.get('criterio_B')}/{x.get('n_linhas')}", "headroom")
         for key, nk in (("delta_preto", "Delta preto"), ("delta_blur10", "Delta blur 10 %"), ("delta_regmean", "Delta cor media"), ("headroom", "headroom"), ("custo_mascara_deslocada_preto", "custo da mascara deslocada, preto")):
-            line(f"{NAME[b]}, {nm}: faixa de {nk} nas 27 linhas (pp)", rng(allrng(b, cls, key)), "headroom")
-        line(f"{NAME[b]}, {nm}: faixa da suficiencia (preto) nas 27 linhas", rng(allrng(b, cls, "suficiencia_preto"), r3), "headroom")
+            line(f"{NAME[b]}, {nm}: faixa de {nk} nas {NL[b]} linhas (pp)", rng(allrng(b, cls, key)), "headroom")
+        line(f"{NAME[b]}, {nm}: faixa da suficiencia (preto) nas {NL[b]} linhas", rng(allrng(b, cls, "suficiencia_preto"), r3), "headroom")
 base_block("KVASIR", "S3"); r3_block("KVASIR"); r3_box(); base_block("HEAL", "S4"); r3_block("HEAL")
 H = hd["bases"]["HEAL"]
 for g, gg in H["agregado_extra_por_grupo"].items():
@@ -165,7 +166,7 @@ H = hd["bases"]["MIMIC"]; ents = [c for c in next(iter(H["linhas"].values()))["c
 for e in ents:
     r0 = next(iter(H["linhas"].values()))["classes"][e]
     tot = sum(1 for r in H["linhas"].values() if (r["classes"].get(e) or {}).get("criterio_B"))
-    line(f"Medical-Diff-VQA, fechada-sim, {e.replace('entidade=', '')}: n itens / imagens; criterio B (linhas)", f"{r0['n']} / {r0['n_imagens']}; {tot}/27", "headroom")
+    line(f"Medical-Diff-VQA, fechada-sim, {e.replace('entidade=', '')}: n itens / imagens; criterio B (linhas)", f"{r0['n']} / {r0['n_imagens']}; {tot}/{NL['MIMIC']}", "headroom")
     for g, gg in H["agregado_por_grupo"].items():
         x = gg.get(e) or {}
         line(f"Medical-Diff-VQA, {e.replace('entidade=', '')}, {g}: Acc intacta / text-decoder-only (%) / headroom (pp) / Delta preto / blur 10 % (pp) / custo desloc. (pp) / suficiencia / B", f"{msp(x.get('acc.C0'))} / {msp(x.get('acc_txt'))} / {msp(x.get('headroom'), pp)} / {msp(x.get('delta_preto'), pp)} / {msp(x.get('delta_blur10'), pp)} / {msp(x.get('custo_mascara_deslocada_preto'), pp)} / {msr(x.get('suficiencia_preto'))} / {x.get('criterio_B')}/{x.get('n_linhas')}", "headroom")
@@ -222,8 +223,8 @@ L += ["", "## S9. Metodo e estatistica", ""]
 line("bootstrap por imagem: replicas / semente / imagens por base (Kvasir / HEAL / MIMIC)", f"2000 / 20260913 / {raw['bases']['KVASIR']['n_imagens_replicas']} / {raw['bases']['HEAL']['n_imagens_replicas']} / {raw['bases']['MIMIC']['n_imagens_replicas']}", "bases_raw")
 for b in BASES: line(f"Holm por linha, familia de classes, {NAME[b]}", ", ".join(raw["bases"][b]["familia_holm"]), "bases_raw")
 line("regra de resolubilidade (headroom legivel)", "limite inferior do IC 95 % por imagem do headroom (Acc intacta - text-only arm da mesma familia e semente; zero-shot: com imagem - sem imagem) > 0; sem limiar de 0,10 (a rodada 1 usou tambem headroom >= 0,10; as duas versoes estao em criterio.json)", "criterio")
-line("independencia das linhas", "as 27 linhas por base sao 3 sementes x 9 configuracoes (familia x adaptador x encoder) e nao sao independentes; as proporcoes necessarias / resoluveis / linhas sao descritivas, sem IC", "criterio")
-line("artefact-box template (Kvasir-VQA-x1): estatística", f"IC 95 % por imagem (réplicas fixas da base Kvasir) nas 27 linhas, sob preto, blur 10 % e cor média; blur 4 % = sigma fixo de {R3J['item30_caixa_artefato']['blur4']['sigma']['blur_sigma_px']:.0f} px (sigma / largura mediana {R3J['item30_caixa_artefato']['blur4']['sigma']['sigma_sobre_largura_kvasir']['median']:.3f} no Kvasir), predições só nas 15 linhas de 01/10; a folha de 01/10 usava IC por pergunta", "rodada3")
+line("independencia das linhas", f"as {N27} linhas por base sao 3 sementes x {N27 // 3} configuracoes (familia x adaptador x encoder) e nao sao independentes; as proporcoes necessarias / resoluveis / linhas sao descritivas, sem IC", "criterio")
+line("artefact-box template (Kvasir-VQA-x1): estatística", f"IC 95 % por imagem (réplicas fixas da base Kvasir) nas {N27} linhas, sob preto, blur 10 % e cor média; blur 4 % = sigma fixo de {R3J['item30_caixa_artefato']['blur4']['sigma']['blur_sigma_px']:.0f} px (sigma / largura mediana {R3J['item30_caixa_artefato']['blur4']['sigma']['sigma_sobre_largura_kvasir']['median']:.3f} no Kvasir), predições só nas 15 linhas de 01/10; a folha de 01/10 usava IC por pergunta", "rodada3")
 line("image gain against the question-only classifier (TF-IDF)", "Acc(intacta) - Acc(TF-IDF) nos mesmos itens, IC por imagem; Medical-Diff-VQA: TF-IDF do subconjunto nas fechadas (piso composto); ilustração apenas, não muda contagem nenhuma (a escada com TF-IDF fica só interna)", "rodada3")
 line("McNemar", "mid-p exato (binomial, meio peso no observado) nos discordantes entre mascara deslocada e alvo ocluido (shamstats.mcnemar_midp)", "bases_raw")
 for x in fm["fatos"]:
@@ -281,9 +282,9 @@ for c, nm in NMS.items():
         line(f"sem as 2 unidades, Kvasir-VQA-x1, {nm}: {lab}, mínimo – máximo entre as 27 linhas ({u}) (completo: {a})", b, "split_kvasir")
 _pk = {x["line"]: x["pack"] for x in lines("KVASIR")}; _pl = SK["sensibilidade"]["por_linha_sem_duplicadas"]
 for f, fn in (("preto", "preto"), ("blur10", "blur 10 %"), ("regmean", "cor média")):
-    for nl, sel in (("27 linhas", lambda ln: True), ("15 linhas de 01/10", lambda ln: _pk[ln].startswith("15 de"))):
+    for nl, sel in ((f"{N27} linhas", lambda ln: True), ("15 linhas de 01/10", lambda ln: _pk[ln].startswith("15 de"))):
         cis = [_pl[ln]["artefato"][f"delta_{f}_ci_by_image"] for ln in _pl if sel(ln)]; up = sum(1 for c_ in cis if c_[1] < 0); lw = sum(1 for c_ in cis if c_[0] > 0)
-        old = R3J["item30_caixa_artefato"]["contagens_27" if nl == "27 linhas" else "contagens_15"][f]
+        old = R3J["item30_caixa_artefato"]["contagens_27" if nl == f"{N27} linhas" else "contagens_15"][f]
         if (up, lw) == (old["ic_sup_menor_0"], old["ic_inf_maior_0"]): _ig.append(f"artefact-box template, Δ {fn}, {nl}: {up}/{len(cis)} / {lw}/{len(cis)}"); continue
         line(f"sem as 2 unidades, Kvasir-VQA-x1, artefact-box template, Δ {fn}, {nl}: linhas com limite superior do IC < 0 / com limite inferior do IC > 0 (folha completa: {old['ic_sup_menor_0']}/{len(cis)} / {old['ic_inf_maior_0']}/{len(cis)})", f"{up}/{len(cis)} / {lw}/{len(cis)}", "split_kvasir")
 line("sem as 2 unidades: quantidades que nao mudam no valor impresso", "; ".join(_ig), "split_kvasir")
@@ -352,7 +353,7 @@ L += ["", "## S16. Maximos de Delta entre os declarados e entidades pela regra f
 NM12 = {"dependent_polyp": "polipo", "dependent_instrument": "instrumento", "closed_yes": "fechada-sim"}
 for k, x in R12["item1"].items():
     b, c = k.split("|")
-    line(f"{NAME[b]}, {NM12[c]}: Delta preto maximo entre os {x['declarados']} runs declarados (dois preenchimentos, ganho significativo e queda bruta) / maximo entre os 27 (pp)", f"{pp(x['max_delta_preto_declarados']) if x['max_delta_preto_declarados'] is not None else '—'} / {pp(x['max_delta_preto_27'])}", "rodada12")
+    line(f"{NAME[b]}, {NM12[c]}: Delta preto maximo entre os {x['declarados']} runs declarados (dois preenchimentos, ganho significativo e queda bruta) / maximo entre os {NL[b]} (pp)", f"{pp(x['max_delta_preto_declarados']) if x['max_delta_preto_declarados'] is not None else '—'} / {pp(x['max_delta_preto_27'])}", "rodada12")
 for e, x in R12["item2"].items():
     line(f"Medical-Diff-VQA, fechada-sim, entidade {e} ({x['perguntas']} perguntas): runs com ganho significativo / declarados (dois preenchimentos, ganho significativo e queda bruta) / runs", f"{x['ganho_significativo']} / {x['declarados_L3_e_L0']} / {x['runs']}", "rodada12")
 # ---------------- round 10: Holm of the raw-drop column; blur 4 % on the three benchmarks
@@ -421,7 +422,7 @@ for e, x in R14["entidades_mimic"].items():
     line(f"Medical-Diff-VQA, fechada-sim, entidade {e} ({x['perguntas']} perguntas): ganho significativo / declarados pela regra final / runs", f"{x['ganho_significativo']} / {x['declarados_regra_final']} / {x['runs']}", "rodada14")
 for k, x in R14["max_delta"].items():
     b, c = k.split("|")
-    if x["declarados"]: line(f"{NAME[b]}, {NM14[c]}: Delta preto maximo entre os {x['declarados']} declarados pela regra final / maximo entre os 27 (pp)", f"{pp(x['max_delta_preto_declarados'])} / {pp(x['max_delta_preto_27'])}", "rodada14")
+    if x["declarados"]: line(f"{NAME[b]}, {NM14[c]}: Delta preto maximo entre os {x['declarados']} declarados pela regra final / maximo entre os {NL[b]} (pp)", f"{pp(x['max_delta_preto_declarados'])} / {pp(x['max_delta_preto_27'])}", "rodada14")
 # ---------------- round 15: final rule with blur 4 %
 R15 = J("rodada15"); SRC["rodada15"] = ("v7_artigo1/analysis/rodada15.json", sha(f"{A}/rodada15.json")[:12])
 L += ["", "## S19. Regra final com blur 4 % (rodada 15)", ""]
@@ -470,10 +471,10 @@ line("ganho de imagem pareado (regra, decisao do Claudio de 22/10/2026)", R19["r
 NM19 = {"dependent_polyp": "polipo", "dependent_instrument": "instrumento", "negative_control": "controle negativo (3 templates)", "closed_yes": "fechada-sim", "closed_no": "fechada-nao"}
 for k, x in R19["tabela1"].items():
     b, c = k.split("|"); y = x["pareado"]
-    line(f"{NAME[b]}, {NM19[c]}: criterios (i) / (ii) / (iii) / (iv) / (v), ganho pareado (linhas de 27)", f"{y['i']} / {y['ii']} / {y['iii']} / {y['iv']} / {y['v']}", "rodada19")
+    line(f"{NAME[b]}, {NM19[c]}: criterios (i) / (ii) / (iii) / (iv) / (v), ganho pareado (linhas de {NL[b]})", f"{y['i']} / {y['ii']} / {y['iii']} / {y['iv']} / {y['v']}", "rodada19")
     t = R19["texto_ganho"][k]["pareado"]
-    line(f"{NAME[b]}, {NM19[c]}: ganho de imagem pareado, minimo – maximo entre as 27 linhas (pp); linhas com ganho significativo", f"{pp(t['min'])} – {pp(t['max'])}; {t['significativos']}/27", "rodada19")
-    line(f"{NAME[b]}, {NM19[c]}: declarados pela regra final com IUT e Holm, ganho pareado (linhas de 27)", f"{R19['holm_iut_v'][k]['pareado']}", "rodada19")
+    line(f"{NAME[b]}, {NM19[c]}: ganho de imagem pareado, minimo – maximo entre as {NL[b]} linhas (pp); linhas com ganho significativo", f"{pp(t['min'])} – {pp(t['max'])}; {t['significativos']}/{NL[b]}", "rodada19")
+    line(f"{NAME[b]}, {NM19[c]}: declarados pela regra final com IUT e Holm, ganho pareado (linhas de {NL[b]})", f"{R19['holm_iut_v'][k]['pareado']}", "rodada19")
 for k, gg in R19["tabela2"].items():
     b, c = k.split("|")
     for g, y in gg.items():
@@ -500,10 +501,10 @@ for k, x in R20["acuracia_sem_imagem_vs_cinza"].items():
     line(f"{NAME[b]}, {ln}: acuracia sem imagem / cinza / diferenca nos itens do artigo 1 (%, pp; n itens)", f"{100 * x['acc_sem_imagem']:.2f} / {100 * x['acc_cinza']:.2f} / {pp(x['dif'])} ({x['n_itens']})", "rodada20")
 for k, x in R20["tabela1"].items():
     b, c = k.split("|"); y = x["novo"]
-    line(f"{NAME[b]}, {NM19[c]}: criterios (i) / (ii) / (iii) / (iv) / (v), M3AE sem imagem (linhas de 27); linhas com ganho significativo", f"{y['i']} / {y['ii']} / {y['iii']} / {y['iv']} / {y['v']}; {y['ganho']}/27", "rodada20")
+    line(f"{NAME[b]}, {NM19[c]}: criterios (i) / (ii) / (iii) / (iv) / (v), M3AE sem imagem (linhas de {NL[b]}); linhas com ganho significativo", f"{y['i']} / {y['ii']} / {y['iii']} / {y['iv']} / {y['v']}; {y['ganho']}/{NL[b]}", "rodada20")
     t = R20["texto_ganho"][k]["novo"]
-    line(f"{NAME[b]}, {NM19[c]}: ganho de imagem, minimo – maximo entre as 27 linhas (pp), M3AE sem imagem", f"{pp(t['min'])} – {pp(t['max'])}", "rodada20")
-    line(f"{NAME[b]}, {NM19[c]}: declarados pela regra final com IUT e Holm, M3AE sem imagem (linhas de 27)", f"{R20['holm_iut_v'][k]['novo']}", "rodada20")
+    line(f"{NAME[b]}, {NM19[c]}: ganho de imagem, minimo – maximo entre as {NL[b]} linhas (pp), M3AE sem imagem", f"{pp(t['min'])} – {pp(t['max'])}", "rodada20")
+    line(f"{NAME[b]}, {NM19[c]}: declarados pela regra final com IUT e Holm, M3AE sem imagem (linhas de {NL[b]})", f"{R20['holm_iut_v'][k]['novo']}", "rodada20")
 for k, gg in R20["tabela2"].items():
     b, c = k.split("|")
     for g, y in gg.items():
@@ -514,6 +515,72 @@ for k, x in R20["blur4_v"].items():
 cs = R20["cascata_mimic_yes"]["novo"]
 line("Medical-Diff-VQA, fechada-sim, M3AE sem imagem: linhas em (ii) / (iii) / (iv) / (v)", f"{cs['ii']} / {cs['iii']} / {cs['iv']} / {cs['v']}", "rodada20")
 # ---------------- S11 suplemento interno
+
+# round 24 (02/11/2026): S24 -- criteria (i)-(v) per question subset, fine-tuned runs (rule of the paper: paired G of round 19, no-image M3AE of
+# round 20, the other tests of round 14) and zero-shot models (round 14; G = with image minus without image of the same model); (v) also with the IUT and
+# Holm within the run over the subsets of the benchmark (family of r19). Single source of Table 1 with two blocks. With the family disabled it reproduces the counts of 27.
+L += ["", f"## S24. Criterios (i)-(v) por subconjunto com o 7B ({N27} linhas afinadas por base) e zero-shot (rodada 24)", ""]
+SRC["rodada19"] = ("v7_artigo1/analysis/rodada19.json", sha(f"{A}/rodada19.json")[:12]); SRC["rodada20"] = ("v7_artigo1/analysis/rodada20.json", sha(f"{A}/rodada20.json")[:12])
+_T24 = {"KVASIR": ["dependent_polyp", "dependent_instrument", "negative_control"], "HEAL": ["closed_yes", "closed_no"], "MIMIC": ["closed_yes", "closed_no"]}
+_lo24 = lambda c: c[0] if c else None
+def _crit24(b, Ln, c):
+    src = R20 if Ln["fam"] == "M3AE" else R19; x = src["por_linha"][f"{b}|{Ln['line']}"]["classes"].get(c); y = R14["por_linha"][f"{b}|{Ln['line']}"]["classes"].get(c)
+    if not x or not y: return None
+    g = (_lo24(x["G_ci"]) or 0) > 0; i = x["L0p"]; ii = x["L1"]; iii = ii and x["L2b"]; iv = iii and g; v = iv and x["L0p"] and x["L0b"]
+    p = dict(y["p"]); p["ganho"] = x["p_G"]; return {"i": i, "ii": ii, "iii": iii, "iv": iv, "v": v, "ganho": g, "p_iut": max(p.values())}
+def _holm24(ps):   # Holm within the run: ps = {class: p}; declared if the adjusted p < 0.025
+    o = sorted(ps.items(), key=lambda kv: kv[1]); m = len(o); run = 0; out = {}
+    for k, (c, p) in enumerate(o): run = max(run, p * (m - k)); out[c] = min(1.0, run) < 0.025
+    return out
+def _zs24(b, c):   # zero-shot models of round 14; on Kvasir LLaVA-Med is left out (same reason as in Table 3)
+    out = {k: 0 for k in ("i", "ii", "iii", "iv", "v", "ganho")}; n = 0
+    for k, r in R14["por_linha"].items():
+        if not r.get("zero_shot") or not k.startswith(b + "|") or c not in r["classes"]: continue
+        if b == "KVASIR" and "LLAVA_MED" in k: continue
+        t = r["classes"][c]["testes_ic"]; n += 1; i = t["L0_preto"]; ii = t["L1_preto"]; iii = ii and t["L2_blur10"]; iv = iii and t["ganho"]; v = r["classes"][c]["declarado_regra_final"]
+        for kk, vv in (("i", i), ("ii", ii), ("iii", iii), ("iv", iv), ("v", v), ("ganho", t["ganho"])): out[kk] += int(vv)
+    return out, n
+for b in BASES:
+    rows = {c: {k: 0 for k in ("i", "ii", "iii", "iv", "v", "v_holm", "ganho")} for c in _T24[b]}; nlin = 0
+    for Ln in lines(b):
+        cr = {c: _crit24(b, Ln, c) for c in _T24[b]}; cr = {c: x for c, x in cr.items() if x}
+        if not cr: continue
+        nlin += 1; hv = _holm24({c: x["p_iut"] for c, x in cr.items()})
+        for c, x in cr.items():
+            for k in ("i", "ii", "iii", "iv", "v", "ganho"): rows[c][k] += int(x[k])
+            rows[c]["v_holm"] += int(hv[c])
+    for c in _T24[b]:
+        r = rows[c]; nm = f"{NAME[b]}, {NM14[c]}"
+        line(f"Tabela 1, {nm}, afinados: (i) / (ii) / (iii) / (iv) / (v) (de {nlin} linhas; G pareado)", f"{r['i']} / {r['ii']} / {r['iii']} / {r['iv']} / {r['v']}", "rodada19")
+        line(f"Tabela 1, {nm}, afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de {nlin})", f"{r['v_holm']} / {r['ganho']}", "rodada19")
+        z, nz = _zs24(b, c); line(f"Tabela 1, {nm}, zero-shot ({nz} modelos{', sem LLaVA-Med' if b == 'KVASIR' else ''}): (i) / (ii) / (iii) / (iv) / (v); com ganho significativo", f"{z['i']} / {z['ii']} / {z['iii']} / {z['iv']} / {z['v']}; {z['ganho']}", "rodada14")
+# round 24b (03/11/2026): S25 -- lines cited by the text that the sheet did not have: blur 4 % on the 7B runs (Kvasir, polyp; round 15), the five
+# quantities of the HEAL yes-run that meets (iv) but not (v) (necessity_v2; rule of _crit24), the range of the intact accuracy on HEAL yes-questions and
+# the Medical-Diff-VQA yes-runs removed by the drop condition, with the sign of C (necessity_v2). With the family disabled the 7B lines and the HEAL run are not written.
+L += ["", "## S25. Linhas citadas pelo texto da v32 (rodada 24b)", ""]
+_pp2 = lambda x: "—" if x is None else f"{100 * x:+.2f}"; _ci2 = lambda c: "—" if not c else f"[{100 * c[0]:+.2f}, {100 * c[1]:+.2f}]"
+def _nv25(b, Ln):
+    f = f"{A}/necessity_v2/{Ln['line']}_{b}.json"; SRC[f"necessity_v2/{Ln['line']}_{b}"] = (f"v7_artigo1/analysis/necessity_v2/{Ln['line']}_{b}.json", sha(f)[:12]); return json.load(open(f))
+_f25 = [Ln for Ln in lines("KVASIR") if Ln["fam"] == "QWEN25VL"]
+if _f25:
+    _t = [R15["por_linha"][f"KVASIR|{Ln['line']}"]["classes"]["dependent_polyp"] for Ln in _f25]
+    line(f"Kvasir-VQA-x1, polipo, Qwen2.5-VL-7B ({len(_f25)} linhas): Delta blur 4 % significativo / queda blur 4 % significativa / declarados (v) blur 4 %", f"{sum(int(x['testes']['delta_blur4']) for x in _t)} / {sum(int(x['testes']['L0_blur4']) for x in _t)} / {sum(int(x['declarado_final_blur4']) for x in _t)}", "rodada15")
+for Ln in lines("HEAL"):
+    x = _crit24("HEAL", Ln, "closed_yes")
+    if x and x["iv"] and not x["v"]:
+        c = _nv25("HEAL", Ln)["by_class"]["closed_yes"]
+        line(f"HEAL-MedVQA, fechada-sim, {Ln['line']}: queda alvo preto [IC] / queda alvo blur 10 % [IC] / custo mascara deslocada preto [IC] / Delta preto [IC] / Delta blur 10 % [IC] (pp)", " / ".join(f"{_pp2(c[k])} {_ci2(c[k + '_ci_by_image'])}" for k in ("custo_alvo_preto", "custo_alvo_blur10", "custo_mascara_deslocada_preto", "delta_preto", "delta_blur10")), f"necessity_v2/{Ln['line']}_HEAL")
+_acc = {Ln["line"]: _nv25("HEAL", Ln)["by_class"]["closed_yes"]["acc"]["C0"] for Ln in lines("HEAL")}
+SRC["necessity_v2_HEAL"] = (f"v7_artigo1/analysis/necessity_v2/*_HEAL.json ({len(_acc)} linhas)", hashlib.sha256("".join(sha(f"{A}/necessity_v2/{k}_HEAL.json") for k in sorted(_acc)).encode()).hexdigest()[:12])
+line(f"HEAL-MedVQA, fechada-sim: acurácia intacta, minimo – maximo entre as {NL['HEAL']} linhas (%)", f"{100 * min(_acc.values()):.1f} – {100 * max(_acc.values()):.1f}", "necessity_v2_HEAL")
+_rem = []
+for Ln in lines("MIMIC"):
+    x = _crit24("MIMIC", Ln, "closed_yes")
+    if x and x["iv"] and not x["v"]:
+        c = _nv25("MIMIC", Ln)["by_class"]["closed_yes"]; _rem.append((Ln["line"], c["custo_mascara_deslocada_preto"], c["custo_alvo_preto"], c["custo_alvo_preto_ci_by_image"], c["custo_alvo_blur10"], c["custo_alvo_blur10_ci_by_image"]))
+_cs25 = R20["cascata_mimic_yes"]["novo"]; assert len(_rem) == _cs25["iv"] - _cs25["v"], (len(_rem), _cs25)
+line("Medical-Diff-VQA, fechada-sim, ganho pareado: removidos pela condicao de queda com C < 0 / total removidos pela queda", f"{sum(1 for r in _rem if r[1] < 0)} / {len(_rem)}", "rodada19")
+line("Medical-Diff-VQA, fechada-sim, ganho pareado: runs removidos pela condicao de queda (C preto; queda preto [IC]; queda blur 10 % [IC]) (pp)", "; ".join(f"{r[0]} (C {_pp2(r[1])}; {_pp2(r[2])} {_ci2(r[3])}; {_pp2(r[4])} {_ci2(r[5])})" for r in _rem), "rodada19")
 L += ["", "## S11. Suplemento interno (nao vai ao corpo)", ""]
 for b in BASES:
     for cls, nm in CLS[b]:

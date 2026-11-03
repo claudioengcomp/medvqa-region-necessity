@@ -24,7 +24,7 @@ for b in BASES:
         C = {c: E.load_correct(p) for c, p in r["files"].items() if c in E.CORE}; C4 = {"C0": C["C0"], "T": E.load_correct(pt), "P": E.load_correct(pp_)}
         rec = {"pack": L["pack"], "fora_das_contagens": (b, L["line"]) in EXCL, "arquivos": {"T_blur": pt, "P_blur": pp_}, "sha256": {"T_blur": sha(pt), "P_blur": sha(pp_)}}
         for c in CL[b]:
-            qs = [q for q in G[c] if all(q in C[k] for k in E.CORE) and q in C4["T"] and q in C4["P"]]; b4 = E.block(Bb, qs, C4); bk = r["by_class"][c]
+            qs = [q for q in G[c] if all(q in C[k] for k in E.CORE if k in C) and q in C4["T"] and q in C4["P"]]; b4 = E.block(Bb, qs, C4); bk = r["by_class"][c]
             L0 = (lo(bk, "custo_alvo_preto_ci_by_image") or 0) > 0; L1 = (lo(bk, "delta_preto_ci_by_image") or 0) > 0; gain = (lo(bk, "headroom_ci_by_image") or 0) > 0
             b10 = (lo(bk, "delta_blur10_ci_by_image") or 0) > 0; b4ok = (lo(b4, "delta_preto_ci_by_image") or 0) > 0
             rec[c] = {"n_blur4": b4["n"], "n_classe": bk["n"], "delta_blur4": b4["delta_preto"], "delta_blur4_ci": b4["delta_preto_ci_by_image"], "delta_blur10": bk.get("delta_blur10"),

@@ -1,5 +1,5 @@
 {
- "t": "2026-10-30 19:01:16",
+ "t": "2026-11-03 04:36:44",
  "definicao": {
   "L0": "queda bruta: IC de Acc(C0) - Acc(T preto) com limite inferior > 0",
   "L1": "controle pareado: IC de Delta preto com limite inferior > 0",
@@ -10,13 +10,13 @@
  "bases": {
   "KVASIR": {
    "dependent_polyp": {
-    "n_linhas": 27,
+    "n_linhas": 39,
     "contagens": {
-     "L0": 27,
-     "L1": 27,
-     "L2": 25,
-     "L3": 25,
-     "L3_tfidf": 25
+     "L0": 39,
+     "L1": 39,
+     "L2": 35,
+     "L3": 35,
+     "L3_tfidf": 35
     },
     "por_grupo": {
      "Qwen2-VL-2B, encoder congelado": {
@@ -53,6 +53,20 @@
       "L2": 2,
       "L3": 2,
       "n": 3
+     },
+     "Qwen2.5-VL-7B, encoder congelado": {
+      "L0": 6,
+      "L1": 6,
+      "L2": 5,
+      "L3": 5,
+      "n": 6
+     },
+     "Qwen2.5-VL-7B, encoder afinado": {
+      "L0": 6,
+      "L1": 6,
+      "L2": 5,
+      "L3": 5,
+      "n": 6
      }
     },
     "zero_shot": {
@@ -104,6 +118,24 @@
        "delta_blur10_ci": [
         -0.007095865695614865,
         0.03724037487335356
+       ]
+      },
+      "QWEN25VL_LORA_VT_KVASIR_seed0": {
+       "de": true,
+       "para": false,
+       "delta_blur10": 0.01166489925768823,
+       "delta_blur10_ci": [
+        -0.012808376075016508,
+        0.0360136205258156
+       ]
+      },
+      "QWEN25VL_DORA_KVASIR_seed2": {
+       "de": true,
+       "para": false,
+       "delta_blur10": 0.024390243902439025,
+       "delta_blur10_ci": [
+        -0.00913582946545716,
+        0.057049376797698934
        ]
       }
      },
@@ -1271,6 +1303,522 @@
        ]
       }
      },
+     "QWEN25VL_LORA_KVASIR_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.12089077412513255,
+       "custo_alvo_preto_ci": [
+        0.09024062869772945,
+        0.15480674243205167
+       ],
+       "custo_mascara_deslocada_preto": -0.006362672322375398,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.02643236838457006,
+        0.012661601576205751
+       ],
+       "delta_preto": 0.12725344644750794,
+       "delta_preto_ci": [
+        0.0970651161113915,
+        0.1600754726701355
+       ],
+       "delta_blur10": 0.05090137857900318,
+       "delta_blur10_ci": [
+        0.018938656588128225,
+        0.08389565207176586
+       ],
+       "headroom": 0.35100742311770944,
+       "headroom_ci": [
+        0.32558080569838205,
+        0.3771934676292501
+       ],
+       "headroom_m0": 0.35100742311770944,
+       "headroom_m0_ci": [
+        0.32558080569838205,
+        0.3771934676292501
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_KVASIR_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.07529162248144221,
+       "custo_alvo_preto_ci": [
+        0.0486357342967474,
+        0.1021790890269151
+       ],
+       "custo_mascara_deslocada_preto": 0.003181336161187699,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.011485524100655679,
+        0.01789910263177738
+       ],
+       "delta_preto": 0.07211028632025451,
+       "delta_preto_ci": [
+        0.043381334012356436,
+        0.10020230716253442
+       ],
+       "delta_blur10": 0.01166489925768823,
+       "delta_blur10_ci": [
+        -0.012808376075016508,
+        0.0360136205258156
+       ],
+       "headroom": 0.35737009544008486,
+       "headroom_ci": [
+        0.32995652008809906,
+        0.3845260989010989
+       ],
+       "headroom_m0": 0.35737009544008486,
+       "headroom_m0_ci": [
+        0.32995652008809906,
+        0.3845260989010989
+       ]
+      }
+     },
+     "QWEN25VL_DORA_KVASIR_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.13043478260869565,
+       "custo_alvo_preto_ci": [
+        0.09829004418318246,
+        0.16648631150573434
+       ],
+       "custo_mascara_deslocada_preto": -0.010604453870625663,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.027934313943628938,
+        0.00660324132971955
+       ],
+       "delta_preto": 0.14103923647932132,
+       "delta_preto_ci": [
+        0.10932112180161885,
+        0.17555249933700076
+       ],
+       "delta_blur10": 0.07211028632025451,
+       "delta_blur10_ci": [
+        0.03955228981544771,
+        0.10377811533951602
+       ],
+       "headroom": 0.34358430540827145,
+       "headroom_ci": [
+        0.3176097254838448,
+        0.3707003490209439
+       ],
+       "headroom_m0": 0.34358430540827145,
+       "headroom_m0_ci": [
+        0.3176097254838448,
+        0.3707003490209439
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_KVASIR_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.21951219512195122,
+       "custo_alvo_preto_ci": [
+        0.18304957627118645,
+        0.2561437458709535
+       ],
+       "custo_mascara_deslocada_preto": 0.005302226935312832,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.008046237455290482,
+        0.01824258323645358
+       ],
+       "delta_preto": 0.2142099681866384,
+       "delta_preto_ci": [
+        0.17965951369837274,
+        0.24769795941086065
+       ],
+       "delta_blur10": 0.053022269353128315,
+       "delta_blur10_ci": [
+        0.025668927426739926,
+        0.0825498469053
+       ],
+       "headroom": 0.36903499469777307,
+       "headroom_ci": [
+        0.3402601158661262,
+        0.397229168596215
+       ],
+       "headroom_m0": 0.36903499469777307,
+       "headroom_m0_ci": [
+        0.3402601158661262,
+        0.397229168596215
+       ]
+      }
+     },
+     "QWEN25VL_LORA_KVASIR_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.11983032873807,
+       "custo_alvo_preto_ci": [
+        0.0874847956719859,
+        0.15437872729737057
+       ],
+       "custo_mascara_deslocada_preto": 0.0010604453870625664,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.01744313173774493,
+        0.01903909547700713
+       ],
+       "delta_preto": 0.11876988335100742,
+       "delta_preto_ci": [
+        0.08731059556146867,
+        0.15275754107674286
+       ],
+       "delta_blur10": 0.04559915164369035,
+       "delta_blur10_ci": [
+        0.013744918998527245,
+        0.07685363247863247
+       ],
+       "headroom": 0.3404029692470838,
+       "headroom_ci": [
+        0.31262999712395745,
+        0.3665510083036773
+       ],
+       "headroom_m0": 0.3404029692470838,
+       "headroom_m0_ci": [
+        0.31262999712395745,
+        0.3665510083036773
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_KVASIR_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.11876988335100742,
+       "custo_alvo_preto_ci": [
+        0.08990081233152317,
+        0.14769226998676532
+       ],
+       "custo_mascara_deslocada_preto": 0.009544008483563097,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.0042919607418300506,
+        0.023903981033290504
+       ],
+       "delta_preto": 0.10922587486744433,
+       "delta_preto_ci": [
+        0.0811439721344256,
+        0.1381947865690106
+       ],
+       "delta_blur10": 0.041357370095440084,
+       "delta_blur10_ci": [
+        0.007158340853596181,
+        0.07342480014187565
+       ],
+       "headroom": 0.3828207847295864,
+       "headroom_ci": [
+        0.3566647286821706,
+        0.40833841463414633
+       ],
+       "headroom_m0": 0.3828207847295864,
+       "headroom_m0_ci": [
+        0.3566647286821706,
+        0.40833841463414633
+       ]
+      }
+     },
+     "QWEN25VL_DORA_KVASIR_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0975609756097561,
+       "custo_alvo_preto_ci": [
+        0.06863729745108298,
+        0.1288148698235191
+       ],
+       "custo_mascara_deslocada_preto": -0.016967126193001062,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.03879957430757625,
+        0.0031855676444055613
+       ],
+       "delta_preto": 0.11452810180275716,
+       "delta_preto_ci": [
+        0.0881057268722467,
+        0.14387031408308004
+       ],
+       "delta_blur10": 0.03711558854718982,
+       "delta_blur10_ci": [
+        0.005516812112215265,
+        0.06818960149439597
+       ],
+       "headroom": 0.3297985153764581,
+       "headroom_ci": [
+        0.30223971253465637,
+        0.35772357723577236
+       ],
+       "headroom_m0": 0.3297985153764581,
+       "headroom_m0_ci": [
+        0.30223971253465637,
+        0.35772357723577236
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_KVASIR_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.11134676564156946,
+       "custo_alvo_preto_ci": [
+        0.08129809741057328,
+        0.1420544852664854
+       ],
+       "custo_mascara_deslocada_preto": 0.013785790031813362,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0,
+        0.028632146922096743
+       ],
+       "delta_preto": 0.0975609756097561,
+       "delta_preto_ci": [
+        0.06833771128369119,
+        0.12661055761538897
+       ],
+       "delta_blur10": 0.060445387062566275,
+       "delta_blur10_ci": [
+        0.03275059883485958,
+        0.08847527550124112
+       ],
+       "headroom": 0.3584305408271474,
+       "headroom_ci": [
+        0.33015247912581364,
+        0.3887336835402738
+       ],
+       "headroom_m0": 0.3584305408271474,
+       "headroom_m0_ci": [
+        0.33015247912581364,
+        0.3887336835402738
+       ]
+      }
+     },
+     "QWEN25VL_LORA_KVASIR_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.10604453870625663,
+       "custo_alvo_preto_ci": [
+        0.074996921182266,
+        0.13813062185977612
+       ],
+       "custo_mascara_deslocada_preto": -0.009544008483563097,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.02908307538764175,
+        0.00928373352472919
+       ],
+       "delta_preto": 0.11558854718981973,
+       "delta_preto_ci": [
+        0.08742801370830978,
+        0.14548992102583222
+       ],
+       "delta_blur10": 0.03923647932131495,
+       "delta_blur10_ci": [
+        0.011426654872475305,
+        0.06783182808999325
+       ],
+       "headroom": 0.3361611876988335,
+       "headroom_ci": [
+        0.3104490558606979,
+        0.36229745580853995
+       ],
+       "headroom_m0": 0.3361611876988335,
+       "headroom_m0_ci": [
+        0.3104490558606979,
+        0.36229745580853995
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_KVASIR_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.09862142099681867,
+       "custo_alvo_preto_ci": [
+        0.06826477886066559,
+        0.12942750126094732
+       ],
+       "custo_mascara_deslocada_preto": -0.008483563096500531,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.022556390977443608,
+        0.005495417193426038
+       ],
+       "delta_preto": 0.1071049840933192,
+       "delta_preto_ci": [
+        0.07761593047698319,
+        0.1366461272239183
+       ],
+       "delta_blur10": 0.03499469777306469,
+       "delta_blur10_ci": [
+        0.005294573011734028,
+        0.06537697061349983
+       ],
+       "headroom": 0.3531283138918346,
+       "headroom_ci": [
+        0.32128979165965466,
+        0.38293756332320167
+       ],
+       "headroom_m0": 0.3531283138918346,
+       "headroom_m0_ci": [
+        0.32128979165965466,
+        0.38293756332320167
+       ]
+      }
+     },
+     "QWEN25VL_DORA_KVASIR_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.1420996818663839,
+       "custo_alvo_preto_ci": [
+        0.10824187398169523,
+        0.17699462280249215
+       ],
+       "custo_mascara_deslocada_preto": -0.005302226935312832,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.02467690876420865,
+        0.013065900969670237
+       ],
+       "delta_preto": 0.1474019088016967,
+       "delta_preto_ci": [
+        0.115654315215034,
+        0.18232985988461084
+       ],
+       "delta_blur10": 0.024390243902439025,
+       "delta_blur10_ci": [
+        -0.00913582946545716,
+        0.057049376797698934
+       ],
+       "headroom": 0.33510074231177095,
+       "headroom_ci": [
+        0.3068023981556402,
+        0.36353670492587276
+       ],
+       "headroom_m0": 0.33510074231177095,
+       "headroom_m0_ci": [
+        0.3068023981556402,
+        0.36353670492587276
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_KVASIR_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.1633085896076352,
+       "custo_alvo_preto_ci": [
+        0.13028095040833235,
+        0.19718422475149402
+       ],
+       "custo_mascara_deslocada_preto": 0.006362672322375398,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.006424845926956188,
+        0.01978546415964671
+       ],
+       "delta_preto": 0.1569459172852598,
+       "delta_preto_ci": [
+        0.1240933611495161,
+        0.19172533504004963
+       ],
+       "delta_blur10": 0.04772004241781548,
+       "delta_blur10_ci": [
+        0.0197434819175778,
+        0.07692901234567899
+       ],
+       "headroom": 0.3488865323435843,
+       "headroom_ci": [
+        0.32110423768501073,
+        0.3769476934650197
+       ],
+       "headroom_m0": 0.3488865323435843,
+       "headroom_m0_ci": [
+        0.32110423768501073,
+        0.3769476934650197
+       ]
+      }
+     },
      "LLAVA_MED_ZEROSHOT_KVASIR": {
       "zero_shot": true,
       "grupo": "LLAVA_MED",
@@ -1446,13 +1994,13 @@
     }
    },
    "dependent_instrument": {
-    "n_linhas": 27,
+    "n_linhas": 39,
     "contagens": {
-     "L0": 27,
-     "L1": 26,
-     "L2": 25,
-     "L3": 25,
-     "L3_tfidf": 25
+     "L0": 39,
+     "L1": 38,
+     "L2": 37,
+     "L3": 37,
+     "L3_tfidf": 37
     },
     "por_grupo": {
      "Qwen2-VL-2B, encoder congelado": {
@@ -1489,6 +2037,20 @@
       "L2": 2,
       "L3": 2,
       "n": 3
+     },
+     "Qwen2.5-VL-7B, encoder congelado": {
+      "L0": 6,
+      "L1": 6,
+      "L2": 6,
+      "L3": 6,
+      "n": 6
+     },
+     "Qwen2.5-VL-7B, encoder afinado": {
+      "L0": 6,
+      "L1": 6,
+      "L2": 6,
+      "L3": 6,
+      "n": 6
      }
     },
     "zero_shot": {
@@ -2713,6 +3275,522 @@
        ]
       }
      },
+     "QWEN25VL_LORA_KVASIR_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.5191082802547771,
+       "custo_alvo_preto_ci": [
+        0.44026621160409557,
+        0.594371907118386
+       ],
+       "custo_mascara_deslocada_preto": 0.022292993630573247,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.010737973760932943,
+        0.05574228861087142
+       ],
+       "delta_preto": 0.4968152866242038,
+       "delta_preto_ci": [
+        0.4195583596214511,
+        0.5700008143322475
+       ],
+       "delta_blur10": 0.6050955414012739,
+       "delta_blur10_ci": [
+        0.5397824263395198,
+        0.6675566693944353
+       ],
+       "headroom": 0.7452229299363057,
+       "headroom_ci": [
+        0.6956379187455453,
+        0.7932355889724311
+       ],
+       "headroom_m0": 0.7452229299363057,
+       "headroom_m0_ci": [
+        0.6956379187455453,
+        0.7932355889724311
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_KVASIR_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.2515923566878981,
+       "custo_alvo_preto_ci": [
+        0.18546460858845285,
+        0.3220351980867214
+       ],
+       "custo_mascara_deslocada_preto": 0.012738853503184714,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.013203513042334135,
+        0.04089512506889635
+       ],
+       "delta_preto": 0.23885350318471338,
+       "delta_preto_ci": [
+        0.16922535211267606,
+        0.3097387542763437
+       ],
+       "delta_blur10": 0.36942675159235666,
+       "delta_blur10_ci": [
+        0.29275012351778656,
+        0.4534240289237044
+       ],
+       "headroom": 0.7484076433121019,
+       "headroom_ci": [
+        0.7036978618997547,
+        0.7919605761767793
+       ],
+       "headroom_m0": 0.7484076433121019,
+       "headroom_m0_ci": [
+        0.7036978618997547,
+        0.7919605761767793
+       ]
+      }
+     },
+     "QWEN25VL_DORA_KVASIR_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.410828025477707,
+       "custo_alvo_preto_ci": [
+        0.32796153933245775,
+        0.48889688249400476
+       ],
+       "custo_mascara_deslocada_preto": 0.028662420382165606,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.0026554589741140506,
+        0.06071959954325777
+       ],
+       "delta_preto": 0.3821656050955414,
+       "delta_preto_ci": [
+        0.29655899649114226,
+        0.4628121075840318
+       ],
+       "delta_blur10": 0.5509554140127388,
+       "delta_blur10_ci": [
+        0.4760344863010181,
+        0.6199474393530997
+       ],
+       "headroom": 0.7579617834394905,
+       "headroom_ci": [
+        0.7117386394744046,
+        0.8020632809230586
+       ],
+       "headroom_m0": 0.7579617834394905,
+       "headroom_m0_ci": [
+        0.7117386394744046,
+        0.8020632809230586
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_KVASIR_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.4713375796178344,
+       "custo_alvo_preto_ci": [
+        0.3994162429780274,
+        0.5384615384615384
+       ],
+       "custo_mascara_deslocada_preto": 0.006369426751592357,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.01548107801472992,
+        0.02795155279503105
+       ],
+       "delta_preto": 0.46496815286624205,
+       "delta_preto_ci": [
+        0.3911526375255985,
+        0.5315334731283007
+       ],
+       "delta_blur10": 0.3853503184713376,
+       "delta_blur10_ci": [
+        0.31109730848861283,
+        0.46284096596596597
+       ],
+       "headroom": 0.7611464968152867,
+       "headroom_ci": [
+        0.7161685613005745,
+        0.8045125027552595
+       ],
+       "headroom_m0": 0.7611464968152867,
+       "headroom_m0_ci": [
+        0.7161685613005745,
+        0.8045125027552595
+       ]
+      }
+     },
+     "QWEN25VL_LORA_KVASIR_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.46178343949044587,
+       "custo_alvo_preto_ci": [
+        0.3850692122981308,
+        0.5347262596899225
+       ],
+       "custo_mascara_deslocada_preto": 0.009554140127388535,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.019543973941368076,
+        0.03750887223974758
+       ],
+       "delta_preto": 0.45222929936305734,
+       "delta_preto_ci": [
+        0.3730874866986857,
+        0.5278641276376737
+       ],
+       "delta_blur10": 0.6273885350318471,
+       "delta_blur10_ci": [
+        0.5631025527870188,
+        0.6880811913610728
+       ],
+       "headroom": 0.7292993630573248,
+       "headroom_ci": [
+        0.6835434621599784,
+        0.7736499400776924
+       ],
+       "headroom_m0": 0.7292993630573248,
+       "headroom_m0_ci": [
+        0.6835434621599784,
+        0.7736499400776924
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_KVASIR_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.45222929936305734,
+       "custo_alvo_preto_ci": [
+        0.378091630766252,
+        0.526499857580289
+       ],
+       "custo_mascara_deslocada_preto": 0.03821656050955414,
+       "custo_mascara_deslocada_preto_ci": [
+        0.013554787143585965,
+        0.06625006161277601
+       ],
+       "delta_preto": 0.4140127388535032,
+       "delta_preto_ci": [
+        0.3312080820010967,
+        0.4984030598361234
+       ],
+       "delta_blur10": 0.43630573248407645,
+       "delta_blur10_ci": [
+        0.35397777260259794,
+        0.5190789649609141
+       ],
+       "headroom": 0.7738853503184714,
+       "headroom_ci": [
+        0.7312493824110672,
+        0.8169571229259055
+       ],
+       "headroom_m0": 0.7738853503184714,
+       "headroom_m0_ci": [
+        0.7312493824110672,
+        0.8169571229259055
+       ]
+      }
+     },
+     "QWEN25VL_DORA_KVASIR_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.4171974522292994,
+       "custo_alvo_preto_ci": [
+        0.3371056586148426,
+        0.4918605800751371
+       ],
+       "custo_mascara_deslocada_preto": 0.012738853503184714,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.013842031910803538,
+        0.041057806525854695
+       ],
+       "delta_preto": 0.40445859872611467,
+       "delta_preto_ci": [
+        0.33043478260869563,
+        0.4758738012650479
+       ],
+       "delta_blur10": 0.6210191082802548,
+       "delta_blur10_ci": [
+        0.5548873752360399,
+        0.6828743218806509
+       ],
+       "headroom": 0.7356687898089171,
+       "headroom_ci": [
+        0.6880695462102087,
+        0.7821030935778402
+       ],
+       "headroom_m0": 0.7356687898089171,
+       "headroom_m0_ci": [
+        0.6880695462102087,
+        0.7821030935778402
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_KVASIR_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.5095541401273885,
+       "custo_alvo_preto_ci": [
+        0.4348966756513926,
+        0.5812847175179514
+       ],
+       "custo_mascara_deslocada_preto": 0.009554140127388535,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.017066307447753518,
+        0.03738397228050098
+       ],
+       "delta_preto": 0.5,
+       "delta_preto_ci": [
+        0.4262281329079106,
+        0.5736746103580732
+       ],
+       "delta_blur10": 0.5700636942675159,
+       "delta_blur10_ci": [
+        0.4952357836338419,
+        0.6417457106988422
+       ],
+       "headroom": 0.7547770700636943,
+       "headroom_ci": [
+        0.7075030554399834,
+        0.8013250607621468
+       ],
+       "headroom_m0": 0.7547770700636943,
+       "headroom_m0_ci": [
+        0.7075030554399834,
+        0.8013250607621468
+       ]
+      }
+     },
+     "QWEN25VL_LORA_KVASIR_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.4426751592356688,
+       "custo_alvo_preto_ci": [
+        0.3614971214525593,
+        0.5204096550901063
+       ],
+       "custo_mascara_deslocada_preto": 0.01910828025477707,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.018407748239036584,
+        0.05597145574647769
+       ],
+       "delta_preto": 0.42356687898089174,
+       "delta_preto_ci": [
+        0.34067523972082464,
+        0.4984239188107159
+       ],
+       "delta_blur10": 0.6273885350318471,
+       "delta_blur10_ci": [
+        0.5671092921667585,
+        0.6856332942223661
+       ],
+       "headroom": 0.7611464968152867,
+       "headroom_ci": [
+        0.712117534568991,
+        0.8093787202380952
+       ],
+       "headroom_m0": 0.7611464968152867,
+       "headroom_m0_ci": [
+        0.712117534568991,
+        0.8093787202380952
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_KVASIR_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.24203821656050956,
+       "custo_alvo_preto_ci": [
+        0.1751210907899318,
+        0.3101320384111741
+       ],
+       "custo_mascara_deslocada_preto": -0.01910828025477707,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.04660090642495335,
+        0.00914774427652251
+       ],
+       "delta_preto": 0.2611464968152866,
+       "delta_preto_ci": [
+        0.18690771368627557,
+        0.3379125615763547
+       ],
+       "delta_blur10": 0.3821656050955414,
+       "delta_blur10_ci": [
+        0.31379141311697095,
+        0.4533410596026489
+       ],
+       "headroom": 0.7292993630573248,
+       "headroom_ci": [
+        0.6859199990743312,
+        0.7730517624642743
+       ],
+       "headroom_m0": 0.7292993630573248,
+       "headroom_m0_ci": [
+        0.6859199990743312,
+        0.7730517624642743
+       ]
+      }
+     },
+     "QWEN25VL_DORA_KVASIR_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.4171974522292994,
+       "custo_alvo_preto_ci": [
+        0.34304520082751083,
+        0.492084850937542
+       ],
+       "custo_mascara_deslocada_preto": 0.01910828025477707,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.012988070561360464,
+        0.05369227687068015
+       ],
+       "delta_preto": 0.3980891719745223,
+       "delta_preto_ci": [
+        0.3223862094486246,
+        0.47475378787878786
+       ],
+       "delta_blur10": 0.5828025477707006,
+       "delta_blur10_ci": [
+        0.5145516937030161,
+        0.6454640151515152
+       ],
+       "headroom": 0.7515923566878981,
+       "headroom_ci": [
+        0.7075450577302168,
+        0.7964653392330383
+       ],
+       "headroom_m0": 0.7515923566878981,
+       "headroom_m0_ci": [
+        0.7075450577302168,
+        0.7964653392330383
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_KVASIR_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.37898089171974525,
+       "custo_alvo_preto_ci": [
+        0.31178276370921704,
+        0.452311475409836
+       ],
+       "custo_mascara_deslocada_preto": 0.025477707006369428,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.0031655712431028884,
+        0.053768561187916
+       ],
+       "delta_preto": 0.3535031847133758,
+       "delta_preto_ci": [
+        0.27960270921869895,
+        0.4290791725481868
+       ],
+       "delta_blur10": 0.5605095541401274,
+       "delta_blur10_ci": [
+        0.48787043028146226,
+        0.6308808129849112
+       ],
+       "headroom": 0.7611464968152867,
+       "headroom_ci": [
+        0.7147333019212646,
+        0.8078182282685061
+       ],
+       "headroom_m0": 0.7611464968152867,
+       "headroom_m0_ci": [
+        0.7147333019212646,
+        0.8078182282685061
+       ]
+      }
+     },
      "LLAVA_MED_ZEROSHOT_KVASIR": {
       "zero_shot": true,
       "grupo": "LLAVA_MED",
@@ -2890,13 +3968,13 @@
   },
   "HEAL": {
    "closed_yes": {
-    "n_linhas": 27,
+    "n_linhas": 39,
     "contagens": {
      "L0": 0,
-     "L1": 1,
-     "L2": 0,
-     "L3": 0,
-     "L3_tfidf": 0
+     "L1": 4,
+     "L2": 1,
+     "L3": 1,
+     "L3_tfidf": 1
     },
     "por_grupo": {
      "Qwen2-VL-2B, encoder congelado": {
@@ -2933,6 +4011,20 @@
       "L2": 0,
       "L3": 0,
       "n": 3
+     },
+     "Qwen2.5-VL-7B, encoder congelado": {
+      "L0": 0,
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "n": 6
+     },
+     "Qwen2.5-VL-7B, encoder afinado": {
+      "L0": 0,
+      "L1": 3,
+      "L2": 1,
+      "L3": 1,
+      "n": 6
      }
     },
     "zero_shot": {
@@ -2980,6 +4072,48 @@
         0.014204545454545454,
         0.05175137542572699
        ]
+      },
+      "QWEN25VL_LORA_VT_HEAL_seed0": {
+       "de": false,
+       "para": true,
+       "custo_mascara_deslocada_preto": -0.008438818565400843,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.019802681401284605,
+        0.0014537008703930357
+       ],
+       "delta_preto": 0.01969057665260197,
+       "delta_preto_ci": [
+        0.007243534081746573,
+        0.03274620535670718
+       ]
+      },
+      "QWEN25VL_DORA_VT_HEAL_seed0": {
+       "de": false,
+       "para": true,
+       "custo_mascara_deslocada_preto": -0.011251758087201125,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.023744679436020218,
+        0.0
+       ],
+       "delta_preto": 0.02250351617440225,
+       "delta_preto_ci": [
+        0.01258697308278314,
+        0.033385158638136375
+       ]
+      },
+      "QWEN25VL_LORA_VT_HEAL_seed2": {
+       "de": false,
+       "para": true,
+       "custo_mascara_deslocada_preto": -0.008438818565400843,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.0181570594210259,
+        0.0
+       ],
+       "delta_preto": 0.016877637130801686,
+       "delta_preto_ci": [
+        0.005397386082656305,
+        0.029282576866764276
+       ]
       }
      },
      "L1->L2": {
@@ -2990,6 +4124,24 @@
        "delta_blur10_ci": [
         -0.00568222286972287,
         0.029329608938547486
+       ]
+      },
+      "QWEN25VL_DORA_VT_HEAL_seed0": {
+       "de": true,
+       "para": false,
+       "delta_blur10": 0.004219409282700422,
+       "delta_blur10_ci": [
+        -0.00718520759518938,
+        0.01566951566951567
+       ]
+      },
+      "QWEN25VL_LORA_VT_HEAL_seed2": {
+       "de": true,
+       "para": false,
+       "delta_blur10": 0.008438818565400843,
+       "delta_blur10_ci": [
+        -0.0013024259868421053,
+        0.018238257687490107
        ]
       }
      },
@@ -4157,6 +5309,522 @@
        ]
       }
      },
+     "QWEN25VL_LORA_HEAL_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": -0.011251758087201125,
+       "custo_alvo_preto_ci": [
+        -0.02666666666666667,
+        0.004132373895696779
+       ],
+       "custo_mascara_deslocada_preto": -0.008438818565400843,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.024533343992988316,
+        0.006730385720035618
+       ],
+       "delta_preto": -0.0028129395218002813,
+       "delta_preto_ci": [
+        -0.013987981076588671,
+        0.0084868634576934
+       ],
+       "delta_blur10": 0.0028129395218002813,
+       "delta_blur10_ci": [
+        -0.008415739047585231,
+        0.015237046297758882
+       ],
+       "headroom": 0.035161744022503515,
+       "headroom_ci": [
+        0.012837433941771495,
+        0.056552358191484166
+       ],
+       "headroom_m0": 0.19971870604781997,
+       "headroom_m0_ci": [
+        0.16754304015090915,
+        0.23269405677538169
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_HEAL_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.011251758087201125,
+       "custo_alvo_preto_ci": [
+        0.0,
+        0.022728080951765157
+       ],
+       "custo_mascara_deslocada_preto": -0.008438818565400843,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.019802681401284605,
+        0.0014537008703930357
+       ],
+       "delta_preto": 0.01969057665260197,
+       "delta_preto_ci": [
+        0.007243534081746573,
+        0.03274620535670718
+       ],
+       "delta_blur10": 0.009845288326300985,
+       "delta_blur10_ci": [
+        0.00137537449831358,
+        0.019047968160871388
+       ],
+       "headroom": 0.0450070323488045,
+       "headroom_ci": [
+        0.023087191386903204,
+        0.06722783283717074
+       ],
+       "headroom_m0": 0.20956399437412096,
+       "headroom_m0_ci": [
+        0.1795930527383367,
+        0.24085519728851393
+       ]
+      }
+     },
+     "QWEN25VL_DORA_HEAL_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": -0.005625879043600563,
+       "custo_alvo_preto_ci": [
+        -0.020749049100968187,
+        0.009528769841269815
+       ],
+       "custo_mascara_deslocada_preto": -0.014064697609001406,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.02932120318642665,
+        0.001420606519906626
+       ],
+       "delta_preto": 0.008438818565400843,
+       "delta_preto_ci": [
+        -0.0026810551127264878,
+        0.01997403462050599
+       ],
+       "delta_blur10": 0.0,
+       "delta_blur10_ci": [
+        -0.011238342298755451,
+        0.01099283724631912
+       ],
+       "headroom": 0.03234880450070324,
+       "headroom_ci": [
+        0.013656229197074257,
+        0.0518303665565474
+       ],
+       "headroom_m0": 0.19690576652601968,
+       "headroom_m0_ci": [
+        0.1671386129238442,
+        0.22939784919531092
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_HEAL_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": true,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.011251758087201125,
+       "custo_alvo_preto_ci": [
+        -0.001559686625081819,
+        0.024358891971438163
+       ],
+       "custo_mascara_deslocada_preto": -0.011251758087201125,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.023744679436020218,
+        0.0
+       ],
+       "delta_preto": 0.02250351617440225,
+       "delta_preto_ci": [
+        0.01258697308278314,
+        0.033385158638136375
+       ],
+       "delta_blur10": 0.004219409282700422,
+       "delta_blur10_ci": [
+        -0.00718520759518938,
+        0.01566951566951567
+       ],
+       "headroom": 0.052039381153305204,
+       "headroom_ci": [
+        0.03159124266144814,
+        0.0722456670924689
+       ],
+       "headroom_m0": 0.21659634317862167,
+       "headroom_m0_ci": [
+        0.18657667486029406,
+        0.24831871345029238
+       ]
+      }
+     },
+     "QWEN25VL_LORA_HEAL_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0014064697609001407,
+       "custo_alvo_preto_ci": [
+        -0.011782757181125555,
+        0.01381311121654091
+       ],
+       "custo_mascara_deslocada_preto": -0.007032348804500703,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.021157305586765793,
+        0.007204870857608608
+       ],
+       "delta_preto": 0.008438818565400843,
+       "delta_preto_ci": [
+        -0.0030165912518853697,
+        0.020413069073783333
+       ],
+       "delta_blur10": 0.008438818565400843,
+       "delta_blur10_ci": [
+        0.0,
+        0.01695035290728381
+       ],
+       "headroom": 0.05625879043600562,
+       "headroom_ci": [
+        0.03361181892111683,
+        0.07806454128922956
+       ],
+       "headroom_m0": 0.2180028129395218,
+       "headroom_m0_ci": [
+        0.1862720899361155,
+        0.2503459770991918
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_HEAL_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0014064697609001407,
+       "custo_alvo_preto_ci": [
+        -0.004534152739992226,
+        0.007184166459935498
+       ],
+       "custo_mascara_deslocada_preto": -0.0014064697609001407,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.008773870517000465,
+        0.005883004605091664
+       ],
+       "delta_preto": 0.0028129395218002813,
+       "delta_preto_ci": [
+        -0.005405955480582346,
+        0.010340308125607484
+       ],
+       "delta_blur10": -0.004219409282700422,
+       "delta_blur10_ci": [
+        -0.012607712576556046,
+        0.0029950342107893414
+       ],
+       "headroom": 0.06047819971870605,
+       "headroom_ci": [
+        0.04211846949509116,
+        0.0788400090326587
+       ],
+       "headroom_m0": 0.2222222222222222,
+       "headroom_m0_ci": [
+        0.19160702043054983,
+        0.2530454879500341
+       ]
+      }
+     },
+     "QWEN25VL_DORA_HEAL_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": -0.007032348804500703,
+       "custo_alvo_preto_ci": [
+        -0.020864494059875217,
+        0.006935053552165202
+       ],
+       "custo_mascara_deslocada_preto": -0.011251758087201125,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.024523997159967437,
+        0.0014750353458658422
+       ],
+       "delta_preto": 0.004219409282700422,
+       "delta_preto_ci": [
+        -0.00645244968829756,
+        0.01513594969103648
+       ],
+       "delta_blur10": 0.0,
+       "delta_blur10_ci": [
+        -0.01142980118876819,
+        0.011158773132684029
+       ],
+       "headroom": 0.053445850914205346,
+       "headroom_ci": [
+        0.03421273856323377,
+        0.07407898614795164
+       ],
+       "headroom_m0": 0.21518987341772153,
+       "headroom_m0_ci": [
+        0.1850302955190173,
+        0.2459792146356182
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_HEAL_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0028129395218002813,
+       "custo_alvo_preto_ci": [
+        -0.008761711716568372,
+        0.014621493160213299
+       ],
+       "custo_mascara_deslocada_preto": -0.005625879043600563,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.01499543840717004,
+        0.002825058817880635
+       ],
+       "delta_preto": 0.008438818565400843,
+       "delta_preto_ci": [
+        -0.0014367816091954023,
+        0.019205049066160176
+       ],
+       "delta_blur10": -0.0014064697609001407,
+       "delta_blur10_ci": [
+        -0.00874699503861695,
+        0.0056581098839367195
+       ],
+       "headroom": 0.05063291139240506,
+       "headroom_ci": [
+        0.0317443919716647,
+        0.07005618158230488
+       ],
+       "headroom_m0": 0.21237693389592124,
+       "headroom_m0_ci": [
+        0.18220888829512255,
+        0.24370260299241644
+       ]
+      }
+     },
+     "QWEN25VL_LORA_HEAL_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": -0.015471167369901548,
+       "custo_alvo_preto_ci": [
+        -0.028410101189706452,
+        -0.0027433902700264956
+       ],
+       "custo_mascara_deslocada_preto": -0.016877637130801686,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.02970507689066779,
+        -0.004266821723830586
+       ],
+       "delta_preto": 0.0014064697609001407,
+       "delta_preto_ci": [
+        -0.005548042841732162,
+        0.008734582088408788
+       ],
+       "delta_blur10": 0.004219409282700422,
+       "delta_blur10_ci": [
+        -0.004018543309038623,
+        0.012605042016806723
+       ],
+       "headroom": 0.05625879043600562,
+       "headroom_ci": [
+        0.03561634078757366,
+        0.07692837465564736
+       ],
+       "headroom_m0": 0.21659634317862167,
+       "headroom_m0_ci": [
+        0.18621602645500457,
+        0.2478137279756623
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_HEAL_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": true,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.008438818565400843,
+       "custo_alvo_preto_ci": [
+        -0.0029032880944499613,
+        0.020468585446045563
+       ],
+       "custo_mascara_deslocada_preto": -0.008438818565400843,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.0181570594210259,
+        0.0
+       ],
+       "delta_preto": 0.016877637130801686,
+       "delta_preto_ci": [
+        0.005397386082656305,
+        0.029282576866764276
+       ],
+       "delta_blur10": 0.008438818565400843,
+       "delta_blur10_ci": [
+        -0.0013024259868421053,
+        0.018238257687490107
+       ],
+       "headroom": 0.05907172995780591,
+       "headroom_ci": [
+        0.03655898581438417,
+        0.08163409025582062
+       ],
+       "headroom_m0": 0.21940928270042195,
+       "headroom_m0_ci": [
+        0.18873106563911773,
+        0.25219193791567185
+       ]
+      }
+     },
+     "QWEN25VL_DORA_HEAL_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": -0.02390998593530239,
+       "custo_alvo_preto_ci": [
+        -0.039716554940250656,
+        -0.009734397513066604
+       ],
+       "custo_mascara_deslocada_preto": -0.01828410689170183,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.03267161636816242,
+        -0.004194357366771167
+       ],
+       "delta_preto": -0.005625879043600563,
+       "delta_preto_ci": [
+        -0.01567063492063492,
+        0.004143933364962273
+       ],
+       "delta_blur10": -0.0028129395218002813,
+       "delta_blur10_ci": [
+        -0.010544218707499319,
+        0.004446455505279024
+       ],
+       "headroom": 0.04781997187060478,
+       "headroom_ci": [
+        0.02493064637980195,
+        0.06938818870324333
+       ],
+       "headroom_m0": 0.20815752461322082,
+       "headroom_m0_ci": [
+        0.17679521567369785,
+        0.23950404289622823
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_HEAL_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0014064697609001407,
+       "custo_alvo_preto_ci": [
+        -0.010421000378214825,
+        0.013798415918091346
+       ],
+       "custo_mascara_deslocada_preto": 0.008438818565400843,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.005789554618857129,
+        0.023460916867840763
+       ],
+       "delta_preto": -0.007032348804500703,
+       "delta_preto_ci": [
+        -0.01966709902282204,
+        0.005665923291744519
+       ],
+       "delta_blur10": 0.005625879043600563,
+       "delta_blur10_ci": [
+        -0.005642147934317913,
+        0.016082509125161893
+       ],
+       "headroom": 0.04781997187060478,
+       "headroom_ci": [
+        0.027582967909109028,
+        0.06930759075907592
+       ],
+       "headroom_m0": 0.20815752461322082,
+       "headroom_m0_ci": [
+        0.17771436314679037,
+        0.23978467653977553
+       ]
+      }
+     },
      "LLAVA_MED_ZEROSHOT_HEAL": {
       "zero_shot": true,
       "grupo": "LLAVA_MED",
@@ -4332,9 +6000,9 @@
     }
    },
    "closed_no": {
-    "n_linhas": 27,
+    "n_linhas": 39,
     "contagens": {
-     "L0": 27,
+     "L0": 38,
      "L1": 0,
      "L2": 0,
      "L3": 0,
@@ -4375,6 +6043,20 @@
       "L2": 0,
       "L3": 0,
       "n": 3
+     },
+     "Qwen2.5-VL-7B, encoder congelado": {
+      "L0": 6,
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "n": 6
+     },
+     "Qwen2.5-VL-7B, encoder afinado": {
+      "L0": 5,
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "n": 6
      }
     },
     "zero_shot": {
@@ -4785,6 +6467,160 @@
        "delta_preto_ci": [
         -0.005556919121084619,
         0.02173986986098787
+       ]
+      },
+      "QWEN25VL_LORA_HEAL_seed0": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.0380952380952381,
+       "custo_mascara_deslocada_preto_ci": [
+        0.020777696060845233,
+        0.05642024195737555
+       ],
+       "delta_preto": -0.01904761904761905,
+       "delta_preto_ci": [
+        -0.03389830508474576,
+        -0.005449036708949681
+       ]
+      },
+      "QWEN25VL_LORA_VT_HEAL_seed0": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.021768707482993196,
+       "custo_mascara_deslocada_preto_ci": [
+        0.007883076067974322,
+        0.03600120160213617
+       ],
+       "delta_preto": -0.00816326530612245,
+       "delta_preto_ci": [
+        -0.021773186640911508,
+        0.005223136117675786
+       ]
+      },
+      "QWEN25VL_DORA_HEAL_seed0": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.05442176870748299,
+       "custo_mascara_deslocada_preto_ci": [
+        0.03524199228776429,
+        0.07407536907536906
+       ],
+       "delta_preto": -0.0013605442176870747,
+       "delta_preto_ci": [
+        -0.015989537426266187,
+        0.012263260050016787
+       ]
+      },
+      "QWEN25VL_DORA_VT_HEAL_seed0": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.06938775510204082,
+       "custo_mascara_deslocada_preto_ci": [
+        0.049998266296809986,
+        0.08987616576933104
+       ],
+       "delta_preto": -0.031292517006802724,
+       "delta_preto_ci": [
+        -0.04811962716331678,
+        -0.014724096385542175
+       ]
+      },
+      "QWEN25VL_LORA_HEAL_seed1": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.01904761904761905,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0013404825737265416,
+        0.037037037037037035
+       ],
+       "delta_preto": -0.0013605442176870747,
+       "delta_preto_ci": [
+        -0.014084507042253521,
+        0.011004126547455296
+       ]
+      },
+      "QWEN25VL_LORA_VT_HEAL_seed1": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.017687074829931974,
+       "custo_mascara_deslocada_preto_ci": [
+        0.00392156862745098,
+        0.03168103212987325
+       ],
+       "delta_preto": 0.0,
+       "delta_preto_ci": [
+        -0.013245912596853206,
+        0.013227951224639963
+       ]
+      },
+      "QWEN25VL_DORA_HEAL_seed1": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.04897959183673469,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0312944039635769,
+        0.06849549955841176
+       ],
+       "delta_preto": -0.013605442176870748,
+       "delta_preto_ci": [
+        -0.028650364547223403,
+        0.0
+       ]
+      },
+      "QWEN25VL_LORA_HEAL_seed2": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.058503401360544216,
+       "custo_mascara_deslocada_preto_ci": [
+        0.03882165141809151,
+        0.07832167832167833
+       ],
+       "delta_preto": -0.005442176870748299,
+       "delta_preto_ci": [
+        -0.01977471052189965,
+        0.00953776320743112
+       ]
+      },
+      "QWEN25VL_LORA_VT_HEAL_seed2": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.02857142857142857,
+       "custo_mascara_deslocada_preto_ci": [
+        0.012244067233406252,
+        0.0446958671736851
+       ],
+       "delta_preto": -0.009523809523809525,
+       "delta_preto_ci": [
+        -0.02496706205065982,
+        0.005435338691500086
+       ]
+      },
+      "QWEN25VL_DORA_HEAL_seed2": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.058503401360544216,
+       "custo_mascara_deslocada_preto_ci": [
+        0.03926794103512196,
+        0.07943425620938306
+       ],
+       "delta_preto": -0.009523809523809525,
+       "delta_preto_ci": [
+        -0.023035533972497215,
+        0.004006285109706019
+       ]
+      },
+      "QWEN25VL_DORA_VT_HEAL_seed2": {
+       "de": true,
+       "para": false,
+       "custo_mascara_deslocada_preto": 0.02040816326530612,
+       "custo_mascara_deslocada_preto_ci": [
+        0.004207573632538569,
+        0.035326951755734574
+       ],
+       "delta_preto": -0.004081632653061225,
+       "delta_preto_ci": [
+        -0.01639456546148664,
+        0.008068101584219564
        ]
       },
       "QWEN25VL_ZEROSHOT_HEAL": {
@@ -5977,6 +7813,522 @@
        ]
       }
      },
+     "QWEN25VL_LORA_HEAL_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.01904761904761905,
+       "custo_alvo_preto_ci": [
+        0.0026593981037304586,
+        0.03591284396659101
+       ],
+       "custo_mascara_deslocada_preto": 0.0380952380952381,
+       "custo_mascara_deslocada_preto_ci": [
+        0.020777696060845233,
+        0.05642024195737555
+       ],
+       "delta_preto": -0.01904761904761905,
+       "delta_preto_ci": [
+        -0.03389830508474576,
+        -0.005449036708949681
+       ],
+       "delta_blur10": -0.004081632653061225,
+       "delta_blur10_ci": [
+        -0.017391595366975147,
+        0.008487164825905079
+       ],
+       "headroom": 0.04625850340136054,
+       "headroom_ci": [
+        0.024793388429752067,
+        0.06878418176209586
+       ],
+       "headroom_m0": 0.254421768707483,
+       "headroom_m0_ci": [
+        0.2130000895549121,
+        0.29404350068353535
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_HEAL_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.013605442176870748,
+       "custo_alvo_preto_ci": [
+        0.0013678957416908195,
+        0.025641891891891887
+       ],
+       "custo_mascara_deslocada_preto": 0.021768707482993196,
+       "custo_mascara_deslocada_preto_ci": [
+        0.007883076067974322,
+        0.03600120160213617
+       ],
+       "delta_preto": -0.00816326530612245,
+       "delta_preto_ci": [
+        -0.021773186640911508,
+        0.005223136117675786
+       ],
+       "delta_blur10": -0.004081632653061225,
+       "delta_blur10_ci": [
+        -0.01692584446941264,
+        0.009397880320767214
+       ],
+       "headroom": 0.0761904761904762,
+       "headroom_ci": [
+        0.05086835003293289,
+        0.10056217525491266
+       ],
+       "headroom_m0": 0.28435374149659864,
+       "headroom_m0_ci": [
+        0.24337114110736158,
+        0.3227933751031577
+       ]
+      }
+     },
+     "QWEN25VL_DORA_HEAL_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.053061224489795916,
+       "custo_alvo_preto_ci": [
+        0.033943949640499765,
+        0.0735894466425128
+       ],
+       "custo_mascara_deslocada_preto": 0.05442176870748299,
+       "custo_mascara_deslocada_preto_ci": [
+        0.03524199228776429,
+        0.07407536907536906
+       ],
+       "delta_preto": -0.0013605442176870747,
+       "delta_preto_ci": [
+        -0.015989537426266187,
+        0.012263260050016787
+       ],
+       "delta_blur10": -0.00816326530612245,
+       "delta_blur10_ci": [
+        -0.019700577200577198,
+        0.003937657974391243
+       ],
+       "headroom": 0.04353741496598639,
+       "headroom_ci": [
+        0.021303248256373256,
+        0.06591976375417703
+       ],
+       "headroom_m0": 0.25170068027210885,
+       "headroom_m0_ci": [
+        0.21094134176325957,
+        0.29126512424793805
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_HEAL_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0380952380952381,
+       "custo_alvo_preto_ci": [
+        0.020601580796252926,
+        0.05660377358490566
+       ],
+       "custo_mascara_deslocada_preto": 0.06938775510204082,
+       "custo_mascara_deslocada_preto_ci": [
+        0.049998266296809986,
+        0.08987616576933104
+       ],
+       "delta_preto": -0.031292517006802724,
+       "delta_preto_ci": [
+        -0.04811962716331678,
+        -0.014724096385542175
+       ],
+       "delta_blur10": -0.02585034013605442,
+       "delta_blur10_ci": [
+        -0.0424445566830433,
+        -0.009859154929577466
+       ],
+       "headroom": 0.05986394557823129,
+       "headroom_ci": [
+        0.0327174583918614,
+        0.08643976812194896
+       ],
+       "headroom_m0": 0.2680272108843537,
+       "headroom_m0_ci": [
+        0.22361068244170096,
+        0.3074959921263038
+       ]
+      }
+     },
+     "QWEN25VL_LORA_HEAL_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.017687074829931974,
+       "custo_alvo_preto_ci": [
+        0.002655866599825862,
+        0.035231116768149336
+       ],
+       "custo_mascara_deslocada_preto": 0.01904761904761905,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0013404825737265416,
+        0.037037037037037035
+       ],
+       "delta_preto": -0.0013605442176870747,
+       "delta_preto_ci": [
+        -0.014084507042253521,
+        0.011004126547455296
+       ],
+       "delta_blur10": -0.004081632653061225,
+       "delta_blur10_ci": [
+        -0.018080847286462323,
+        0.009722222222222222
+       ],
+       "headroom": 0.014965986394557823,
+       "headroom_ci": [
+        -0.009656848659003832,
+        0.040334873281831156
+       ],
+       "headroom_m0": 0.22585034013605443,
+       "headroom_m0_ci": [
+        0.18339983770403756,
+        0.26714501707856136
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_HEAL_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.017687074829931974,
+       "custo_alvo_preto_ci": [
+        0.00677483855352762,
+        0.029525302914588106
+       ],
+       "custo_mascara_deslocada_preto": 0.017687074829931974,
+       "custo_mascara_deslocada_preto_ci": [
+        0.00392156862745098,
+        0.03168103212987325
+       ],
+       "delta_preto": 0.0,
+       "delta_preto_ci": [
+        -0.013245912596853206,
+        0.013227951224639963
+       ],
+       "delta_blur10": 0.00816326530612245,
+       "delta_blur10_ci": [
+        -0.0028964018675487558,
+        0.01984590565198039
+       ],
+       "headroom": 0.0163265306122449,
+       "headroom_ci": [
+        -0.005488106825128494,
+        0.038979806147701114
+       ],
+       "headroom_m0": 0.2272108843537415,
+       "headroom_m0_ci": [
+        0.18528733825763527,
+        0.26755001534364825
+       ]
+      }
+     },
+     "QWEN25VL_DORA_HEAL_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.03537414965986395,
+       "custo_alvo_preto_ci": [
+        0.019632106321938656,
+        0.051702983982437584
+       ],
+       "custo_mascara_deslocada_preto": 0.04897959183673469,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0312944039635769,
+        0.06849549955841176
+       ],
+       "delta_preto": -0.013605442176870748,
+       "delta_preto_ci": [
+        -0.028650364547223403,
+        0.0
+       ],
+       "delta_blur10": -0.0027210884353741495,
+       "delta_blur10_ci": [
+        -0.015979227696404794,
+        0.010486309329548252
+       ],
+       "headroom": 0.02585034013605442,
+       "headroom_ci": [
+        0.002676666932631187,
+        0.04950727311337031
+       ],
+       "headroom_m0": 0.23673469387755103,
+       "headroom_m0_ci": [
+        0.19384694263235994,
+        0.27628748430121103
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_HEAL_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.010884353741496598,
+       "custo_alvo_preto_ci": [
+        -0.0013644436210248953,
+        0.023910640542238976
+       ],
+       "custo_mascara_deslocada_preto": 0.02857142857142857,
+       "custo_mascara_deslocada_preto_ci": [
+        0.015743941098271808,
+        0.04250322846544851
+       ],
+       "delta_preto": -0.017687074829931974,
+       "delta_preto_ci": [
+        -0.03174767832444181,
+        -0.004015662650602411
+       ],
+       "delta_blur10": -0.00816326530612245,
+       "delta_blur10_ci": [
+        -0.02097975553857907,
+        0.004093189930665867
+       ],
+       "headroom": 0.06394557823129252,
+       "headroom_ci": [
+        0.040515351771776675,
+        0.08707502739847753
+       ],
+       "headroom_m0": 0.2748299319727891,
+       "headroom_m0_ci": [
+        0.2337150096717983,
+        0.3123326119768155
+       ]
+      }
+     },
+     "QWEN25VL_LORA_HEAL_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.053061224489795916,
+       "custo_alvo_preto_ci": [
+        0.03489893866083971,
+        0.07230692611889761
+       ],
+       "custo_mascara_deslocada_preto": 0.058503401360544216,
+       "custo_mascara_deslocada_preto_ci": [
+        0.03882165141809151,
+        0.07832167832167833
+       ],
+       "delta_preto": -0.005442176870748299,
+       "delta_preto_ci": [
+        -0.01977471052189965,
+        0.00953776320743112
+       ],
+       "delta_blur10": -0.0027210884353741495,
+       "delta_blur10_ci": [
+        -0.01790695354801938,
+        0.012502185314685303
+       ],
+       "headroom": 0.027210884353741496,
+       "headroom_ci": [
+        0.0028121570629625068,
+        0.05271068107387114
+       ],
+       "headroom_m0": 0.23673469387755103,
+       "headroom_m0_ci": [
+        0.19545765027322404,
+        0.2769272976680384
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_HEAL_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.01904761904761905,
+       "custo_alvo_preto_ci": [
+        0.004143646408839779,
+        0.034579343915587174
+       ],
+       "custo_mascara_deslocada_preto": 0.02857142857142857,
+       "custo_mascara_deslocada_preto_ci": [
+        0.012244067233406252,
+        0.0446958671736851
+       ],
+       "delta_preto": -0.009523809523809525,
+       "delta_preto_ci": [
+        -0.02496706205065982,
+        0.005435338691500086
+       ],
+       "delta_blur10": -0.012244897959183673,
+       "delta_blur10_ci": [
+        -0.0266675567423231,
+        0.0026113087039054826
+       ],
+       "headroom": 0.03945578231292517,
+       "headroom_ci": [
+        0.013868188749511498,
+        0.06693468434407084
+       ],
+       "headroom_m0": 0.24897959183673468,
+       "headroom_m0_ci": [
+        0.20640463917525773,
+        0.2898555310952119
+       ]
+      }
+     },
+     "QWEN25VL_DORA_HEAL_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.04897959183673469,
+       "custo_alvo_preto_ci": [
+        0.030223201202507113,
+        0.06802865827181936
+       ],
+       "custo_mascara_deslocada_preto": 0.058503401360544216,
+       "custo_mascara_deslocada_preto_ci": [
+        0.03926794103512196,
+        0.07943425620938306
+       ],
+       "delta_preto": -0.009523809523809525,
+       "delta_preto_ci": [
+        -0.023035533972497215,
+        0.004006285109706019
+       ],
+       "delta_blur10": -0.0027210884353741495,
+       "delta_blur10_ci": [
+        -0.016462037461578958,
+        0.010973936899862825
+       ],
+       "headroom": 0.0326530612244898,
+       "headroom_ci": [
+        0.008129806264233144,
+        0.060027335065785926
+       ],
+       "headroom_m0": 0.24217687074829933,
+       "headroom_m0_ci": [
+        0.19945605663103846,
+        0.28345793549856685
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_HEAL_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": true,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0163265306122449,
+       "custo_alvo_preto_ci": [
+        0.0014142282220988827,
+        0.030598052851182198
+       ],
+       "custo_mascara_deslocada_preto": 0.02040816326530612,
+       "custo_mascara_deslocada_preto_ci": [
+        0.004207573632538569,
+        0.035326951755734574
+       ],
+       "delta_preto": -0.004081632653061225,
+       "delta_preto_ci": [
+        -0.01639456546148664,
+        0.008068101584219564
+       ],
+       "delta_blur10": -0.017687074829931974,
+       "delta_blur10_ci": [
+        -0.029412795973929543,
+        -0.006701741732497668
+       ],
+       "headroom": 0.05442176870748299,
+       "headroom_ci": [
+        0.02812897158253266,
+        0.08210190084625453
+       ],
+       "headroom_m0": 0.2639455782312925,
+       "headroom_m0_ci": [
+        0.22085048010973937,
+        0.3040029216467463
+       ]
+      }
+     },
      "LLAVA_MED_ZEROSHOT_HEAL": {
       "zero_shot": true,
       "grupo": "LLAVA_MED",
@@ -6154,13 +8506,13 @@
   },
   "MIMIC": {
    "closed_yes": {
-    "n_linhas": 27,
+    "n_linhas": 39,
     "contagens": {
-     "L0": 18,
-     "L1": 18,
-     "L2": 12,
-     "L3": 12,
-     "L3_tfidf": 12
+     "L0": 24,
+     "L1": 26,
+     "L2": 20,
+     "L3": 20,
+     "L3_tfidf": 20
     },
     "por_grupo": {
      "Qwen2-VL-2B, encoder congelado": {
@@ -6197,6 +8549,20 @@
       "L2": 1,
       "L3": 1,
       "n": 3
+     },
+     "Qwen2.5-VL-7B, encoder congelado": {
+      "L0": 6,
+      "L1": 6,
+      "L2": 6,
+      "L3": 6,
+      "n": 6
+     },
+     "Qwen2.5-VL-7B, encoder afinado": {
+      "L0": 0,
+      "L1": 2,
+      "L2": 2,
+      "L3": 2,
+      "n": 6
      }
     },
     "zero_shot": {
@@ -6313,6 +8679,34 @@
        "delta_preto_ci": [
         0.0022415310272140636,
         0.05369307931009597
+       ]
+      },
+      "QWEN25VL_LORA_VT_MIMIC_seed0": {
+       "de": false,
+       "para": true,
+       "custo_mascara_deslocada_preto": -0.03160270880361174,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.05145413870246085,
+        -0.013271425244527263
+       ],
+       "delta_preto": 0.03837471783295711,
+       "delta_preto_ci": [
+        0.019703089035644373,
+        0.060607763023493355
+       ]
+      },
+      "QWEN25VL_DORA_VT_MIMIC_seed1": {
+       "de": false,
+       "para": true,
+       "custo_mascara_deslocada_preto": -0.024830699774266364,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.04464535394694791,
+        -0.006333343792162351
+       ],
+       "delta_preto": 0.040632054176072234,
+       "delta_preto_ci": [
+        0.01948051948051948,
+        0.0632089925742827
        ]
       }
      },
@@ -7555,6 +9949,522 @@
        ]
       }
      },
+     "QWEN25VL_LORA_MIMIC_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.09255079006772009,
+       "custo_alvo_preto_ci": [
+        0.065603471118177,
+        0.12153518123667377
+       ],
+       "custo_mascara_deslocada_preto": 0.022573363431151242,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0023415119002232992,
+        0.04348075388911048
+       ],
+       "delta_preto": 0.06997742663656885,
+       "delta_preto_ci": [
+        0.04457509033899973,
+        0.09734769932037039
+       ],
+       "delta_blur10": 0.08803611738148984,
+       "delta_blur10_ci": [
+        0.060471403587016984,
+        0.11828016993087558
+       ],
+       "headroom": 0.1580135440180587,
+       "headroom_ci": [
+        0.12253390761617225,
+        0.19463599268992024
+       ],
+       "headroom_m0": 0.13318284424379231,
+       "headroom_m0_ci": [
+        0.09831866649537513,
+        0.16983299616035658
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_MIMIC_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.006772009029345372,
+       "custo_alvo_preto_ci": [
+        -0.007692682821101911,
+        0.022321428571428572
+       ],
+       "custo_mascara_deslocada_preto": -0.03160270880361174,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.05145413870246085,
+        -0.013271425244527263
+       ],
+       "delta_preto": 0.03837471783295711,
+       "delta_preto_ci": [
+        0.019703089035644373,
+        0.060607763023493355
+       ],
+       "delta_blur10": 0.045146726862302484,
+       "delta_blur10_ci": [
+        0.02708499251781774,
+        0.06407472129668382
+       ],
+       "headroom": 0.16252821670428894,
+       "headroom_ci": [
+        0.12469958900590804,
+        0.19910610350229224
+       ],
+       "headroom_m0": 0.13769751693002258,
+       "headroom_m0_ci": [
+        0.10194584359719107,
+        0.17476187197319193
+       ]
+      }
+     },
+     "QWEN25VL_DORA_MIMIC_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0835214446952596,
+       "custo_alvo_preto_ci": [
+        0.055552594171997156,
+        0.11521180432470753
+       ],
+       "custo_mascara_deslocada_preto": -0.011286681715575621,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.03326127124907612,
+        0.010965514748409481
+       ],
+       "delta_preto": 0.09480812641083522,
+       "delta_preto_ci": [
+        0.06712525497960165,
+        0.12442396313364056
+       ],
+       "delta_blur10": 0.09255079006772009,
+       "delta_blur10_ci": [
+        0.062205354594021454,
+        0.124460577669756
+       ],
+       "headroom": 0.15124153498871332,
+       "headroom_ci": [
+        0.1162227602905569,
+        0.1881885145794107
+       ],
+       "headroom_m0": 0.12641083521444696,
+       "headroom_m0_ci": [
+        0.09110606060606061,
+        0.16321956368754398
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_MIMIC_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": -0.006772009029345372,
+       "custo_alvo_preto_ci": [
+        -0.023198729964193882,
+        0.009174839185911629
+       ],
+       "custo_mascara_deslocada_preto": -0.006772009029345372,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.024156051514194476,
+        0.009525522439191495
+       ],
+       "delta_preto": 0.0,
+       "delta_preto_ci": [
+        -0.01635609774781676,
+        0.016440791029148465
+       ],
+       "delta_blur10": -0.002257336343115124,
+       "delta_blur10_ci": [
+        -0.019524903236782784,
+        0.015053763440860216
+       ],
+       "headroom": 0.013544018058690745,
+       "headroom_ci": [
+        -0.0069767441860465115,
+        0.03496503496503497
+       ],
+       "headroom_m0": -0.011286681715575621,
+       "headroom_m0_ci": [
+        -0.03087951529261246,
+        0.0069448472544470195
+       ]
+      }
+     },
+     "QWEN25VL_LORA_MIMIC_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0654627539503386,
+       "custo_alvo_preto_ci": [
+        0.04081510301962511,
+        0.09216589861751152
+       ],
+       "custo_mascara_deslocada_preto": -0.01805869074492099,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.04194299078405039,
+        0.004819568127582794
+       ],
+       "delta_preto": 0.0835214446952596,
+       "delta_preto_ci": [
+        0.056149830161238104,
+        0.11308304321216803
+       ],
+       "delta_blur10": 0.06997742663656885,
+       "delta_blur10_ci": [
+        0.04147227077705387,
+        0.10000569476082002
+       ],
+       "headroom": 0.06772009029345373,
+       "headroom_ci": [
+        0.03270837418033679,
+        0.10560420713938805
+       ],
+       "headroom_m0": 0.1038374717832957,
+       "headroom_m0_ci": [
+        0.0680759809807406,
+        0.13822894168466524
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_MIMIC_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": -0.006772009029345372,
+       "custo_alvo_preto_ci": [
+        -0.028807040595658483,
+        0.01348314606741573
+       ],
+       "custo_mascara_deslocada_preto": -0.01805869074492099,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.03917276848905397,
+        0.0022624434389140274
+       ],
+       "delta_preto": 0.011286681715575621,
+       "delta_preto_ci": [
+        -0.011629265377091936,
+        0.034888820889432855
+       ],
+       "delta_blur10": 0.006772009029345372,
+       "delta_blur10_ci": [
+        -0.016022941562844308,
+        0.028328664799253
+       ],
+       "headroom": 0.056433408577878104,
+       "headroom_ci": [
+        0.02267468715881414,
+        0.09213915298184958
+       ],
+       "headroom_m0": 0.09255079006772009,
+       "headroom_m0_ci": [
+        0.05827232052064266,
+        0.12615276449887097
+       ]
+      }
+     },
+     "QWEN25VL_DORA_MIMIC_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.07223476297968397,
+       "custo_alvo_preto_ci": [
+        0.04690227434257285,
+        0.0988235294117647
+       ],
+       "custo_mascara_deslocada_preto": 0.004514672686230248,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.01839080459770115,
+        0.028377013761683296
+       ],
+       "delta_preto": 0.06772009029345373,
+       "delta_preto_ci": [
+        0.03895893523323329,
+        0.09512796246371774
+       ],
+       "delta_blur10": 0.07223476297968397,
+       "delta_blur10_ci": [
+        0.04317693336075689,
+        0.10217638339920948
+       ],
+       "headroom": 0.09932279909706546,
+       "headroom_ci": [
+        0.061773293467466864,
+        0.13825244815668203
+       ],
+       "headroom_m0": 0.13544018058690746,
+       "headroom_m0_ci": [
+        0.09627583133459183,
+        0.1755910353608426
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_MIMIC_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.01580135440180587,
+       "custo_alvo_preto_ci": [
+        -0.004836173704959271,
+        0.037192348122372036
+       ],
+       "custo_mascara_deslocada_preto": -0.024830699774266364,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.04464535394694791,
+        -0.006333343792162351
+       ],
+       "delta_preto": 0.040632054176072234,
+       "delta_preto_ci": [
+        0.01948051948051948,
+        0.0632089925742827
+       ],
+       "delta_blur10": 0.04740406320541761,
+       "delta_blur10_ci": [
+        0.023417835802928496,
+        0.07246454065078335
+       ],
+       "headroom": 0.10609480812641084,
+       "headroom_ci": [
+        0.06789584344169497,
+        0.14320012000252633
+       ],
+       "headroom_m0": 0.14221218961625282,
+       "headroom_m0_ci": [
+        0.10549167200512492,
+        0.17808615550481985
+       ]
+      }
+     },
+     "QWEN25VL_LORA_MIMIC_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.06772009029345373,
+       "custo_alvo_preto_ci": [
+        0.03907598832162866,
+        0.09756693899457329
+       ],
+       "custo_mascara_deslocada_preto": -0.01580135440180587,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.03656308785619731,
+        0.004718388346017014
+       ],
+       "delta_preto": 0.0835214446952596,
+       "delta_preto_ci": [
+        0.05428949107732981,
+        0.1128677273720236
+       ],
+       "delta_blur10": 0.0744920993227991,
+       "delta_blur10_ci": [
+        0.04830758962623951,
+        0.10268010029354206
+       ],
+       "headroom": 0.1038374717832957,
+       "headroom_ci": [
+        0.0706388780677834,
+        0.13927218450721296
+       ],
+       "headroom_m0": 0.11060948081264109,
+       "headroom_m0_ci": [
+        0.07510612705109687,
+        0.14651404508676402
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_MIMIC_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.004514672686230248,
+       "custo_alvo_preto_ci": [
+        -0.014674728377950466,
+        0.023965533455588467
+       ],
+       "custo_mascara_deslocada_preto": -0.006772009029345372,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.02564252336448598,
+        0.011013823652400539
+       ],
+       "delta_preto": 0.011286681715575621,
+       "delta_preto_ci": [
+        -0.004484556859978838,
+        0.02771362586605081
+       ],
+       "delta_blur10": 0.004514672686230248,
+       "delta_blur10_ci": [
+        -0.011793149783665642,
+        0.021329170768340816
+       ],
+       "headroom": 0.011286681715575621,
+       "headroom_ci": [
+        -0.010640580768879554,
+        0.03303964757709251
+       ],
+       "headroom_m0": 0.01805869074492099,
+       "headroom_m0_ci": [
+        -0.002278961360188997,
+        0.040268456375838924
+       ]
+      }
+     },
+     "QWEN25VL_DORA_MIMIC_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": true,
+       "L1": true,
+       "L2": true,
+       "L3": true,
+       "L3_tfidf": true
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.056433408577878104,
+       "custo_alvo_preto_ci": [
+        0.02973807299155724,
+        0.0839055248267531
+       ],
+       "custo_mascara_deslocada_preto": 0.004514672686230248,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.015769348894348893,
+        0.02643317676576129
+       ],
+       "delta_preto": 0.05191873589164785,
+       "delta_preto_ci": [
+        0.02843266565322364,
+        0.07780387828677518
+       ],
+       "delta_blur10": 0.0835214446952596,
+       "delta_blur10_ci": [
+        0.054584160381103614,
+        0.11422380585516177
+       ],
+       "headroom": 0.10609480812641084,
+       "headroom_ci": [
+        0.07206010860745272,
+        0.14189881146206443
+       ],
+       "headroom_m0": 0.11286681715575621,
+       "headroom_m0_ci": [
+        0.07805267502824205,
+        0.1502486899244813
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_MIMIC_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.002257336343115124,
+       "custo_alvo_preto_ci": [
+        -0.01766102092246381,
+        0.021931029496818962
+       ],
+       "custo_mascara_deslocada_preto": -0.002257336343115124,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.020748305773922473,
+        0.017167381974248927
+       ],
+       "delta_preto": 0.004514672686230248,
+       "delta_preto_ci": [
+        -0.013857614831921992,
+        0.021789275320833915
+       ],
+       "delta_blur10": 0.01580135440180587,
+       "delta_blur10_ci": [
+        -0.002364066193853428,
+        0.03596115715084648
+       ],
+       "headroom": 0.011286681715575621,
+       "headroom_ci": [
+        -0.009029856082040386,
+        0.03196529889345161
+       ],
+       "headroom_m0": 0.01805869074492099,
+       "headroom_m0_ci": [
+        -0.0023642062451682297,
+        0.03944838056680162
+       ]
+      }
+     },
      "LLAVA_MED_ZEROSHOT_MIMIC": {
       "zero_shot": true,
       "grupo": "LLAVA_MED",
@@ -7730,7 +10640,7 @@
     }
    },
    "closed_no": {
-    "n_linhas": 27,
+    "n_linhas": 39,
     "contagens": {
      "L0": 0,
      "L1": 0,
@@ -7773,6 +10683,20 @@
       "L2": 0,
       "L3": 0,
       "n": 3
+     },
+     "Qwen2.5-VL-7B, encoder congelado": {
+      "L0": 0,
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "n": 6
+     },
+     "Qwen2.5-VL-7B, encoder afinado": {
+      "L0": 0,
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "n": 6
      }
     },
     "zero_shot": {
@@ -9008,6 +11932,522 @@
        "headroom_m0_ci": [
         0.04282738095238096,
         0.2878787878787879
+       ]
+      }
+     },
+     "QWEN25VL_LORA_MIMIC_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": -0.04477611940298507,
+       "custo_alvo_preto_ci": [
+        -0.0967741935483871,
+        0.0
+       ],
+       "custo_mascara_deslocada_preto": -0.014925373134328358,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.06451612903225806,
+        0.031262400793650724
+       ],
+       "delta_preto": -0.029850746268656716,
+       "delta_preto_ci": [
+        -0.07692307692307693,
+        0.0
+       ],
+       "delta_blur10": 0.0,
+       "delta_blur10_ci": [
+        -0.04285714285714286,
+        0.043478260869565216
+       ],
+       "headroom": -0.014925373134328358,
+       "headroom_ci": [
+        -0.06493506493506493,
+        0.03125
+       ],
+       "headroom_m0": 0.1791044776119403,
+       "headroom_m0_ci": [
+        0.08333333333333333,
+        0.2777777777777778
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_MIMIC_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.04477611940298507,
+       "custo_alvo_preto_ci": [
+        -0.015873015873015872,
+        0.11290322580645161
+       ],
+       "custo_mascara_deslocada_preto": 0.014925373134328358,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.03333333333333333,
+        0.06758292383292375
+       ],
+       "delta_preto": 0.029850746268656716,
+       "delta_preto_ci": [
+        -0.02817907444668008,
+        0.08698849104859317
+       ],
+       "delta_blur10": 0.029850746268656716,
+       "delta_blur10_ci": [
+        0.0,
+        0.07692307692307693
+       ],
+       "headroom": -0.029850746268656716,
+       "headroom_ci": [
+        -0.11428571428571428,
+        0.05172413793103448
+       ],
+       "headroom_m0": 0.16417910447761194,
+       "headroom_m0_ci": [
+        0.05260889292196007,
+        0.2786885245901639
+       ]
+      }
+     },
+     "QWEN25VL_DORA_MIMIC_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0,
+       "custo_alvo_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "custo_mascara_deslocada_preto": 0.0,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "delta_preto": 0.0,
+       "delta_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "delta_blur10": -0.014925373134328358,
+       "delta_blur10_ci": [
+        -0.0506382750482729,
+        0.0
+       ],
+       "headroom": -0.029850746268656716,
+       "headroom_ci": [
+        -0.07692307692307693,
+        0.0
+       ],
+       "headroom_m0": 0.16417910447761194,
+       "headroom_m0_ci": [
+        0.07042253521126761,
+        0.26785714285714285
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_MIMIC_seed0": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.014925373134328358,
+       "custo_alvo_preto_ci": [
+        0.0,
+        0.05
+       ],
+       "custo_mascara_deslocada_preto": 0.0,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "delta_preto": 0.014925373134328358,
+       "delta_preto_ci": [
+        0.0,
+        0.05
+       ],
+       "delta_blur10": 0.0,
+       "delta_blur10_ci": [
+        0.0,
+        0.0
+       ],
+       "headroom": 0.0,
+       "headroom_ci": [
+        -0.057971014492753624,
+        0.058823529411764705
+       ],
+       "headroom_m0": 0.19402985074626866,
+       "headroom_m0_ci": [
+        0.09230769230769231,
+        0.2982456140350877
+       ]
+      }
+     },
+     "QWEN25VL_LORA_MIMIC_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.014925373134328358,
+       "custo_alvo_preto_ci": [
+        0.0,
+        0.04918032786885246
+       ],
+       "custo_mascara_deslocada_preto": 0.014925373134328358,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0,
+        0.04918032786885246
+       ],
+       "delta_preto": 0.0,
+       "delta_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "delta_blur10": 0.0,
+       "delta_blur10_ci": [
+        -0.041666666666666664,
+        0.040547435190292296
+       ],
+       "headroom": 0.014925373134328358,
+       "headroom_ci": [
+        -0.03391291642314436,
+        0.06757329363261563
+       ],
+       "headroom_m0": 0.1791044776119403,
+       "headroom_m0_ci": [
+        0.08333333333333333,
+        0.2807017543859649
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_MIMIC_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.029850746268656716,
+       "custo_alvo_preto_ci": [
+        0.0,
+        0.07692307692307693
+       ],
+       "custo_mascara_deslocada_preto": 0.029850746268656716,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.020945411392405057,
+        0.09093899521531085
+       ],
+       "delta_preto": 0.0,
+       "delta_preto_ci": [
+        -0.04226861167002012,
+        0.04082331562762087
+       ],
+       "delta_blur10": 0.014925373134328358,
+       "delta_blur10_ci": [
+        0.0,
+        0.04938271604938271
+       ],
+       "headroom": 0.029850746268656716,
+       "headroom_ci": [
+        -0.043494245524296676,
+        0.10294117647058823
+       ],
+       "headroom_m0": 0.19402985074626866,
+       "headroom_m0_ci": [
+        0.08064052651093807,
+        0.3103448275862069
+       ]
+      }
+     },
+     "QWEN25VL_DORA_MIMIC_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.014925373134328358,
+       "custo_alvo_preto_ci": [
+        -0.03076923076923077,
+        0.06946271929824552
+       ],
+       "custo_mascara_deslocada_preto": 0.0,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.045454545454545456,
+        0.043478260869565216
+       ],
+       "delta_preto": 0.014925373134328358,
+       "delta_preto_ci": [
+        -0.04938271604938271,
+        0.08333333333333333
+       ],
+       "delta_blur10": -0.014925373134328358,
+       "delta_blur10_ci": [
+        -0.046153846153846156,
+        0.0
+       ],
+       "headroom": 0.029850746268656716,
+       "headroom_ci": [
+        -0.02857142857142857,
+        0.09094405594405576
+       ],
+       "headroom_m0": 0.19402985074626866,
+       "headroom_m0_ci": [
+        0.09523809523809523,
+        0.2958021566901407
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_MIMIC_seed1": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.014925373134328358,
+       "custo_alvo_preto_ci": [
+        0.0,
+        0.046875
+       ],
+       "custo_mascara_deslocada_preto": 0.014925373134328358,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0,
+        0.046875
+       ],
+       "delta_preto": 0.0,
+       "delta_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "delta_blur10": 0.014925373134328358,
+       "delta_blur10_ci": [
+        0.0,
+        0.05086937463471642
+       ],
+       "headroom": 0.014925373134328358,
+       "headroom_ci": [
+        -0.03333333333333333,
+        0.06779661016949153
+       ],
+       "headroom_m0": 0.1791044776119403,
+       "headroom_m0_ci": [
+        0.08,
+        0.28125
+       ]
+      }
+     },
+     "QWEN25VL_LORA_MIMIC_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0,
+       "custo_alvo_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "custo_mascara_deslocada_preto": 0.0,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.040823315627620906,
+        0.04226861167002004
+       ],
+       "delta_preto": 0.0,
+       "delta_preto_ci": [
+        -0.04226861167002012,
+        0.04082331562762087
+       ],
+       "delta_blur10": 0.0,
+       "delta_blur10_ci": [
+        -0.04287267080745342,
+        0.043478260869565216
+       ],
+       "headroom": 0.014925373134328358,
+       "headroom_ci": [
+        -0.03078125,
+        0.06666666666666667
+       ],
+       "headroom_m0": 0.1791044776119403,
+       "headroom_m0_ci": [
+        0.08194505981391227,
+        0.2823695893451719
+       ]
+      }
+     },
+     "QWEN25VL_LORA_VT_MIMIC_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0,
+       "custo_alvo_preto_ci": [
+        -0.038461538461538464,
+        0.04225352112676056
+       ],
+       "custo_mascara_deslocada_preto": 0.014925373134328358,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0,
+        0.04939814814814806
+       ],
+       "delta_preto": -0.014925373134328358,
+       "delta_preto_ci": [
+        -0.06581140350877193,
+        0.0327913889389299
+       ],
+       "delta_blur10": 0.04477611940298507,
+       "delta_blur10_ci": [
+        0.0,
+        0.10294117647058823
+       ],
+       "headroom": 0.0,
+       "headroom_ci": [
+        -0.0379746835443038,
+        0.043478260869565216
+       ],
+       "headroom_m0": 0.16417910447761194,
+       "headroom_m0_ci": [
+        0.0704163577958982,
+        0.26317616959064316
+       ]
+      }
+     },
+     "QWEN25VL_DORA_MIMIC_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder congelado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": -0.014925373134328358,
+       "custo_alvo_preto_ci": [
+        -0.06666666666666667,
+        0.03508771929824561
+       ],
+       "custo_mascara_deslocada_preto": 0.0,
+       "custo_mascara_deslocada_preto_ci": [
+        -0.041666666666666664,
+        0.04111015981735152
+       ],
+       "delta_preto": -0.014925373134328358,
+       "delta_preto_ci": [
+        -0.06897749042145594,
+        0.034482758620689655
+       ],
+       "delta_blur10": 0.014925373134328358,
+       "delta_blur10_ci": [
+        0.0,
+        0.05002118644067785
+       ],
+       "headroom": -0.014925373134328358,
+       "headroom_ci": [
+        -0.06493506493506493,
+        0.03225806451612903
+       ],
+       "headroom_m0": 0.14925373134328357,
+       "headroom_m0_ci": [
+        0.06247596153846154,
+        0.24638177486599164
+       ]
+      }
+     },
+     "QWEN25VL_DORA_VT_MIMIC_seed2": {
+      "zero_shot": false,
+      "grupo": "Qwen2.5-VL-7B, encoder afinado",
+      "veredito": {
+       "L0": false,
+       "L1": false,
+       "L2": false,
+       "L3": false,
+       "L3_tfidf": false
+      },
+      "numeros": {
+       "custo_alvo_preto": 0.0,
+       "custo_alvo_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "custo_mascara_deslocada_preto": 0.0,
+       "custo_mascara_deslocada_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "delta_preto": 0.0,
+       "delta_preto_ci": [
+        0.0,
+        0.0
+       ],
+       "delta_blur10": 0.0,
+       "delta_blur10_ci": [
+        0.0,
+        0.0
+       ],
+       "headroom": 0.0,
+       "headroom_ci": [
+        0.0,
+        0.0
+       ],
+       "headroom_m0": 0.16417910447761194,
+       "headroom_m0_ci": [
+        0.06943247126436781,
+        0.26319659442724436
        ]
       }
      },

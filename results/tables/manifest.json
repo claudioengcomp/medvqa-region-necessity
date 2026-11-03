@@ -1,18 +1,18 @@
 {
- "t": "2026-11-03 03:45:18",
- "sheet_sha256": "43ef61fc531e28604c7d206b92b7d952b2c4de04c45ea5908b6d1efb7a0f5fa6",
- "script_sha256": "930fc232d13ff5e584e364293bb4e8fe3319e1a0f9d73e8c97e955394bba0d54",
+ "t": "2026-11-03 05:33:10",
+ "sheet_sha256": "32a924af0d6ceb4b1892949970aa95f3b53b492ba93d4ffaee24d82701422ab3",
+ "script_sha256": "841040e6834bac8417938245bfe6a31058eaab13d4130d1aab46c81034b14d9d",
  "paper_tables": [
   "table_criteria.tex",
   "table1_necessity_slim.tex",
   "table2_occluder_negatives.tex"
  ],
  "files": {
-  "table1_necessity.tex": "3716fe357ab92073bd6d337e2836be01e6441d6b1f95197031c9a6152f5c33bf",
-  "table1_necessity_slim.tex": "cc67315037553b52429153e7765276799efb051746f6990e327d8bf67e96f041",
-  "table2_occluder_negatives.tex": "2a0aa665a02e1cbfef1d45efed46e08ff97415df9fa621dd07baab73a15d16b3",
-  "table3_zeroshot.tex": "326bf2f012ef672c2e0ac0b452f9248c35521f73af0dd447ec91da4ce5344feb",
-  "table_criteria.tex": "f19a9ae37ddeaa98963617c54d2ee7e08bec3ad0537f746dff47bc456439b8d7"
+  "table1_necessity.tex": "08a4d03589c5d804e5d2e9e459075a6a07150e6ef4fb927b6cccfa48f24ef11a",
+  "table1_necessity_slim.tex": "8ac364711c02db6658b3e21a8aec9a431200d12ca7fbaf9bef96adbb854d0d99",
+  "table2_occluder_negatives.tex": "2420983de0c87b2f1c0707e874804bc34df8dafade38d97d5e25aec3ce3f9625",
+  "table3_zeroshot.tex": "f6b0f6cb6d4a1bfa5991cb85464cdcd3e371111aa0748fa6dcb9bd9b0bdff89f",
+  "table_criteria.tex": "68402a97503767268b18acfc2bed1559b61595ef8dd3461cc18aa2fd133f5b4c"
  },
  "internal_terms_in_paper_tables": {
   "table_criteria.tex": [],
@@ -21,7 +21,8 @@
  },
  "internal_terms_in_supplementary": {
   "table3_zeroshot.tex": [
-   "\\caption{Supplementary: zero-shot models under the same test (Kvasir-VQA-x1: polyp class; X-ray benchmarks: closed-ended questions answered yes). Image gain = accuracy with the image minus accuracy without the image of the same model, in percentage points (95\\% image-bootstrap CI); $\\Delta$ (necessity effect) under black fill and blur; Both fills: $\\Delta$ CI above zero under both fills (n.r.: image gain not significant). Aff.: affirmative-answer rate (\\%) on the closed-ended questions with and without the image. $^{\\ddagger}$LLaVA-Med answers out of format on Kvasir-VQA-x1.}",
+   "\\caption{Zero-shot models under the same test (Kvasir-VQA-x1: polyp class; X-ray benchmarks: closed-ended questions answered yes). Image gain = accuracy with the image minus accuracy without the image of the same model, in percentage points (95\\% image-bootstrap CI); $\\Delta$ (necessity effect) under black fill and Gaussian blur with 95\\% CI. Dual-fill: yes/no when the image gain is resolvable (CI lower bound above zero), otherwise n.r. (not resolvable: $\\Delta$ not read). Affirmative rate: share of yes answers over all closed-ended questions (answer yes and no), with the intact image and without the image. $^{\\ddagger}$Answers outside the short-answer format (accuracy 0 on the intact image).}",
+   " & Image gain & $\\Delta$ black & $\\Delta$ blur & Dual-fill & Image gain & $\\Delta$ black & $\\Delta$ blur & Dual-fill & Aff.\\ intact & Aff.\\ no image & Image gain & $\\Delta$ black & $\\Delta$ blur & Dual-fill & Aff.\\ intact & Aff.\\ no image \\\\",
    "MedGemma 1.5 4B & +14.0 [+11.8, +16.1] & +5.5 [+3.5, +7.4] & +5.4 [+3.5, +7.2] & yes & -9.6 [-14.9, -4.4] & +0.6 [-2.9, +4.1] & -12.1 [-16.2, -8.4] & n.r. & 20.4 & 28.1 & +63.2 [+58.1, +68.1] & +15.1 [+11.4, +19.0] & +13.5 [+10.0, +17.2] & yes & 78.2 & 23.5 \\\\",
    "Qwen2.5-VL 7B & +10.2 [+8.6, +11.7] & -0.6 [-2.2, +0.8] & -1.0 [-2.7, +0.7] & no & -44.9 [-48.5, -41.1] & -10.3 [-13.7, -6.9] & -3.9 [-7.3, -0.6] & n.r. & 40.6 & 75.4 & -5.6 [-10.8, -0.7] & +9.3 [+5.2, +12.9] & +5.2 [+1.8, +8.7] & n.r. & 73.5 & 81.6 \\\\",
    "LLaVA-Med v1.5 7B$^{\\ddagger}$ & --$^{\\ddagger}$ & -- & -- & -- & -19.0 [-22.1, -16.2] & +0.6 [-0.8, +1.9] & -0.1 [-1.2, +1.0] & n.r. & 78.3 & 89.3 & -34.8 [-39.2, -30.8] & +1.6 [+0.2, +3.0] & +1.6 [+0.5, +2.8] & n.r. & 68.2 & 98.4 \\\\",

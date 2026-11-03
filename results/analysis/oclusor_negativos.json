@@ -1,5 +1,5 @@
 {
- "t": "2026-10-30 19:01:16",
+ "t": "2026-11-03 04:36:44",
  "definicao": "taxa de afirmativa induzida = P(afirma | oclusor) - P(afirma | intacta), pareada por item; IC 95 % bootstrap por imagem (replicas da base); McNemar mid-p; Holm por linha sobre as condicoes da base",
  "bases": {
   "KVASIR": {
@@ -5079,6 +5079,2262 @@
        "p_holm": 2.337810934421869e-18
       }
      }
+    },
+    "QWEN25VL_LORA_KVASIR_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "LORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test/QWEN25VL_LORA_KVASIR_seed0_C0.json",
+     "c0_sha256": "1b7e5f3e988cfe0cf7dbf9c8e584c235106ec5cd09f35ffa40985da91da7ce30",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0037593984962406013,
+       "taxa_afirma_oclusor": 0.8082706766917294,
+       "taxa_induzida": 0.8045112781954887,
+       "taxa_induzida_ci_by_image": [
+        0.7707552247209618,
+        0.8355640535372849
+       ],
+       "mcnemar_midp": {
+        "b": 428,
+        "c": 0,
+        "p_midp": 1.4426529090289744e-129
+       },
+       "n_induzidas": 428,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed0_SHAM_ART_black.json",
+       "sha256": "2d33e0376ec16413532788a18cd85d44b97fb05524c602fc78f98134c5f1561c",
+       "n_inventario": 532,
+       "p_holm": 1.1541223272231796e-128
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0037593984962406013,
+       "taxa_afirma_oclusor": 0.5281954887218046,
+       "taxa_induzida": 0.5244360902255639,
+       "taxa_induzida_ci_by_image": [
+        0.484041301037785,
+        0.5671668928086838
+       ],
+       "mcnemar_midp": {
+        "b": 279,
+        "c": 0,
+        "p_midp": 1.029511517893612e-84
+       },
+       "n_induzidas": 279,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed0_SHAM_ART_blur10.json",
+       "sha256": "d6ad33d5ceeb72a444dbaa7b29b845c0968d2762d07b6b97a8d76535a965cf00",
+       "n_inventario": 532,
+       "p_holm": 7.2065806252552835e-84
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.015050167224080268,
+       "taxa_afirma_oclusor": 0.033444816053511704,
+       "taxa_induzida": 0.01839464882943144,
+       "taxa_induzida_ci_by_image": [
+        0.009826410477346198,
+        0.028573988735279044
+       ],
+       "mcnemar_midp": {
+        "b": 22,
+        "c": 0,
+        "p_midp": 2.384185791015626e-07
+       },
+       "n_induzidas": 22,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed0_SHAM_POL_Q1_black.json",
+       "sha256": "fc9e9c95c391a78b1a5fdc1d00b3749fb406cc6a639e1ebd7b14523b28b98565",
+       "n_inventario": 1196,
+       "p_holm": 9.536743164062504e-07
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.015050167224080268,
+       "taxa_afirma_oclusor": 0.030100334448160536,
+       "taxa_induzida": 0.015050167224080268,
+       "taxa_induzida_ci_by_image": [
+        0.006545712653428666,
+        0.025001043405676122
+       ],
+       "mcnemar_midp": {
+        "b": 19,
+        "c": 1,
+        "p_midp": 2.0980834960937493e-05
+       },
+       "n_induzidas": 19,
+       "n_revertidas": 1,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed0_SHAM_POL_Q1_blur10.json",
+       "sha256": "f4f3c12805934517d8757b83b8d8285ef9428af0f7591a7d93b8eee9031f9a24",
+       "n_inventario": 1196,
+       "p_holm": 4.1961669921874986e-05
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.015012510425354461,
+       "taxa_afirma_oclusor": 0.06422018348623854,
+       "taxa_induzida": 0.04920767306088407,
+       "taxa_induzida_ci_by_image": [
+        0.0313824400165573,
+        0.06814494191952464
+       ],
+       "mcnemar_midp": {
+        "b": 70,
+        "c": 11,
+        "p_midp": 6.813783012674679e-12
+       },
+       "n_induzidas": 70,
+       "n_revertidas": 11,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed0_SHAM_POL_Q3_black.json",
+       "sha256": "0f8bab7c525aedd1a45d77715bfcb5cd050cff1fef63c9ea156d4b6c7137ba4e",
+       "n_inventario": 1199,
+       "p_holm": 3.4068915063373395e-11
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.015012510425354461,
+       "taxa_afirma_oclusor": 0.045871559633027525,
+       "taxa_induzida": 0.030859049207673062,
+       "taxa_induzida_ci_by_image": [
+        0.014296777487802111,
+        0.0468653977466712
+       ],
+       "mcnemar_midp": {
+        "b": 47,
+        "c": 10,
+        "p_midp": 4.516619163119619e-07
+       },
+       "n_induzidas": 47,
+       "n_revertidas": 10,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed0_SHAM_POL_Q3_blur10.json",
+       "sha256": "c09ba64d6a08ff8904fada6a4fca2e46b5e87eb0afa2077a11c16062ea8f1094",
+       "n_inventario": 1199,
+       "p_holm": 1.3549857489358856e-06
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07795889440113395,
+       "taxa_afirma_oclusor": 0.11835577604535791,
+       "taxa_induzida": 0.040396881644223954,
+       "taxa_induzida_ci_by_image": [
+        0.02688888818389117,
+        0.05352393045600646
+       ],
+       "mcnemar_midp": {
+        "b": 64,
+        "c": 7,
+        "p_midp": 6.964437092992099e-13
+       },
+       "n_induzidas": 64,
+       "n_revertidas": 7,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed0_SHAM_INS_black.json",
+       "sha256": "9f10a97ced40188a115765f566e94aa8e0a7bfe47df4e279d502006f4a55e0cf",
+       "n_inventario": 1411,
+       "p_holm": 4.178662255795259e-12
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07795889440113395,
+       "taxa_afirma_oclusor": 0.08221119773210489,
+       "taxa_induzida": 0.004252303330970942,
+       "taxa_induzida_ci_by_image": [
+        -0.0014878080473666963,
+        0.010279228077808596
+       ],
+       "mcnemar_midp": {
+        "b": 12,
+        "c": 6,
+        "p_midp": 0.16706848144531256
+       },
+       "n_induzidas": 12,
+       "n_revertidas": 6,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed0_SHAM_INS_blur10.json",
+       "sha256": "b2bacfd3a3c3dcda63e127e47e968d66c10e16537fb395a354cee57527fa5f57",
+       "n_inventario": 1411,
+       "p_holm": 0.16706848144531256
+      }
+     }
+    },
+    "QWEN25VL_LORA_VT_KVASIR_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "LORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test_encoder_swapped/QWEN25VL_LORA_VT_KVASIR_seed0_C0.json",
+     "c0_sha256": "80071e6fd1b9ebd33c20f7e0906546c10b9385ac86f836df73a3838b67305cab",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.005639097744360902,
+       "taxa_afirma_oclusor": 0.7199248120300752,
+       "taxa_induzida": 0.7142857142857143,
+       "taxa_induzida_ci_by_image": [
+        0.676646426772623,
+        0.7525965312335701
+       ],
+       "mcnemar_midp": {
+        "b": 380,
+        "c": 0,
+        "p_midp": 4.060706939705063e-115
+       },
+       "n_induzidas": 380,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed0_SHAM_ART_black.json",
+       "sha256": "f21ba1b6f71cde36aec3361943e34dfe9087e35567b13332a9352b3f0c25c8a1",
+       "n_inventario": 532,
+       "p_holm": 3.2485655517640505e-114
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.005639097744360902,
+       "taxa_afirma_oclusor": 0.39473684210526316,
+       "taxa_induzida": 0.3890977443609023,
+       "taxa_induzida_ci_by_image": [
+        0.34831011635100884,
+        0.4353687304294341
+       ],
+       "mcnemar_midp": {
+        "b": 207,
+        "c": 0,
+        "p_midp": 4.861730685828983e-63
+       },
+       "n_induzidas": 207,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed0_SHAM_ART_blur10.json",
+       "sha256": "0b7f0877e177819f0f7e9447bcca07ede2e6e9c26873cdda337813873fce0a16",
+       "n_inventario": 532,
+       "p_holm": 3.403211480080288e-62
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.011705685618729096,
+       "taxa_afirma_oclusor": 0.02508361204013378,
+       "taxa_induzida": 0.013377926421404682,
+       "taxa_induzida_ci_by_image": [
+        0.005685515886675203,
+        0.022901544848109728
+       ],
+       "mcnemar_midp": {
+        "b": 16,
+        "c": 0,
+        "p_midp": 1.5258789062499975e-05
+       },
+       "n_induzidas": 16,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed0_SHAM_POL_Q1_black.json",
+       "sha256": "9b910c0c619f261add4fb12aa2e3765099ea46ca8c726e4c2ee5152aaff5dba4",
+       "n_inventario": 1196,
+       "p_holm": 4.5776367187499925e-05
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.011705685618729096,
+       "taxa_afirma_oclusor": 0.026755852842809364,
+       "taxa_induzida": 0.015050167224080268,
+       "taxa_induzida_ci_by_image": [
+        0.006854598820246796,
+        0.024873564742309603
+       ],
+       "mcnemar_midp": {
+        "b": 18,
+        "c": 0,
+        "p_midp": 3.814697265625005e-06
+       },
+       "n_induzidas": 18,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed0_SHAM_POL_Q1_blur10.json",
+       "sha256": "7d0fa8f9401051ea17fbbed49fa3326bd941b158e94246afd1bbb88b83cd7867",
+       "n_inventario": 1196,
+       "p_holm": 1.525878906250002e-05
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.011676396997497914,
+       "taxa_afirma_oclusor": 0.06505421184320268,
+       "taxa_induzida": 0.05337781484570475,
+       "taxa_induzida_ci_by_image": [
+        0.0349025974025974,
+        0.07192019034594084
+       ],
+       "mcnemar_midp": {
+        "b": 72,
+        "c": 8,
+        "p_midp": 2.9773029709526426e-14
+       },
+       "n_induzidas": 72,
+       "n_revertidas": 8,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed0_SHAM_POL_Q3_black.json",
+       "sha256": "ac597c353fe10701c2172565a6c1858accdf88ef173f17956e4f93a661eb50bc",
+       "n_inventario": 1199,
+       "p_holm": 1.4886514854763213e-13
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.011676396997497914,
+       "taxa_afirma_oclusor": 0.022518765638031693,
+       "taxa_induzida": 0.010842368640533779,
+       "taxa_induzida_ci_by_image": [
+        0.0008861197526063367,
+        0.02110879277004708
+       ],
+       "mcnemar_midp": {
+        "b": 20,
+        "c": 7,
+        "p_midp": 0.012540951371192936
+       },
+       "n_induzidas": 20,
+       "n_revertidas": 7,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed0_SHAM_POL_Q3_blur10.json",
+       "sha256": "62f20e0ce6423a67a32c537c035a2bb6ab4683a0f9f2e806c50936a54bb71eec",
+       "n_inventario": 1199,
+       "p_holm": 0.02508190274238587
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07583274273564848,
+       "taxa_afirma_oclusor": 0.11552090715804395,
+       "taxa_induzida": 0.039688164422395464,
+       "taxa_induzida_ci_by_image": [
+        0.026685153091808973,
+        0.05411327075322755
+       ],
+       "mcnemar_midp": {
+        "b": 59,
+        "c": 3,
+        "p_midp": 9.048317650694996e-15
+       },
+       "n_induzidas": 59,
+       "n_revertidas": 3,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed0_SHAM_INS_black.json",
+       "sha256": "1f4b9140ea2f9dfc841166d840a51c03250b57f586d7b6679d5c5151426cc5b2",
+       "n_inventario": 1411,
+       "p_holm": 5.428990590416998e-14
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07583274273564848,
+       "taxa_afirma_oclusor": 0.07937632884479093,
+       "taxa_induzida": 0.003543586109142452,
+       "taxa_induzida_ci_by_image": [
+        -0.001439988772017372,
+        0.010182747179827468
+       ],
+       "mcnemar_midp": {
+        "b": 7,
+        "c": 2,
+        "p_midp": 0.10937500000000001
+       },
+       "n_induzidas": 7,
+       "n_revertidas": 2,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed0_SHAM_INS_blur10.json",
+       "sha256": "9f4a6235b763d1f2e071fb740ee8fe03a64f9d188367b6684e00d0101a408b9b",
+       "n_inventario": 1411,
+       "p_holm": 0.10937500000000001
+      }
+     }
+    },
+    "QWEN25VL_DORA_KVASIR_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "DORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test/QWEN25VL_DORA_KVASIR_seed0_C0.json",
+     "c0_sha256": "95a504f8176405c60934948d9eebdaeeeb83257b7841a700dd07f5f4fc43ce27",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0018796992481203006,
+       "taxa_afirma_oclusor": 0.9943609022556391,
+       "taxa_induzida": 0.9924812030075187,
+       "taxa_induzida_ci_by_image": [
+        0.9839975855130785,
+        0.9982015195742867
+       ],
+       "mcnemar_midp": {
+        "b": 528,
+        "c": 0,
+        "p_midp": 1.1380524797364254e-159
+       },
+       "n_induzidas": 528,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed0_SHAM_ART_black.json",
+       "sha256": "56b06871d52ccfc5ee099e8db36137df85845a0b5033e49a84506767bd64f4a6",
+       "n_inventario": 532,
+       "p_holm": 9.104419837891403e-159
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0018796992481203006,
+       "taxa_afirma_oclusor": 0.9041353383458647,
+       "taxa_induzida": 0.9022556390977443,
+       "taxa_induzida_ci_by_image": [
+        0.8767110290868446,
+        0.9260723092131131
+       ],
+       "mcnemar_midp": {
+        "b": 480,
+        "c": 0,
+        "p_midp": 3.203332952293127e-145
+       },
+       "n_induzidas": 480,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed0_SHAM_ART_blur10.json",
+       "sha256": "6955ac2fa8e58a570a6eb51ed580bc239e13be00c2b607bd947740d0f7f6a5b3",
+       "n_inventario": 532,
+       "p_holm": 2.242333066605189e-144
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.013377926421404682,
+       "taxa_afirma_oclusor": 0.019230769230769232,
+       "taxa_induzida": 0.005852842809364548,
+       "taxa_induzida_ci_by_image": [
+        0.0008129094640460968,
+        0.012448132780082987
+       ],
+       "mcnemar_midp": {
+        "b": 8,
+        "c": 1,
+        "p_midp": 0.021484375000000017
+       },
+       "n_induzidas": 8,
+       "n_revertidas": 1,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed0_SHAM_POL_Q1_black.json",
+       "sha256": "07ae16aeeb0491618fa16f1a806c9f35857c25a26b02ed969d378ab5266eeeeb",
+       "n_inventario": 1196,
+       "p_holm": 0.042968750000000035
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.013377926421404682,
+       "taxa_afirma_oclusor": 0.028428093645484948,
+       "taxa_induzida": 0.015050167224080268,
+       "taxa_induzida_ci_by_image": [
+        0.006750770477642818,
+        0.02502086869918202
+       ],
+       "mcnemar_midp": {
+        "b": 19,
+        "c": 1,
+        "p_midp": 2.0980834960937493e-05
+       },
+       "n_induzidas": 19,
+       "n_revertidas": 1,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed0_SHAM_POL_Q1_blur10.json",
+       "sha256": "a7badb9be99486c65048ee5d924e27d8381cf3c20c49eb0e91489bbbb2b39564",
+       "n_inventario": 1196,
+       "p_holm": 6.294250488281247e-05
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.013344453711426188,
+       "taxa_afirma_oclusor": 0.08673894912427023,
+       "taxa_induzida": 0.07339449541284404,
+       "taxa_induzida_ci_by_image": [
+        0.05350778531510316,
+        0.09292856139248876
+       ],
+       "mcnemar_midp": {
+        "b": 95,
+        "c": 7,
+        "p_midp": 4.207682867061042e-21
+       },
+       "n_induzidas": 95,
+       "n_revertidas": 7,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed0_SHAM_POL_Q3_black.json",
+       "sha256": "e77403cc5caab76f7f79a5a6aba6e0ebe0210e89aa614409cae89d052f825735",
+       "n_inventario": 1199,
+       "p_holm": 2.1038414335305207e-20
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.013344453711426188,
+       "taxa_afirma_oclusor": 0.0475396163469558,
+       "taxa_induzida": 0.03419516263552961,
+       "taxa_induzida_ci_by_image": [
+        0.01864256787160642,
+        0.05013101437338927
+       ],
+       "mcnemar_midp": {
+        "b": 48,
+        "c": 7,
+        "p_midp": 7.455210310203235e-09
+       },
+       "n_induzidas": 48,
+       "n_revertidas": 7,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed0_SHAM_POL_Q3_blur10.json",
+       "sha256": "0dc73d8a835c2cf35a3c14c0c3dd2a390a881fb4ac53cc5a69f2242f647a6d1d",
+       "n_inventario": 1199,
+       "p_holm": 2.982084124081294e-08
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07583274273564848,
+       "taxa_afirma_oclusor": 0.1467044649184975,
+       "taxa_induzida": 0.07087172218284904,
+       "taxa_induzida_ci_by_image": [
+        0.054087829279869756,
+        0.08897189247184817
+       ],
+       "mcnemar_midp": {
+        "b": 110,
+        "c": 10,
+        "p_midp": 1.044129126315013e-22
+       },
+       "n_induzidas": 110,
+       "n_revertidas": 10,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed0_SHAM_INS_black.json",
+       "sha256": "8c860ea016ba8047497aeace794f0333dfc716d4d0dd6ab527b17da3c58f1c38",
+       "n_inventario": 1411,
+       "p_holm": 6.264774757890078e-22
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07583274273564848,
+       "taxa_afirma_oclusor": 0.0815024805102764,
+       "taxa_induzida": 0.005669737774627924,
+       "taxa_induzida_ci_by_image": [
+        0.0,
+        0.011825894483938507
+       ],
+       "mcnemar_midp": {
+        "b": 12,
+        "c": 4,
+        "p_midp": 0.04904174804687499
+       },
+       "n_induzidas": 12,
+       "n_revertidas": 4,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed0_SHAM_INS_blur10.json",
+       "sha256": "e5f20d51f1c9d3d1a41345a1e0e578768b616963ffa5859920b5eaebd38bc30a",
+       "n_inventario": 1411,
+       "p_holm": 0.04904174804687499
+      }
+     }
+    },
+    "QWEN25VL_DORA_VT_KVASIR_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "DORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test_encoder_swapped/QWEN25VL_DORA_VT_KVASIR_seed0_C0.json",
+     "c0_sha256": "d31c2eab68235801bfe899bee1b7b2a59260c9ee00095aa2657a78178da4d5e3",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.007518796992481203,
+       "taxa_afirma_oclusor": 0.9229323308270677,
+       "taxa_induzida": 0.9154135338345865,
+       "taxa_induzida_ci_by_image": [
+        0.8905109489051095,
+        0.937866723848456
+       ],
+       "mcnemar_midp": {
+        "b": 487,
+        "c": 0,
+        "p_midp": 2.5026038689788111e-147
+       },
+       "n_induzidas": 487,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed0_SHAM_ART_black.json",
+       "sha256": "6df03a94ab67602d0fa1c975b8bc870647e78c9ce709a5966015f07f71fdc1a3",
+       "n_inventario": 532,
+       "p_holm": 2.002083095183049e-146
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.007518796992481203,
+       "taxa_afirma_oclusor": 0.7368421052631579,
+       "taxa_induzida": 0.7293233082706767,
+       "taxa_induzida_ci_by_image": [
+        0.6921607992645468,
+        0.7679642231505188
+       ],
+       "mcnemar_midp": {
+        "b": 388,
+        "c": 0,
+        "p_midp": 1.5862136483223428e-117
+       },
+       "n_induzidas": 388,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed0_SHAM_ART_blur10.json",
+       "sha256": "3bbdd444e420766277fa1b96437615688c8ef5e4f5d7a8ad019e1d8ccb4514e2",
+       "n_inventario": 532,
+       "p_holm": 1.1103495538256399e-116
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.024247491638795988,
+       "taxa_afirma_oclusor": 0.023411371237458192,
+       "taxa_induzida": -0.0008361204013377926,
+       "taxa_induzida_ci_by_image": [
+        -0.006797085869181998,
+        0.004797814908526978
+       ],
+       "mcnemar_midp": {
+        "b": 4,
+        "c": 5,
+        "p_midp": 0.7539062499999998
+       },
+       "n_induzidas": 4,
+       "n_revertidas": 5,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed0_SHAM_POL_Q1_black.json",
+       "sha256": "3b69ff7991bca035793141cce66d5cb91352710f6228319e85cfd7eaf2f9ba16",
+       "n_inventario": 1196,
+       "p_holm": 0.7539062499999998
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.024247491638795988,
+       "taxa_afirma_oclusor": 0.029264214046822744,
+       "taxa_induzida": 0.005016722408026756,
+       "taxa_induzida_ci_by_image": [
+        -0.000815828378552417,
+        0.011419104068499459
+       ],
+       "mcnemar_midp": {
+        "b": 9,
+        "c": 3,
+        "p_midp": 0.09228515625000001
+       },
+       "n_induzidas": 9,
+       "n_revertidas": 3,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed0_SHAM_POL_Q1_blur10.json",
+       "sha256": "75105b8066342605d9ab86fcaeb2662bcf8187db85823674de10fb12b9fee253",
+       "n_inventario": 1196,
+       "p_holm": 0.46142578125000006
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.02418682235195997,
+       "taxa_afirma_oclusor": 0.01751459549624687,
+       "taxa_induzida": -0.006672226855713094,
+       "taxa_induzida_ci_by_image": [
+        -0.017103375382659134,
+        0.0033884930946888876
+       ],
+       "mcnemar_midp": {
+        "b": 9,
+        "c": 17,
+        "p_midp": 0.12207812070846555
+       },
+       "n_induzidas": 9,
+       "n_revertidas": 17,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed0_SHAM_POL_Q3_black.json",
+       "sha256": "92fe1d82020f23ab838ceb55f2d1ec07e7aece5edc8ef73fad60bed193141b9d",
+       "n_inventario": 1199,
+       "p_holm": 0.4883124828338622
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.02418682235195997,
+       "taxa_afirma_oclusor": 0.020016680567139282,
+       "taxa_induzida": -0.004170141784820684,
+       "taxa_induzida_ci_by_image": [
+        -0.014804774226198249,
+        0.006239373271452964
+       ],
+       "mcnemar_midp": {
+        "b": 11,
+        "c": 16,
+        "p_midp": 0.34492845088243473
+       },
+       "n_induzidas": 11,
+       "n_revertidas": 16,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed0_SHAM_POL_Q3_blur10.json",
+       "sha256": "5c81cb6a3ae0bc55939eed1f948c0fe4c936ebc238b03865f2522a5c186e0523",
+       "n_inventario": 1199,
+       "p_holm": 0.6898569017648695
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.08433734939759036,
+       "taxa_afirma_oclusor": 0.11764705882352941,
+       "taxa_induzida": 0.03330970942593905,
+       "taxa_induzida_ci_by_image": [
+        0.02087728280866394,
+        0.04680001652875583
+       ],
+       "mcnemar_midp": {
+        "b": 54,
+        "c": 7,
+        "p_midp": 2.43008431086155e-10
+       },
+       "n_induzidas": 54,
+       "n_revertidas": 7,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed0_SHAM_INS_black.json",
+       "sha256": "3ce9d9bb8c3b94febcf7b0ffcab0cd96b3a4e20ea3474b6b23da1fc676c94f8c",
+       "n_inventario": 1411,
+       "p_holm": 1.45805058651693e-09
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.08433734939759036,
+       "taxa_afirma_oclusor": 0.0885896527285613,
+       "taxa_induzida": 0.004252303330970942,
+       "taxa_induzida_ci_by_image": [
+        -0.002142857142857143,
+        0.010647367869143446
+       ],
+       "mcnemar_midp": {
+        "b": 11,
+        "c": 5,
+        "p_midp": 0.14346313476562506
+       },
+       "n_induzidas": 11,
+       "n_revertidas": 5,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed0_SHAM_INS_blur10.json",
+       "sha256": "eb4de3361e97a01d62104d4303b10052565f08e3ebfe979aafaed8a8b54ed76d",
+       "n_inventario": 1411,
+       "p_holm": 0.4883124828338622
+      }
+     }
+    },
+    "QWEN25VL_LORA_KVASIR_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "LORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test/QWEN25VL_LORA_KVASIR_seed1_C0.json",
+     "c0_sha256": "30a6824c9a2980a2922d38ba437075e90e7316d9ac0f8bb7972340fe4e2f88b8",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0018796992481203006,
+       "taxa_afirma_oclusor": 0.8195488721804511,
+       "taxa_induzida": 0.8176691729323309,
+       "taxa_induzida_ci_by_image": [
+        0.7857107071285427,
+        0.8509099485420241
+       ],
+       "mcnemar_midp": {
+        "b": 435,
+        "c": 0,
+        "p_midp": 1.1270725851789308e-131
+       },
+       "n_induzidas": 435,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed1_SHAM_ART_black.json",
+       "sha256": "df97e3b854027707b72d1ec5c358bf7f6239771d933c0901a5d67c557c44faf7",
+       "n_inventario": 532,
+       "p_holm": 9.016580681431447e-131
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0018796992481203006,
+       "taxa_afirma_oclusor": 0.693609022556391,
+       "taxa_induzida": 0.6917293233082706,
+       "taxa_induzida_ci_by_image": [
+        0.6521655033218401,
+        0.730917983572162
+       ],
+       "mcnemar_midp": {
+        "b": 368,
+        "c": 0,
+        "p_midp": 1.6632655625031434e-111
+       },
+       "n_induzidas": 368,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed1_SHAM_ART_blur10.json",
+       "sha256": "bc8cc0d6f3c1e88be755c34937622a6a78d96f642824914ca0cebc8134220a20",
+       "n_inventario": 532,
+       "p_holm": 1.1642858937522003e-110
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.014214046822742474,
+       "taxa_afirma_oclusor": 0.027591973244147156,
+       "taxa_induzida": 0.013377926421404682,
+       "taxa_induzida_ci_by_image": [
+        0.005172302414684131,
+        0.0222819895167736
+       ],
+       "mcnemar_midp": {
+        "b": 16,
+        "c": 0,
+        "p_midp": 1.5258789062499975e-05
+       },
+       "n_induzidas": 16,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed1_SHAM_POL_Q1_black.json",
+       "sha256": "ab6f338f55ae054c8406d2cf4f65f48d3a3df3641d5fd4272fe0c9b92fdc4027",
+       "n_inventario": 1196,
+       "p_holm": 4.5776367187499925e-05
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.014214046822742474,
+       "taxa_afirma_oclusor": 0.020903010033444816,
+       "taxa_induzida": 0.006688963210702341,
+       "taxa_induzida_ci_by_image": [
+        0.0008431703204047217,
+        0.013911655874190564
+       ],
+       "mcnemar_midp": {
+        "b": 9,
+        "c": 1,
+        "p_midp": 0.011718750000000002
+       },
+       "n_induzidas": 9,
+       "n_revertidas": 1,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed1_SHAM_POL_Q1_blur10.json",
+       "sha256": "018960ad2207eded1414ebe1f17a1dfc4daf4604ac4354f4b5eccba509f55b0c",
+       "n_inventario": 1196,
+       "p_holm": 0.023437500000000003
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.014178482068390326,
+       "taxa_afirma_oclusor": 0.045037531276063386,
+       "taxa_induzida": 0.030859049207673062,
+       "taxa_induzida_ci_by_image": [
+        0.016564051388098307,
+        0.04493606228569526
+       ],
+       "mcnemar_midp": {
+        "b": 47,
+        "c": 10,
+        "p_midp": 4.516619163119619e-07
+       },
+       "n_induzidas": 47,
+       "n_revertidas": 10,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed1_SHAM_POL_Q3_black.json",
+       "sha256": "6c498528b773cb76e09bdb9d3731e8bb1a1721d10a400b4a70498a06591e3fd6",
+       "n_inventario": 1199,
+       "p_holm": 1.8066476652478476e-06
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.014178482068390326,
+       "taxa_afirma_oclusor": 0.06755629691409508,
+       "taxa_induzida": 0.05337781484570475,
+       "taxa_induzida_ci_by_image": [
+        0.03524950596611908,
+        0.07149114114277623
+       ],
+       "mcnemar_midp": {
+        "b": 72,
+        "c": 8,
+        "p_midp": 2.9773029709526426e-14
+       },
+       "n_induzidas": 72,
+       "n_revertidas": 8,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed1_SHAM_POL_Q3_blur10.json",
+       "sha256": "e0d4c84cc2a94baf64ead779f83e9235611585f5ca9b6ec639e92259b112f6e7",
+       "n_inventario": 1199,
+       "p_holm": 1.4886514854763213e-13
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07866761162296244,
+       "taxa_afirma_oclusor": 0.13961729270021261,
+       "taxa_induzida": 0.06094968107725018,
+       "taxa_induzida_ci_by_image": [
+        0.04494201959089599,
+        0.07777912902478573
+       ],
+       "mcnemar_midp": {
+        "b": 95,
+        "c": 9,
+        "p_midp": 1.6311366856314508e-19
+       },
+       "n_induzidas": 95,
+       "n_revertidas": 9,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed1_SHAM_INS_black.json",
+       "sha256": "e4ba182e200b786f5b3ec9289951d2c07d6d3700fbc0182b9a77e3a7596af8be",
+       "n_inventario": 1411,
+       "p_holm": 9.786820113788706e-19
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07866761162296244,
+       "taxa_afirma_oclusor": 0.08221119773210489,
+       "taxa_induzida": 0.003543586109142452,
+       "taxa_induzida_ci_by_image": [
+        -0.0037491197583026667,
+        0.01091611463504966
+       ],
+       "mcnemar_midp": {
+        "b": 13,
+        "c": 8,
+        "p_midp": 0.2862787246704102
+       },
+       "n_induzidas": 13,
+       "n_revertidas": 8,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed1_SHAM_INS_blur10.json",
+       "sha256": "570e3fbdadf314dadabd1ec13a1970c8a63f61ffe6cdf4fdd5b70e270fa8ded2",
+       "n_inventario": 1411,
+       "p_holm": 0.2862787246704102
+      }
+     }
+    },
+    "QWEN25VL_LORA_VT_KVASIR_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "LORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test_encoder_swapped/QWEN25VL_LORA_VT_KVASIR_seed1_C0.json",
+     "c0_sha256": "da4c32fc11ff4c2121f50ad00ef40dbcda61196c4ec261bf324025cdddd02290",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.007518796992481203,
+       "taxa_afirma_oclusor": 0.9774436090225563,
+       "taxa_induzida": 0.9699248120300752,
+       "taxa_induzida_ci_by_image": [
+        0.9539811118849048,
+        0.983272151374913
+       ],
+       "mcnemar_midp": {
+        "b": 516,
+        "c": 0,
+        "p_midp": 4.66146295700001e-156
+       },
+       "n_induzidas": 516,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed1_SHAM_ART_black.json",
+       "sha256": "f36ab211a1991f74c7961fd2445dbb6ce5f16faedd110d81195bb152ab13be54",
+       "n_inventario": 532,
+       "p_holm": 3.729170365600008e-155
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.007518796992481203,
+       "taxa_afirma_oclusor": 0.806390977443609,
+       "taxa_induzida": 0.7988721804511278,
+       "taxa_induzida_ci_by_image": [
+        0.7635997183994186,
+        0.8317584756991678
+       ],
+       "mcnemar_midp": {
+        "b": 425,
+        "c": 0,
+        "p_midp": 1.1541223272232323e-128
+       },
+       "n_induzidas": 425,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed1_SHAM_ART_blur10.json",
+       "sha256": "0a30a36b12453160118b39b62804a69891530cf06c87aa1973e5b2395ce30871",
+       "n_inventario": 532,
+       "p_holm": 8.078856290562626e-128
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.020066889632107024,
+       "taxa_afirma_oclusor": 0.034280936454849496,
+       "taxa_induzida": 0.014214046822742474,
+       "taxa_induzida_ci_by_image": [
+        0.005634500292316686,
+        0.02353897873051099
+       ],
+       "mcnemar_midp": {
+        "b": 18,
+        "c": 1,
+        "p_midp": 4.005432128906258e-05
+       },
+       "n_induzidas": 18,
+       "n_revertidas": 1,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed1_SHAM_POL_Q1_black.json",
+       "sha256": "9817bb875f110d75479fc3789c00258b19367eb696c1046b6066be365bfee15a",
+       "n_inventario": 1196,
+       "p_holm": 0.0002002716064453129
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.020066889632107024,
+       "taxa_afirma_oclusor": 0.034280936454849496,
+       "taxa_induzida": 0.014214046822742474,
+       "taxa_induzida_ci_by_image": [
+        0.005976405981553649,
+        0.023525697707347207
+       ],
+       "mcnemar_midp": {
+        "b": 18,
+        "c": 1,
+        "p_midp": 4.005432128906258e-05
+       },
+       "n_induzidas": 18,
+       "n_revertidas": 1,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed1_SHAM_POL_Q1_blur10.json",
+       "sha256": "65becbc1ad4b5000f19f51e3dc765ade003c6e282948b3d0cffa4c4bec7ccc0a",
+       "n_inventario": 1196,
+       "p_holm": 0.0002002716064453129
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.020016680567139282,
+       "taxa_afirma_oclusor": 0.041701417848206836,
+       "taxa_induzida": 0.021684737281067557,
+       "taxa_induzida_ci_by_image": [
+        0.006942359919954259,
+        0.03633739299753847
+       ],
+       "mcnemar_midp": {
+        "b": 39,
+        "c": 13,
+        "p_midp": 0.0002685401188191611
+       },
+       "n_induzidas": 39,
+       "n_revertidas": 13,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed1_SHAM_POL_Q3_black.json",
+       "sha256": "19e07feb09be05b3039d1b922d496455296cf3fda131b198b00ca02466674d90",
+       "n_inventario": 1199,
+       "p_holm": 0.0008056203564574833
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.020016680567139282,
+       "taxa_afirma_oclusor": 0.02335279399499583,
+       "taxa_induzida": 0.003336113427856547,
+       "taxa_induzida_ci_by_image": [
+        -0.007402079756834282,
+        0.013633430615992039
+       ],
+       "mcnemar_midp": {
+        "b": 15,
+        "c": 11,
+        "p_midp": 0.44206833839416504
+       },
+       "n_induzidas": 15,
+       "n_revertidas": 11,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed1_SHAM_POL_Q3_blur10.json",
+       "sha256": "b8ee63c78d8add0fe277115cb4d462fadbc6449a85989a179b2d4783be2d123a",
+       "n_inventario": 1199,
+       "p_holm": 0.775390625
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.0815024805102764,
+       "taxa_afirma_oclusor": 0.15095676824946846,
+       "taxa_induzida": 0.06945428773919206,
+       "taxa_induzida_ci_by_image": [
+        0.05316916212621734,
+        0.08645066273932252
+       ],
+       "mcnemar_midp": {
+        "b": 103,
+        "c": 5,
+        "p_midp": 3.778133811389164e-25
+       },
+       "n_induzidas": 103,
+       "n_revertidas": 5,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed1_SHAM_INS_black.json",
+       "sha256": "f03118501e1b0f003bc5c7b4d3710835381ab618cb270b952708357f19f0d0ae",
+       "n_inventario": 1411,
+       "p_holm": 2.2668802868334985e-24
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.0815024805102764,
+       "taxa_afirma_oclusor": 0.07937632884479093,
+       "taxa_induzida": -0.002126151665485471,
+       "taxa_induzida_ci_by_image": [
+        -0.007199683578305805,
+        0.0028612815321611912
+       ],
+       "mcnemar_midp": {
+        "b": 4,
+        "c": 7,
+        "p_midp": 0.3876953125
+       },
+       "n_induzidas": 4,
+       "n_revertidas": 7,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed1_SHAM_INS_blur10.json",
+       "sha256": "696b3319780bc23e1105c7e9dcfdd71abb3abaa4f6ee59d070550c144998ae88",
+       "n_inventario": 1411,
+       "p_holm": 0.775390625
+      }
+     }
+    },
+    "QWEN25VL_DORA_KVASIR_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "DORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test/QWEN25VL_DORA_KVASIR_seed1_C0.json",
+     "c0_sha256": "ab37e11c0faae5f6178e8f0bdf6c56e32a0040526acd18002db605c1635bac43",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0018796992481203006,
+       "taxa_afirma_oclusor": 0.9548872180451128,
+       "taxa_induzida": 0.9530075187969925,
+       "taxa_induzida_ci_by_image": [
+        0.9326710423851374,
+        0.969814158036601
+       ],
+       "mcnemar_midp": {
+        "b": 507,
+        "c": 0,
+        "p_midp": 2.386669033984125e-153
+       },
+       "n_induzidas": 507,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed1_SHAM_ART_black.json",
+       "sha256": "5e2007dfa08d362ac3de120ffe550802feee196c24628c7281e37418d501a27d",
+       "n_inventario": 532,
+       "p_holm": 1.9093352271873e-152
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0018796992481203006,
+       "taxa_afirma_oclusor": 0.6710526315789473,
+       "taxa_induzida": 0.6691729323308271,
+       "taxa_induzida_ci_by_image": [
+        0.6287273454157782,
+        0.7092170378225521
+       ],
+       "mcnemar_midp": {
+        "b": 356,
+        "c": 0,
+        "p_midp": 6.812735744013108e-108
+       },
+       "n_induzidas": 356,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed1_SHAM_ART_blur10.json",
+       "sha256": "3a2cd47117f13c8bb0c05fad6420757a827a0fbdd2db730e7eaa18dec1e7f607",
+       "n_inventario": 532,
+       "p_holm": 4.7689150208091754e-107
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.021739130434782608,
+       "taxa_afirma_oclusor": 0.04180602006688963,
+       "taxa_induzida": 0.020066889632107024,
+       "taxa_induzida_ci_by_image": [
+        0.00980392156862745,
+        0.03198720567086194
+       ],
+       "mcnemar_midp": {
+        "b": 27,
+        "c": 3,
+        "p_midp": 4.649162292480475e-06
+       },
+       "n_induzidas": 27,
+       "n_revertidas": 3,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed1_SHAM_POL_Q1_black.json",
+       "sha256": "f68932037fe75936288fe847bd13e86e0e35a040933ff26ed2daf14d59a5b086",
+       "n_inventario": 1196,
+       "p_holm": 9.29832458496095e-06
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.021739130434782608,
+       "taxa_afirma_oclusor": 0.043478260869565216,
+       "taxa_induzida": 0.021739130434782608,
+       "taxa_induzida_ci_by_image": [
+        0.011091355334261036,
+        0.03445233393710841
+       ],
+       "mcnemar_midp": {
+        "b": 29,
+        "c": 3,
+        "p_midp": 1.4011748135089857e-06
+       },
+       "n_induzidas": 29,
+       "n_revertidas": 3,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed1_SHAM_POL_Q1_blur10.json",
+       "sha256": "be1258ba0a1c94b1f6b8d35c67dfe86d628ce1a5ffbefde6ed1490b1756bcef7",
+       "n_inventario": 1196,
+       "p_holm": 4.203524440526957e-06
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.021684737281067557,
+       "taxa_afirma_oclusor": 0.0884070058381985,
+       "taxa_induzida": 0.06672226855713094,
+       "taxa_induzida_ci_by_image": [
+        0.04574582780052816,
+        0.0875264305904872
+       ],
+       "mcnemar_midp": {
+        "b": 94,
+        "c": 14,
+        "p_midp": 5.770921348674721e-16
+       },
+       "n_induzidas": 94,
+       "n_revertidas": 14,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed1_SHAM_POL_Q3_black.json",
+       "sha256": "0c8e9ec420f20a4a7b6f09684256bb49b8d0d2fd4a6c31ed7854fed1fd6cb302",
+       "n_inventario": 1199,
+       "p_holm": 3.4625528092048327e-15
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.021684737281067557,
+       "taxa_afirma_oclusor": 0.08340283569641367,
+       "taxa_induzida": 0.061718098415346125,
+       "taxa_induzida_ci_by_image": [
+        0.038810900082576386,
+        0.0831255195344971
+       ],
+       "mcnemar_midp": {
+        "b": 88,
+        "c": 14,
+        "p_midp": 1.6027765403567542e-14
+       },
+       "n_induzidas": 88,
+       "n_revertidas": 14,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed1_SHAM_POL_Q3_blur10.json",
+       "sha256": "053641fa3d9b0eaf5726a1d919cd4a24c8bb988b20349bf04a482ef0fefaf2bd",
+       "n_inventario": 1199,
+       "p_holm": 8.013882701783771e-14
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.08433734939759036,
+       "taxa_afirma_oclusor": 0.1254429482636428,
+       "taxa_induzida": 0.041105598866052445,
+       "taxa_induzida_ci_by_image": [
+        0.027085813998181232,
+        0.055202024149114924
+       ],
+       "mcnemar_midp": {
+        "b": 74,
+        "c": 16,
+        "p_midp": 2.6517165568743967e-10
+       },
+       "n_induzidas": 74,
+       "n_revertidas": 16,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed1_SHAM_INS_black.json",
+       "sha256": "6a38378d30cf6b755b8ad90ca9c9b9b9cd6bebe94716e9b2951058908be01166",
+       "n_inventario": 1411,
+       "p_holm": 1.0606866227497587e-09
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.08433734939759036,
+       "taxa_afirma_oclusor": 0.09000708717221828,
+       "taxa_induzida": 0.005669737774627924,
+       "taxa_induzida_ci_by_image": [
+        -0.001444043321299639,
+        0.012916517617708822
+       ],
+       "mcnemar_midp": {
+        "b": 16,
+        "c": 8,
+        "p_midp": 0.1077521443367005
+       },
+       "n_induzidas": 16,
+       "n_revertidas": 8,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed1_SHAM_INS_blur10.json",
+       "sha256": "dddf469876ecaed0fd3dd2c95683feb8acd69b429879ba214be964fe8b780af2",
+       "n_inventario": 1411,
+       "p_holm": 0.1077521443367005
+      }
+     }
+    },
+    "QWEN25VL_DORA_VT_KVASIR_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "DORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test_encoder_swapped/QWEN25VL_DORA_VT_KVASIR_seed1_C0.json",
+     "c0_sha256": "5e9dfaffc804a8d9d6d890c948bc05dd86c7c9e1b159ccaf8ab8b96976b740be",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.005639097744360902,
+       "taxa_afirma_oclusor": 0.9943609022556391,
+       "taxa_induzida": 0.9887218045112782,
+       "taxa_induzida_ci_by_image": [
+        0.978297251650545,
+        0.9963371637503264
+       ],
+       "mcnemar_midp": {
+        "b": 526,
+        "c": 0,
+        "p_midp": 4.552209918945655e-159
+       },
+       "n_induzidas": 526,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed1_SHAM_ART_black.json",
+       "sha256": "819baa010b80ee2826418b6c3511706287e214a9684f74df0c96371c81db9849",
+       "n_inventario": 532,
+       "p_holm": 3.641767935156524e-158
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.005639097744360902,
+       "taxa_afirma_oclusor": 0.8195488721804511,
+       "taxa_induzida": 0.8139097744360902,
+       "taxa_induzida_ci_by_image": [
+        0.7800406390820348,
+        0.8458753688017512
+       ],
+       "mcnemar_midp": {
+        "b": 433,
+        "c": 0,
+        "p_midp": 4.508290340715893e-131
+       },
+       "n_induzidas": 433,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed1_SHAM_ART_blur10.json",
+       "sha256": "e9aeb32357e2a29788c76c2700ee434003011b36f7242327156cbc22efb43f48",
+       "n_inventario": 532,
+       "p_holm": 3.155803238501125e-130
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.014214046822742474,
+       "taxa_afirma_oclusor": 0.023411371237458192,
+       "taxa_induzida": 0.00919732441471572,
+       "taxa_induzida_ci_by_image": [
+        0.003629599673847287,
+        0.016103752201657367
+       ],
+       "mcnemar_midp": {
+        "b": 11,
+        "c": 0,
+        "p_midp": 0.00048828124999999995
+       },
+       "n_induzidas": 11,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed1_SHAM_POL_Q1_black.json",
+       "sha256": "8478e20eca1bc06d41124da87d4f025db3f226e33bc7b9c803adeaf3ee42aa49",
+       "n_inventario": 1196,
+       "p_holm": 0.0024414062499999996
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.014214046822742474,
+       "taxa_afirma_oclusor": 0.0225752508361204,
+       "taxa_induzida": 0.008361204013377926,
+       "taxa_induzida_ci_by_image": [
+        0.0030067107377931357,
+        0.015063076890729797
+       ],
+       "mcnemar_midp": {
+        "b": 10,
+        "c": 0,
+        "p_midp": 0.0009765624999999989
+       },
+       "n_induzidas": 10,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed1_SHAM_POL_Q1_blur10.json",
+       "sha256": "9c3b831c66be5034b8532425afa4bb55eff19923e3523616b8eb2a60f3dd9eb0",
+       "n_inventario": 1196,
+       "p_holm": 0.0039062499999999957
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.014178482068390326,
+       "taxa_afirma_oclusor": 0.02418682235195997,
+       "taxa_induzida": 0.010008340283569641,
+       "taxa_induzida_ci_by_image": [
+        -0.0008426208944379047,
+        0.021146487439368963
+       ],
+       "mcnemar_midp": {
+        "b": 21,
+        "c": 9,
+        "p_midp": 0.02944937348365785
+       },
+       "n_induzidas": 21,
+       "n_revertidas": 9,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed1_SHAM_POL_Q3_black.json",
+       "sha256": "8e59821c7f4663310e423aded6884598abb5fee496c6269bf3b2b8c3102a7dbe",
+       "n_inventario": 1199,
+       "p_holm": 0.0588987469673157
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.014178482068390326,
+       "taxa_afirma_oclusor": 0.029190992493744787,
+       "taxa_induzida": 0.015012510425354461,
+       "taxa_induzida_ci_by_image": [
+        0.0024892670802349943,
+        0.02784876284567547
+       ],
+       "mcnemar_midp": {
+        "b": 27,
+        "c": 9,
+        "p_midp": 0.0025632079923525453
+       },
+       "n_induzidas": 27,
+       "n_revertidas": 9,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed1_SHAM_POL_Q3_blur10.json",
+       "sha256": "5b1d66328263455695e9d8edd19a9ddc595eab5058bf84894a5bb8e469d6902a",
+       "n_inventario": 1199,
+       "p_holm": 0.007689623977057636
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.073706591070163,
+       "taxa_afirma_oclusor": 0.10063784549964565,
+       "taxa_induzida": 0.026931254429482635,
+       "taxa_induzida_ci_by_image": [
+        0.016689949858593033,
+        0.03923003475102013
+       ],
+       "mcnemar_midp": {
+        "b": 40,
+        "c": 2,
+        "p_midp": 2.153228706447405e-10
+       },
+       "n_induzidas": 40,
+       "n_revertidas": 2,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed1_SHAM_INS_black.json",
+       "sha256": "c6a9878f883fc3e0927a10d5d04a6b901a01e66e280cf9f2b922f6f95290e100",
+       "n_inventario": 1411,
+       "p_holm": 1.291937223868443e-09
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.073706591070163,
+       "taxa_afirma_oclusor": 0.07795889440113395,
+       "taxa_induzida": 0.004252303330970942,
+       "taxa_induzida_ci_by_image": [
+        0.0,
+        0.008696284125379167
+       ],
+       "mcnemar_midp": {
+        "b": 8,
+        "c": 2,
+        "p_midp": 0.06542968750000004
+       },
+       "n_induzidas": 8,
+       "n_revertidas": 2,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed1_SHAM_INS_blur10.json",
+       "sha256": "9b2aaa1cdfe0abe63589907c3ff66e5dda56bfb140b3b20c44772349979c159a",
+       "n_inventario": 1411,
+       "p_holm": 0.06542968750000004
+      }
+     }
+    },
+    "QWEN25VL_LORA_KVASIR_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "LORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test/QWEN25VL_LORA_KVASIR_seed2_C0.json",
+     "c0_sha256": "73ecc341e77b0ed792cdbfc8bba3679057656de654d6aa4ffafcdda32f9f979e",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.005639097744360902,
+       "taxa_afirma_oclusor": 0.9981203007518797,
+       "taxa_induzida": 0.9924812030075187,
+       "taxa_induzida_ci_by_image": [
+        0.9847029003025575,
+        0.9981818181818182
+       ],
+       "mcnemar_midp": {
+        "b": 528,
+        "c": 0,
+        "p_midp": 1.1380524797364254e-159
+       },
+       "n_induzidas": 528,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed2_SHAM_ART_black.json",
+       "sha256": "42c04b15a45733cf79d390642ccd4f7dcebc4548e91da45ee416abb17c214b88",
+       "n_inventario": 532,
+       "p_holm": 9.104419837891403e-159
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.005639097744360902,
+       "taxa_afirma_oclusor": 0.9229323308270677,
+       "taxa_induzida": 0.9172932330827067,
+       "taxa_induzida_ci_by_image": [
+        0.893877219325457,
+        0.9391147922348789
+       ],
+       "mcnemar_midp": {
+        "b": 488,
+        "c": 0,
+        "p_midp": 1.2513019344894684e-147
+       },
+       "n_induzidas": 488,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed2_SHAM_ART_blur10.json",
+       "sha256": "19f246df3ecde5cd3c6a58918e58416a1ec27210191bd0ea70ab60095d70acc7",
+       "n_inventario": 532,
+       "p_holm": 8.759113541426279e-147
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.020903010033444816,
+       "taxa_afirma_oclusor": 0.043478260869565216,
+       "taxa_induzida": 0.0225752508361204,
+       "taxa_induzida_ci_by_image": [
+        0.012451023094643516,
+        0.03405170749599428
+       ],
+       "mcnemar_midp": {
+        "b": 27,
+        "c": 0,
+        "p_midp": 7.450580596923845e-09
+       },
+       "n_induzidas": 27,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed2_SHAM_POL_Q1_black.json",
+       "sha256": "f289a9c8a14dee579fc1c53b033410575aaf40a72637ffc19c2bca8a0068cf29",
+       "n_inventario": 1196,
+       "p_holm": 2.2351741790771534e-08
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.020903010033444816,
+       "taxa_afirma_oclusor": 0.03678929765886288,
+       "taxa_induzida": 0.01588628762541806,
+       "taxa_induzida_ci_by_image": [
+        0.008276418384522614,
+        0.025189446055500282
+       ],
+       "mcnemar_midp": {
+        "b": 19,
+        "c": 0,
+        "p_midp": 1.9073486328124994e-06
+       },
+       "n_induzidas": 19,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed2_SHAM_POL_Q1_blur10.json",
+       "sha256": "a4e0c53d18c83e84a1600132b087fb6270ec2e5601ad00dea694a62bab46dc87",
+       "n_inventario": 1196,
+       "p_holm": 3.8146972656249987e-06
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.020850708924103418,
+       "taxa_afirma_oclusor": 0.08340283569641367,
+       "taxa_induzida": 0.06255212677231026,
+       "taxa_induzida_ci_by_image": [
+        0.042531998394505645,
+        0.08283706205088856
+       ],
+       "mcnemar_midp": {
+        "b": 86,
+        "c": 11,
+        "p_midp": 8.065094010420532e-16
+       },
+       "n_induzidas": 86,
+       "n_revertidas": 11,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed2_SHAM_POL_Q3_black.json",
+       "sha256": "f7f94f67394361896bd8221a87bd69a5d15b5527669f7a47eeaae3ac61b48d33",
+       "n_inventario": 1199,
+       "p_holm": 4.0325470052102655e-15
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.020850708924103418,
+       "taxa_afirma_oclusor": 0.09674728940783987,
+       "taxa_induzida": 0.07589658048373644,
+       "taxa_induzida_ci_by_image": [
+        0.053965986394557824,
+        0.09770760028149188
+       ],
+       "mcnemar_midp": {
+        "b": 101,
+        "c": 10,
+        "p_midp": 2.4113728479541736e-20
+       },
+       "n_induzidas": 101,
+       "n_revertidas": 10,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed2_SHAM_POL_Q3_blur10.json",
+       "sha256": "e0fb7ee5ea3fe984164fcc6892eee30a4c0b46633393faeff1783d8b01502119",
+       "n_inventario": 1199,
+       "p_holm": 1.446823708772504e-19
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.08575478384124734,
+       "taxa_afirma_oclusor": 0.12473423104181432,
+       "taxa_induzida": 0.03897944720056697,
+       "taxa_induzida_ci_by_image": [
+        0.02586206896551724,
+        0.052521878081686235
+       ],
+       "mcnemar_midp": {
+        "b": 67,
+        "c": 12,
+        "p_midp": 1.2016486350820278e-10
+       },
+       "n_induzidas": 67,
+       "n_revertidas": 12,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed2_SHAM_INS_black.json",
+       "sha256": "d50c4bc1e6e6700d27b48c06c3946872898a541b3c9412dcb69271c97d92d267",
+       "n_inventario": 1411,
+       "p_holm": 4.806594540328111e-10
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.08575478384124734,
+       "taxa_afirma_oclusor": 0.09355067328136074,
+       "taxa_induzida": 0.007795889440113395,
+       "taxa_induzida_ci_by_image": [
+        0.002150422262217915,
+        0.013812472948544948
+       ],
+       "mcnemar_midp": {
+        "b": 15,
+        "c": 4,
+        "p_midp": 0.011817932128906247
+       },
+       "n_induzidas": 15,
+       "n_revertidas": 4,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_KVASIR_seed2_SHAM_INS_blur10.json",
+       "sha256": "0acd22c524b1bb03881ac15bc41bfafcc1b4322509dcfc51b6112c1026e2b81d",
+       "n_inventario": 1411,
+       "p_holm": 0.011817932128906247
+      }
+     }
+    },
+    "QWEN25VL_LORA_VT_KVASIR_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "LORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test_encoder_swapped/QWEN25VL_LORA_VT_KVASIR_seed2_C0.json",
+     "c0_sha256": "f2f7d374c10fa2e51adc0cd1b1ca6e405b0667b204513d5d2d86e04841a06814",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.011278195488721804,
+       "taxa_afirma_oclusor": 0.7368421052631579,
+       "taxa_induzida": 0.7255639097744361,
+       "taxa_induzida_ci_by_image": [
+        0.6844921026313068,
+        0.7624118373104503
+       ],
+       "mcnemar_midp": {
+        "b": 388,
+        "c": 2,
+        "p_midp": 3.0390663841619616e-113
+       },
+       "n_induzidas": 388,
+       "n_revertidas": 2,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed2_SHAM_ART_black.json",
+       "sha256": "11953d3940b02ce7a61f3ec1a189b3854b41474f8b68b3ccc9bc499e67548efc",
+       "n_inventario": 532,
+       "p_holm": 2.4312531073295693e-112
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.011278195488721804,
+       "taxa_afirma_oclusor": 0.4473684210526316,
+       "taxa_induzida": 0.43609022556390975,
+       "taxa_induzida_ci_by_image": [
+        0.3937149780953906,
+        0.4801601575882152
+       ],
+       "mcnemar_midp": {
+        "b": 234,
+        "c": 2,
+        "p_midp": 2.5540637273922968e-67
+       },
+       "n_induzidas": 234,
+       "n_revertidas": 2,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed2_SHAM_ART_blur10.json",
+       "sha256": "b0093cd2c55fe85043ee478ddbc0726f3ed9c76349b6e7a8a4e4e4481b394436",
+       "n_inventario": 532,
+       "p_holm": 1.7878446091746078e-66
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.010869565217391304,
+       "taxa_afirma_oclusor": 0.03595317725752508,
+       "taxa_induzida": 0.02508361204013378,
+       "taxa_induzida_ci_by_image": [
+        0.014567162502807797,
+        0.03754651091862876
+       ],
+       "mcnemar_midp": {
+        "b": 30,
+        "c": 0,
+        "p_midp": 9.313225746154802e-10
+       },
+       "n_induzidas": 30,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed2_SHAM_POL_Q1_black.json",
+       "sha256": "fd87c84971982f5583ddd511b7361999ece4714b2c01fc2bf5108609d394adfa",
+       "n_inventario": 1196,
+       "p_holm": 3.725290298461921e-09
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.010869565217391304,
+       "taxa_afirma_oclusor": 0.01839464882943144,
+       "taxa_induzida": 0.007525083612040134,
+       "taxa_induzida_ci_by_image": [
+        0.0016934085259493973,
+        0.01496446852792829
+       ],
+       "mcnemar_midp": {
+        "b": 9,
+        "c": 0,
+        "p_midp": 0.0019531250000000004
+       },
+       "n_induzidas": 9,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed2_SHAM_POL_Q1_blur10.json",
+       "sha256": "024e47d2d1e6d8fa5a1591ac794ccd26e8a817eadf771ed798a429e9e7ddce42",
+       "n_inventario": 1196,
+       "p_holm": 0.0019531250000000004
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.010842368640533779,
+       "taxa_afirma_oclusor": 0.058381984987489574,
+       "taxa_induzida": 0.0475396163469558,
+       "taxa_induzida_ci_by_image": [
+        0.03137388325553727,
+        0.06502654758229232
+       ],
+       "mcnemar_midp": {
+        "b": 61,
+        "c": 4,
+        "p_midp": 2.0835438409305735e-14
+       },
+       "n_induzidas": 61,
+       "n_revertidas": 4,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed2_SHAM_POL_Q3_black.json",
+       "sha256": "4218532a0dd8369381cf28e55e95ecbb1320aaa1aa77007b4ce6093541b7877e",
+       "n_inventario": 1199,
+       "p_holm": 1.0417719204652867e-13
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.010842368640533779,
+       "taxa_afirma_oclusor": 0.0408673894912427,
+       "taxa_induzida": 0.030025020850708923,
+       "taxa_induzida_ci_by_image": [
+        0.016810513437111728,
+        0.04421947100518528
+       ],
+       "mcnemar_midp": {
+        "b": 40,
+        "c": 4,
+        "p_midp": 9.334883088740735e-09
+       },
+       "n_induzidas": 40,
+       "n_revertidas": 4,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed2_SHAM_POL_Q3_blur10.json",
+       "sha256": "ece7f7a3b0d7235b0ae98ecf27650df9913eed3822e6af4cbdee8f60bdad99eb",
+       "n_inventario": 1199,
+       "p_holm": 2.8004649266222206e-08
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07087172218284904,
+       "taxa_afirma_oclusor": 0.16513111268603828,
+       "taxa_induzida": 0.09425939050318922,
+       "taxa_induzida_ci_by_image": [
+        0.0752522386774175,
+        0.11566138261444191
+       ],
+       "mcnemar_midp": {
+        "b": 134,
+        "c": 1,
+        "p_midp": 3.145365743411237e-39
+       },
+       "n_induzidas": 134,
+       "n_revertidas": 1,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed2_SHAM_INS_black.json",
+       "sha256": "c3b872881ea3120abcca04b3d1a16ddc34d55b3205b815e7118a32b41389b793",
+       "n_inventario": 1411,
+       "p_holm": 1.887219446046742e-38
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07087172218284904,
+       "taxa_afirma_oclusor": 0.08221119773210489,
+       "taxa_induzida": 0.011339475549255847,
+       "taxa_induzida_ci_by_image": [
+        0.004957331781336774,
+        0.018585924284870728
+       ],
+       "mcnemar_midp": {
+        "b": 17,
+        "c": 1,
+        "p_midp": 7.629394531249996e-05
+       },
+       "n_induzidas": 17,
+       "n_revertidas": 1,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_LORA_VT_KVASIR_seed2_SHAM_INS_blur10.json",
+       "sha256": "82c9823c811653b0bd5910f789b0d85ee03f081c76a28149878abc3d11eceed8",
+       "n_inventario": 1411,
+       "p_holm": 0.00015258789062499992
+      }
+     }
+    },
+    "QWEN25VL_DORA_KVASIR_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "DORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test/QWEN25VL_DORA_KVASIR_seed2_C0.json",
+     "c0_sha256": "ca9358052b32f55e1be7b8b9b0fd4627f63b75d55c2d778037961db473fe43aa",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0037593984962406013,
+       "taxa_afirma_oclusor": 0.9774436090225563,
+       "taxa_induzida": 0.9736842105263158,
+       "taxa_induzida_ci_by_image": [
+        0.9592223102833367,
+        0.9866163173412346
+       ],
+       "mcnemar_midp": {
+        "b": 518,
+        "c": 0,
+        "p_midp": 1.1653657392500223e-156
+       },
+       "n_induzidas": 518,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed2_SHAM_ART_black.json",
+       "sha256": "281975b4104dcb8bb463a26507d79ad37bb77fb1a1da5d4949489c6edb0d0849",
+       "n_inventario": 532,
+       "p_holm": 9.322925914000179e-156
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.0037593984962406013,
+       "taxa_afirma_oclusor": 0.8778195488721805,
+       "taxa_induzida": 0.8740601503759399,
+       "taxa_induzida_ci_by_image": [
+        0.8454198473282443,
+        0.9003761198974447
+       ],
+       "mcnemar_midp": {
+        "b": 465,
+        "c": 0,
+        "p_midp": 1.049668141807378e-140
+       },
+       "n_induzidas": 465,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed2_SHAM_ART_blur10.json",
+       "sha256": "bd3efdaabd0d771a5993d9a48758aff7428bca28d1e0b24bc40f6ab11e361765",
+       "n_inventario": 532,
+       "p_holm": 7.347676992651645e-140
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.01839464882943144,
+       "taxa_afirma_oclusor": 0.025919732441471572,
+       "taxa_induzida": 0.007525083612040134,
+       "taxa_induzida_ci_by_image": [
+        0.0,
+        0.01588730623567859
+       ],
+       "mcnemar_midp": {
+        "b": 14,
+        "c": 5,
+        "p_midp": 0.04138946533203125
+       },
+       "n_induzidas": 14,
+       "n_revertidas": 5,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed2_SHAM_POL_Q1_black.json",
+       "sha256": "f22a57d0d759002bc9af0f096a990a3818354872550c794a5d3bb5152ad050f8",
+       "n_inventario": 1196,
+       "p_holm": 0.0827789306640625
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.01839464882943144,
+       "taxa_afirma_oclusor": 0.03678929765886288,
+       "taxa_induzida": 0.01839464882943144,
+       "taxa_induzida_ci_by_image": [
+        0.009431940175590818,
+        0.029460177544386082
+       ],
+       "mcnemar_midp": {
+        "b": 24,
+        "c": 2,
+        "p_midp": 5.6475400924682626e-06
+       },
+       "n_induzidas": 24,
+       "n_revertidas": 2,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed2_SHAM_POL_Q1_blur10.json",
+       "sha256": "6d991660c37aa59fabfa5db6a176462854ad14b67ee43dfc645a5b978dadc107",
+       "n_inventario": 1196,
+       "p_holm": 2.8237700462341312e-05
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.01834862385321101,
+       "taxa_afirma_oclusor": 0.03586321934945788,
+       "taxa_induzida": 0.01751459549624687,
+       "taxa_induzida_ci_by_image": [
+        0.003620792117168929,
+        0.0300518434338355
+       ],
+       "mcnemar_midp": {
+        "b": 34,
+        "c": 13,
+        "p_midp": 0.002088107333996446
+       },
+       "n_induzidas": 34,
+       "n_revertidas": 13,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed2_SHAM_POL_Q3_black.json",
+       "sha256": "3e79aa4e0595eb195cf589252db0d7e56c067efca6b7f0a135f4b8405b3809e0",
+       "n_inventario": 1199,
+       "p_holm": 0.0062643220019893385
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.01834862385321101,
+       "taxa_afirma_oclusor": 0.04420350291909925,
+       "taxa_induzida": 0.02585487906588824,
+       "taxa_induzida_ci_by_image": [
+        0.011512939566837447,
+        0.04033876050420167
+       ],
+       "mcnemar_midp": {
+        "b": 42,
+        "c": 11,
+        "p_midp": 1.4013057456185878e-05
+       },
+       "n_induzidas": 42,
+       "n_revertidas": 11,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed2_SHAM_POL_Q3_blur10.json",
+       "sha256": "3f40e61b3dd2775bb441aa22a42a18eadfbe23d8c13ccb9a5136f916fdd7fc96",
+       "n_inventario": 1199,
+       "p_holm": 5.605222982474351e-05
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.08291991495393337,
+       "taxa_afirma_oclusor": 0.1254429482636428,
+       "taxa_induzida": 0.042523033309709427,
+       "taxa_induzida_ci_by_image": [
+        0.02840272750067026,
+        0.057859504132231364
+       ],
+       "mcnemar_midp": {
+        "b": 72,
+        "c": 12,
+        "p_midp": 8.090689460813064e-12
+       },
+       "n_induzidas": 72,
+       "n_revertidas": 12,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed2_SHAM_INS_black.json",
+       "sha256": "abf9c0e5c64e0d48ba6419e128503e09075dbba91da84ab639ce6d31e5884e8a",
+       "n_inventario": 1411,
+       "p_holm": 4.854413676487838e-11
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.08291991495393337,
+       "taxa_afirma_oclusor": 0.08575478384124734,
+       "taxa_induzida": 0.002834868887313962,
+       "taxa_induzida_ci_by_image": [
+        -0.004470938897168405,
+        0.010123471344588006
+       ],
+       "mcnemar_midp": {
+        "b": 13,
+        "c": 9,
+        "p_midp": 0.40487289428710926
+       },
+       "n_induzidas": 13,
+       "n_revertidas": 9,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_KVASIR_seed2_SHAM_INS_blur10.json",
+       "sha256": "ed4d3a695178df7aa66361c7da12206351d766b6137dff687b095ae7b207b0f0",
+       "n_inventario": 1411,
+       "p_holm": 0.40487289428710926
+      }
+     }
+    },
+    "QWEN25VL_DORA_VT_KVASIR_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "DORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "results/predictions/kvasir/full_test_encoder_swapped/QWEN25VL_DORA_VT_KVASIR_seed2_C0.json",
+     "c0_sha256": "beb861d3e783b0c9ef37dc2b07af05e725ff65e8c446d95298abd3df68f99bf6",
+     "regra_afirma": "kvasir_sham.affirms (ART: yes; contagem != 0; tipo/presenca != none)",
+     "conds": {
+      "SHAM_ART_black": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.007518796992481203,
+       "taxa_afirma_oclusor": 0.9586466165413534,
+       "taxa_induzida": 0.9511278195488722,
+       "taxa_induzida_ci_by_image": [
+        0.9308408444460862,
+        0.9678046511627907
+       ],
+       "mcnemar_midp": {
+        "b": 506,
+        "c": 0,
+        "p_midp": 4.773338067968317e-153
+       },
+       "n_induzidas": 506,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed2_SHAM_ART_black.json",
+       "sha256": "fc00ff5c68e3af8aff50183a1381103f3df0a90bd6de6b376e16eec0f7c59684",
+       "n_inventario": 532,
+       "p_holm": 3.818670454374653e-152
+      },
+      "SHAM_ART_blur10": {
+       "n": 532,
+       "n_imagens": 532,
+       "taxa_afirma_intacta": 0.007518796992481203,
+       "taxa_afirma_oclusor": 0.5845864661654135,
+       "taxa_induzida": 0.5770676691729323,
+       "taxa_induzida_ci_by_image": [
+        0.537204322657689,
+        0.6183998476211102
+       ],
+       "mcnemar_midp": {
+        "b": 307,
+        "c": 0,
+        "p_midp": 3.835229269763922e-93
+       },
+       "n_induzidas": 307,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed2_SHAM_ART_blur10.json",
+       "sha256": "4b9f9d1041351351a9cce62d21f757baf347038cbede1418d1dbc5a1c1ec607c",
+       "n_inventario": 532,
+       "p_holm": 2.6846604888347453e-92
+      },
+      "SHAM_POL_Q1_black": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.011705685618729096,
+       "taxa_afirma_oclusor": 0.019230769230769232,
+       "taxa_induzida": 0.007525083612040134,
+       "taxa_induzida_ci_by_image": [
+        0.002458815493410479,
+        0.013793243394536497
+       ],
+       "mcnemar_midp": {
+        "b": 9,
+        "c": 0,
+        "p_midp": 0.0019531250000000004
+       },
+       "n_induzidas": 9,
+       "n_revertidas": 0,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed2_SHAM_POL_Q1_black.json",
+       "sha256": "b3d767c21a254aacdb503eefe4dd855e5fed8d87510cd62b927824965b717a67",
+       "n_inventario": 1196,
+       "p_holm": 0.009765625000000002
+      },
+      "SHAM_POL_Q1_blur10": {
+       "n": 1196,
+       "n_imagens": 401,
+       "taxa_afirma_intacta": 0.011705685618729096,
+       "taxa_afirma_oclusor": 0.013377926421404682,
+       "taxa_induzida": 0.0016722408026755853,
+       "taxa_induzida_ci_by_image": [
+        -0.0017286458535826757,
+        0.00588297344254157
+       ],
+       "mcnemar_midp": {
+        "b": 3,
+        "c": 1,
+        "p_midp": 0.375
+       },
+       "n_induzidas": 3,
+       "n_revertidas": 1,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed2_SHAM_POL_Q1_blur10.json",
+       "sha256": "3a1390a2b8ae77a0f71f1ad894a247fe7a0843d01dfb2acc811a728fee642f2b",
+       "n_inventario": 1196,
+       "p_holm": 1.0
+      },
+      "SHAM_POL_Q3_black": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.011676396997497914,
+       "taxa_afirma_oclusor": 0.012510425354462052,
+       "taxa_induzida": 0.0008340283569641367,
+       "taxa_induzida_ci_by_image": [
+        -0.007740071298018256,
+        0.008850146445650207
+       ],
+       "mcnemar_midp": {
+        "b": 10,
+        "c": 9,
+        "p_midp": 0.8238029479980469
+       },
+       "n_induzidas": 10,
+       "n_revertidas": 9,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed2_SHAM_POL_Q3_black.json",
+       "sha256": "842ec525b06bfec1e54c4bcabfe02155d715092843c02847a224d0c0870c24b3",
+       "n_inventario": 1199,
+       "p_holm": 1.0
+      },
+      "SHAM_POL_Q3_blur10": {
+       "n": 1199,
+       "n_imagens": 402,
+       "taxa_afirma_intacta": 0.011676396997497914,
+       "taxa_afirma_oclusor": 0.011676396997497914,
+       "taxa_induzida": 0.0,
+       "taxa_induzida_ci_by_image": [
+        -0.007048855801215777,
+        0.006768620055712702
+       ],
+       "mcnemar_midp": {
+        "b": 6,
+        "c": 6,
+        "p_midp": 1.0
+       },
+       "n_induzidas": 6,
+       "n_revertidas": 6,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed2_SHAM_POL_Q3_blur10.json",
+       "sha256": "37a54435ed47a951674b5309f74061310051281cea133524aa0875d5ebf42b1e",
+       "n_inventario": 1199,
+       "p_holm": 1.0
+      },
+      "SHAM_INS_black": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07583274273564848,
+       "taxa_afirma_oclusor": 0.0892983699503898,
+       "taxa_induzida": 0.013465627214741318,
+       "taxa_induzida_ci_by_image": [
+        0.006387282524663008,
+        0.021520037080624672
+       ],
+       "mcnemar_midp": {
+        "b": 23,
+        "c": 4,
+        "p_midp": 0.00017999112606048579
+       },
+       "n_induzidas": 23,
+       "n_revertidas": 4,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed2_SHAM_INS_black.json",
+       "sha256": "35e9ce658060a516429889feb62f1d106234d43b712f5b61f73faee0f5db719d",
+       "n_inventario": 1411,
+       "p_holm": 0.0010799467563629146
+      },
+      "SHAM_INS_blur10": {
+       "n": 1411,
+       "n_imagens": 497,
+       "taxa_afirma_intacta": 0.07583274273564848,
+       "taxa_afirma_oclusor": 0.07725017717930546,
+       "taxa_induzida": 0.001417434443656981,
+       "taxa_induzida_ci_by_image": [
+        -0.00354396442794414,
+        0.006993129333927094
+       ],
+       "mcnemar_midp": {
+        "b": 6,
+        "c": 4,
+        "p_midp": 0.5488281249999999
+       },
+       "n_induzidas": 6,
+       "n_revertidas": 4,
+       "file": "results/predictions/kvasir/occluder/QWEN25VL_DORA_VT_KVASIR_seed2_SHAM_INS_blur10.json",
+       "sha256": "b4e2490db296e647156acb6f8bce3504bfe22336011c6ffc28ed48e6b4d3c015",
+       "n_inventario": 1411,
+       "p_holm": 1.0
+      }
+     }
     }
    },
    "agregado_por_grupo": {
@@ -5570,6 +7826,202 @@
       "n_ic_exclui_zero_por_cima": 1,
       "n_ic_exclui_zero_por_baixo": 0,
       "n_linhas": 3
+     }
+    },
+    "Qwen2.5-VL-7B, encoder congelado": {
+     "SHAM_ART_black": {
+      "taxa_induzida": {
+       "media": 0.9223057644110275,
+       "dp": 0.0874710055630778,
+       "min": 0.8045112781954887,
+       "max": 0.9924812030075187,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_ART_blur10": {
+      "taxa_induzida": {
+       "media": 0.763157894736842,
+       "dp": 0.1589518853257377,
+       "min": 0.5244360902255639,
+       "max": 0.9172932330827067,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_INS_black": {
+      "taxa_induzida": {
+       "media": 0.04913772738010867,
+       "dp": 0.013414552446689036,
+       "min": 0.03897944720056697,
+       "max": 0.07087172218284904,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_INS_blur10": {
+      "taxa_induzida": {
+       "media": 0.004961020552799433,
+       "dp": 0.0017929285103718664,
+       "min": 0.002834868887313962,
+       "max": 0.007795889440113395,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 1,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_POL_Q1_black": {
+      "taxa_induzida": {
+       "media": 0.014632107023411372,
+       "dp": 0.006869430069044726,
+       "min": 0.005852842809364548,
+       "max": 0.0225752508361204,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 5,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_POL_Q1_blur10": {
+      "taxa_induzida": {
+       "media": 0.015468227424749164,
+       "dp": 0.005009749892623827,
+       "min": 0.006688963210702341,
+       "max": 0.021739130434782608,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_POL_Q3_black": {
+      "taxa_induzida": {
+       "media": 0.05004170141784821,
+       "dp": 0.021939860613787998,
+       "min": 0.01751459549624687,
+       "max": 0.07339449541284404,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_POL_Q3_blur10": {
+      "taxa_induzida": {
+       "media": 0.046983597442313035,
+       "dp": 0.01981877889421364,
+       "min": 0.02585487906588824,
+       "max": 0.07589658048373644,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     }
+    },
+    "Qwen2.5-VL-7B, encoder afinado": {
+     "SHAM_ART_black": {
+      "taxa_induzida": {
+       "media": 0.8775062656641603,
+       "dp": 0.12449466323950696,
+       "min": 0.7142857142857143,
+       "max": 0.9887218045112782,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_ART_blur10": {
+      "taxa_induzida": {
+       "media": 0.6240601503759399,
+       "dp": 0.18462436252488013,
+       "min": 0.3890977443609023,
+       "max": 0.8139097744360902,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_INS_black": {
+      "taxa_induzida": {
+       "media": 0.04618473895582329,
+       "dp": 0.0300061754563205,
+       "min": 0.013465627214741318,
+       "max": 0.09425939050318922,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_INS_blur10": {
+      "taxa_induzida": {
+       "media": 0.0037798251830852823,
+       "dp": 0.004429718869202635,
+       "min": -0.002126151665485471,
+       "max": 0.011339475549255847,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 1,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_POL_Q1_black": {
+      "taxa_induzida": {
+       "media": 0.011426978818283166,
+       "dp": 0.008586702778108468,
+       "min": -0.0008361204013377926,
+       "max": 0.02508361204013378,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 5,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_POL_Q1_blur10": {
+      "taxa_induzida": {
+       "media": 0.008639910813823858,
+       "dp": 0.00519920794486556,
+       "min": 0.0016722408026755853,
+       "max": 0.015050167224080268,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 4,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_POL_Q3_black": {
+      "taxa_induzida": {
+       "media": 0.0211287183764248,
+       "dp": 0.024683106447250205,
+       "min": -0.006672226855713094,
+       "max": 0.05337781484570475,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 3,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "SHAM_POL_Q3_blur10": {
+      "taxa_induzida": {
+       "media": 0.009174311926605505,
+       "dp": 0.01239311134012124,
+       "min": -0.004170141784820684,
+       "max": 0.030025020850708923,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 3,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
      }
     }
    },
@@ -6573,6 +9025,126 @@
      "SHAM_POL_Q3_blur10": 1199
     },
     "M3AE_KVASIR_seed2": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_LORA_KVASIR_seed0": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_LORA_VT_KVASIR_seed0": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_DORA_KVASIR_seed0": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_DORA_VT_KVASIR_seed0": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_LORA_KVASIR_seed1": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_LORA_VT_KVASIR_seed1": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_DORA_KVASIR_seed1": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_DORA_VT_KVASIR_seed1": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_LORA_KVASIR_seed2": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_LORA_VT_KVASIR_seed2": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_DORA_KVASIR_seed2": {
+     "SHAM_ART_black": 532,
+     "SHAM_ART_blur10": 532,
+     "SHAM_INS_black": 1411,
+     "SHAM_INS_blur10": 1411,
+     "SHAM_POL_Q1_black": 1196,
+     "SHAM_POL_Q1_blur10": 1196,
+     "SHAM_POL_Q3_black": 1199,
+     "SHAM_POL_Q3_blur10": 1199
+    },
+    "QWEN25VL_DORA_VT_KVASIR_seed2": {
      "SHAM_ART_black": 532,
      "SHAM_ART_blur10": 532,
      "SHAM_INS_black": 1411,
@@ -9177,6 +11749,1158 @@
        "p_holm": 0.0008554458618164061
       }
      }
+    },
+    "QWEN25VL_LORA_HEAL_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "LORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_HEAL_seed0_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.14421768707482993,
+       "taxa_afirma_oclusor": 0.16326530612244897,
+       "taxa_induzida": 0.01904761904761905,
+       "taxa_induzida_ci_by_image": [
+        0.0026593981037304586,
+        0.03591284396659101
+       ],
+       "mcnemar_midp": {
+        "b": 26,
+        "c": 12,
+        "p_midp": 0.02370270247047304
+       },
+       "n_induzidas": 26,
+       "n_revertidas": 12,
+       "file": "QWEN25VL_LORA_HEAL_seed0_T.json",
+       "sha256": "5ee197932de39ee1b1400c1369606efb5f4fb768b86bd8ab505ec7f1c475a438",
+       "p_holm": 0.02370270247047304
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.14421768707482993,
+       "taxa_afirma_oclusor": 0.18231292517006803,
+       "taxa_induzida": 0.0380952380952381,
+       "taxa_induzida_ci_by_image": [
+        0.020777696060845233,
+        0.05642024195737555
+       ],
+       "mcnemar_midp": {
+        "b": 37,
+        "c": 9,
+        "p_midp": 2.490403062438419e-05
+       },
+       "n_induzidas": 37,
+       "n_revertidas": 9,
+       "file": "QWEN25VL_LORA_HEAL_seed0_P.json",
+       "sha256": "a80d0ce58c723e71f2e607a172e20dff807cfcda1671e9ea5f6602a76eb2f040",
+       "p_holm": 7.720477879047382e-05
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.14421768707482993,
+       "taxa_afirma_oclusor": 0.17142857142857143,
+       "taxa_induzida": 0.027210884353741496,
+       "taxa_induzida_ci_by_image": [
+        0.014062242179949554,
+        0.04155263754038876
+       ],
+       "mcnemar_midp": {
+        "b": 24,
+        "c": 4,
+        "p_midp": 0.00010371580719947801
+       },
+       "n_induzidas": 24,
+       "n_revertidas": 4,
+       "file": "QWEN25VL_LORA_HEAL_seed0_T_blur10.json",
+       "sha256": "fde817e12a462703e63c5514614ca4ebaabe1112073a73018e71b9d15a8c11cb",
+       "p_holm": 0.00020743161439895603
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.14421768707482993,
+       "taxa_afirma_oclusor": 0.17551020408163265,
+       "taxa_induzida": 0.031292517006802724,
+       "taxa_induzida_ci_by_image": [
+        0.016689267501159018,
+        0.046942169706781514
+       ],
+       "mcnemar_midp": {
+        "b": 27,
+        "c": 4,
+        "p_midp": 1.9301194697618454e-05
+       },
+       "n_induzidas": 27,
+       "n_revertidas": 4,
+       "file": "QWEN25VL_LORA_HEAL_seed0_P_blur10.json",
+       "sha256": "a2e6b05c08d027a67f70c64fec08eae21ff4a2603d48165ad7ff3261440e38e7",
+       "p_holm": 7.720477879047382e-05
+      }
+     }
+    },
+    "QWEN25VL_LORA_VT_HEAL_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "LORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_VT_HEAL_seed0_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.11428571428571428,
+       "taxa_afirma_oclusor": 0.12789115646258503,
+       "taxa_induzida": 0.013605442176870748,
+       "taxa_induzida_ci_by_image": [
+        0.0013678957416908195,
+        0.025641891891891887
+       ],
+       "mcnemar_midp": {
+        "b": 15,
+        "c": 5,
+        "p_midp": 0.026603698730468747
+       },
+       "n_induzidas": 15,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed0_T.json",
+       "sha256": "c0248f31e3a55229e236d6dd6410ac9009f4c04dfe6b0996a5a65b5dcdf0a04f",
+       "p_holm": 0.026603698730468747
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.11428571428571428,
+       "taxa_afirma_oclusor": 0.1360544217687075,
+       "taxa_induzida": 0.021768707482993196,
+       "taxa_induzida_ci_by_image": [
+        0.007883076067974322,
+        0.03600120160213617
+       ],
+       "mcnemar_midp": {
+        "b": 23,
+        "c": 7,
+        "p_midp": 0.0033268928527832057
+       },
+       "n_induzidas": 23,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed0_P.json",
+       "sha256": "d5261ccbea38fabc86af389e8a234f9fbc8dd1b3b56a11d62c7af978a64b9afa",
+       "p_holm": 0.0066537857055664115
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.11428571428571428,
+       "taxa_afirma_oclusor": 0.1346938775510204,
+       "taxa_induzida": 0.02040816326530612,
+       "taxa_induzida_ci_by_image": [
+        0.00824091264412742,
+        0.03274620535670718
+       ],
+       "mcnemar_midp": {
+        "b": 19,
+        "c": 4,
+        "p_midp": 0.0015438795089721673
+       },
+       "n_induzidas": 19,
+       "n_revertidas": 4,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed0_T_blur10.json",
+       "sha256": "b8ab6e67d253b7f3b47110eff27501ad7d1e889300b61aaaac7ecd7d2856d58e",
+       "p_holm": 0.004631638526916502
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.11428571428571428,
+       "taxa_afirma_oclusor": 0.13877551020408163,
+       "taxa_induzida": 0.024489795918367346,
+       "taxa_induzida_ci_by_image": [
+        0.011491796836624423,
+        0.03846286107290233
+       ],
+       "mcnemar_midp": {
+        "b": 21,
+        "c": 3,
+        "p_midp": 0.00015652179718017578
+       },
+       "n_induzidas": 21,
+       "n_revertidas": 3,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed0_P_blur10.json",
+       "sha256": "ae7f5757242d87b70c1f82e4b3bdb40a4ed20564b5ec3dc85fc40c505c8deea7",
+       "p_holm": 0.0006260871887207031
+      }
+     }
+    },
+    "QWEN25VL_DORA_HEAL_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "DORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_HEAL_seed0_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1469387755102041,
+       "taxa_afirma_oclusor": 0.2,
+       "taxa_induzida": 0.053061224489795916,
+       "taxa_induzida_ci_by_image": [
+        0.033943949640499765,
+        0.0735894466425128
+       ],
+       "mcnemar_midp": {
+        "b": 46,
+        "c": 7,
+        "p_midp": 2.291864209524866e-08
+       },
+       "n_induzidas": 46,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_DORA_HEAL_seed0_T.json",
+       "sha256": "23dace697c64017cfaf73b629d671109d10aee48464b1ab34dd3a980950939ae",
+       "p_holm": 6.875592628574598e-08
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1469387755102041,
+       "taxa_afirma_oclusor": 0.20136054421768707,
+       "taxa_induzida": 0.05442176870748299,
+       "taxa_induzida_ci_by_image": [
+        0.03524199228776429,
+        0.07407536907536906
+       ],
+       "mcnemar_midp": {
+        "b": 47,
+        "c": 7,
+        "p_midp": 1.3087586125948255e-08
+       },
+       "n_induzidas": 47,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_DORA_HEAL_seed0_P.json",
+       "sha256": "cdb17bda0ddb19c27dfb0368b6cc95efbe8c5ab2b28bf15f914b28a24152d6b2",
+       "p_holm": 5.235034450379302e-08
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1469387755102041,
+       "taxa_afirma_oclusor": 0.18503401360544217,
+       "taxa_induzida": 0.0380952380952381,
+       "taxa_induzida_ci_by_image": [
+        0.021739130434782608,
+        0.05509669643650582
+       ],
+       "mcnemar_midp": {
+        "b": 33,
+        "c": 5,
+        "p_midp": 2.429907908663156e-06
+       },
+       "n_induzidas": 33,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_DORA_HEAL_seed0_T_blur10.json",
+       "sha256": "1b5cc6d263d88275d7e7f428e403e94815d933ed8ecb8ecfc76defc0885d46bc",
+       "p_holm": 2.429907908663156e-06
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1469387755102041,
+       "taxa_afirma_oclusor": 0.19319727891156463,
+       "taxa_induzida": 0.04625850340136054,
+       "taxa_induzida_ci_by_image": [
+        0.027967171717171717,
+        0.06485250016123137
+       ],
+       "mcnemar_midp": {
+        "b": 40,
+        "c": 6,
+        "p_midp": 1.7716986633331507e-07
+       },
+       "n_induzidas": 40,
+       "n_revertidas": 6,
+       "file": "QWEN25VL_DORA_HEAL_seed0_P_blur10.json",
+       "sha256": "60e92f05b897279caabfc6a25ccfa53b3596d356c78876e33359c684f99a2be4",
+       "p_holm": 3.5433973266663014e-07
+      }
+     }
+    },
+    "QWEN25VL_DORA_VT_HEAL_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "DORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_VT_HEAL_seed0_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1306122448979592,
+       "taxa_afirma_oclusor": 0.16870748299319727,
+       "taxa_induzida": 0.0380952380952381,
+       "taxa_induzida_ci_by_image": [
+        0.020601580796252926,
+        0.05660377358490566
+       ],
+       "mcnemar_midp": {
+        "b": 37,
+        "c": 9,
+        "p_midp": 2.490403062438419e-05
+       },
+       "n_induzidas": 37,
+       "n_revertidas": 9,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed0_T.json",
+       "sha256": "31c5c22d23000149fbc8477c617824adb569cc6c77443a2adb044852c04a259f",
+       "p_holm": 2.490403062438419e-05
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1306122448979592,
+       "taxa_afirma_oclusor": 0.2,
+       "taxa_induzida": 0.06938775510204082,
+       "taxa_induzida_ci_by_image": [
+        0.049998266296809986,
+        0.08987616576933104
+       ],
+       "mcnemar_midp": {
+        "b": 56,
+        "c": 5,
+        "p_midp": 3.0655256978706724e-12
+       },
+       "n_induzidas": 56,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed0_P.json",
+       "sha256": "d7428b3ea42e5edf485ecb670fca734398420a20c90598eb9b50b757a52138d4",
+       "p_holm": 9.196577093612016e-12
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1306122448979592,
+       "taxa_afirma_oclusor": 0.17551020408163265,
+       "taxa_induzida": 0.044897959183673466,
+       "taxa_induzida_ci_by_image": [
+        0.02770000985405056,
+        0.06285890170021496
+       ],
+       "mcnemar_midp": {
+        "b": 38,
+        "c": 5,
+        "p_midp": 1.405162493028915e-07
+       },
+       "n_induzidas": 38,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed0_T_blur10.json",
+       "sha256": "d52698e67b45872fd368e7b2c43a47a9e833728883084f0e080c1acca844b793",
+       "p_holm": 2.81032498605783e-07
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1306122448979592,
+       "taxa_afirma_oclusor": 0.20136054421768707,
+       "taxa_induzida": 0.0707482993197279,
+       "taxa_induzida_ci_by_image": [
+        0.05213654602615883,
+        0.09016701800811822
+       ],
+       "mcnemar_midp": {
+        "b": 54,
+        "c": 2,
+        "p_midp": 2.2953861034125168e-14
+       },
+       "n_induzidas": 54,
+       "n_revertidas": 2,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed0_P_blur10.json",
+       "sha256": "34f6449634abd1cfbdf961fd1e92ca231b7fdd509bc444aacb7aa730d76e26d9",
+       "p_holm": 9.181544413650067e-14
+      }
+     }
+    },
+    "QWEN25VL_LORA_HEAL_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "LORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_HEAL_seed1_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1727891156462585,
+       "taxa_afirma_oclusor": 0.19047619047619047,
+       "taxa_induzida": 0.017687074829931974,
+       "taxa_induzida_ci_by_image": [
+        0.002655866599825862,
+        0.035231116768149336
+       ],
+       "mcnemar_midp": {
+        "b": 26,
+        "c": 13,
+        "p_midp": 0.03847730828420025
+       },
+       "n_induzidas": 26,
+       "n_revertidas": 13,
+       "file": "QWEN25VL_LORA_HEAL_seed1_T.json",
+       "sha256": "26db0ea6d940b8ed9977654e0f4bcada26a52a9bc5b16ef96f2a68a9fe41e75c",
+       "p_holm": 0.07139560711038936
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1727891156462585,
+       "taxa_afirma_oclusor": 0.19183673469387755,
+       "taxa_induzida": 0.01904761904761905,
+       "taxa_induzida_ci_by_image": [
+        0.0013404825737265416,
+        0.037037037037037035
+       ],
+       "mcnemar_midp": {
+        "b": 29,
+        "c": 15,
+        "p_midp": 0.03569780355519468
+       },
+       "n_induzidas": 29,
+       "n_revertidas": 15,
+       "file": "QWEN25VL_LORA_HEAL_seed1_P.json",
+       "sha256": "d5fd4f0fe9783fd87ffd03fec627dddcd4fef39e09f35fc93699068fa109ed3f",
+       "p_holm": 0.07139560711038936
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1727891156462585,
+       "taxa_afirma_oclusor": 0.19047619047619047,
+       "taxa_induzida": 0.017687074829931974,
+       "taxa_induzida_ci_by_image": [
+        0.004243131637618968,
+        0.0324782134500451
+       ],
+       "mcnemar_midp": {
+        "b": 21,
+        "c": 8,
+        "p_midp": 0.016124801710247993
+       },
+       "n_induzidas": 21,
+       "n_revertidas": 8,
+       "file": "QWEN25VL_LORA_HEAL_seed1_T_blur10.json",
+       "sha256": "b374a51afbe9720815e98553815c5948cb8167dda94e59b8d51a32d34f04a074",
+       "p_holm": 0.04837440513074398
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1727891156462585,
+       "taxa_afirma_oclusor": 0.1945578231292517,
+       "taxa_induzida": 0.021768707482993196,
+       "taxa_induzida_ci_by_image": [
+        0.007935984420153286,
+        0.03668704069552917
+       ],
+       "mcnemar_midp": {
+        "b": 24,
+        "c": 8,
+        "p_midp": 0.004551384132355452
+       },
+       "n_induzidas": 24,
+       "n_revertidas": 8,
+       "file": "QWEN25VL_LORA_HEAL_seed1_P_blur10.json",
+       "sha256": "461afce9dd9ae5529dd644547f7a6cf94af2d0505d8ad046f100630f8c983f28",
+       "p_holm": 0.018205536529421806
+      }
+     }
+    },
+    "QWEN25VL_LORA_VT_HEAL_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "LORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_VT_HEAL_seed1_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.17142857142857143,
+       "taxa_afirma_oclusor": 0.1891156462585034,
+       "taxa_induzida": 0.017687074829931974,
+       "taxa_induzida_ci_by_image": [
+        0.00677483855352762,
+        0.029525302914588106
+       ],
+       "mcnemar_midp": {
+        "b": 16,
+        "c": 3,
+        "p_midp": 0.002576828002929685
+       },
+       "n_induzidas": 16,
+       "n_revertidas": 3,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed1_T.json",
+       "sha256": "fce8388d0697369dd6c17faf1665c89ad60fdfa0b2d8cd0dc8ff4ebc2287c63b",
+       "p_holm": 0.007730484008789055
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.17142857142857143,
+       "taxa_afirma_oclusor": 0.1891156462585034,
+       "taxa_induzida": 0.017687074829931974,
+       "taxa_induzida_ci_by_image": [
+        0.00392156862745098,
+        0.03168103212987325
+       ],
+       "mcnemar_midp": {
+        "b": 22,
+        "c": 9,
+        "p_midp": 0.020061607006937286
+       },
+       "n_induzidas": 22,
+       "n_revertidas": 9,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed1_P.json",
+       "sha256": "cb38ea1650c4ac33ad7b9d5993a9b8519346c08a270d88e8571cdedadef5584c",
+       "p_holm": 0.020061607006937286
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.17142857142857143,
+       "taxa_afirma_oclusor": 0.19319727891156463,
+       "taxa_induzida": 0.021768707482993196,
+       "taxa_induzida_ci_by_image": [
+        0.009562515375841478,
+        0.034946706519287156
+       ],
+       "mcnemar_midp": {
+        "b": 19,
+        "c": 3,
+        "p_midp": 0.0004882812499999997
+       },
+       "n_induzidas": 19,
+       "n_revertidas": 3,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed1_T_blur10.json",
+       "sha256": "e0c3782d7ed3f77122357d47d0e6dcb8ca87db40130a9dfe931d834566d7a9ee",
+       "p_holm": 0.0019531249999999987
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.17142857142857143,
+       "taxa_afirma_oclusor": 0.18503401360544217,
+       "taxa_induzida": 0.013605442176870748,
+       "taxa_induzida_ci_by_image": [
+        0.004273352299668089,
+        0.024047823309116614
+       ],
+       "mcnemar_midp": {
+        "b": 12,
+        "c": 2,
+        "p_midp": 0.007385253906250009
+       },
+       "n_induzidas": 12,
+       "n_revertidas": 2,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed1_P_blur10.json",
+       "sha256": "c88bcaeb9b5d1b984b8bdc89d4f1e7f244b097885de88e59b648509d28860b1c",
+       "p_holm": 0.014770507812500017
+      }
+     }
+    },
+    "QWEN25VL_DORA_HEAL_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "DORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_HEAL_seed1_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1619047619047619,
+       "taxa_afirma_oclusor": 0.19727891156462585,
+       "taxa_induzida": 0.03537414965986395,
+       "taxa_induzida_ci_by_image": [
+        0.019632106321938656,
+        0.051702983982437584
+       ],
+       "mcnemar_midp": {
+        "b": 32,
+        "c": 6,
+        "p_midp": 1.4299261238193148e-05
+       },
+       "n_induzidas": 32,
+       "n_revertidas": 6,
+       "file": "QWEN25VL_DORA_HEAL_seed1_T.json",
+       "sha256": "de678581a7d122be670d9a6d87a4673ff295339d45f7051c87f074038f60bb17",
+       "p_holm": 1.4299261238193148e-05
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1619047619047619,
+       "taxa_afirma_oclusor": 0.2108843537414966,
+       "taxa_induzida": 0.04897959183673469,
+       "taxa_induzida_ci_by_image": [
+        0.0312944039635769,
+        0.06849549955841176
+       ],
+       "mcnemar_midp": {
+        "b": 43,
+        "c": 7,
+        "p_midp": 1.2115257419509338e-07
+       },
+       "n_induzidas": 43,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_DORA_HEAL_seed1_P.json",
+       "sha256": "4d35457dfb2b7f2d9b0248560a58facaaa6c27822d02099486e55a5cbc67c977",
+       "p_holm": 4.846102967803735e-07
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1619047619047619,
+       "taxa_afirma_oclusor": 0.19727891156462585,
+       "taxa_induzida": 0.03537414965986395,
+       "taxa_induzida_ci_by_image": [
+        0.021678751922654362,
+        0.049316368996011786
+       ],
+       "mcnemar_midp": {
+        "b": 28,
+        "c": 2,
+        "p_midp": 4.628673195838926e-07
+       },
+       "n_induzidas": 28,
+       "n_revertidas": 2,
+       "file": "QWEN25VL_DORA_HEAL_seed1_T_blur10.json",
+       "sha256": "174423529a2a96a05ae7f651741351f3e86b0d659883bfa46f8d3b8c4412243d",
+       "p_holm": 1.3886019587516778e-06
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1619047619047619,
+       "taxa_afirma_oclusor": 0.2,
+       "taxa_induzida": 0.0380952380952381,
+       "taxa_induzida_ci_by_image": [
+        0.021991882632244858,
+        0.05508503758696363
+       ],
+       "mcnemar_midp": {
+        "b": 33,
+        "c": 5,
+        "p_midp": 2.429907908663156e-06
+       },
+       "n_induzidas": 33,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_DORA_HEAL_seed1_P_blur10.json",
+       "sha256": "66b37e367f08a2c10d3f92e600de1f5cf487d626ee562dedcd8bac36be1cd42b",
+       "p_holm": 4.859815817326312e-06
+      }
+     }
+    },
+    "QWEN25VL_DORA_VT_HEAL_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "DORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_VT_HEAL_seed1_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.12380952380952381,
+       "taxa_afirma_oclusor": 0.1346938775510204,
+       "taxa_induzida": 0.010884353741496598,
+       "taxa_induzida_ci_by_image": [
+        -0.0013644436210248953,
+        0.023910640542238976
+       ],
+       "mcnemar_midp": {
+        "b": 16,
+        "c": 8,
+        "p_midp": 0.1077521443367005
+       },
+       "n_induzidas": 16,
+       "n_revertidas": 8,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed1_T.json",
+       "sha256": "4f5392814f97444e2e5ea9ed469c492f36b845cb1a86468b082e6ef77caa50a5",
+       "p_holm": 0.1077521443367005
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.12380952380952381,
+       "taxa_afirma_oclusor": 0.1523809523809524,
+       "taxa_induzida": 0.02857142857142857,
+       "taxa_induzida_ci_by_image": [
+        0.015743941098271808,
+        0.04250322846544851
+       ],
+       "mcnemar_midp": {
+        "b": 24,
+        "c": 3,
+        "p_midp": 2.7440488338470493e-05
+       },
+       "n_induzidas": 24,
+       "n_revertidas": 3,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed1_P.json",
+       "sha256": "4479d305a70843545d0ecd7599e7d48fe2d02b3a2cc5e69c15210c1744ea879d",
+       "p_holm": 8.232146501541149e-05
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.12380952380952381,
+       "taxa_afirma_oclusor": 0.1510204081632653,
+       "taxa_induzida": 0.027210884353741496,
+       "taxa_induzida_ci_by_image": [
+        0.013717421124828532,
+        0.04172461752433936
+       ],
+       "mcnemar_midp": {
+        "b": 24,
+        "c": 4,
+        "p_midp": 0.00010371580719947801
+       },
+       "n_induzidas": 24,
+       "n_revertidas": 4,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed1_T_blur10.json",
+       "sha256": "a47f96dd47cf00ef5a6961dc98e58ded16313251bb242b485f374ab0facf32cd",
+       "p_holm": 0.00020743161439895603
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.12380952380952381,
+       "taxa_afirma_oclusor": 0.15918367346938775,
+       "taxa_induzida": 0.03537414965986395,
+       "taxa_induzida_ci_by_image": [
+        0.021674933604124355,
+        0.050217011741618425
+       ],
+       "mcnemar_midp": {
+        "b": 28,
+        "c": 2,
+        "p_midp": 4.628673195838926e-07
+       },
+       "n_induzidas": 28,
+       "n_revertidas": 2,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed1_P_blur10.json",
+       "sha256": "e39d3c578fbbd8c2565fa0c0ae23b63019936690c5cdf9c7f465d62b3fcbf5cb",
+       "p_holm": 1.8514692783355704e-06
+      }
+     }
+    },
+    "QWEN25VL_LORA_HEAL_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "LORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_HEAL_seed2_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1619047619047619,
+       "taxa_afirma_oclusor": 0.21496598639455783,
+       "taxa_induzida": 0.053061224489795916,
+       "taxa_induzida_ci_by_image": [
+        0.03489893866083971,
+        0.07230692611889761
+       ],
+       "mcnemar_midp": {
+        "b": 45,
+        "c": 6,
+        "p_midp": 1.0325821975243381e-08
+       },
+       "n_induzidas": 45,
+       "n_revertidas": 6,
+       "file": "QWEN25VL_LORA_HEAL_seed2_T.json",
+       "sha256": "6e05932c9a9bc7a75ce60714c91a5f116b05d27f198cc56e1d71a72030451951",
+       "p_holm": 1.0325821975243381e-08
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1619047619047619,
+       "taxa_afirma_oclusor": 0.22040816326530613,
+       "taxa_induzida": 0.058503401360544216,
+       "taxa_induzida_ci_by_image": [
+        0.03882165141809151,
+        0.07832167832167833
+       ],
+       "mcnemar_midp": {
+        "b": 50,
+        "c": 7,
+        "p_midp": 2.402164578363399e-09
+       },
+       "n_induzidas": 50,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_LORA_HEAL_seed2_P.json",
+       "sha256": "1e5b74a5c381075701ba9c1d25de793839f9dfb0c25203d2241ea081957f0e39",
+       "p_holm": 6.9840453420510915e-09
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1619047619047619,
+       "taxa_afirma_oclusor": 0.21360544217687075,
+       "taxa_induzida": 0.05170068027210884,
+       "taxa_induzida_ci_by_image": [
+        0.03530991996872341,
+        0.06911825901935678
+       ],
+       "mcnemar_midp": {
+        "b": 40,
+        "c": 2,
+        "p_midp": 2.153228706447405e-10
+       },
+       "n_induzidas": 40,
+       "n_revertidas": 2,
+       "file": "QWEN25VL_LORA_HEAL_seed2_T_blur10.json",
+       "sha256": "c1a0d3bd955505cdc33a54d72bf647455af3e4de927611746add346c428be9d0",
+       "p_holm": 8.61291482578962e-10
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1619047619047619,
+       "taxa_afirma_oclusor": 0.2163265306122449,
+       "taxa_induzida": 0.05442176870748299,
+       "taxa_induzida_ci_by_image": [
+        0.0368336703703566,
+        0.07327553357051532
+       ],
+       "mcnemar_midp": {
+        "b": 45,
+        "c": 5,
+        "p_midp": 2.3280151140170305e-09
+       },
+       "n_induzidas": 45,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_LORA_HEAL_seed2_P_blur10.json",
+       "sha256": "16eb342272eafa2151425f90b0a1efc957d6ba57f590be3bc97cf2361f077fcc",
+       "p_holm": 6.9840453420510915e-09
+      }
+     }
+    },
+    "QWEN25VL_LORA_VT_HEAL_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "LORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_VT_HEAL_seed2_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.14965986394557823,
+       "taxa_afirma_oclusor": 0.16870748299319727,
+       "taxa_induzida": 0.01904761904761905,
+       "taxa_induzida_ci_by_image": [
+        0.004143646408839779,
+        0.034579343915587174
+       ],
+       "mcnemar_midp": {
+        "b": 23,
+        "c": 9,
+        "p_midp": 0.013530986849218603
+       },
+       "n_induzidas": 23,
+       "n_revertidas": 9,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed2_T.json",
+       "sha256": "ae24e0b4a74fe5522419a8f0bc7ce02ca9ef388e23940fd66d15f17ad1359dcc",
+       "p_holm": 0.027061973698437207
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.14965986394557823,
+       "taxa_afirma_oclusor": 0.1782312925170068,
+       "taxa_induzida": 0.02857142857142857,
+       "taxa_induzida_ci_by_image": [
+        0.012244067233406252,
+        0.0446958671736851
+       ],
+       "mcnemar_midp": {
+        "b": 29,
+        "c": 8,
+        "p_midp": 0.00047198674292303606
+       },
+       "n_induzidas": 29,
+       "n_revertidas": 8,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed2_P.json",
+       "sha256": "aefb83f65dce0e205fab120754b79445dc13eb252e87d8fee309fb6fd8b410b4",
+       "p_holm": 0.0018879469716921442
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.14965986394557823,
+       "taxa_afirma_oclusor": 0.16326530612244897,
+       "taxa_induzida": 0.013605442176870748,
+       "taxa_induzida_ci_by_image": [
+        -0.0013775055933519017,
+        0.028264414116858712
+       ],
+       "mcnemar_midp": {
+        "b": 20,
+        "c": 10,
+        "p_midp": 0.07075554598122832
+       },
+       "n_induzidas": 20,
+       "n_revertidas": 10,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed2_T_blur10.json",
+       "sha256": "4181b62a09d6587439c0cf8334a53c8ca484c81845d629946e2cba843e3a613a",
+       "p_holm": 0.07075554598122832
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.14965986394557823,
+       "taxa_afirma_oclusor": 0.17551020408163265,
+       "taxa_induzida": 0.02585034013605442,
+       "taxa_induzida_ci_by_image": [
+        0.010863078076346443,
+        0.04085134092224577
+       ],
+       "mcnemar_midp": {
+        "b": 26,
+        "c": 7,
+        "p_midp": 0.0008213953115046033
+       },
+       "n_induzidas": 26,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_LORA_VT_HEAL_seed2_P_blur10.json",
+       "sha256": "008986cdaa8e318a0ae7a63ca8c906d0afbcd49dcb304bfcbfe0b510388059f6",
+       "p_holm": 0.00246418593451381
+      }
+     }
+    },
+    "QWEN25VL_DORA_HEAL_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "DORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_HEAL_seed2_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1564625850340136,
+       "taxa_afirma_oclusor": 0.2054421768707483,
+       "taxa_induzida": 0.04897959183673469,
+       "taxa_induzida_ci_by_image": [
+        0.030223201202507113,
+        0.06802865827181936
+       ],
+       "mcnemar_midp": {
+        "b": 43,
+        "c": 7,
+        "p_midp": 1.2115257419509338e-07
+       },
+       "n_induzidas": 43,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_DORA_HEAL_seed2_T.json",
+       "sha256": "f289f0ac4271840df8ab55746d2d0793a28c1ebc2f8d5f260a28601960a48640",
+       "p_holm": 1.2115257419509338e-07
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1564625850340136,
+       "taxa_afirma_oclusor": 0.21496598639455783,
+       "taxa_induzida": 0.058503401360544216,
+       "taxa_induzida_ci_by_image": [
+        0.03926794103512196,
+        0.07943425620938306
+       ],
+       "mcnemar_midp": {
+        "b": 50,
+        "c": 7,
+        "p_midp": 2.402164578363399e-09
+       },
+       "n_induzidas": 50,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_DORA_HEAL_seed2_P.json",
+       "sha256": "da20daf9da181a2a1e0416694307f75051e697c30212981f47a1ac9a87a7c322",
+       "p_holm": 4.804329156726798e-09
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1564625850340136,
+       "taxa_afirma_oclusor": 0.21224489795918366,
+       "taxa_induzida": 0.055782312925170066,
+       "taxa_induzida_ci_by_image": [
+        0.038028169014084505,
+        0.07417622581573984
+       ],
+       "mcnemar_midp": {
+        "b": 45,
+        "c": 4,
+        "p_midp": 4.4617820549319783e-10
+       },
+       "n_induzidas": 45,
+       "n_revertidas": 4,
+       "file": "QWEN25VL_DORA_HEAL_seed2_T_blur10.json",
+       "sha256": "ffce1dce971c1f79956c2762fe5443ee56db70f55f618bf5174745557eb33a85",
+       "p_holm": 1.3385346164795936e-09
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1564625850340136,
+       "taxa_afirma_oclusor": 0.21496598639455783,
+       "taxa_induzida": 0.058503401360544216,
+       "taxa_induzida_ci_by_image": [
+        0.03999862258953168,
+        0.07757548622967857
+       ],
+       "mcnemar_midp": {
+        "b": 47,
+        "c": 4,
+        "p_midp": 1.306528218947274e-10
+       },
+       "n_induzidas": 47,
+       "n_revertidas": 4,
+       "file": "QWEN25VL_DORA_HEAL_seed2_P_blur10.json",
+       "sha256": "b4ac756b9481e2634e9bfd2123e30880f5594a8e3cf763f8ce53dbdb80690ead",
+       "p_holm": 5.226112875789096e-10
+      }
+     }
+    },
+    "QWEN25VL_DORA_VT_HEAL_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "DORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_VT_HEAL_seed2_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 735,
+     "conds": {
+      "alvo_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1346938775510204,
+       "taxa_afirma_oclusor": 0.1510204081632653,
+       "taxa_induzida": 0.0163265306122449,
+       "taxa_induzida_ci_by_image": [
+        0.0014142282220988827,
+        0.030598052851182198
+       ],
+       "mcnemar_midp": {
+        "b": 21,
+        "c": 9,
+        "p_midp": 0.02944937348365785
+       },
+       "n_induzidas": 21,
+       "n_revertidas": 9,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed2_T.json",
+       "sha256": "622425688dfa77fb88481a3ab98d1e2db46784d56d1ac00aa77bec4fc0455e92",
+       "p_holm": 0.02944937348365785
+      },
+      "mascara_deslocada_preto": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1346938775510204,
+       "taxa_afirma_oclusor": 0.15510204081632653,
+       "taxa_induzida": 0.02040816326530612,
+       "taxa_induzida_ci_by_image": [
+        0.004207573632538569,
+        0.035326951755734574
+       ],
+       "mcnemar_midp": {
+        "b": 25,
+        "c": 10,
+        "p_midp": 0.011330984183587137
+       },
+       "n_induzidas": 25,
+       "n_revertidas": 10,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed2_P.json",
+       "sha256": "40f82bee90078bfd137b5e446d1809d33a41c7bca1d9277b51f21eab726ce52f",
+       "p_holm": 0.022661968367174275
+      },
+      "alvo_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1346938775510204,
+       "taxa_afirma_oclusor": 0.14965986394557823,
+       "taxa_induzida": 0.014965986394557823,
+       "taxa_induzida_ci_by_image": [
+        0.0055248618784530384,
+        0.025498470738518433
+       ],
+       "mcnemar_midp": {
+        "b": 12,
+        "c": 1,
+        "p_midp": 0.0018310546875000017
+       },
+       "n_induzidas": 12,
+       "n_revertidas": 1,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed2_T_blur10.json",
+       "sha256": "75d37bf86db807996775188d3f447c35f0ea63ce0a6b52a7fdc0d8fbb52584c9",
+       "p_holm": 0.005493164062500005
+      },
+      "mascara_deslocada_blur10": {
+       "n": 735,
+       "n_imagens": 669,
+       "taxa_afirma_intacta": 0.1346938775510204,
+       "taxa_afirma_oclusor": 0.1673469387755102,
+       "taxa_induzida": 0.0326530612244898,
+       "taxa_induzida_ci_by_image": [
+        0.01925656015236483,
+        0.04641518314925949
+       ],
+       "mcnemar_midp": {
+        "b": 25,
+        "c": 1,
+        "p_midp": 4.1723251342773395e-07
+       },
+       "n_induzidas": 25,
+       "n_revertidas": 1,
+       "file": "QWEN25VL_DORA_VT_HEAL_seed2_P_blur10.json",
+       "sha256": "118e37825ba4f434083a4d46c17669d885e5952a43d001603c6300fd573e202e",
+       "p_holm": 1.6689300537109358e-06
+      }
+     }
     }
    },
    "agregado_por_grupo": {
@@ -9428,6 +13152,106 @@
       "n_ic_exclui_zero_por_cima": 3,
       "n_ic_exclui_zero_por_baixo": 0,
       "n_linhas": 3
+     }
+    },
+    "Qwen2.5-VL-7B, encoder congelado": {
+     "alvo_blur10": {
+      "taxa_induzida": {
+       "media": 0.03764172335600907,
+       "dp": 0.01441577764577511,
+       "min": 0.017687074829931974,
+       "max": 0.055782312925170066,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "alvo_preto": {
+      "taxa_induzida": {
+       "media": 0.037868480725623585,
+       "dp": 0.016448898941788782,
+       "min": 0.017687074829931974,
+       "max": 0.053061224489795916,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "mascara_deslocada_blur10": {
+      "taxa_induzida": {
+       "media": 0.041723356009070296,
+       "dp": 0.014025268686293998,
+       "min": 0.021768707482993196,
+       "max": 0.058503401360544216,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "mascara_deslocada_preto": {
+      "taxa_induzida": {
+       "media": 0.04625850340136054,
+       "dp": 0.015368730608373266,
+       "min": 0.01904761904761905,
+       "max": 0.058503401360544216,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     }
+    },
+    "Qwen2.5-VL-7B, encoder afinado": {
+     "alvo_blur10": {
+      "taxa_induzida": {
+       "media": 0.023809523809523808,
+       "dp": 0.011439903678681853,
+       "min": 0.013605442176870748,
+       "max": 0.044897959183673466,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 5,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "alvo_preto": {
+      "taxa_induzida": {
+       "media": 0.019274376417233563,
+       "dp": 0.009674863000035009,
+       "min": 0.010884353741496598,
+       "max": 0.0380952380952381,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 5,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "mascara_deslocada_blur10": {
+      "taxa_induzida": {
+       "media": 0.03378684807256236,
+       "dp": 0.019629907580797416,
+       "min": 0.013605442176870748,
+       "max": 0.0707482993197279,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
+     },
+     "mascara_deslocada_preto": {
+      "taxa_induzida": {
+       "media": 0.031065759637188207,
+       "dp": 0.019287443882977838,
+       "min": 0.017687074829931974,
+       "max": 0.06938775510204082,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 6,
+      "n_ic_exclui_zero_por_baixo": 0,
+      "n_linhas": 6
      }
     }
    },
@@ -9959,6 +13783,78 @@
      "mascara_deslocada_preto": 735
     },
     "M3AE_HEAL_seed2": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_LORA_HEAL_seed0": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_LORA_VT_HEAL_seed0": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_DORA_HEAL_seed0": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_DORA_VT_HEAL_seed0": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_LORA_HEAL_seed1": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_LORA_VT_HEAL_seed1": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_DORA_HEAL_seed1": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_DORA_VT_HEAL_seed1": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_LORA_HEAL_seed2": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_LORA_VT_HEAL_seed2": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_DORA_HEAL_seed2": {
+     "alvo_blur10": 735,
+     "alvo_preto": 735,
+     "mascara_deslocada_blur10": 735,
+     "mascara_deslocada_preto": 735
+    },
+    "QWEN25VL_DORA_VT_HEAL_seed2": {
      "alvo_blur10": 735,
      "alvo_preto": 735,
      "mascara_deslocada_blur10": 735,
@@ -11425,6 +15321,654 @@
        "p_holm": 0.0029792785644531207
       }
      }
+    },
+    "QWEN25VL_LORA_MIMIC_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "LORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_MIMIC_seed0_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.12531969309462915,
+       "taxa_afirma_oclusor": 0.08184143222506395,
+       "taxa_induzida": -0.043478260869565216,
+       "taxa_induzida_ci_by_image": [
+        -0.0646919472647794,
+        -0.0245881549341048
+       ],
+       "mcnemar_midp": {
+        "b": 0,
+        "c": 17,
+        "p_midp": 7.62939453125001e-06
+       },
+       "n_induzidas": 0,
+       "n_revertidas": 17,
+       "file": "QWEN25VL_LORA_MIMIC_seed0_SHAM_black.json",
+       "sha256": "734d48e0ae653cd685ecfc1c97c8021dd826bc77afad3a6ad3964056a50837eb",
+       "p_holm": 7.62939453125001e-06
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.12531969309462915,
+       "taxa_afirma_oclusor": 0.0792838874680307,
+       "taxa_induzida": -0.04603580562659847,
+       "taxa_induzida_ci_by_image": [
+        -0.06718346253229975,
+        -0.02610966057441253
+       ],
+       "mcnemar_midp": {
+        "b": 0,
+        "c": 18,
+        "p_midp": 3.814697265625005e-06
+       },
+       "n_induzidas": 0,
+       "n_revertidas": 18,
+       "file": "QWEN25VL_LORA_MIMIC_seed0_SHAM_blur10.json",
+       "sha256": "71ea53f5667267b26749bb4153f57c32dc94e131aabf324564bf5ce13d0c6132",
+       "p_holm": 7.62939453125001e-06
+      }
+     }
+    },
+    "QWEN25VL_LORA_VT_MIMIC_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "LORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_VT_MIMIC_seed0_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.11764705882352941,
+       "taxa_afirma_oclusor": 0.12020460358056266,
+       "taxa_induzida": 0.0025575447570332483,
+       "taxa_induzida_ci_by_image": [
+        -0.015424164524421594,
+        0.02030456852791878
+       ],
+       "mcnemar_midp": {
+        "b": 7,
+        "c": 6,
+        "p_midp": 0.7905273437500002
+       },
+       "n_induzidas": 7,
+       "n_revertidas": 6,
+       "file": "QWEN25VL_LORA_VT_MIMIC_seed0_SHAM_black.json",
+       "sha256": "39f0ce8348be05f38d60778ffad67400f6e436e3b1c36bc44e1e9b517ff6e3ff",
+       "p_holm": 1.0
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.11764705882352941,
+       "taxa_afirma_oclusor": 0.11253196930946291,
+       "taxa_induzida": -0.005115089514066497,
+       "taxa_induzida_ci_by_image": [
+        -0.019337852661431648,
+        0.00806726289883096
+       ],
+       "mcnemar_midp": {
+        "b": 3,
+        "c": 5,
+        "p_midp": 0.5078124999999999
+       },
+       "n_induzidas": 3,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_LORA_VT_MIMIC_seed0_SHAM_blur10.json",
+       "sha256": "64ee2845ec218da3886bbeb22b2f9f6623e78b1e3053e9a6b90e7172daeef238",
+       "p_holm": 1.0
+      }
+     }
+    },
+    "QWEN25VL_DORA_MIMIC_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "DORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_MIMIC_seed0_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.13043478260869565,
+       "taxa_afirma_oclusor": 0.08184143222506395,
+       "taxa_induzida": -0.04859335038363171,
+       "taxa_induzida_ci_by_image": [
+        -0.07071104748270102,
+        -0.028423772609819122
+       ],
+       "mcnemar_midp": {
+        "b": 0,
+        "c": 19,
+        "p_midp": 1.9073486328124994e-06
+       },
+       "n_induzidas": 0,
+       "n_revertidas": 19,
+       "file": "QWEN25VL_DORA_MIMIC_seed0_SHAM_black.json",
+       "sha256": "2282246c8fb5568f62c32111e3fb96504581afdaf64a40910d67c04d5ab828b7",
+       "p_holm": 3.8146972656249987e-06
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.13043478260869565,
+       "taxa_afirma_oclusor": 0.08951406649616368,
+       "taxa_induzida": -0.04092071611253197,
+       "taxa_induzida_ci_by_image": [
+        -0.06037158490781872,
+        -0.02284263959390863
+       ],
+       "mcnemar_midp": {
+        "b": 0,
+        "c": 16,
+        "p_midp": 1.5258789062499975e-05
+       },
+       "n_induzidas": 0,
+       "n_revertidas": 16,
+       "file": "QWEN25VL_DORA_MIMIC_seed0_SHAM_blur10.json",
+       "sha256": "1fbda866e80007ce1f23b8e9ad17d1ae5fd97335a5dd302ada9a1874cb519859",
+       "p_holm": 1.5258789062499975e-05
+      }
+     }
+    },
+    "QWEN25VL_DORA_VT_MIMIC_seed0": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "DORA",
+     "seed": 0,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_VT_MIMIC_seed0_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.05115089514066496,
+       "taxa_afirma_oclusor": 0.04859335038363171,
+       "taxa_induzida": -0.0025575447570332483,
+       "taxa_induzida_ci_by_image": [
+        -0.017994858611825194,
+        0.01282051282051282
+       ],
+       "mcnemar_midp": {
+        "b": 4,
+        "c": 5,
+        "p_midp": 0.7539062499999998
+       },
+       "n_induzidas": 4,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_DORA_VT_MIMIC_seed0_SHAM_black.json",
+       "sha256": "e2fdcbbc1c4d4f4dda6424f6a91110c26d5bb541d4ba46bc549a69f49f49120d",
+       "p_holm": 1.0
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.05115089514066496,
+       "taxa_afirma_oclusor": 0.04859335038363171,
+       "taxa_induzida": -0.0025575447570332483,
+       "taxa_induzida_ci_by_image": [
+        -0.018405311591863094,
+        0.012532906573739124
+       ],
+       "mcnemar_midp": {
+        "b": 4,
+        "c": 5,
+        "p_midp": 0.7539062499999998
+       },
+       "n_induzidas": 4,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_DORA_VT_MIMIC_seed0_SHAM_blur10.json",
+       "sha256": "8a02d666efde343e081ef6bdd4d7ecd76297537de2ced0699bd5851711fd7cdf",
+       "p_holm": 1.0
+      }
+     }
+    },
+    "QWEN25VL_LORA_MIMIC_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "LORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_MIMIC_seed1_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.12020460358056266,
+       "taxa_afirma_oclusor": 0.08695652173913043,
+       "taxa_induzida": -0.03324808184143223,
+       "taxa_induzida_ci_by_image": [
+        -0.052767141754110604,
+        -0.017114391992142604
+       ],
+       "mcnemar_midp": {
+        "b": 0,
+        "c": 13,
+        "p_midp": 0.00012207031250000016
+       },
+       "n_induzidas": 0,
+       "n_revertidas": 13,
+       "file": "QWEN25VL_LORA_MIMIC_seed1_SHAM_black.json",
+       "sha256": "c8df6140ba7c9afbf908aeb5fa17d951c538eb211b382c19ab6112ddf92a7780",
+       "p_holm": 0.0002441406250000003
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.12020460358056266,
+       "taxa_afirma_oclusor": 0.09462915601023018,
+       "taxa_induzida": -0.02557544757033248,
+       "taxa_induzida_ci_by_image": [
+        -0.04310454227201121,
+        -0.009900990099009901
+       ],
+       "mcnemar_midp": {
+        "b": 1,
+        "c": 11,
+        "p_midp": 0.0034179687500000004
+       },
+       "n_induzidas": 1,
+       "n_revertidas": 11,
+       "file": "QWEN25VL_LORA_MIMIC_seed1_SHAM_blur10.json",
+       "sha256": "4920f0e7cfc1be3625538209efa2f0bf1249c106905adcd32d5670954a33c48f",
+       "p_holm": 0.0034179687500000004
+      }
+     }
+    },
+    "QWEN25VL_LORA_VT_MIMIC_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "LORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_VT_MIMIC_seed1_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.13810741687979539,
+       "taxa_afirma_oclusor": 0.13810741687979539,
+       "taxa_induzida": 0.0,
+       "taxa_induzida_ci_by_image": [
+        -0.019563862391955646,
+        0.019465907067829795
+       ],
+       "mcnemar_midp": {
+        "b": 7,
+        "c": 7,
+        "p_midp": 1.0
+       },
+       "n_induzidas": 7,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_LORA_VT_MIMIC_seed1_SHAM_black.json",
+       "sha256": "4c2e922e820164c5e84d31c501fe3511ae8d55052182450baf845f7d5cc710d0",
+       "p_holm": 1.0
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.13810741687979539,
+       "taxa_afirma_oclusor": 0.15089514066496162,
+       "taxa_induzida": 0.01278772378516624,
+       "taxa_induzida_ci_by_image": [
+        -0.005249689183588893,
+        0.032418952618453865
+       ],
+       "mcnemar_midp": {
+        "b": 10,
+        "c": 5,
+        "p_midp": 0.21011352539062503
+       },
+       "n_induzidas": 10,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_LORA_VT_MIMIC_seed1_SHAM_blur10.json",
+       "sha256": "c22d493839fe0280f402602a8125e8b6a9e0dd0ad28dfcca77e9c0d2453efec1",
+       "p_holm": 0.42022705078125006
+      }
+     }
+    },
+    "QWEN25VL_DORA_MIMIC_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "DORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_MIMIC_seed1_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.12020460358056266,
+       "taxa_afirma_oclusor": 0.08951406649616368,
+       "taxa_induzida": -0.030690537084398978,
+       "taxa_induzida_ci_by_image": [
+        -0.051495241696603015,
+        -0.010414647932816549
+       ],
+       "mcnemar_midp": {
+        "b": 3,
+        "c": 15,
+        "p_midp": 0.004425048828124996
+       },
+       "n_induzidas": 3,
+       "n_revertidas": 15,
+       "file": "QWEN25VL_DORA_MIMIC_seed1_SHAM_black.json",
+       "sha256": "f4a833e785cf8d58edf745b7a754d4ad72ff377f394f4a2daae948b30f63c30e",
+       "p_holm": 0.008850097656249991
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.12020460358056266,
+       "taxa_afirma_oclusor": 0.09462915601023018,
+       "taxa_induzida": -0.02557544757033248,
+       "taxa_induzida_ci_by_image": [
+        -0.04392764857881137,
+        -0.0077917031155373155
+       ],
+       "mcnemar_midp": {
+        "b": 2,
+        "c": 12,
+        "p_midp": 0.007385253906250009
+       },
+       "n_induzidas": 2,
+       "n_revertidas": 12,
+       "file": "QWEN25VL_DORA_MIMIC_seed1_SHAM_blur10.json",
+       "sha256": "f416c613dbd6e3a19080e55f64b93bd928897eb9401d006bd535469bcc5e31da",
+       "p_holm": 0.008850097656249991
+      }
+     }
+    },
+    "QWEN25VL_DORA_VT_MIMIC_seed1": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "DORA",
+     "seed": 1,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_VT_MIMIC_seed1_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.11253196930946291,
+       "taxa_afirma_oclusor": 0.09462915601023018,
+       "taxa_induzida": -0.017902813299232736,
+       "taxa_induzida_ci_by_image": [
+        -0.03258145363408521,
+        -0.005221932114882507
+       ],
+       "mcnemar_midp": {
+        "b": 0,
+        "c": 7,
+        "p_midp": 0.007812499999999949
+       },
+       "n_induzidas": 0,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_DORA_VT_MIMIC_seed1_SHAM_black.json",
+       "sha256": "b750358bd482a1e70742db4b0a27ad6626967527c39379f71fcf61f3549aceff",
+       "p_holm": 0.015624999999999898
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.11253196930946291,
+       "taxa_afirma_oclusor": 0.09462915601023018,
+       "taxa_induzida": -0.017902813299232736,
+       "taxa_induzida_ci_by_image": [
+        -0.032423696194296865,
+        -0.005390112947399613
+       ],
+       "mcnemar_midp": {
+        "b": 0,
+        "c": 7,
+        "p_midp": 0.007812499999999949
+       },
+       "n_induzidas": 0,
+       "n_revertidas": 7,
+       "file": "QWEN25VL_DORA_VT_MIMIC_seed1_SHAM_blur10.json",
+       "sha256": "bc75b0ee40fceba4ac5ad534883641e07353847dc8caf9fb9147d7c371817212",
+       "p_holm": 0.015624999999999898
+      }
+     }
+    },
+    "QWEN25VL_LORA_MIMIC_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "LORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_MIMIC_seed2_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.12020460358056266,
+       "taxa_afirma_oclusor": 0.09207161125319693,
+       "taxa_induzida": -0.028132992327365727,
+       "taxa_induzida_ci_by_image": [
+        -0.0475,
+        -0.010362694300518135
+       ],
+       "mcnemar_midp": {
+        "b": 2,
+        "c": 13,
+        "p_midp": 0.004180908203125001
+       },
+       "n_induzidas": 2,
+       "n_revertidas": 13,
+       "file": "QWEN25VL_LORA_MIMIC_seed2_SHAM_black.json",
+       "sha256": "d6fea3fe87e6dcb84f6fc79b075fcd71e912172028e84c25a791ddc14d6b5113",
+       "p_holm": 0.004180908203125001
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.12020460358056266,
+       "taxa_afirma_oclusor": 0.08951406649616368,
+       "taxa_induzida": -0.030690537084398978,
+       "taxa_induzida_ci_by_image": [
+        -0.049047553668616975,
+        -0.013054830287206266
+       ],
+       "mcnemar_midp": {
+        "b": 1,
+        "c": 13,
+        "p_midp": 0.0009765624999999993
+       },
+       "n_induzidas": 1,
+       "n_revertidas": 13,
+       "file": "QWEN25VL_LORA_MIMIC_seed2_SHAM_blur10.json",
+       "sha256": "3abdcf6f97fe34655e4b8f95d70bf106aee1f777d8c72a0eae84fac08432c89d",
+       "p_holm": 0.0019531249999999987
+      }
+     }
+    },
+    "QWEN25VL_LORA_VT_MIMIC_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "LORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "QWEN25VL_LORA_VT_MIMIC_seed2_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.0792838874680307,
+       "taxa_afirma_oclusor": 0.08951406649616368,
+       "taxa_induzida": 0.010230179028132993,
+       "taxa_induzida_ci_by_image": [
+        -0.005037783375314861,
+        0.026525198938992044
+       ],
+       "mcnemar_midp": {
+        "b": 7,
+        "c": 3,
+        "p_midp": 0.2265625
+       },
+       "n_induzidas": 7,
+       "n_revertidas": 3,
+       "file": "QWEN25VL_LORA_VT_MIMIC_seed2_SHAM_black.json",
+       "sha256": "f017ad563cdfe6b1a68772a2f7936831c263737107846061f9a2691bbe1686c8",
+       "p_holm": 0.453125
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.0792838874680307,
+       "taxa_afirma_oclusor": 0.08184143222506395,
+       "taxa_induzida": 0.0025575447570332483,
+       "taxa_induzida_ci_by_image": [
+        -0.01348356831847398,
+        0.01972286455048698
+       ],
+       "mcnemar_midp": {
+        "b": 6,
+        "c": 5,
+        "p_midp": 0.7744140625
+       },
+       "n_induzidas": 6,
+       "n_revertidas": 5,
+       "file": "QWEN25VL_LORA_VT_MIMIC_seed2_SHAM_blur10.json",
+       "sha256": "aaaae0fdf1f12c0dc780f190ca37bf177c81e03f1cac73b554a4c7036ba6efbc",
+       "p_holm": 0.7744140625
+      }
+     }
+    },
+    "QWEN25VL_DORA_MIMIC_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "congelado",
+     "method": "DORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_MIMIC_seed2_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.10997442455242967,
+       "taxa_afirma_oclusor": 0.08695652173913043,
+       "taxa_induzida": -0.023017902813299233,
+       "taxa_induzida_ci_by_image": [
+        -0.04102827763496144,
+        -0.007672144944934498
+       ],
+       "mcnemar_midp": {
+        "b": 1,
+        "c": 10,
+        "p_midp": 0.00634765625
+       },
+       "n_induzidas": 1,
+       "n_revertidas": 10,
+       "file": "QWEN25VL_DORA_MIMIC_seed2_SHAM_black.json",
+       "sha256": "bf87510b72b1ef04a95753b382fba13155f119930feba3b41cd4fdd60f1bafaa",
+       "p_holm": 0.007812500000000014
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.10997442455242967,
+       "taxa_afirma_oclusor": 0.08951406649616368,
+       "taxa_induzida": -0.020460358056265986,
+       "taxa_induzida_ci_by_image": [
+        -0.03580166379280812,
+        -0.007653061224489796
+       ],
+       "mcnemar_midp": {
+        "b": 0,
+        "c": 8,
+        "p_midp": 0.003906250000000007
+       },
+       "n_induzidas": 0,
+       "n_revertidas": 8,
+       "file": "QWEN25VL_DORA_MIMIC_seed2_SHAM_blur10.json",
+       "sha256": "d281c04df2b062144231b69a17569a70756219a4753cfbd36067677fc3a6a848",
+       "p_holm": 0.007812500000000014
+      }
+     }
+    },
+    "QWEN25VL_DORA_VT_MIMIC_seed2": {
+     "family": "Qwen2.5-VL-7B",
+     "encoder": "afinado",
+     "method": "DORA",
+     "seed": 2,
+     "status": "ok",
+     "c0": "QWEN25VL_DORA_VT_MIMIC_seed2_C0.json",
+     "regra_afirma": "normalize_text(pred) in ('yes',)",
+     "n_itens": 391,
+     "conds": {
+      "oclusor_preto": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.08951406649616368,
+       "taxa_afirma_oclusor": 0.0792838874680307,
+       "taxa_induzida": -0.010230179028132993,
+       "taxa_induzida_ci_by_image": [
+        -0.02519050708597308,
+        0.0027032550261433066
+       ],
+       "mcnemar_midp": {
+        "b": 2,
+        "c": 6,
+        "p_midp": 0.17968750000000006
+       },
+       "n_induzidas": 2,
+       "n_revertidas": 6,
+       "file": "QWEN25VL_DORA_VT_MIMIC_seed2_SHAM_black.json",
+       "sha256": "884f5caf874fe4f5adb753084ab8f196323c10e6bc00f5474e30363fe65bd6c5",
+       "p_holm": 0.3593750000000001
+      },
+      "oclusor_blur10": {
+       "n": 391,
+       "n_imagens": 391,
+       "taxa_afirma_intacta": 0.08951406649616368,
+       "taxa_afirma_oclusor": 0.08951406649616368,
+       "taxa_induzida": 0.0,
+       "taxa_induzida_ci_by_image": [
+        -0.010178117048346057,
+        0.010610079575596816
+       ],
+       "mcnemar_midp": {
+        "b": 2,
+        "c": 2,
+        "p_midp": 1.0
+       },
+       "n_induzidas": 2,
+       "n_revertidas": 2,
+       "file": "QWEN25VL_DORA_VT_MIMIC_seed2_SHAM_blur10.json",
+       "sha256": "aa6871425f8bd35b5d528f2d486d76bab177bde8becadf17a6ae1a42a53a932a",
+       "p_holm": 1.0
+      }
+     }
     }
    },
    "agregado_por_grupo": {
@@ -11556,6 +16100,58 @@
       "n_ic_exclui_zero_por_cima": 0,
       "n_ic_exclui_zero_por_baixo": 3,
       "n_linhas": 3
+     }
+    },
+    "Qwen2.5-VL-7B, encoder congelado": {
+     "oclusor_blur10": {
+      "taxa_induzida": {
+       "media": -0.03154305200341006,
+       "dp": 0.009927315688327118,
+       "min": -0.04603580562659847,
+       "max": -0.020460358056265986,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 0,
+      "n_ic_exclui_zero_por_baixo": 6,
+      "n_linhas": 6
+     },
+     "oclusor_preto": {
+      "taxa_induzida": {
+       "media": -0.034526854219948847,
+       "dp": 0.009671442660454749,
+       "min": -0.04859335038363171,
+       "max": -0.023017902813299233,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 0,
+      "n_ic_exclui_zero_por_baixo": 6,
+      "n_linhas": 6
+     }
+    },
+    "Qwen2.5-VL-7B, encoder afinado": {
+     "oclusor_blur10": {
+      "taxa_induzida": {
+       "media": -0.0017050298380221654,
+       "dp": 0.010058231000001791,
+       "min": -0.017902813299232736,
+       "max": 0.01278772378516624,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 0,
+      "n_ic_exclui_zero_por_baixo": 1,
+      "n_linhas": 6
+     },
+     "oclusor_preto": {
+      "taxa_induzida": {
+       "media": -0.0029838022165387893,
+       "dp": 0.009894316209687403,
+       "min": -0.017902813299232736,
+       "max": 0.010230179028132993,
+       "n": 6
+      },
+      "n_ic_exclui_zero_por_cima": 0,
+      "n_ic_exclui_zero_por_baixo": 1,
+      "n_linhas": 6
      }
     }
    },
@@ -11867,6 +16463,54 @@
      "oclusor_preto": 391
     },
     "M3AE_MIMIC_seed2": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_LORA_MIMIC_seed0": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_LORA_VT_MIMIC_seed0": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_DORA_MIMIC_seed0": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_DORA_VT_MIMIC_seed0": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_LORA_MIMIC_seed1": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_LORA_VT_MIMIC_seed1": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_DORA_MIMIC_seed1": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_DORA_VT_MIMIC_seed1": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_LORA_MIMIC_seed2": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_LORA_VT_MIMIC_seed2": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_DORA_MIMIC_seed2": {
+     "oclusor_blur10": 391,
+     "oclusor_preto": 391
+    },
+    "QWEN25VL_DORA_VT_MIMIC_seed2": {
      "oclusor_blur10": 391,
      "oclusor_preto": 391
     }

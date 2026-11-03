@@ -1,0 +1,2666 @@
+{
+ "line": "QWEN25VL_LORA_HEAL_seed1",
+ "base": "HEAL",
+ "zero_shot": false,
+ "conds": [
+  "C0",
+  "P",
+  "P_blur10",
+  "T",
+  "T_blur10"
+ ],
+ "files": {
+  "C0": "QWEN25VL_LORA_HEAL_seed1_C0.json",
+  "T": "QWEN25VL_LORA_HEAL_seed1_T.json",
+  "P": "QWEN25VL_LORA_HEAL_seed1_P.json",
+  "T_blur10": "QWEN25VL_LORA_HEAL_seed1_T_blur10.json",
+  "P_blur10": "QWEN25VL_LORA_HEAL_seed1_P_blur10.json"
+ },
+ "files_sha256": {
+  "C0": "a43c5bd303d03cd7c8e9fabab4ac8b02888d0b4e05ff1b21d81f8ee7f020419f",
+  "T": "26db0ea6d940b8ed9977654e0f4bcada26a52a9bc5b16ef96f2a68a9fe41e75c",
+  "P": "d5fd4f0fe9783fd87ffd03fec627dddcd4fef39e09f35fc93699068fa109ed3f",
+  "T_blur10": "b374a51afbe9720815e98553815c5948cb8167dda94e59b8d51a32d34f04a074",
+  "P_blur10": "461afce9dd9ae5529dd644547f7a6cf94af2d0505d8ad046f100630f8c983f28"
+ },
+ "txt_file": "QWEN25VL_LORA_TXT_HEAL_seed1_TXT.json",
+ "txt_sha256": "06bd77361f44440b1f10a96fec154fe494726a428ec83d2ea2852e8e04eab894",
+ "by_class": {
+  "closed_yes": {
+   "n": 711,
+   "n_imagens": 629,
+   "acc": {
+    "C0": 0.9535864978902954,
+    "T": 0.9521800281293952,
+    "P": 0.960618846694796,
+    "T_blur10": 0.960618846694796,
+    "P_blur10": 0.9690576652601969
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.9364596884039118,
+     0.9687075273394886
+    ],
+    "T": [
+     0.9356643356643357,
+     0.9676988913542944
+    ],
+    "P": [
+     0.9461753514387351,
+     0.9743251905751906
+    ],
+    "T_blur10": [
+     0.9455879851940776,
+     0.974721752966135
+    ],
+    "P_blur10": [
+     0.9559649376554297,
+     0.9808830547637557
+    ]
+   },
+   "delta_preto": 0.008438818565400843,
+   "delta_preto_ci_by_image": [
+    -0.0030165912518853697,
+    0.020413069073783333
+   ],
+   "mcnemar_midp_preto": {
+    "b": 12,
+    "c": 6,
+    "p_midp": 0.16706848144531256
+   },
+   "custo_mascara_deslocada_preto": -0.007032348804500703,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.021157305586765793,
+    0.007204870857608608
+   ],
+   "custo_alvo_preto": 0.0014064697609001407,
+   "custo_alvo_preto_ci_by_image": [
+    -0.011782757181125555,
+    0.01381311121654091
+   ],
+   "delta_blur10": 0.008438818565400843,
+   "delta_blur10_ci_by_image": [
+    0.0,
+    0.01695035290728381
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 8,
+    "c": 2,
+    "p_midp": 0.06542968750000004
+   },
+   "custo_mascara_deslocada_blur10": -0.015471167369901548,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.027104959575098182,
+    -0.004341534008683068
+   ],
+   "custo_alvo_blur10": -0.007032348804500703,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.018767385789085413,
+    0.004342644781273003
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 711,
+   "acc_txt": 0.8973277074542897,
+   "acc_txt_ci_by_image": [
+    0.8753276587512695,
+    0.9197624714212119
+   ],
+   "headroom": 0.05625879043600562,
+   "headroom_ci_by_image": [
+    0.03361181892111683,
+    0.07806454128922956
+   ],
+   "resoluvel": false,
+   "n_m0": 711,
+   "acc_m0": 0.7355836849507735,
+   "headroom_m0": 0.2180028129395218,
+   "headroom_m0_ci_by_image": [
+    0.1862720899361155,
+    0.2503459770991918
+   ],
+   "n_avaliaveis": 711,
+   "p_holm_preto": 0.3341369628906251,
+   "p_holm_blur10": 0.13085937500000008
+  },
+  "closed_no": {
+   "n": 735,
+   "n_imagens": 669,
+   "acc": {
+    "C0": 0.8272108843537415,
+    "T": 0.8095238095238095,
+    "P": 0.8081632653061225,
+    "T_blur10": 0.8095238095238095,
+    "P_blur10": 0.8054421768707483
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.7988968842025268,
+     0.8545718603215705
+    ],
+    "T": [
+     0.7803796896242515,
+     0.8384001602433021
+    ],
+    "P": [
+     0.7791419357391579,
+     0.8362466178155662
+    ],
+    "T_blur10": [
+     0.7804179585762123,
+     0.8377344654296046
+    ],
+    "P_blur10": [
+     0.7770694334739425,
+     0.8342657879158751
+    ]
+   },
+   "delta_preto": -0.0013605442176870747,
+   "delta_preto_ci_by_image": [
+    -0.014084507042253521,
+    0.011004126547455296
+   ],
+   "mcnemar_midp_preto": {
+    "b": 11,
+    "c": 12,
+    "p_midp": 0.8388197422027588
+   },
+   "custo_mascara_deslocada_preto": 0.01904761904761905,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    0.0013404825737265416,
+    0.037037037037037035
+   ],
+   "custo_alvo_preto": 0.017687074829931974,
+   "custo_alvo_preto_ci_by_image": [
+    0.002655866599825862,
+    0.035231116768149336
+   ],
+   "delta_blur10": -0.004081632653061225,
+   "delta_blur10_ci_by_image": [
+    -0.018080847286462323,
+    0.009722222222222222
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 14,
+    "c": 17,
+    "p_midp": 0.5966148958541453
+   },
+   "custo_mascara_deslocada_blur10": 0.021768707482993196,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    0.007935984420153286,
+    0.03668704069552917
+   ],
+   "custo_alvo_blur10": 0.017687074829931974,
+   "custo_alvo_blur10_ci_by_image": [
+    0.004243131637618968,
+    0.0324782134500451
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 735,
+   "acc_txt": 0.8122448979591836,
+   "acc_txt_ci_by_image": [
+    0.7841205990198972,
+    0.8397859212073244
+   ],
+   "headroom": 0.014965986394557823,
+   "headroom_ci_by_image": [
+    -0.009656848659003832,
+    0.040334873281831156
+   ],
+   "resoluvel": false,
+   "n_m0": 735,
+   "acc_m0": 0.601360544217687,
+   "headroom_m0": 0.22585034013605443,
+   "headroom_m0_ci_by_image": [
+    0.18339983770403756,
+    0.26714501707856136
+   ],
+   "n_avaliaveis": 735,
+   "p_holm_preto": 0.8388197422027588,
+   "p_holm_blur10": 0.5966148958541453
+  }
+ },
+ "extra": {
+  "anatomia=Aorta|closed_yes": {
+   "n": 201,
+   "n_imagens": 201,
+   "acc": {
+    "C0": 0.9601990049751243,
+    "T": 0.9651741293532339,
+    "P": 0.9601990049751243,
+    "T_blur10": 0.9651741293532339,
+    "P_blur10": 0.9651741293532339
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.9313725490196079,
+     0.9848503883051621
+    ],
+    "T": [
+     0.9390862944162437,
+     0.9883737733566339
+    ],
+    "P": [
+     0.9326910621761658,
+     0.9846958199523465
+    ],
+    "T_blur10": [
+     0.9390862944162437,
+     0.9883737733566339
+    ],
+    "P_blur10": [
+     0.9390862944162437,
+     0.9883737733566339
+    ]
+   },
+   "delta_preto": -0.004975124378109453,
+   "delta_preto_ci_by_image": [
+    -0.016042780748663103,
+    0.0
+   ],
+   "mcnemar_midp_preto": {
+    "b": 0,
+    "c": 1,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_preto": 0.0,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.014084507042253521,
+    0.014223136164783056
+   ],
+   "custo_alvo_preto": -0.004975124378109453,
+   "custo_alvo_preto_ci_by_image": [
+    -0.016133415147265077,
+    0.0
+   ],
+   "delta_blur10": 0.0,
+   "delta_blur10_ci_by_image": [
+    0.0,
+    0.0
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 0,
+    "c": 0,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_blur10": -0.004975124378109453,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.016133415147265077,
+    0.0
+   ],
+   "custo_alvo_blur10": -0.004975124378109453,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.016133415147265077,
+    0.0
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 201,
+   "acc_txt": 0.9651741293532339,
+   "acc_txt_ci_by_image": [
+    0.9390862944162437,
+    0.9883737733566339
+   ],
+   "headroom": -0.004975124378109453,
+   "headroom_ci_by_image": [
+    -0.016133415147265077,
+    0.0
+   ],
+   "resoluvel": false,
+   "n_m0": 201,
+   "acc_m0": 0.9651741293532339,
+   "headroom_m0": -0.004975124378109453,
+   "headroom_m0_ci_by_image": [
+    -0.016133415147265077,
+    0.0
+   ]
+  },
+  "anatomia=Aorta|closed_no": {
+   "n": 191,
+   "n_imagens": 185,
+   "acc": {
+    "C0": 0.9528795811518325,
+    "T": 0.9319371727748691,
+    "P": 0.9319371727748691,
+    "T_blur10": 0.9528795811518325,
+    "P_blur10": 0.9476439790575916
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.9208996486151302,
+     0.9816006692693809
+    ],
+    "T": [
+     0.8944378306878308,
+     0.966670616113744
+    ],
+    "P": [
+     0.8944378306878308,
+     0.966670616113744
+    ],
+    "T_blur10": [
+     0.9208996486151302,
+     0.9816006692693809
+    ],
+    "P_blur10": [
+     0.9150893215576074,
+     0.9783783783783784
+    ]
+   },
+   "delta_preto": 0.0,
+   "delta_preto_ci_by_image": [
+    0.0,
+    0.0
+   ],
+   "mcnemar_midp_preto": {
+    "b": 0,
+    "c": 0,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_preto": 0.020942408376963352,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    0.004738777608870607,
+    0.04301573078454796
+   ],
+   "custo_alvo_preto": 0.020942408376963352,
+   "custo_alvo_preto_ci_by_image": [
+    0.004738777608870607,
+    0.04301573078454796
+   ],
+   "delta_blur10": -0.005235602094240838,
+   "delta_blur10_ci_by_image": [
+    -0.01676213043751177,
+    0.0
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 0,
+    "c": 1,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_blur10": 0.005235602094240838,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    0.0,
+    0.016762130437511756
+   ],
+   "custo_alvo_blur10": 0.0,
+   "custo_alvo_blur10_ci_by_image": [
+    0.0,
+    0.0
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 191,
+   "acc_txt": 0.9214659685863874,
+   "acc_txt_ci_by_image": [
+    0.8813539973686247,
+    0.9581443798449613
+   ],
+   "headroom": 0.031413612565445025,
+   "headroom_ci_by_image": [
+    0.010255102040816326,
+    0.05917745620715914
+   ],
+   "resoluvel": false,
+   "n_m0": 191,
+   "acc_m0": 0.7643979057591623,
+   "headroom_m0": 0.18848167539267016,
+   "headroom_m0_ci_by_image": [
+    0.1368241939928355,
+    0.24644715088724786
+   ]
+  },
+  "anatomia=Aorta": {
+   "n": 392,
+   "n_imagens": 363,
+   "acc": {
+    "C0": 0.9566326530612245,
+    "T": 0.9489795918367347,
+    "P": 0.9464285714285714,
+    "T_blur10": 0.9591836734693877,
+    "P_blur10": 0.9566326530612245
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.9360613810741688,
+     0.976626396858955
+    ],
+    "T": [
+     0.9271329621078365,
+     0.9705159705159705
+    ],
+    "P": [
+     0.9236636520888956,
+     0.9682587840961627
+    ],
+    "T_blur10": [
+     0.9400454571068994,
+     0.978668085106383
+    ],
+    "P_blur10": [
+     0.9367088607594937,
+     0.9767456844881323
+    ]
+   },
+   "delta_preto": -0.002551020408163265,
+   "delta_preto_ci_by_image": [
+    -0.008021928001032245,
+    0.0
+   ],
+   "mcnemar_midp_preto": {
+    "b": 0,
+    "c": 1,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_preto": 0.01020408163265306,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    0.0,
+    0.02250282663316581
+   ],
+   "custo_alvo_preto": 0.007653061224489796,
+   "custo_alvo_preto_ci_by_image": [
+    -0.0026455026455026454,
+    0.019139739136134228
+   ],
+   "delta_blur10": -0.002551020408163265,
+   "delta_blur10_ci_by_image": [
+    -0.007936507936507936,
+    0.0
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 0,
+    "c": 1,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_blur10": 0.0,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.007614697562676793,
+    0.007389162561576354
+   ],
+   "custo_alvo_blur10": -0.002551020408163265,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.008064516129032258,
+    0.0
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 392,
+   "acc_txt": 0.9438775510204082,
+   "acc_txt_ci_by_image": [
+    0.920713098056139,
+    0.9662650602409638
+   ],
+   "headroom": 0.012755102040816327,
+   "headroom_ci_by_image": [
+    0.0,
+    0.026385224274406333
+   ],
+   "resoluvel": false,
+   "n_m0": 392,
+   "acc_m0": 0.8673469387755102,
+   "headroom_m0": 0.08928571428571429,
+   "headroom_m0_ci_by_image": [
+    0.062492523923444974,
+    0.11917500340064548
+   ]
+  },
+  "anatomia=Heart|closed_yes": {
+   "n": 140,
+   "n_imagens": 140,
+   "acc": {
+    "C0": 0.9928571428571429,
+    "T": 1.0,
+    "P": 1.0,
+    "T_blur10": 1.0,
+    "P_blur10": 1.0
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.9761904761904762,
+     1.0
+    ],
+    "T": [
+     1.0,
+     1.0
+    ],
+    "P": [
+     1.0,
+     1.0
+    ],
+    "T_blur10": [
+     1.0,
+     1.0
+    ],
+    "P_blur10": [
+     1.0,
+     1.0
+    ]
+   },
+   "delta_preto": 0.0,
+   "delta_preto_ci_by_image": [
+    0.0,
+    0.0
+   ],
+   "mcnemar_midp_preto": {
+    "b": 0,
+    "c": 0,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_preto": -0.007142857142857143,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.023809523809523808,
+    0.0
+   ],
+   "custo_alvo_preto": -0.007142857142857143,
+   "custo_alvo_preto_ci_by_image": [
+    -0.023809523809523808,
+    0.0
+   ],
+   "delta_blur10": 0.0,
+   "delta_blur10_ci_by_image": [
+    0.0,
+    0.0
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 0,
+    "c": 0,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_blur10": -0.007142857142857143,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.023809523809523808,
+    0.0
+   ],
+   "custo_alvo_blur10": -0.007142857142857143,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.023809523809523808,
+    0.0
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 140,
+   "acc_txt": 1.0,
+   "acc_txt_ci_by_image": [
+    1.0,
+    1.0
+   ],
+   "headroom": -0.007142857142857143,
+   "headroom_ci_by_image": [
+    -0.023809523809523808,
+    0.0
+   ],
+   "resoluvel": false,
+   "n_m0": 140,
+   "acc_m0": 1.0,
+   "headroom_m0": -0.007142857142857143,
+   "headroom_m0_ci_by_image": [
+    -0.023809523809523808,
+    0.0
+   ]
+  },
+  "anatomia=Heart|closed_no": {
+   "n": 130,
+   "n_imagens": 126,
+   "acc": {
+    "C0": 0.9461538461538461,
+    "T": 0.9230769230769231,
+    "P": 0.9153846153846154,
+    "T_blur10": 0.9307692307692308,
+    "P_blur10": 0.9230769230769231
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.9007633587786259,
+     0.9831967787114845
+    ],
+    "T": [
+     0.8737864077669902,
+     0.965819209039548
+    ],
+    "P": [
+     0.865546218487395,
+     0.9603992965085981
+    ],
+    "T_blur10": [
+     0.8832116788321168,
+     0.9708082090341691
+    ],
+    "P_blur10": [
+     0.8737864077669902,
+     0.965819209039548
+    ]
+   },
+   "delta_preto": -0.007692307692307693,
+   "delta_preto_ci_by_image": [
+    -0.025423728813559324,
+    0.0
+   ],
+   "mcnemar_midp_preto": {
+    "b": 0,
+    "c": 1,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_preto": 0.03076923076923077,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    0.006896551724137931,
+    0.06338307623518889
+   ],
+   "custo_alvo_preto": 0.023076923076923078,
+   "custo_alvo_preto_ci_by_image": [
+    0.0,
+    0.05264154704944173
+   ],
+   "delta_blur10": -0.007692307692307693,
+   "delta_blur10_ci_by_image": [
+    -0.025215425153112092,
+    0.0
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 0,
+    "c": 1,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_blur10": 0.023076923076923078,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    0.0,
+    0.05264154704944173
+   ],
+   "custo_alvo_blur10": 0.015384615384615385,
+   "custo_alvo_blur10_ci_by_image": [
+    0.0,
+    0.04065040650406504
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 130,
+   "acc_txt": 0.8846153846153846,
+   "acc_txt_ci_by_image": [
+    0.8287622309197652,
+    0.9375
+   ],
+   "headroom": 0.06153846153846154,
+   "headroom_ci_by_image": [
+    0.023809523809523808,
+    0.10458175205566095
+   ],
+   "resoluvel": false,
+   "n_m0": 130,
+   "acc_m0": 0.7307692307692307,
+   "headroom_m0": 0.2153846153846154,
+   "headroom_m0_ci_by_image": [
+    0.14813571961222968,
+    0.2900763358778626
+   ]
+  },
+  "anatomia=Heart": {
+   "n": 270,
+   "n_imagens": 258,
+   "acc": {
+    "C0": 0.9703703703703703,
+    "T": 0.9629629629629629,
+    "P": 0.9592592592592593,
+    "T_blur10": 0.9666666666666667,
+    "P_blur10": 0.9629629629629629
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.9477611940298507,
+     0.9886792452830189
+    ],
+    "T": [
+     0.9382239382239382,
+     0.9841897233201581
+    ],
+    "P": [
+     0.9344262295081968,
+     0.9810659261150834
+    ],
+    "T_blur10": [
+     0.9430585471686332,
+     0.9859661391240339
+    ],
+    "P_blur10": [
+     0.9382239382239382,
+     0.9841897233201581
+    ]
+   },
+   "delta_preto": -0.003703703703703704,
+   "delta_preto_ci_by_image": [
+    -0.01171875,
+    0.0
+   ],
+   "mcnemar_midp_preto": {
+    "b": 0,
+    "c": 1,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_preto": 0.011111111111111112,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.003861377989284966,
+    0.028777718565888028
+   ],
+   "custo_alvo_preto": 0.007407407407407408,
+   "custo_alvo_preto_ci_by_image": [
+    -0.007119357894467344,
+    0.023166023166023165
+   ],
+   "delta_blur10": -0.003703703703703704,
+   "delta_blur10_ci_by_image": [
+    -0.011907142857142856,
+    0.0
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 0,
+    "c": 1,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_blur10": 0.007407407407407408,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.007119357894467344,
+    0.023166023166023165
+   ],
+   "custo_alvo_blur10": 0.003703703703703704,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.007874793812828733,
+    0.017421602787456445
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 270,
+   "acc_txt": 0.9444444444444444,
+   "acc_txt_ci_by_image": [
+    0.9154365029910269,
+    0.9701547816473189
+   ],
+   "headroom": 0.025925925925925925,
+   "headroom_ci_by_image": [
+    0.0066214273265946325,
+    0.04797047970479705
+   ],
+   "resoluvel": false,
+   "n_m0": 270,
+   "acc_m0": 0.8703703703703703,
+   "headroom_m0": 0.1,
+   "headroom_m0_ci_by_image": [
+    0.0645130742913001,
+    0.13847222222222216
+   ]
+  },
+  "anatomia=Left lower lung|closed_yes": {
+   "n": 38,
+   "n_imagens": 38,
+   "acc": {
+    "C0": 0.9210526315789473,
+    "T": 0.9473684210526315,
+    "P": 0.9736842105263158,
+    "T_blur10": 0.9473684210526315,
+    "P_blur10": 0.9736842105263158
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.8285714285714286,
+     1.0
+    ],
+    "T": [
+     0.8648648648648649,
+     1.0
+    ],
+    "P": [
+     0.9130115089514066,
+     1.0
+    ],
+    "T_blur10": [
+     0.8648648648648649,
+     1.0
+    ],
+    "P_blur10": [
+     0.9130115089514066,
+     1.0
+    ]
+   },
+   "delta_preto": 0.02631578947368421,
+   "delta_preto_ci_by_image": [
+    0.0,
+    0.08823529411764706
+   ],
+   "mcnemar_midp_preto": {
+    "b": 1,
+    "c": 0,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_preto": -0.05263157894736842,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.14285714285714285,
+    0.0
+   ],
+   "custo_alvo_preto": -0.02631578947368421,
+   "custo_alvo_preto_ci_by_image": [
+    -0.08823529411764706,
+    0.0
+   ],
+   "delta_blur10": 0.02631578947368421,
+   "delta_blur10_ci_by_image": [
+    0.0,
+    0.08823529411764706
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 1,
+    "c": 0,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_blur10": -0.05263157894736842,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.14285714285714285,
+    0.0
+   ],
+   "custo_alvo_blur10": -0.02631578947368421,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.08823529411764706,
+    0.0
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 38,
+   "acc_txt": 0.9210526315789473,
+   "acc_txt_ci_by_image": [
+    0.822202380952381,
+    1.0
+   ],
+   "headroom": 0.0,
+   "headroom_ci_by_image": [
+    -0.10810810810810811,
+    0.10810810810810811
+   ],
+   "resoluvel": false,
+   "n_m0": 38,
+   "acc_m0": 0.21052631578947367,
+   "headroom_m0": 0.7105263157894737,
+   "headroom_m0_ci_by_image": [
+    0.5171891327063741,
+    0.8800238095238094
+   ]
+  },
+  "anatomia=Left lower lung|closed_no": {
+   "n": 64,
+   "n_imagens": 63,
+   "acc": {
+    "C0": 0.734375,
+    "T": 0.75,
+    "P": 0.765625,
+    "T_blur10": 0.75,
+    "P_blur10": 0.734375
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.625,
+     0.840014492753623
+    ],
+    "T": [
+     0.6363636363636364,
+     0.8461864406779659
+    ],
+    "P": [
+     0.6557377049180327,
+     0.8644182317911131
+    ],
+    "T_blur10": [
+     0.6447201159678858,
+     0.8484936575052854
+    ],
+    "P_blur10": [
+     0.6281779661016949,
+     0.8361198167791705
+    ]
+   },
+   "delta_preto": 0.015625,
+   "delta_preto_ci_by_image": [
+    0.0,
+    0.05358349420849414
+   ],
+   "mcnemar_midp_preto": {
+    "b": 1,
+    "c": 0,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_preto": -0.03125,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.10771739130434783,
+    0.046153846153846156
+   ],
+   "custo_alvo_preto": -0.015625,
+   "custo_alvo_preto_ci_by_image": [
+    -0.08475477821853587,
+    0.05555555555555555
+   ],
+   "delta_blur10": -0.015625,
+   "delta_blur10_ci_by_image": [
+    -0.0847457627118644,
+    0.05084745762711865
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 2,
+    "c": 3,
+    "p_midp": 0.6874999999999998
+   },
+   "custo_mascara_deslocada_blur10": 0.0,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.043478260869565216,
+    0.046153846153846156
+   ],
+   "custo_alvo_blur10": -0.015625,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.07017543859649122,
+    0.037037037037037035
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 64,
+   "acc_txt": 0.828125,
+   "acc_txt_ci_by_image": [
+    0.7301339285714286,
+    0.9142857142857143
+   ],
+   "headroom": -0.09375,
+   "headroom_ci_by_image": [
+    -0.21277467736309733,
+    0.028996163682864392
+   ],
+   "resoluvel": false,
+   "n_m0": 64,
+   "acc_m0": 0.6875,
+   "headroom_m0": 0.046875,
+   "headroom_m0_ci_by_image": [
+    -0.12333047945205479,
+    0.21818181818181817
+   ]
+  },
+  "anatomia=Left lower lung": {
+   "n": 102,
+   "n_imagens": 100,
+   "acc": {
+    "C0": 0.803921568627451,
+    "T": 0.8235294117647058,
+    "P": 0.8431372549019608,
+    "T_blur10": 0.8235294117647058,
+    "P_blur10": 0.8235294117647058
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.7254848093083387,
+     0.8764044943820225
+    ],
+    "T": [
+     0.7428500707213579,
+     0.8915810300023623
+    ],
+    "P": [
+     0.77,
+     0.9099121621621622
+    ],
+    "T_blur10": [
+     0.75,
+     0.8933404255319148
+    ],
+    "P_blur10": [
+     0.7524728901461575,
+     0.8947642543859647
+    ]
+   },
+   "delta_preto": 0.0196078431372549,
+   "delta_preto_ci_by_image": [
+    0.0,
+    0.05155981529209614
+   ],
+   "mcnemar_midp_preto": {
+    "b": 2,
+    "c": 0,
+    "p_midp": 0.24999999999999997
+   },
+   "custo_mascara_deslocada_preto": -0.0392156862745098,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.09649122807017543,
+    0.017559808612440102
+   ],
+   "custo_alvo_preto": -0.0196078431372549,
+   "custo_alvo_preto_ci_by_image": [
+    -0.06818667443667444,
+    0.027529306829765513
+   ],
+   "delta_blur10": 0.0,
+   "delta_blur10_ci_by_image": [
+    -0.04672897196261682,
+    0.04716981132075472
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 3,
+    "c": 3,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_blur10": -0.0196078431372549,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.06061264822134387,
+    0.017861164736164715
+   ],
+   "custo_alvo_blur10": -0.0196078431372549,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.05825444983818771,
+    0.0185228452751817
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 102,
+   "acc_txt": 0.8627450980392157,
+   "acc_txt_ci_by_image": [
+    0.7946428571428571,
+    0.9230952380952381
+   ],
+   "headroom": -0.058823529411764705,
+   "headroom_ci_by_image": [
+    -0.14606741573033707,
+    0.027529306829765513
+   ],
+   "resoluvel": false,
+   "n_m0": 102,
+   "acc_m0": 0.5098039215686274,
+   "headroom_m0": 0.29411764705882354,
+   "headroom_m0_ci_by_image": [
+    0.14812865497076022,
+    0.43333333333333335
+   ]
+  },
+  "anatomia=Left middle lung|closed_yes": {
+   "n": 54,
+   "n_imagens": 53,
+   "acc": {
+    "C0": 0.9629629629629629,
+    "T": 0.9629629629629629,
+    "P": 0.9444444444444444,
+    "T_blur10": 0.9444444444444444,
+    "P_blur10": 0.9629629629629629
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.9016393442622951,
+     1.0
+    ],
+    "T": [
+     0.9016393442622951,
+     1.0
+    ],
+    "P": [
+     0.8787569573283859,
+     1.0
+    ],
+    "T_blur10": [
+     0.8727272727272727,
+     1.0
+    ],
+    "P_blur10": [
+     0.9016393442622951,
+     1.0
+    ]
+   },
+   "delta_preto": -0.018518518518518517,
+   "delta_preto_ci_by_image": [
+    -0.060015151515151514,
+    0.0
+   ],
+   "mcnemar_midp_preto": {
+    "b": 0,
+    "c": 1,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_preto": 0.018518518518518517,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    0.0,
+    0.06001515151515143
+   ],
+   "custo_alvo_preto": 0.0,
+   "custo_alvo_preto_ci_by_image": [
+    0.0,
+    0.0
+   ],
+   "delta_blur10": 0.018518518518518517,
+   "delta_blur10_ci_by_image": [
+    0.0,
+    0.061224489795918366
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 1,
+    "c": 0,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_blur10": 0.0,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    0.0,
+    0.0
+   ],
+   "custo_alvo_blur10": 0.018518518518518517,
+   "custo_alvo_blur10_ci_by_image": [
+    0.0,
+    0.061224489795918366
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 54,
+   "acc_txt": 0.7592592592592593,
+   "acc_txt_ci_by_image": [
+    0.6382978723404256,
+    0.867936941410129
+   ],
+   "headroom": 0.2037037037037037,
+   "headroom_ci_by_image": [
+    0.1016949152542373,
+    0.3157894736842105
+   ],
+   "resoluvel": true,
+   "n_m0": 54,
+   "acc_m0": 0.09259259259259259,
+   "headroom_m0": 0.8703703703703703,
+   "headroom_m0_ci_by_image": [
+    0.7540983606557377,
+    0.9643013784461152
+   ]
+  },
+  "anatomia=Left middle lung|closed_no": {
+   "n": 74,
+   "n_imagens": 74,
+   "acc": {
+    "C0": 0.7837837837837838,
+    "T": 0.7432432432432432,
+    "P": 0.7432432432432432,
+    "T_blur10": 0.7432432432432432,
+    "P_blur10": 0.7432432432432432
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.6874811746987952,
+     0.8767123287671232
+    ],
+    "T": [
+     0.6419753086419753,
+     0.8390855911330048
+    ],
+    "P": [
+     0.6461538461538462,
+     0.8412698412698413
+    ],
+    "T_blur10": [
+     0.6419753086419753,
+     0.8390855911330048
+    ],
+    "P_blur10": [
+     0.6438111545988259,
+     0.8375084459459459
+    ]
+   },
+   "delta_preto": 0.0,
+   "delta_preto_ci_by_image": [
+    -0.05557511737089201,
+    0.05481354642313536
+   ],
+   "mcnemar_midp_preto": {
+    "b": 2,
+    "c": 2,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_preto": 0.04054054054054054,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.014492753623188406,
+    0.10448195071155846
+   ],
+   "custo_alvo_preto": 0.04054054054054054,
+   "custo_alvo_preto_ci_by_image": [
+    0.0,
+    0.09231481481481478
+   ],
+   "delta_blur10": 0.0,
+   "delta_blur10_ci_by_image": [
+    -0.056338028169014086,
+    0.056338028169014086
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 2,
+    "c": 2,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_blur10": 0.04054054054054054,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.014492753623188406,
+    0.1017166449369838
+   ],
+   "custo_alvo_blur10": 0.04054054054054054,
+   "custo_alvo_blur10_ci_by_image": [
+    0.0,
+    0.09231481481481478
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 74,
+   "acc_txt": 0.7567567567567568,
+   "acc_txt_ci_by_image": [
+    0.6562415994623656,
+    0.8555952380952379
+   ],
+   "headroom": 0.02702702702702703,
+   "headroom_ci_by_image": [
+    -0.058823529411764705,
+    0.11594202898550725
+   ],
+   "resoluvel": false,
+   "n_m0": 74,
+   "acc_m0": 0.5945945945945946,
+   "headroom_m0": 0.1891891891891892,
+   "headroom_m0_ci_by_image": [
+    0.0273972602739726,
+    0.3472222222222222
+   ]
+  },
+  "anatomia=Left middle lung": {
+   "n": 128,
+   "n_imagens": 123,
+   "acc": {
+    "C0": 0.859375,
+    "T": 0.8359375,
+    "P": 0.828125,
+    "T_blur10": 0.828125,
+    "P_blur10": 0.8359375
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.795774647887324,
+     0.917925649530127
+    ],
+    "T": [
+     0.7746425923964841,
+     0.8992441860465116
+    ],
+    "P": [
+     0.7633587786259542,
+     0.8909231853417899
+    ],
+    "T_blur10": [
+     0.76,
+     0.8923214285714286
+    ],
+    "P_blur10": [
+     0.7727105614973262,
+     0.8970732978230662
+    ]
+   },
+   "delta_preto": -0.0078125,
+   "delta_preto_ci_by_image": [
+    -0.041666666666666664,
+    0.026554598609355214
+   ],
+   "mcnemar_midp_preto": {
+    "b": 2,
+    "c": 3,
+    "p_midp": 0.6874999999999998
+   },
+   "custo_mascara_deslocada_preto": 0.03125,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    0.0,
+    0.07032634104330701
+   ],
+   "custo_alvo_preto": 0.0234375,
+   "custo_alvo_preto_ci_by_image": [
+    0.0,
+    0.0540592918499895
+   ],
+   "delta_blur10": 0.0078125,
+   "delta_blur10_ci_by_image": [
+    -0.024390243902439025,
+    0.042381935390409915
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 3,
+    "c": 2,
+    "p_midp": 0.6874999999999998
+   },
+   "custo_mascara_deslocada_blur10": 0.0234375,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.00819672131147541,
+    0.05883442265795201
+   ],
+   "custo_alvo_blur10": 0.03125,
+   "custo_alvo_blur10_ci_by_image": [
+    0.007191693453747641,
+    0.06349567099567097
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 128,
+   "acc_txt": 0.7578125,
+   "acc_txt_ci_by_image": [
+    0.6814063930424168,
+    0.832
+   ],
+   "headroom": 0.1015625,
+   "headroom_ci_by_image": [
+    0.032520325203252036,
+    0.17356270212001432
+   ],
+   "resoluvel": true,
+   "n_m0": 128,
+   "acc_m0": 0.3828125,
+   "headroom_m0": 0.4765625,
+   "headroom_m0_ci_by_image": [
+    0.35833022388059704,
+    0.5940664113581169
+   ]
+  },
+  "anatomia=Left upper lung|closed_yes": {
+   "n": 73,
+   "n_imagens": 70,
+   "acc": {
+    "C0": 0.9178082191780822,
+    "T": 0.9178082191780822,
+    "P": 0.9315068493150684,
+    "T_blur10": 0.958904109589041,
+    "P_blur10": 0.958904109589041
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.8493150684931506,
+     0.9733421052631579
+    ],
+    "T": [
+     0.8484848484848485,
+     0.9726027397260274
+    ],
+    "P": [
+     0.8666666666666667,
+     0.9848484848484849
+    ],
+    "T_blur10": [
+     0.9016335719233434,
+     1.0
+    ],
+    "P_blur10": [
+     0.9016335719233434,
+     1.0
+    ]
+   },
+   "delta_preto": 0.0136986301369863,
+   "delta_preto_ci_by_image": [
+    -0.03076923076923077,
+    0.0625
+   ],
+   "mcnemar_midp_preto": {
+    "b": 2,
+    "c": 1,
+    "p_midp": 0.6250000000000001
+   },
+   "custo_mascara_deslocada_preto": -0.0136986301369863,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.07792207792207792,
+    0.046171874999999904
+   ],
+   "custo_alvo_preto": 0.0,
+   "custo_alvo_preto_ci_by_image": [
+    -0.058823529411764705,
+    0.054352766798418946
+   ],
+   "delta_blur10": 0.0,
+   "delta_blur10_ci_by_image": [
+    0.0,
+    0.0
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 0,
+    "c": 0,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_blur10": -0.0410958904109589,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.09412957074721781,
+    0.0
+   ],
+   "custo_alvo_blur10": -0.0410958904109589,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.09412957074721781,
+    0.0
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 73,
+   "acc_txt": 0.8082191780821918,
+   "acc_txt_ci_by_image": [
+    0.7115036231884059,
+    0.8939393939393939
+   ],
+   "headroom": 0.1095890410958904,
+   "headroom_ci_by_image": [
+    0.03278688524590164,
+    0.19179399367755523
+   ],
+   "resoluvel": true,
+   "n_m0": 73,
+   "acc_m0": 0.684931506849315,
+   "headroom_m0": 0.2328767123287671,
+   "headroom_m0_ci_by_image": [
+    0.13558176820888684,
+    0.3333333333333333
+   ]
+  },
+  "anatomia=Left upper lung|closed_no": {
+   "n": 74,
+   "n_imagens": 73,
+   "acc": {
+    "C0": 0.6891891891891891,
+    "T": 0.6891891891891891,
+    "P": 0.6621621621621622,
+    "T_blur10": 0.6621621621621622,
+    "P_blur10": 0.6216216216216216
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.5843885281385282,
+     0.7922301836094938
+    ],
+    "T": [
+     0.5802334943639291,
+     0.7910488764966376
+    ],
+    "P": [
+     0.5517241379310345,
+     0.7692307692307693
+    ],
+    "T_blur10": [
+     0.5517130857648099,
+     0.7681159420289855
+    ],
+    "P_blur10": [
+     0.5079365079365079,
+     0.7307692307692307
+    ]
+   },
+   "delta_preto": -0.02702702702702703,
+   "delta_preto_ci_by_image": [
+    -0.10345947156291983,
+    0.047619047619047616
+   ],
+   "mcnemar_midp_preto": {
+    "b": 3,
+    "c": 5,
+    "p_midp": 0.5078124999999999
+   },
+   "custo_mascara_deslocada_preto": 0.02702702702702703,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.063507326007326,
+    0.12162162162162163
+   ],
+   "custo_alvo_preto": 0.0,
+   "custo_alvo_preto_ci_by_image": [
+    -0.0724814422057264,
+    0.07692307692307693
+   ],
+   "delta_blur10": -0.04054054054054054,
+   "delta_blur10_ci_by_image": [
+    -0.1111111111111111,
+    0.029411764705882353
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 2,
+    "c": 5,
+    "p_midp": 0.2890625
+   },
+   "custo_mascara_deslocada_blur10": 0.06756756756756757,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.01282051282051282,
+    0.14707087753134035
+   ],
+   "custo_alvo_blur10": 0.02702702702702703,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.03704861111111111,
+    0.09090909090909091
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 74,
+   "acc_txt": 0.6756756756756757,
+   "acc_txt_ci_by_image": [
+    0.5646907993966818,
+    0.7838045738045737
+   ],
+   "headroom": 0.013513513513513514,
+   "headroom_ci_by_image": [
+    -0.09090909090909091,
+    0.11764705882352941
+   ],
+   "resoluvel": false,
+   "n_m0": 74,
+   "acc_m0": 0.5,
+   "headroom_m0": 0.1891891891891892,
+   "headroom_m0_ci_by_image": [
+    0.025974025974025976,
+    0.35714285714285715
+   ]
+  },
+  "anatomia=Left upper lung": {
+   "n": 147,
+   "n_imagens": 136,
+   "acc": {
+    "C0": 0.8027210884353742,
+    "T": 0.8027210884353742,
+    "P": 0.7959183673469388,
+    "T_blur10": 0.8095238095238095,
+    "P_blur10": 0.7891156462585034
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.7368332147937411,
+     0.8662185540991613
+    ],
+    "T": [
+     0.7380952380952381,
+     0.8623257550614006
+    ],
+    "P": [
+     0.73049062150056,
+     0.8590604026845637
+    ],
+    "T_blur10": [
+     0.7454388714733543,
+     0.8707587329410291
+    ],
+    "P_blur10": [
+     0.7229643420793056,
+     0.8538503649635036
+    ]
+   },
+   "delta_preto": -0.006802721088435374,
+   "delta_preto_ci_by_image": [
+    -0.052942150370081806,
+    0.0364963503649635
+   ],
+   "mcnemar_midp_preto": {
+    "b": 5,
+    "c": 6,
+    "p_midp": 0.7744140625
+   },
+   "custo_mascara_deslocada_preto": 0.006802721088435374,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.04929577464788732,
+    0.06206896551724138
+   ],
+   "custo_alvo_preto": 0.0,
+   "custo_alvo_preto_ci_by_image": [
+    -0.045454545454545456,
+    0.04617449664429519
+   ],
+   "delta_blur10": -0.02040816326530612,
+   "delta_blur10_ci_by_image": [
+    -0.05714740673339399,
+    0.014388489208633094
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 2,
+    "c": 5,
+    "p_midp": 0.2890625
+   },
+   "custo_mascara_deslocada_blur10": 0.013605442176870748,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.032679738562091505,
+    0.060810810810810814
+   ],
+   "custo_alvo_blur10": -0.006802721088435374,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.04575288130519383,
+    0.032682417229186744
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 147,
+   "acc_txt": 0.7414965986394558,
+   "acc_txt_ci_by_image": [
+    0.6710526315789473,
+    0.81120984278879
+   ],
+   "headroom": 0.061224489795918366,
+   "headroom_ci_by_image": [
+    0.0,
+    0.12594233473980299
+   ],
+   "resoluvel": false,
+   "n_m0": 147,
+   "acc_m0": 0.5918367346938775,
+   "headroom_m0": 0.2108843537414966,
+   "headroom_m0_ci_by_image": [
+    0.1111111111111111,
+    0.30434782608695654
+   ]
+  },
+  "anatomia=Right lower lung|closed_yes": {
+   "n": 40,
+   "n_imagens": 40,
+   "acc": {
+    "C0": 0.9,
+    "T": 0.85,
+    "P": 0.925,
+    "T_blur10": 0.875,
+    "P_blur10": 0.9
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.8,
+     0.9761904761904762
+    ],
+    "T": [
+     0.7272727272727273,
+     0.9523809523809523
+    ],
+    "P": [
+     0.8292508710801393,
+     1.0
+    ],
+    "T_blur10": [
+     0.7586206896551724,
+     0.9714285714285714
+    ],
+    "P_blur10": [
+     0.7906976744186046,
+     0.9767441860465116
+    ]
+   },
+   "delta_preto": 0.075,
+   "delta_preto_ci_by_image": [
+    -0.029411764705882353,
+    0.1875
+   ],
+   "mcnemar_midp_preto": {
+    "b": 4,
+    "c": 1,
+    "p_midp": 0.21874999999999997
+   },
+   "custo_mascara_deslocada_preto": -0.025,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.11631326949384405,
+    0.05715659340659333
+   ],
+   "custo_alvo_preto": 0.05,
+   "custo_alvo_preto_ci_by_image": [
+    0.0,
+    0.12822580645161277
+   ],
+   "delta_blur10": 0.025,
+   "delta_blur10_ci_by_image": [
+    -0.058823529411764705,
+    0.1111111111111111
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 2,
+    "c": 1,
+    "p_midp": 0.6250000000000001
+   },
+   "custo_mascara_deslocada_blur10": 0.0,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.07147212543554006,
+    0.07407407407407407
+   ],
+   "custo_alvo_blur10": 0.025,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.05405405405405406,
+    0.11117424242424208
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 40,
+   "acc_txt": 0.825,
+   "acc_txt_ci_by_image": [
+    0.696969696969697,
+    0.9333333333333333
+   ],
+   "headroom": 0.075,
+   "headroom_ci_by_image": [
+    -0.029411764705882353,
+    0.18425642594859215
+   ],
+   "resoluvel": false,
+   "n_m0": 40,
+   "acc_m0": 0.35,
+   "headroom_m0": 0.55,
+   "headroom_m0_ci_by_image": [
+    0.391304347826087,
+    0.7058823529411765
+   ]
+  },
+  "anatomia=Right lower lung|closed_no": {
+   "n": 63,
+   "n_imagens": 63,
+   "acc": {
+    "C0": 0.7936507936507936,
+    "T": 0.8095238095238095,
+    "P": 0.8253968253968254,
+    "T_blur10": 0.8253968253968254,
+    "P_blur10": 0.8253968253968254
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.6896551724137931,
+     0.8888888888888888
+    ],
+    "T": [
+     0.7090719696969697,
+     0.9027777777777778
+    ],
+    "P": [
+     0.7288075060532687,
+     0.9137931034482759
+    ],
+    "T_blur10": [
+     0.7246251874062969,
+     0.9122997711670479
+    ],
+    "P_blur10": [
+     0.727241594022416,
+     0.9130622188905546
+    ]
+   },
+   "delta_preto": 0.015873015873015872,
+   "delta_preto_ci_by_image": [
+    -0.03573051948051948,
+    0.07142857142857142
+   ],
+   "mcnemar_midp_preto": {
+    "b": 2,
+    "c": 1,
+    "p_midp": 0.6250000000000001
+   },
+   "custo_mascara_deslocada_preto": -0.031746031746031744,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.09725068306010928,
+    0.03076923076923077
+   ],
+   "custo_alvo_preto": -0.015873015873015872,
+   "custo_alvo_preto_ci_by_image": [
+    -0.07142857142857142,
+    0.034482758620689655
+   ],
+   "delta_blur10": 0.0,
+   "delta_blur10_ci_by_image": [
+    -0.04477611940298507,
+    0.046875
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 1,
+    "c": 1,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_blur10": -0.031746031746031744,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.08064516129032258,
+    0.0
+   ],
+   "custo_alvo_blur10": -0.031746031746031744,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.08108108108108109,
+    0.0
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 63,
+   "acc_txt": 0.7777777777777778,
+   "acc_txt_ci_by_image": [
+    0.6666666666666666,
+    0.8750480769230766
+   ],
+   "headroom": 0.015873015873015872,
+   "headroom_ci_by_image": [
+    -0.09523809523809523,
+    0.12505681818181788
+   ],
+   "resoluvel": false,
+   "n_m0": 63,
+   "acc_m0": 0.5079365079365079,
+   "headroom_m0": 0.2857142857142857,
+   "headroom_m0_ci_by_image": [
+    0.12278562259306804,
+    0.453125
+   ]
+  },
+  "anatomia=Right lower lung": {
+   "n": 103,
+   "n_imagens": 102,
+   "acc": {
+    "C0": 0.8349514563106796,
+    "T": 0.8252427184466019,
+    "P": 0.8640776699029126,
+    "T_blur10": 0.8446601941747572,
+    "P_blur10": 0.8543689320388349
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.7604145144628098,
+     0.9011160714285713
+    ],
+    "T": [
+     0.75,
+     0.8952484472049689
+    ],
+    "P": [
+     0.7951807228915663,
+     0.928587231352718
+    ],
+    "T_blur10": [
+     0.7708333333333334,
+     0.9126319121992401
+    ],
+    "P_blur10": [
+     0.7799805194805195,
+     0.9191919191919192
+    ]
+   },
+   "delta_preto": 0.038834951456310676,
+   "delta_preto_ci_by_image": [
+    -0.010526315789473684,
+    0.09375
+   ],
+   "mcnemar_midp_preto": {
+    "b": 6,
+    "c": 2,
+    "p_midp": 0.17968750000000006
+   },
+   "custo_mascara_deslocada_preto": -0.02912621359223301,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.07920792079207921,
+    0.020212433614495415
+   ],
+   "custo_alvo_preto": 0.009708737864077669,
+   "custo_alvo_preto_ci_by_image": [
+    -0.03389830508474576,
+    0.05377070619006099
+   ],
+   "delta_blur10": 0.009708737864077669,
+   "delta_blur10_ci_by_image": [
+    -0.03062013465179886,
+    0.05264322310200273
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 3,
+    "c": 2,
+    "p_midp": 0.6874999999999998
+   },
+   "custo_mascara_deslocada_blur10": -0.019417475728155338,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.05714285714285714,
+    0.01923543689320386
+   ],
+   "custo_alvo_blur10": -0.009708737864077669,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.052083333333333336,
+    0.033074101587891085
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 103,
+   "acc_txt": 0.7961165048543689,
+   "acc_txt_ci_by_image": [
+    0.7127352700490999,
+    0.8703932893289328
+   ],
+   "headroom": 0.038834951456310676,
+   "headroom_ci_by_image": [
+    -0.0380952380952381,
+    0.11766287160025292
+   ],
+   "resoluvel": false,
+   "n_m0": 103,
+   "acc_m0": 0.44660194174757284,
+   "headroom_m0": 0.3883495145631068,
+   "headroom_m0_ci_by_image": [
+    0.2650513819985826,
+    0.5092592592592593
+   ]
+  },
+  "anatomia=Right middle lung|closed_yes": {
+   "n": 74,
+   "n_imagens": 69,
+   "acc": {
+    "C0": 0.918918918918919,
+    "T": 0.9594594594594594,
+    "P": 0.9459459459459459,
+    "T_blur10": 0.9459459459459459,
+    "P_blur10": 0.9594594594594594
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.8552583905415713,
+     0.972972972972973
+    ],
+    "T": [
+     0.9104477611940298,
+     1.0
+    ],
+    "P": [
+     0.8933333333333333,
+     0.9875
+    ],
+    "T_blur10": [
+     0.8928571428571429,
+     0.9875
+    ],
+    "P_blur10": [
+     0.9113924050632911,
+     1.0
+    ]
+   },
+   "delta_preto": -0.013513513513513514,
+   "delta_preto_ci_by_image": [
+    -0.059714979320266134,
+    0.029411764705882353
+   ],
+   "mcnemar_midp_preto": {
+    "b": 1,
+    "c": 2,
+    "p_midp": 0.6250000000000001
+   },
+   "custo_mascara_deslocada_preto": -0.02702702702702703,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.09233333333333334,
+    0.0361784638554215
+   ],
+   "custo_alvo_preto": -0.04054054054054054,
+   "custo_alvo_preto_ci_by_image": [
+    -0.09090909090909091,
+    0.0
+   ],
+   "delta_blur10": 0.013513513513513514,
+   "delta_blur10_ci_by_image": [
+    -0.02899616368286445,
+    0.06098968105065658
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 2,
+    "c": 1,
+    "p_midp": 0.6250000000000001
+   },
+   "custo_mascara_deslocada_blur10": -0.04054054054054054,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.10171664493698393,
+    0.014084507042253521
+   ],
+   "custo_alvo_blur10": -0.02702702702702703,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.07042253521126761,
+    0.0
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 74,
+   "acc_txt": 0.8513513513513513,
+   "acc_txt_ci_by_image": [
+    0.7618912337662337,
+    0.9295774647887324
+   ],
+   "headroom": 0.06756756756756757,
+   "headroom_ci_by_image": [
+    -0.019230769230769232,
+    0.16666666666666666
+   ],
+   "resoluvel": false,
+   "n_m0": 74,
+   "acc_m0": 0.527027027027027,
+   "headroom_m0": 0.3918918918918919,
+   "headroom_m0_ci_by_image": [
+    0.27941176470588236,
+    0.5082036676854682
+   ]
+  },
+  "anatomia=Right middle lung|closed_no": {
+   "n": 66,
+   "n_imagens": 65,
+   "acc": {
+    "C0": 0.7878787878787878,
+    "T": 0.7272727272727273,
+    "P": 0.7424242424242424,
+    "T_blur10": 0.7424242424242424,
+    "P_blur10": 0.7727272727272727
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.6909090909090909,
+     0.8783886158886158
+    ],
+    "T": [
+     0.614006791171477,
+     0.8245614035087719
+    ],
+    "P": [
+     0.6348926894701542,
+     0.8387096774193549
+    ],
+    "T_blur10": [
+     0.6337910798122066,
+     0.8421052631578947
+    ],
+    "P_blur10": [
+     0.6666666666666666,
+     0.8679245283018868
+    ]
+   },
+   "delta_preto": 0.015151515151515152,
+   "delta_preto_ci_by_image": [
+    0.0,
+    0.05
+   ],
+   "mcnemar_midp_preto": {
+    "b": 1,
+    "c": 0,
+    "p_midp": 0.5000000000000001
+   },
+   "custo_mascara_deslocada_preto": 0.045454545454545456,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.01639344262295082,
+    0.11940298507462686
+   ],
+   "custo_alvo_preto": 0.06060606060606061,
+   "custo_alvo_preto_ci_by_image": [
+    0.013513513513513514,
+    0.12730519480519462
+   ],
+   "delta_blur10": 0.030303030303030304,
+   "delta_blur10_ci_by_image": [
+    0.0,
+    0.0784313725490196
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 2,
+    "c": 0,
+    "p_midp": 0.24999999999999997
+   },
+   "custo_mascara_deslocada_blur10": 0.015151515151515152,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.03488882088943288,
+    0.07692307692307693
+   ],
+   "custo_alvo_blur10": 0.045454545454545456,
+   "custo_alvo_blur10_ci_by_image": [
+    0.0,
+    0.10526315789473684
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 66,
+   "acc_txt": 0.7878787878787878,
+   "acc_txt_ci_by_image": [
+    0.6841938707528314,
+    0.8806159878573234
+   ],
+   "headroom": 0.0,
+   "headroom_ci_by_image": [
+    -0.09090909090909091,
+    0.09725645539906085
+   ],
+   "resoluvel": false,
+   "n_m0": 66,
+   "acc_m0": 0.3181818181818182,
+   "headroom_m0": 0.4696969696969697,
+   "headroom_m0_ci_by_image": [
+    0.30303030303030304,
+    0.6229614647647435
+   ]
+  },
+  "anatomia=Right middle lung": {
+   "n": 140,
+   "n_imagens": 126,
+   "acc": {
+    "C0": 0.8571428571428571,
+    "T": 0.85,
+    "P": 0.85,
+    "T_blur10": 0.85,
+    "P_blur10": 0.8714285714285714
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.7999675324675325,
+     0.9111224489795917
+    ],
+    "T": [
+     0.7894736842105263,
+     0.9044205182072829
+    ],
+    "P": [
+     0.790693746071653,
+     0.9050632911392406
+    ],
+    "T_blur10": [
+     0.7880649834437087,
+     0.9051846128822381
+    ],
+    "P_blur10": [
+     0.8175028271820706,
+     0.9236657394229525
+    ]
+   },
+   "delta_preto": 0.0,
+   "delta_preto_ci_by_image": [
+    -0.028169014084507043,
+    0.027600777076250527
+   ],
+   "mcnemar_midp_preto": {
+    "b": 2,
+    "c": 2,
+    "p_midp": 1.0
+   },
+   "custo_mascara_deslocada_preto": 0.007142857142857143,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.03906632965686274,
+    0.05596821877309669
+   ],
+   "custo_alvo_preto": 0.007142857142857143,
+   "custo_alvo_preto_ci_by_image": [
+    -0.029632936507936507,
+    0.04616279069767437
+   ],
+   "delta_blur10": 0.02142857142857143,
+   "delta_blur10_ci_by_image": [
+    -0.007142857142857143,
+    0.05384615384615385
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 4,
+    "c": 1,
+    "p_midp": 0.21874999999999997
+   },
+   "custo_mascara_deslocada_blur10": -0.014285714285714285,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.054274164244186046,
+    0.02400975609756092
+   ],
+   "custo_alvo_blur10": 0.007142857142857143,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.022905167351732238,
+    0.04081632653061224
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 140,
+   "acc_txt": 0.8214285714285714,
+   "acc_txt_ci_by_image": [
+    0.7559055118110236,
+    0.8814814814814815
+   ],
+   "headroom": 0.03571428571428571,
+   "headroom_ci_by_image": [
+    -0.030321852060982497,
+    0.1038987012987013
+   ],
+   "resoluvel": false,
+   "n_m0": 140,
+   "acc_m0": 0.42857142857142855,
+   "headroom_m0": 0.42857142857142855,
+   "headroom_m0_ci_by_image": [
+    0.3333333333333333,
+    0.528
+   ]
+  },
+  "anatomia=Right upper lung|closed_yes": {
+   "n": 91,
+   "n_imagens": 85,
+   "acc": {
+    "C0": 0.967032967032967,
+    "T": 0.9120879120879121,
+    "P": 0.9560439560439561,
+    "T_blur10": 0.9560439560439561,
+    "P_blur10": 0.978021978021978
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.9240506329113924,
+     1.0
+    ],
+    "T": [
+     0.8499865591397849,
+     0.9647058823529412
+    ],
+    "P": [
+     0.9071923324742268,
+     0.9901038162068634
+    ],
+    "T_blur10": [
+     0.9052631578947369,
+     0.9904761904761905
+    ],
+    "P_blur10": [
+     0.9438202247191011,
+     1.0
+    ]
+   },
+   "delta_preto": 0.04395604395604396,
+   "delta_preto_ci_by_image": [
+    0.010201504844361987,
+    0.08643317230273745
+   ],
+   "mcnemar_midp_preto": {
+    "b": 4,
+    "c": 0,
+    "p_midp": 0.06250000000000001
+   },
+   "custo_mascara_deslocada_preto": 0.01098901098901099,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.025974025974025976,
+    0.05128205128205128
+   ],
+   "custo_alvo_preto": 0.054945054945054944,
+   "custo_alvo_preto_ci_by_image": [
+    0.0,
+    0.1111111111111111
+   ],
+   "delta_blur10": 0.02197802197802198,
+   "delta_blur10_ci_by_image": [
+    0.0,
+    0.058142357191239544
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 2,
+    "c": 0,
+    "p_midp": 0.24999999999999997
+   },
+   "custo_mascara_deslocada_blur10": -0.01098901098901099,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.03810439560439561,
+    0.0
+   ],
+   "custo_alvo_blur10": 0.01098901098901099,
+   "custo_alvo_blur10_ci_by_image": [
+    -0.025649350649350647,
+    0.05102694924123492
+   ],
+   "exclui_zero_por_cima": {
+    "preto": true,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 91,
+   "acc_txt": 0.8021978021978022,
+   "acc_txt_ci_by_image": [
+    0.7196233188967404,
+    0.8777777777777778
+   ],
+   "headroom": 0.16483516483516483,
+   "headroom_ci_by_image": [
+    0.0891034103410341,
+    0.2421132376395534
+   ],
+   "resoluvel": true,
+   "n_m0": 91,
+   "acc_m0": 0.8021978021978022,
+   "headroom_m0": 0.16483516483516483,
+   "headroom_m0_ci_by_image": [
+    0.08045977011494253,
+    0.25252791068580543
+   ]
+  },
+  "anatomia=Right upper lung|closed_no": {
+   "n": 73,
+   "n_imagens": 73,
+   "acc": {
+    "C0": 0.6164383561643836,
+    "T": 0.6027397260273972,
+    "P": 0.589041095890411,
+    "T_blur10": 0.5342465753424658,
+    "P_blur10": 0.547945205479452
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.49382716049382713,
+     0.7258431085043986
+    ],
+    "T": [
+     0.4805194805194805,
+     0.7142857142857143
+    ],
+    "P": [
+     0.4666666666666667,
+     0.6986643835616436
+    ],
+    "T_blur10": [
+     0.4153846153846154,
+     0.6479239070788365
+    ],
+    "P_blur10": [
+     0.43037974683544306,
+     0.6666666666666666
+    ]
+   },
+   "delta_preto": -0.0136986301369863,
+   "delta_preto_ci_by_image": [
+    -0.075,
+    0.045454545454545456
+   ],
+   "mcnemar_midp_preto": {
+    "b": 2,
+    "c": 3,
+    "p_midp": 0.6874999999999998
+   },
+   "custo_mascara_deslocada_preto": 0.0273972602739726,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.02631578947368421,
+    0.08571428571428572
+   ],
+   "custo_alvo_preto": 0.0136986301369863,
+   "custo_alvo_preto_ci_by_image": [
+    -0.06756756756756757,
+    0.0945945945945946
+   ],
+   "delta_blur10": 0.0136986301369863,
+   "delta_blur10_ci_by_image": [
+    -0.06349206349206349,
+    0.09836642807665663
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 5,
+    "c": 4,
+    "p_midp": 0.7539062499999998
+   },
+   "custo_mascara_deslocada_blur10": 0.0684931506849315,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    0.0,
+    0.14063501602564096
+   ],
+   "custo_alvo_blur10": 0.0821917808219178,
+   "custo_alvo_blur10_ci_by_image": [
+    0.0,
+    0.16901408450704225
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 73,
+   "acc_txt": 0.6301369863013698,
+   "acc_txt_ci_by_image": [
+    0.5138706140350877,
+    0.7414162561576353
+   ],
+   "headroom": -0.0136986301369863,
+   "headroom_ci_by_image": [
+    -0.10127040909924784,
+    0.0746361940298507
+   ],
+   "resoluvel": false,
+   "n_m0": 73,
+   "acc_m0": 0.3150684931506849,
+   "headroom_m0": 0.3013698630136986,
+   "headroom_m0_ci_by_image": [
+    0.14515544647031325,
+    0.45454545454545453
+   ]
+  },
+  "anatomia=Right upper lung": {
+   "n": 164,
+   "n_imagens": 152,
+   "acc": {
+    "C0": 0.8109756097560976,
+    "T": 0.774390243902439,
+    "P": 0.7926829268292683,
+    "T_blur10": 0.7682926829268293,
+    "P_blur10": 0.7865853658536586
+   },
+   "acc_ci_by_image": {
+    "C0": [
+     0.743562874251497,
+     0.86875
+    ],
+    "T": [
+     0.7080734007344607,
+     0.8362692445399211
+    ],
+    "P": [
+     0.724829386924063,
+     0.852760736196319
+    ],
+    "T_blur10": [
+     0.7006369426751592,
+     0.8333333333333334
+    ],
+    "P_blur10": [
+     0.7191724863461366,
+     0.8494044806677691
+    ]
+   },
+   "delta_preto": 0.018292682926829267,
+   "delta_preto_ci_by_image": [
+    -0.014404716828041326,
+    0.05377070619006099
+   ],
+   "mcnemar_midp_preto": {
+    "b": 6,
+    "c": 3,
+    "p_midp": 0.34375000000000006
+   },
+   "custo_mascara_deslocada_preto": 0.018292682926829267,
+   "custo_mascara_deslocada_preto_ci_by_image": [
+    -0.012907442546911237,
+    0.051548054539408035
+   ],
+   "custo_alvo_preto": 0.036585365853658534,
+   "custo_alvo_preto_ci_by_image": [
+    -0.006996753246753247,
+    0.08427135508325435
+   ],
+   "delta_blur10": 0.018292682926829267,
+   "delta_blur10_ci_by_image": [
+    -0.018870909959398136,
+    0.059612582781456896
+   ],
+   "mcnemar_midp_blur10": {
+    "b": 7,
+    "c": 4,
+    "p_midp": 0.3876953125
+   },
+   "custo_mascara_deslocada_blur10": 0.024390243902439025,
+   "custo_mascara_deslocada_blur10_ci_by_image": [
+    -0.0073033554853469875,
+    0.06173690932311617
+   ],
+   "custo_alvo_blur10": 0.042682926829268296,
+   "custo_alvo_blur10_ci_by_image": [
+    0.005285633712029651,
+    0.08841006752608956
+   ],
+   "exclui_zero_por_cima": {
+    "preto": false,
+    "blur10": false
+   },
+   "criterio_B": false,
+   "n_txt": 164,
+   "acc_txt": 0.725609756097561,
+   "acc_txt_ci_by_image": [
+    0.6496815286624203,
+    0.79558856691848
+   ],
+   "headroom": 0.08536585365853659,
+   "headroom_ci_by_image": [
+    0.02595360614228539,
+    0.14465408805031446
+   ],
+   "resoluvel": false,
+   "n_m0": 164,
+   "acc_m0": 0.5853658536585366,
+   "headroom_m0": 0.22560975609756098,
+   "headroom_m0_ci_by_image": [
+    0.14110017704945033,
+    0.3059150326797384
+   ]
+  }
+ },
+ "holm_family": [
+  "closed_yes",
+  "closed_no"
+ ],
+ "family": "Qwen2.5-VL-7B",
+ "fam": "QWEN25VL",
+ "method": "LORA",
+ "encoder": "congelado",
+ "seed": 1,
+ "pack": "7B (rodadas 21-22)",
+ "txt_line": "QWEN25VL_LORA_TXT_HEAL_seed1",
+ "doses": {
+  "status": "faltam T1.5,P1.5,T2,P2"
+ },
+ "oclusor_negativos": {
+  "status": "ok",
+  "c0": "QWEN25VL_LORA_HEAL_seed1_C0.json",
+  "regra_afirma": "normalize_text(pred) in ('yes',)",
+  "n_itens": 735,
+  "conds": {
+   "alvo_preto": {
+    "n": 735,
+    "n_imagens": 669,
+    "taxa_afirma_intacta": 0.1727891156462585,
+    "taxa_afirma_oclusor": 0.19047619047619047,
+    "taxa_induzida": 0.017687074829931974,
+    "taxa_induzida_ci_by_image": [
+     0.002655866599825862,
+     0.035231116768149336
+    ],
+    "mcnemar_midp": {
+     "b": 26,
+     "c": 13,
+     "p_midp": 0.03847730828420025
+    },
+    "n_induzidas": 26,
+    "n_revertidas": 13,
+    "file": "QWEN25VL_LORA_HEAL_seed1_T.json",
+    "sha256": "26db0ea6d940b8ed9977654e0f4bcada26a52a9bc5b16ef96f2a68a9fe41e75c",
+    "p_holm": 0.07139560711038936
+   },
+   "mascara_deslocada_preto": {
+    "n": 735,
+    "n_imagens": 669,
+    "taxa_afirma_intacta": 0.1727891156462585,
+    "taxa_afirma_oclusor": 0.19183673469387755,
+    "taxa_induzida": 0.01904761904761905,
+    "taxa_induzida_ci_by_image": [
+     0.0013404825737265416,
+     0.037037037037037035
+    ],
+    "mcnemar_midp": {
+     "b": 29,
+     "c": 15,
+     "p_midp": 0.03569780355519468
+    },
+    "n_induzidas": 29,
+    "n_revertidas": 15,
+    "file": "QWEN25VL_LORA_HEAL_seed1_P.json",
+    "sha256": "d5fd4f0fe9783fd87ffd03fec627dddcd4fef39e09f35fc93699068fa109ed3f",
+    "p_holm": 0.07139560711038936
+   },
+   "alvo_blur10": {
+    "n": 735,
+    "n_imagens": 669,
+    "taxa_afirma_intacta": 0.1727891156462585,
+    "taxa_afirma_oclusor": 0.19047619047619047,
+    "taxa_induzida": 0.017687074829931974,
+    "taxa_induzida_ci_by_image": [
+     0.004243131637618968,
+     0.0324782134500451
+    ],
+    "mcnemar_midp": {
+     "b": 21,
+     "c": 8,
+     "p_midp": 0.016124801710247993
+    },
+    "n_induzidas": 21,
+    "n_revertidas": 8,
+    "file": "QWEN25VL_LORA_HEAL_seed1_T_blur10.json",
+    "sha256": "b374a51afbe9720815e98553815c5948cb8167dda94e59b8d51a32d34f04a074",
+    "p_holm": 0.04837440513074398
+   },
+   "mascara_deslocada_blur10": {
+    "n": 735,
+    "n_imagens": 669,
+    "taxa_afirma_intacta": 0.1727891156462585,
+    "taxa_afirma_oclusor": 0.1945578231292517,
+    "taxa_induzida": 0.021768707482993196,
+    "taxa_induzida_ci_by_image": [
+     0.007935984420153286,
+     0.03668704069552917
+    ],
+    "mcnemar_midp": {
+     "b": 24,
+     "c": 8,
+     "p_midp": 0.004551384132355452
+    },
+    "n_induzidas": 24,
+    "n_revertidas": 8,
+    "file": "QWEN25VL_LORA_HEAL_seed1_P_blur10.json",
+    "sha256": "461afce9dd9ae5529dd644547f7a6cf94af2d0505d8ad046f100630f8c983f28",
+    "p_holm": 0.018205536529421806
+   }
+  }
+ }
+}

@@ -119,6 +119,7 @@ def sham(B, base, line, c0_full, zs, inv, files):
     for k, v in hp.items(): out["conds"][k]["p_holm"] = v
     return out
 def c0_full_kvasir(line, zs):
+    if ALIAS_TESTE and line.startswith("QWEN25VL_"): return c0_full_kvasir(alias_teste(line), zs)
     if zs: return first_existing(ZS_DIRS, f"{line}_C0.json")   # reference of the occluder test: the main zero-shot intact-image run (no instruction suffix)
     for d in KV_FULL:
         p = f"{d}/{line}_C0.json"

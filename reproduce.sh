@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # CPU-only reproduction of the paper's numbers from the per-run statistics released in results/.
 #   bash reproduce.sh            regenerate the numbers sheet, the tables and the supplementary figure; compare with results/; check the tables' numbers
-#   bash reproduce.sh --kvasir   additionally recompute the Kvasir-VQA-x1 per-run statistics from the released per-item predictions (about 10 min)
+#   bash reproduce.sh --kvasir   additionally recompute the Kvasir-VQA-x1 per-run statistics (39 fine-tuned runs and 4 zero-shot models) from the released per-item predictions (about 15 min)
 # Environment: environment/environment-analysis.yml (conda) or the pinned packages in environment/requirements.txt. Run from any directory.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -32,6 +32,7 @@ done
 echo "[5/6] supplementary figure (per-run image gain and necessity effects)"
 $PY src/analysis/fig1_artigo1.py > reproduce_out/logs/fig1.log
 $PY tools/compare_figures.py results/figs reproduce_out/figs fig1_necessity_full fig_ladder
-echo "[6/6] every number in the paper tables is in the numbers sheet"
+echo "[6/6] every number in the paper tables and in the list of numbers cited by the text is in the numbers sheet"
 $PY paper/verify_numbers.py reproduce_out/tables/table_criteria.tex reproduce_out/tables/table1_necessity_slim.tex reproduce_out/tables/table2_occluder_negatives.tex --sheet reproduce_out/docs/numbers_artigo1.md
+$PY paper/make_text_numbers.py --check paper/text_numbers.md --sheet reproduce_out/docs/numbers_artigo1.md
 echo "OK: reproduction complete (outputs in reproduce_out/)"

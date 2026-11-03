@@ -70,11 +70,13 @@ def summ(recs):
                 "B_entre_resoluveis": sum(1 for b in bks if b.get("criterio_B") and (lo(b, "headroom_ci_by_image") or 0) > 0),
                 "faixas": {k: {"min": min(b[k] for b in bks if b.get(k) is not None), "max": max(b[k] for b in bks if b.get(k) is not None)} for k in QK}}
     t = [r["extra"][TPL] for r in recs]
-    s["artefato"] = {"n_por_linha": sorted({b["n"] for b in t})} | {f: {"ic_sup_menor_0": sum(1 for b in t if b[f"delta_{f}_ci_by_image"][1] < 0), "ic_inf_maior_0": sum(1 for b in t if b[f"delta_{f}_ci_by_image"][0] > 0)} for f in ("preto", "blur10", "regmean")}
+    s["artefato"] = {"n_por_linha": sorted({b["n"] for b in t})} | {f: {"ic_sup_menor_0": sum(1 for b in t if b.get(f"delta_{f}_ci_by_image") and b[f"delta_{f}_ci_by_image"][1] < 0), "ic_inf_maior_0": sum(1 for b in t if b.get(f"delta_{f}_ci_by_image") and b[f"delta_{f}_ci_by_image"][0] > 0)} for f in ("preto", "blur10", "regmean")}   # runs without the region-mean fill (Qwen2.5-VL-7B) are skipped for that fill
     return s
 full, sem = [], []; por_linha = {}
 for L in lines("KVASIR"):
-    r = json.load(open(f"{OUT}/analysis/necessity_v2/{L['line']}_KVASIR.json")); full.append(r)
+    r = json.load(open(f"{OUT}/analysis/necessity_v2/{L['line']}_KVASIR.json"))
+    if "delta_regmean_ci_by_image" not in r["extra"][TPL]: continue   # the split sensitivity analysis is defined on the runs with all three fills (the Qwen2.5-VL-7B runs have no region-mean fill)
+    full.append(r)
     r2 = AB.analyse_line(B, "KVASIR", L["line"], r["files"], r["txt_file"], G2, X2, fam, M0v); sem.append(r2)
     por_linha[L["line"]] = {c: {k: r2["by_class"][c].get(k) for k in ["n", "acc", "headroom", "headroom_ci_by_image", "delta_preto", "delta_preto_ci_by_image", "delta_blur10", "delta_blur10_ci_by_image",
                                                                         "custo_alvo_preto", "custo_alvo_preto_ci_by_image", "custo_mascara_deslocada_preto", "custo_mascara_deslocada_blur10", "suficiencia_preto", "criterio_B"]} for c in CL} | {"artefato": {k: v for k, v in r2["extra"][TPL].items() if k.startswith(("n", "delta_"))}}

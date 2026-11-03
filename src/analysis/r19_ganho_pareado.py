@@ -12,6 +12,7 @@ T0 = time.time(); NV2 = f"{OUT}/analysis/necessity_v2"; TKD = NOIMG_DORA_DIRS
 TCL = {"KVASIR": ["dependent_polyp", "dependent_instrument", "negative_control"], "HEAL": ["closed_yes", "closed_no"], "MIMIC": ["closed_yes", "closed_no"]}
 def lo(c): return c[0] if c else None
 def base_txt(b, L):
+    if L["method"] == "DORA" and L["fam"] == "QWEN25VL": return first_existing(TKD, f"QWEN25VL_DORA_TXT_{b}_seed{L['seed']}_TXT.json"), "DoRA 7B (rodada 21)"
     if L["method"] == "DORA": return first_existing(TKD, f"{L['fam']}_DORA_TXT_{b}_seed{L['seed']}_TXT.json"), "DoRA (rodada 17)"
     return txt_file(b, L["fam"], L["seed"]), ("imagem cinza" if L["fam"] == "M3AE" else "LoRA")
 R14 = json.load(open(f"{OUT}/analysis/rodada14.json"))["por_linha"]; R15 = json.load(open(f"{OUT}/analysis/rodada15.json"))["por_linha"]
