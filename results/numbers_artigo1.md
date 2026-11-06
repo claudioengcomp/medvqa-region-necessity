@@ -1,15 +1,15 @@
 # Folha de numeros -- artigo 1 (teste de necessidade da regiao com controle de posicao) -- rodada 1
 
-Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha256 39988e2073b3). Um numero por linha; fonte e sha256 abaixo. Acuracia em %, diferencas em pp (uma casa), razoes com tres casas; IC 95 % por bootstrap por imagem (2 000 replicas, semente 20260913, replicas fixas por base). Media (DP) entre as 3 sementes (condicional aos tres modelos). Delta = Acc(mascara deslocada) - Acc(alvo ocluido); headroom = Acc(intacta) - Acc(text-decoder-only da mesma familia e semente); criterio B = IC de Delta exclui zero por cima sob preto E sob blur 10 %. HEAL e Medical-Diff-VQA: so perguntas fechadas no corpo (abertas do MIMIC so no JSON); Kvasir-VQA-x1: as classes do inventario (polipo, instrumento, controle negativo, polipo secundario; abertas e fechadas, como na folha de 01/10). Bases: Kvasir-VQA-x1, HEAL-MedVQA, Medical-Diff-VQA (SLAKE so na S11).
+Gerada 2026-11-06 09:04:51 por v7_artigo1/scripts/make_numbers_artigo1.py (sha256 e3859fb40f6f). Um numero por linha; fonte e sha256 abaixo. Acuracia em %, diferencas em pp (uma casa), razoes com tres casas; IC 95 % por bootstrap por imagem (2 000 replicas, semente 20260913, replicas fixas por base). Media (DP) entre as 3 sementes (condicional aos tres modelos). Delta = Acc(mascara deslocada) - Acc(alvo ocluido); headroom = Acc(intacta) - Acc(text-decoder-only da mesma familia e semente); criterio B = IC de Delta exclui zero por cima sob preto E sob blur 10 %. HEAL e Medical-Diff-VQA: so perguntas fechadas no corpo (abertas do MIMIC so no JSON); Kvasir-VQA-x1: as classes do inventario (polipo, instrumento, controle negativo, polipo secundario; abertas e fechadas, como na folha de 01/10). Bases: Kvasir-VQA-x1, HEAL-MedVQA, Medical-Diff-VQA (SLAKE so na S11).
 
 ## S1. Contagens (resumo e introducao)
 
 - **linhas afinadas por base / total** — `39 / 117 (3 bases)`  
-  <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
-- **familias / sementes** — `3 (Qwen2-VL-2B, SmolVLM2-2.2B, M3AE) / 3 (0, 1, 2)`  
-  <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
+  <sub>src/analysis/common.py (run list, lines()) · sha256 cde43081d80c</sub>
+- **familias / sementes** — `4 (Qwen2-VL-2B, SmolVLM2-2.2B, M3AE, Qwen2.5-VL-7B) / 3 (0, 1, 2)`  
+  <sub>src/analysis/common.py (run list, lines()) · sha256 cde43081d80c</sub>
 - **linhas por base: Qwen2-VL (LoRA, DoRA) x (encoder congelado, afinado) x 3; SmolVLM2 idem; M3AE ajuste completo x 3; Qwen2.5-VL-7B idem (rodada 24)** — `12 + 12 + 3 + 12 = 39`  
-  <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
+  <sub>src/analysis/common.py (run list, lines()) · sha256 cde43081d80c</sub>
 - **Kvasir-VQA-x1: perguntas avaliaveis (polipo / instrumento / controle negativo / polipo secundario)** — `2121 (943 / 314 / 728 / 136)`  
   <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
 - **Kvasir-VQA-x1: unidades imagem x alvo (polipo / instrumento) / imagens de teste com mascara / imagens de teste** — `243 (136 / 107) / 303 / 1291`  
@@ -19,7 +19,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 - **Medical-Diff-VQA: avaliaveis / perguntas do subconjunto de teste (inventario v2)** — `1985 / 3000`  
   <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
 - **Medical-Diff-VQA: fechadas-sim / fechadas-nao (alinhadas) / negativas do oclusor / abertas** — `443 / 67 / 391 / 1084`  
-  <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
+  <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb ; v7_artigo1/analysis/criterio.json · sha256 14ecaae03c60 ; v7_artigo1/analysis/headroom.json · sha256 c8a64d9e3e7b</sub>
 - **Medical-Diff-VQA: fechadas-sim so com mapeamento exato de entidade** — `430`  
   <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
 - **criterio B sem condicao de headroom, Kvasir-VQA-x1, polipo (linhas necessarias / linhas)** — `35/39`  
@@ -1406,7 +1406,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 - **Kvasir-VQA-x1, artefact-box template, Δ blur 4 %, 15 linhas de 01/10 (as 12 de encoder invertido não têm predições sob blur 4 %): linhas com limite superior do IC < 0 / com limite inferior do IC > 0; mínimo – máximo (pp)** — `5/15 / 0/15; -4.5 – +0.4`  
   <sub>v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
 - **Kvasir-VQA-x1, artefact-box template, folha de 01/10 (15 linhas, IC por pergunta): IC exclui zero sob preto / blur 4 % / blur 10 % / cor média** — `12/15 / 5/15 / 11/15 / 10/15`  
-  <sub>results/previous_sheets/numbers_isbi.md · sha256 </sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; results/previous_sheets/numbers_isbi.md · sha256 </sub>
 
 ## S4. HEAL-MedVQA
 
@@ -3959,15 +3959,15 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 - **Holm por linha, familia de classes, Medical-Diff-VQA** — `closed_yes, closed_no, entidade=pleural effusion, entidade=atelectasis, entidade=lung opacity, entidade=cardiomegaly, entidade=edema, entidade=vascular congestion`  
   <sub>v7_artigo1/analysis/bases_raw.json · sha256 0346a6662386</sub>
 - **regra de resolubilidade (headroom legivel)** — `limite inferior do IC 95 % por imagem do headroom (Acc intacta - text-only arm da mesma familia e semente; zero-shot: com imagem - sem imagem) > 0; sem limiar de 0,10 (a rodada 1 usou tambem headroom >= 0,10; as duas versoes estao em criterio.json)`  
-  <sub>v7_artigo1/analysis/criterio.json · sha256 14ecaae03c60</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/criterio.json · sha256 14ecaae03c60</sub>
 - **independencia das linhas** — `as 39 linhas por base sao 3 sementes x 13 configuracoes (familia x adaptador x encoder) e nao sao independentes; as proporcoes necessarias / resoluveis / linhas sao descritivas, sem IC`  
-  <sub>v7_artigo1/analysis/criterio.json · sha256 14ecaae03c60</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; src/analysis/common.py (run list, lines()) · sha256 cde43081d80c</sub>
 - **artefact-box template (Kvasir-VQA-x1): estatística** — `IC 95 % por imagem (réplicas fixas da base Kvasir) nas 39 linhas, sob preto, blur 10 % e cor média; blur 4 % = sigma fixo de 25 px (sigma / largura mediana 0.040 no Kvasir), predições só nas 15 linhas de 01/10; a folha de 01/10 usava IC por pergunta`  
   <sub>v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
 - **image gain against the question-only classifier (TF-IDF)** — `Acc(intacta) - Acc(TF-IDF) nos mesmos itens, IC por imagem; Medical-Diff-VQA: TF-IDF do subconjunto nas fechadas (piso composto); ilustração apenas, não muda contagem nenhuma (a escada com TF-IDF fica só interna)`  
-  <sub>v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
 - **McNemar** — `mid-p exato (binomial, meio peso no observado) nos discordantes entre mascara deslocada e alvo ocluido (shamstats.mcnemar_midp)`  
-  <sub>v7_artigo1/analysis/bases_raw.json · sha256 0346a6662386</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/bases_raw.json · sha256 0346a6662386</sub>
 - **Kvasir: ordem do posicionamento da mascara deslocada** — `hflip, vflip, rot180, ate 50 translacoes aleatorias (semente 20260913); margem (dilatacao do alvo) 5 px; >= 80 % no campo de visao; area maxima 40 % do campo de visao`  
   <sub>v7_artigo1/analysis/fatos_metodo.json · sha256 c1e8a24a0153</sub>
 - **Kvasir: metodo por unidade (imagem x alvo)** — `{"translate": 60, "hflip": 112, "rot180": 31, "vflip": 40}`  
@@ -4036,13 +4036,13 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 - **Medical-Diff-VQA: as regioes-folha do Chest ImaGenome cobrem o torax inteiro; qualquer caixa deslocada toca outra regiao por construcao** — `1656 de 1657 unidades`  
   <sub>v7_artigo1/analysis/placebo_geometry_mimic.json · sha256 1bb1a954d4f5</sub>
 - **natureza do alvo por base** — `Kvasir-VQA-x1: mascara binaria de segmentacao (Kvasir-SEG / Kvasir-Instrument, harness/isbi_placebo/inventory_kvasir.py, masks.binarize_mask); HEAL-MedVQA: mascara de segmentacao em RLE (harness/isbi_placebo/heal/heal_rle.py, decode_rle); Medical-Diff-VQA: caixa anatomica (bounding box) do Chest ImaGenome (v7_mimic/scripts/16_inventory_mimic.py, box_mask) -- a mascara deslocada no Medical-Diff-VQA tambem e caixa`  
-  <sub>v7_artigo1/analysis/fatos_metodo.json · sha256 c1e8a24a0153</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/fatos_metodo.json · sha256 c1e8a24a0153</sub>
 - **adapter original de QWEN2VL_DORA_HEAL_seed2 no Drive (rclone lsf, sem download)** — `nao encontrado em gdrive:Pesquisa/doutorado/ (outputs_models tem qwen2vl_dora_heal_seed0 e seed1) nem em gdrive:doutorado/pesquisa/P0_ICDIP/checkpoints_backup/ (log v7_artigo1/logs/rclone_lsf_dora_heal_seed2.txt)`  
-  <sub>results/logs/rclone_lsf_dora_heal_seed2.txt · sha256 </sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; results/logs/rclone_lsf_dora_heal_seed2.txt · sha256 </sub>
 - **predicoes sem sha de checkpoint recuperavel** — `13 (QWEN2VL_DORA_HEAL_seed2: adapter original ausente na gpu1)`  
   <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
 - **suficiencia sob blur 10 % e cor media** — `so no Medical-Diff-VQA; Kvasir e HEAL nao tem S_blur10/S_regmean (54 linhas); suficiencia so sob preto`  
-  <sub>v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/inventario_linhas.json · sha256 c1b7e95185eb</sub>
 - **composicao de lote** — `sem fonte localizada na gpu1`  
   <sub>v7_artigo1/analysis/fatos_metodo.json · sha256 c1e8a24a0153</sub>
 - **Medical-Diff-VQA: 473 / 443 fechadas-sim** — `473 (e 2 152 avaliaveis) = inventario v1 (11/10, regiao mais fina, placebo por bloco); 443 (e 1 985) = inventario v2 (12/10, placebo por caixa, decisao do candidato apos a galeria). As predicoes T/P/S existentes foram geradas sobre os arrows v2 (sha no manifesto de condicoes). 430 = v2 so exatas.`  
@@ -4071,7 +4071,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 - **perguntas retiradas por classe (polipo / instrumento / controle negativo / polipo secundario / 'Is there text?' / artefact-box template)** — `0 / 6 / 6 / 0 / 2 / 2`  
   <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
 - **regra** — `mesmo engine e mesma matriz de replicas (2 000, semente 20260913, todas as imagens do inventario); so os qids das 2 imagens saem; nada re-inferido`  
-  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
 - **sem as 2 unidades, Kvasir-VQA-x1, instrumento: n perguntas por linha (completo: 314)** — `308`  
   <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
 - **sem as 2 unidades, Kvasir-VQA-x1, instrumento: image gain above the text-only arm, mínimo – máximo entre as 27 linhas (pp) (completo: +68.2 – +77.1)** — `+68.2 – +76.9`  
@@ -4101,17 +4101,17 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 - **sem as 2 unidades, Kvasir-VQA-x1, controle negativo (3 templates): suficiência (preto), mínimo – máximo entre as 27 linhas (razão) (completo: 0.543 – 0.776)** — `0.541 – 0.777`  
   <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
 - **sem as 2 unidades, Kvasir-VQA-x1, artefact-box template, Δ preto, 39 linhas: linhas com limite superior do IC < 0 / com limite inferior do IC > 0 (folha completa: 29/27 / 0/27)** — `17/27 / 0/27`  
-  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
+  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c ; v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
 - **sem as 2 unidades, Kvasir-VQA-x1, artefact-box template, Δ blur 10 %, 39 linhas: linhas com limite superior do IC < 0 / com limite inferior do IC > 0 (folha completa: 20/27 / 0/27)** — `13/27 / 0/27`  
-  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
+  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c ; v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
 - **sem as 2 unidades, Kvasir-VQA-x1, artefact-box template, Δ blur 10 %, 15 linhas de 01/10: linhas com limite superior do IC < 0 / com limite inferior do IC > 0 (folha completa: 12/15 / 0/15)** — `10/15 / 0/15`  
-  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
+  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c ; v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
 - **sem as 2 unidades, Kvasir-VQA-x1, artefact-box template, Δ cor média, 39 linhas: linhas com limite superior do IC < 0 / com limite inferior do IC > 0 (folha completa: 13/27 / 1/27)** — `12/27 / 1/27`  
-  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
+  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c ; v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
 - **sem as 2 unidades, Kvasir-VQA-x1, artefact-box template, Δ cor média, 15 linhas de 01/10: linhas com limite superior do IC < 0 / com limite inferior do IC > 0 (folha completa: 10/15 / 0/15)** — `9/15 / 0/15`  
-  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
+  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c ; v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
 - **sem as 2 unidades: quantidades que nao mudam no valor impresso** — `escada e resoluveis/necessarias de polipo; polipo: image gain above the text-only arm; polipo: custo do controle pareado, preto; polipo: custo do controle pareado, blur 10 %; polipo: Δ preto; polipo: Δ blur 10 %; polipo: suficiência (preto); escada e resoluveis/necessarias de instrumento; escada e resoluveis/necessarias de controle negativo (3 templates); artefact-box template, Δ preto, 15 linhas de 01/10: 12/15 / 0/15`  
-  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c</sub>
+  <sub>v7_artigo1/analysis/split_kvasir.json · sha256 310c5eed567c ; v7_artigo1/analysis/rodada3.json · sha256 ea0a31717f58</sub>
 
 ## S12. Verificacoes adicionais (rodada 8)
 
@@ -4211,7 +4211,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 ## S13. Holm por familia da Tabela 1 e variante com queda bruta (rodada 9)
 
 - **Holm, familias (rodada 9)** — `familia da Tabela 1: Kvasir-VQA-x1 {polipo, instrumento, controle negativo}; HEAL-MedVQA {sim, nao}; Medical-Diff-VQA {sim, nao}. Familia da rodada 8: Kvasir-VQA-x1 {polipo, instrumento, 'Is there text?'} (controle negativo com ele no lugar de 'Is there text?'); HEAL-MedVQA {sim, nao}; Medical-Diff-VQA {sim, nao e as 6 entidades} (8 testes). Mesmos p unilaterais bootstrap; passa se p ajustado < 0,025`  
-  <sub>v7_artigo1/analysis/holm_familias.json · sha256 57b5de9ff1aa</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/holm_familias.json · sha256 57b5de9ff1aa</sub>
 - **Kvasir-VQA-x1, polipo, afinados: L0 / L1 / L2 / L3 com Holm, familia da Tabela 1** — `39 / 39 / 34 / 34 de 39`  
   <sub>v7_artigo1/analysis/holm_familias.json · sha256 57b5de9ff1aa</sub>
 - **Kvasir-VQA-x1, polipo, afinados: L0 / L1 / L2 / L3 com Holm, familia da rodada 8** — `39 / 39 / 34 / 34 de 39`  
@@ -4603,7 +4603,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 ## S17. Escala do blur e queda bruta sob blur (rodada 13)
 
 - **mascara do alvo nos itens 1-2 (regra)** — `uniao dos pixels alterados pelo preto, pelo blur 10 % ou pelo blur 4 % em relacao a imagem intacta; alteracao = media absoluta, na escala 0-255, da media dos canais dentro da mascara`  
-  <sub>v7_artigo1/analysis/rodada13.json · sha256 614776c7a592</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/rodada13.json · sha256 614776c7a592</sub>
 - **Kvasir-VQA-x1: pares imagem-alvo medidos** — `243`  
   <sub>v7_artigo1/analysis/rodada13.json · sha256 614776c7a592</sub>
 - **Kvasir-VQA-x1: alteracao media dentro do alvo, preto / blur 10 % / blur 4 % (0-255; mediana [IQR])** — `128.3 [74.0, 159.5] / 26.9 [20.4, 42.7] / 15.3 [12.3, 20.8]`  
@@ -4676,7 +4676,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 ## S18. Declaracao final com queda bruta sob preto e sob blur 10 % (rodada 14)
 
 - **declaracao final (regra, decisao A do Claudio, 22/10/2026)** — `declarado = Delta preto e Delta blur 10 % (IC > 0), image gain (IC > 0) e queda bruta sob preto e sob blur 10 % (IC > 0); recalculada a partir das predicoes (mesmas replicas); IC 95 % por imagem`  
-  <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
+  <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8 ; src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f</sub>
 - **recalculo a partir das predicoes: intervalos iguais aos de analysis/necessity_v2 / diferentes** — `2795 / 0`  
   <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Kvasir-VQA-x1, polipo, afinados: declarados pela regra final (L3, queda bruta sob preto e sob blur 10 %) / linhas** — `34 / 39`  
@@ -4887,7 +4887,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 ## S19. Regra final com blur 4 % (rodada 15)
 
 - **regra final com blur 4 % (regra)** — `regra final com blur 4 %: Delta preto, Delta blur 4 %, image gain, queda bruta sob preto e queda bruta sob blur 4 %, todos com IC > 0; mesmas replicas; HEAL-MedVQA sem QWEN2VL_DORA_HEAL_seed2 (adapter do retreino); zero-shot sem predicoes sob blur 4 %`  
-  <sub>v7_artigo1/analysis/rodada15.json · sha256 de2a60d284fd</sub>
+  <sub>v7_artigo1/analysis/rodada15.json · sha256 de2a60d284fd ; src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f</sub>
 - **Kvasir-VQA-x1, polipo: declarados pela regra final com blur 4 % / declarados com blur 4 % e queda bruta so sob preto (S14) / runs** — `10 / 14 / 39`  
   <sub>v7_artigo1/analysis/rodada15.json · sha256 de2a60d284fd</sub>
 - **Kvasir-VQA-x1, polipo, QWEN2VL_LORA_KVASIR_seed0: sai da regra final com blur 4 % so pela queda bruta sob blur 4 %: Acc(C0) - Acc(T blur 4 %) [IC] (pp)** — `+2.4 [+0.0, +4.7]`  
@@ -4916,7 +4916,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 ## S20. Holm como teste de intersecao-uniao (rodada 16)
 
 - **procedimento das rodadas 8, 9 e 14 (Holm por condicao)** — `para cada run e cada condicao separadamente, os p unilaterais bootstrap das classes da familia foram ajustados por Holm; o run foi declarado se todas as condicoes passaram com p ajustado < 0,025 (Holm por condicao, depois a conjuncao); nao era IUT`  
-  <sub>v7_artigo1/analysis/rodada16.json · sha256 0e89480b11ac</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/rodada16.json · sha256 0e89480b11ac</sub>
 - **IUT (regra)** — `IUT: p do run = maximo dos cinco p unilaterais; Holm por run sobre as classes da Tabela 1 do benchmark; declarado se p ajustado < 0,025`  
   <sub>v7_artigo1/analysis/rodada16.json · sha256 0e89480b11ac</sub>
 - **Kvasir-VQA-x1, polipo, afinados: declarados pela regra final com IUT e Holm / com Holm por condicao (rodada 14) / sem Holm / runs** — `32 / 33 / 34 / 39`  
@@ -4950,7 +4950,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 - **runs cuja declaracao muda entre IUT com Holm e Holm por condicao** — `1`  
   <sub>v7_artigo1/analysis/rodada16.json · sha256 0e89480b11ac</sub>
 - **alteracao de pixels dentro do alvo (definicao, rodada 13)** — `por par imagem-alvo, media, sobre os pixels da mascara-alvo, da diferenca absoluta entre a imagem intacta e a preenchida, na escala 0-255, com a media dos tres canais; mediana [IQR] entre os pares; mascara = uniao dos pixels alterados pelo preto, pelo blur 10 % ou pelo blur 4 %`  
-  <sub>v7_artigo1/analysis/rodada13.json · sha256 614776c7a592</sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; v7_artigo1/analysis/rodada13.json · sha256 614776c7a592</sub>
 
 ## S21. Baseline sem imagem com DoRA (rodada 17; base do baseline pareado, ver S22)
 
@@ -5032,7 +5032,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 ## S22. Ganho de imagem com baseline sem imagem do mesmo adaptador (rodada 19)
 
 - **ganho de imagem pareado (regra, decisao do Claudio de 22/10/2026)** — `G pareado: runs LoRA -> baseline LoRA; runs DoRA -> baseline DoRA (rodada 17); M3AE -> imagem cinza; IC 95 % por imagem, p unilateral bootstrap; oclusoes, C, Delta_nec, replicas e normalizacao inalterados`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f</sub>
 - **Kvasir-VQA-x1, polipo: criterios (i) / (ii) / (iii) / (iv) / (v), ganho pareado (linhas de 39)** — `39 / 39 / 35 / 35 / 34`  
   <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
 - **Kvasir-VQA-x1, polipo: ganho de imagem pareado, minimo – maximo entre as 39 linhas (pp); linhas com ganho significativo** — `+29.3 – +38.3; 39/39`  
@@ -5153,7 +5153,7 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 ## S23. Baseline sem imagem do M3AE: M3AE sem imagem (rodada 20)
 
 - **ganho de imagem (regra, decisao do Claudio de 23/10/2026)** — `G = A_int - A_text; LoRA -> baseline LoRA; DoRA -> baseline DoRA (rodada 17); M3AE -> M3AE sem imagem (variante sem caminho de imagem); IC 95 % por imagem, p unilateral bootstrap; oclusoes, C, Delta_nec, replicas e normalizacao inalterados`  
-  <sub>v7_artigo1/analysis/rodada20.json · sha256 b37f64709144</sub>
+  <sub>v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f</sub>
 - **predicoes do M3AE sem imagem, KVASIR|seed0: sha256** — `c3546b51566a6925`  
   <sub>v7_artigo1/analysis/rodada20.json · sha256 b37f64709144</sub>
 - **predicoes do M3AE sem imagem, KVASIR|seed1: sha256** — `14f77b962eaa555e`  
@@ -5350,45 +5350,45 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 ## S24. Criterios (i)-(v) por subconjunto com o 7B (39 linhas afinadas por base) e zero-shot (rodada 24)
 
 - **Tabela 1, Kvasir-VQA-x1, polipo, afinados: (i) / (ii) / (iii) / (iv) / (v) (de 39 linhas; G pareado)** — `39 / 39 / 35 / 35 / 34`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Kvasir-VQA-x1, polipo, afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de 39)** — `32 / 39`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Kvasir-VQA-x1, polipo, zero-shot (3 modelos, sem LLaVA-Med): (i) / (ii) / (iii) / (iv) / (v); com ganho significativo** — `2 / 2 / 2 / 2 / 2; 3`  
   <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Kvasir-VQA-x1, instrumento, afinados: (i) / (ii) / (iii) / (iv) / (v) (de 39 linhas; G pareado)** — `39 / 38 / 37 / 37 / 37`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Kvasir-VQA-x1, instrumento, afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de 39)** — `37 / 39`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Kvasir-VQA-x1, instrumento, zero-shot (3 modelos, sem LLaVA-Med): (i) / (ii) / (iii) / (iv) / (v); com ganho significativo** — `2 / 2 / 2 / 2 / 2; 2`  
   <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Kvasir-VQA-x1, controle negativo (3 templates), afinados: (i) / (ii) / (iii) / (iv) / (v) (de 39 linhas; G pareado)** — `37 / 0 / 0 / 0 / 0`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Kvasir-VQA-x1, controle negativo (3 templates), afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de 39)** — `0 / 39`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Kvasir-VQA-x1, controle negativo (3 templates), zero-shot (3 modelos, sem LLaVA-Med): (i) / (ii) / (iii) / (iv) / (v); com ganho significativo** — `2 / 0 / 0 / 0 / 0; 2`  
   <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, HEAL-MedVQA, fechada-sim, afinados: (i) / (ii) / (iii) / (iv) / (v) (de 39 linhas; G pareado)** — `0 / 4 / 1 / 1 / 0`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, HEAL-MedVQA, fechada-sim, afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de 39)** — `0 / 34`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, HEAL-MedVQA, fechada-sim, zero-shot (4 modelos): (i) / (ii) / (iii) / (iv) / (v); com ganho significativo** — `0 / 0 / 0 / 0 / 0; 0`  
   <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, HEAL-MedVQA, fechada-nao, afinados: (i) / (ii) / (iii) / (iv) / (v) (de 39 linhas; G pareado)** — `38 / 0 / 0 / 0 / 0`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, HEAL-MedVQA, fechada-nao, afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de 39)** — `0 / 31`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, HEAL-MedVQA, fechada-nao, zero-shot (4 modelos): (i) / (ii) / (iii) / (iv) / (v); com ganho significativo** — `3 / 2 / 1 / 1 / 1; 4`  
   <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Medical-Diff-VQA, fechada-sim, afinados: (i) / (ii) / (iii) / (iv) / (v) (de 39 linhas; G pareado)** — `24 / 26 / 20 / 20 / 14`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Medical-Diff-VQA, fechada-sim, afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de 39)** — `11 / 37`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Medical-Diff-VQA, fechada-sim, zero-shot (4 modelos): (i) / (ii) / (iii) / (iv) / (v); com ganho significativo** — `4 / 4 / 4 / 2 / 2; 2`  
   <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Medical-Diff-VQA, fechada-nao, afinados: (i) / (ii) / (iii) / (iv) / (v) (de 39 linhas; G pareado)** — `0 / 0 / 0 / 0 / 0`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Medical-Diff-VQA, fechada-nao, afinados: (v) com IUT e Holm dentro da linha / linhas com ganho significativo (de 39)** — `0 / 1`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **Tabela 1, Medical-Diff-VQA, fechada-nao, zero-shot (4 modelos): (i) / (ii) / (iii) / (iv) / (v); com ganho significativo** — `0 / 2 / 1 / 1 / 0; 1`  
   <sub>v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 
@@ -5397,13 +5397,13 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 - **Kvasir-VQA-x1, polipo, Qwen2.5-VL-7B (12 linhas): Delta blur 4 % significativo / queda blur 4 % significativa / declarados (v) blur 4 %** — `1 / 2 / 1`  
   <sub>v7_artigo1/analysis/rodada15.json · sha256 de2a60d284fd</sub>
 - **HEAL-MedVQA, fechada-sim, QWEN25VL_LORA_VT_HEAL_seed0: queda alvo preto [IC] / queda alvo blur 10 % [IC] / custo mascara deslocada preto [IC] / Delta preto [IC] / Delta blur 10 % [IC] (pp)** — `+1.13 [+0.00, +2.27] / +0.14 [-0.71, +1.02] / -0.84 [-1.98, +0.15] / +1.97 [+0.72, +3.27] / +0.98 [+0.14, +1.90]`  
-  <sub>v7_artigo1/analysis/necessity_v2/QWEN25VL_LORA_VT_HEAL_seed0_HEAL.json · sha256 82d0fd6d45ee</sub>
+  <sub>v7_artigo1/analysis/necessity_v2/QWEN25VL_LORA_VT_HEAL_seed0_HEAL.json · sha256 82d0fd6d45ee ; v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8</sub>
 - **HEAL-MedVQA, fechada-sim: acurácia intacta, minimo – maximo entre as 39 linhas (%)** — `85.5 – 97.0`  
   <sub>v7_artigo1/analysis/necessity_v2/*_HEAL.json (39 linhas) · sha256 a174be4d59be</sub>
 - **Medical-Diff-VQA, fechada-sim, ganho pareado: removidos pela condicao de queda com C < 0 / total removidos pela queda** — `5 / 6`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8 ; v7_artigo1/analysis/necessity_v2/SMOLVLM_LORA_FT_MIMIC_seed0_MIMIC.json · sha256 4a8462d3cc5b ; v7_artigo1/analysis/necessity_v2/QWEN2VL_DORA_VT_MIMIC_seed0_MIMIC.json · sha256 d6076443d41d ; v7_artigo1/analysis/necessity_v2/SMOLVLM_LORA_MIMIC_seed1_MIMIC.json · sha256 b17be1f81f15 ; v7_artigo1/analysis/necessity_v2/SMOLVLM_LORA_FT_MIMIC_seed2_MIMIC.json · sha256 dd674e7e3c65 ; v7_artigo1/analysis/necessity_v2/QWEN25VL_LORA_VT_MIMIC_seed0_MIMIC.json · sha256 b53dae7e8a1e ; v7_artigo1/analysis/necessity_v2/QWEN25VL_DORA_VT_MIMIC_seed1_MIMIC.json · sha256 d6a43f4cc5cd</sub>
 - **Medical-Diff-VQA, fechada-sim, ganho pareado: runs removidos pela condicao de queda (C preto; queda preto [IC]; queda blur 10 % [IC]) (pp)** — `SMOLVLM_LORA_FT_MIMIC_seed0 (C -1.13; +2.26 [-0.22, +4.76]; +2.71 [+0.44, +5.17]); QWEN2VL_DORA_VT_MIMIC_seed0 (C -1.13; +0.90 [-0.47, +2.28]; +0.68 [-0.85, +2.16]); SMOLVLM_LORA_MIMIC_seed1 (C +0.45; +3.16 [+0.92, +5.42]; +1.81 [-0.22, +3.81]); SMOLVLM_LORA_FT_MIMIC_seed2 (C -0.23; +2.48 [+0.00, +5.09]; +2.93 [+0.43, +5.38]); QWEN25VL_LORA_VT_MIMIC_seed0 (C -3.16; +0.68 [-0.77, +2.23]; +1.13 [+0.00, +2.40]); QWEN25VL_DORA_VT_MIMIC_seed1 (C -2.48; +1.58 [-0.48, +3.72]; +2.71 [+0.68, +4.68])`  
-  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d</sub>
+  <sub>v7_artigo1/analysis/rodada19.json · sha256 79487ecf109d ; v7_artigo1/analysis/rodada20.json · sha256 b37f64709144 ; v7_artigo1/analysis/rodada14.json · sha256 7b9d62b378d8 ; v7_artigo1/analysis/necessity_v2/SMOLVLM_LORA_FT_MIMIC_seed0_MIMIC.json · sha256 4a8462d3cc5b ; v7_artigo1/analysis/necessity_v2/QWEN2VL_DORA_VT_MIMIC_seed0_MIMIC.json · sha256 d6076443d41d ; v7_artigo1/analysis/necessity_v2/SMOLVLM_LORA_MIMIC_seed1_MIMIC.json · sha256 b17be1f81f15 ; v7_artigo1/analysis/necessity_v2/SMOLVLM_LORA_FT_MIMIC_seed2_MIMIC.json · sha256 dd674e7e3c65 ; v7_artigo1/analysis/necessity_v2/QWEN25VL_LORA_VT_MIMIC_seed0_MIMIC.json · sha256 b53dae7e8a1e ; v7_artigo1/analysis/necessity_v2/QWEN25VL_DORA_VT_MIMIC_seed1_MIMIC.json · sha256 d6a43f4cc5cd</sub>
 
 ## S11. Suplemento interno (nao vai ao corpo)
 
@@ -5434,6 +5434,6 @@ Gerada 2026-11-03 05:33:10 por v7_artigo1/scripts/make_numbers_artigo1.py (sha25
 - **doses, HEAL-MedVQA, QWEN2VL_DORA_HEAL_seed2 (fora das medias), fechada-nao: Delta 1x / 1,5x / 2x [IC] (pp)** — `+0.6 [-1.1, +2.3] / -0.6 [-2.5, +1.2] / -4.7 [-7.0, -2.5]`  
   <sub>v7_artigo1/analysis/doses.json · sha256 087b23611ca2</sub>
 - **SLAKE (fora do artigo): criterio antigo nas fechadas (E8), doenca / orgao** — `0/16 / 0/16 (folha antiga; nao recomputado nesta rodada)`  
-  <sub>results/previous_sheets/numbers_isbi.md · sha256 </sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; results/previous_sheets/numbers_isbi.md · sha256 </sub>
 - **Delta normalizado (so suplemento)** — `existe em v7_txt/docs/numbers_own_floor.md e v7_mimic/docs/numbers_placebo_mimic.md; nao reproduzido aqui`  
-  <sub>results/previous_sheets/numbers_own_floor.md · sha256 </sub>
+  <sub>src/analysis/make_numbers_artigo1.py (text written in the generator) · sha256 e3859fb40f6f ; results/previous_sheets/numbers_own_floor.md · sha256 </sub>

@@ -2,7 +2,7 @@
 output root in the file citations (the regenerated sheet cites reproduce_out/, the published one results/).
 Usage: compare_sheet.py <published> <regenerated>"""
 import re, sys
-def norm(p): return [re.sub(r"^Gerada \S+ \S+ por", "Gerada <time> por", l).replace("<sub>reproduce_out/", "<sub>results/") for l in open(p).read().splitlines()]
+def norm(p): return [re.sub(r"^Gerada \S+ \S+ por", "Gerada <time> por", l).replace("<sub>reproduce_out/", "<sub>results/").replace(" ; reproduce_out/", " ; results/") for l in open(p).read().splitlines()]
 a, b = norm(sys.argv[1]), norm(sys.argv[2])
 na, nb = [l for l in a if l.startswith("- **")], [l for l in b if l.startswith("- **")]
 print(f"  numeric lines: {len(na)} published, {len(nb)} regenerated; identical: {na == nb}; all lines identical (except the time stamp): {a == b}")

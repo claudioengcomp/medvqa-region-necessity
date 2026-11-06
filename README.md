@@ -174,6 +174,21 @@ commit and uncommitted-diff hash of the working tree, the code states recorded i
 and the checks of the script hashes cited by the numbers sheet. `src/analysis/CHANGES_FOR_RELEASE.diff` is the complete diff between
 the lab analysis scripts and the released ones (path configuration, host name and comment wording only).
 
+### Two inference runs of the Qwen2.5-VL-7B adapters on the intact Kvasir-VQA-x1 images
+
+Each Qwen2.5-VL-7B LoRA adapter on Kvasir-VQA-x1 (frozen and fine-tuned visual encoder, seeds 0 to 2) was evaluated on the intact images in two independent inference runs: the run on the occlusion subset used by this repository (2 121 questions; `results/predictions/kvasir/occlusion/` and `occlusion_encoder_swapped/`) and a run on the full test set (10 779 closed-form questions) made for the companion repository `medvqa-image-gain` and also shipped here (`results/predictions/kvasir/full_test/` and `full_test_encoder_swapped/`). Both runs used the same adapter file, the same code, environment (torch 2.13.0, transformers 5.15.1, peft 0.20.0), bfloat16 and batch size 4, on the same server; they differ in the input file and the date. On the 2 121 shared questions the two runs give the same extracted answer for 98.96 % to 99.34 % of the questions, and the accuracies differ by at most 0.3 percentage points. Every necessity-test quantity of this repository (Tables 1 and 2, sheet sections S22 to S25) uses the occlusion-subset run; the full-test run is read only as the intact-image reference of the occluder test (Table 3: questions on images without the target, which lie outside the occlusion subset), as it is for the 2B runs.
+
+| visual encoder | seed | adapter sha256 | full-test run (original file) sha256 | occlusion-subset run (original file) sha256 | same answer (shared questions) |
+|---|---|---|---|---|---|
+| frozen | 0 | `2132ee33f8abbe0d` | `9e5960acd93d18a2` | `84c7d26ba9acf9dd` | 98.96 % |
+| frozen | 1 | `49131181653734f5` | `9c939349eac61c3f` | `92f8c89098a3257e` | 98.96 % |
+| frozen | 2 | `e8a9ba62dd910259` | `4c3104989fb4faa1` | `9e8f59eacc2ebc31` | 99.34 % |
+| fine-tuned | 0 | `25370b657fd8491d` | `1fdfeb20a77c6732` | `eeb7801d626af8ea` | 99.29 % |
+| fine-tuned | 1 | `198c20f8b11b90e5` | `52e7fadcff691843` | `00b228f5aa280438` | 99.06 % |
+| fine-tuned | 2 | `abc66dba5e935f29` | `92cdab6655e031b8` | `93a3e2b2797372d3` | 99.20 % |
+
+The sha256 values of the two runs refer to the original files on the authors' server; the copies in this repository carry the sanitized provenance stamp (see `results/README.md`) and therefore different checksums.
+
 ## Model weights
 
 `models/MANIFEST.md` lists the 117 fine-tuned runs (81 of the 2B models and M3AE, 36 of Qwen2.5-VL-7B), the no-image baselines
